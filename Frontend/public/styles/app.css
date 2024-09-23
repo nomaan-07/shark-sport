@@ -447,77 +447,7 @@ video {
 }
 
 @font-face {
-  font-family: "Dana Regular";
-
-  font-weight: 400;
-
-  font-style: normal;
-
-  src: url("../fonts/Dana/DanaFaNum-Regular.woff2") format('woff2');
-}
-
-@font-face {
-  font-family: "Dana Medium";
-
-  font-weight: 500;
-
-  font-style: normal;
-
-  font-display: swap;
-
-  src: url("../fonts/Dana/DanaFaNum-Medium.woff2") format('woff2');
-}
-
-@font-face {
-  font-family: "Dana DemiBold";
-
-  font-weight: 600;
-
-  font-style: normal;
-
-  font-display: swap;
-
-  src: url("../fonts/Dana/DanaFaNum-DemiBold.woff2") format('woff2');
-}
-
-@font-face {
-  font-family: "Morabba Medium";
-
-  font-weight: 500;
-
-  font-style: normal;
-
-  font-display: swap;
-
-  src: url("../fonts/Morabba/Morabba-Medium.woff2") format('woff2');
-}
-
-@font-face {
-  font-family: "Morabba Light";
-
-  font-weight: 300;
-
-  font-style: normal;
-
-  font-display: swap;
-
-  src: url("../fonts/Morabba/Morabba-Light.woff2") format('woff2');
-}
-
-@font-face {
-  font-family: "Morabba Bold";
-
-  font-weight: 700;
-
-  font-style: bold;
-
-  font-display: swap;
-
-  src: url("../fonts/Morabba/Morabba-Bold.woff2") format('woff2');
-}
-
-@font-face {
-  font-family: "Vazir Regular";
+  font-family: "Vazir";
 
   font-weight: 400;
 
@@ -526,6 +456,54 @@ video {
   font-display: swap;
 
   src: url("../fonts/Vazir/Vazir-Regular-FD.woff2") format('woff2');
+}
+
+@font-face {
+  font-family: "Vazir Medium";
+
+  font-weight: 400;
+
+  font-style: normal;
+
+  font-display: swap;
+
+  src: url("../fonts/Vazir/Vazir-Medium-FD.woff2") format('woff2');
+}
+
+@font-face {
+  font-family: "Vazir Bold";
+
+  font-weight: 400;
+
+  font-style: normal;
+
+  font-display: swap;
+
+  src: url("../fonts/Vazir/Vazir-Bold-FD.woff2") format('woff2');
+}
+
+@font-face {
+  font-family: "Vazir Light";
+
+  font-weight: 400;
+
+  font-style: normal;
+
+  font-display: swap;
+
+  src: url("../fonts/Vazir/Vazir-Light-FD.woff2") format('woff2');
+}
+
+@font-face {
+  font-family: "Vazir Black";
+
+  font-weight: 400;
+
+  font-style: normal;
+
+  font-display: swap;
+
+  src: url("../fonts/Vazir/Vazir-Black-FD.woff2") format('woff2');
 }
 
 *, ::before, ::after {
@@ -707,7 +685,7 @@ video {
   margin-left: auto;
   margin-right: auto;
   margin-top: 0px;
-  font-family: Dana DemiBold;
+  font-family: Vazir Bold;
   font-size: 1.5rem;
   line-height: 2rem;
   --tw-text-opacity: 1;
@@ -754,7 +732,7 @@ video {
   border-radius: 9999px;
   --tw-bg-opacity: 1;
   background-color: rgb(230 230 230 / var(--tw-bg-opacity));
-  font-family: Dana Regular;
+  font-family: Vazir;
   font-size: 0.875rem;
   line-height: 1.25rem;
   --tw-text-opacity: 1;
@@ -1656,24 +1634,16 @@ video {
   text-align: center;
 }
 
-.font-dana {
-  font-family: Dana Regular;
+.font-vazir {
+  font-family: Vazir;
 }
 
-.font-danaDemiBold {
-  font-family: Dana DemiBold;
+.font-vazirBold {
+  font-family: Vazir Bold;
 }
 
-.font-danaMedium {
-  font-family: Dana Medium;
-}
-
-.font-morabbaBold {
-  font-family: Morabba Bold;
-}
-
-.font-morabbaMedium {
-  font-family: Morabba Medium;
+.font-vazirMedium {
+  font-family: Vazir Medium;
 }
 
 .text-3xl {
