@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: "Dana Regular";
+        font-weight: 400;
+        font-style: normal;
+        src: url("../fonts/Dana/DanaFaNum-Regular.woff2") format('woff2');
+    }
+
+    @font-face {
+        font-family: "Dana Medium";
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+        src: url("../fonts/Dana/DanaFaNum-Medium.woff2") format('woff2');
+    }
+
+    @font-face {
+        font-family: "Dana DemiBold";
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+        src: url("../fonts/Dana/DanaFaNum-DemiBold.woff2") format('woff2');
+    }
+
+    @font-face {
+        font-family: "Morabba Medium";
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+        src: url("../fonts/Morabba/Morabba-Medium.woff2") format('woff2');
+    }
+
+    @font-face {
+        font-family: "Morabba Light";
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+        src: url("../fonts/Morabba/Morabba-Light.woff2") format('woff2');
+    }
+
+    @font-face {
+        font-family: "Morabba Bold";
+        font-weight: 700;
+        font-style: bold;
+        font-display: swap;
+        src: url("../fonts/Morabba/Morabba-Bold.woff2") format('woff2');
+    }
+
+    @font-face {
+        font-family: "Vazir Regular";
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+        src: url("../fonts/Vazir/Vazir-Regular-FD.woff2") format('woff2');
+    }
+}
+
+@layer components {
+    .header-banner {
+        @apply h-20 bg-blueBrand flex justify-between items-center mx-auto w-full
+    }
+
+    .header-banner__right,
+    .header-banner__left {
+        @apply hidden md:flex gap-2.5 pr-9 pl-9
+    }
+
+    .header-banner__title {
+        @apply mt-0 mx-auto font-danaDemiBold text-white text-2xl drop-shadow-bannerTitle
+    }
+
+    .header-seperator::after {
+        content: "";
+        @apply absolute m-auto left-0 right-0 bottom-6 md:-bottom-6 bg-grayTint_2 w-full lg:w-[90%] h-[1px]
+    }
+
+    .header-shopping-cart--notif {
+        @apply flex justify-center items-center absolute -top-1.5 -right-2 text-sm size-4 bg-grayTint_1 text-orangeBrand font-dana rounded-full cursor-pointer
+    }
+
+    .nav-menu-desktop__item {
+        @apply px-1.5 py-3 transition-all
+    }
+
+    .nav-menu-desktop__item--active {
+        @apply bg-orangeBrand text-white rounded-xl cursor-pointer
+    }
+
+    .nav-menu-desktop__seperator::after {
+        content: "";
+        @apply absolute bottom-0 top-0 -right-2.5 m-auto h-full border-[1.5px] border-dashed border-grayTint_2 z-10
+    }
+
+    .stories__item::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: linear-gradient(141deg, rgba(238, 117, 34, 0.29) 14.7%, #EE7522 89.66%);
+        z-index: 0;
+    }
+
+    .taminel-sport__item,
+    .promo-area__item {
+        @apply relative
+    }
+
+    .taminel-sport__img,
+    .promo-area__img {
+        @apply size-full overflow-hidden object-fill rounded-xl
+    }
+
+    .taminel-sport__caption,
+    .promo-area__caption {
+        backdrop-filter: blur(2px);
+        @apply flex-between absolute left-0 right-0 bottom-0 h-1/4 w-full bg-custom-gradient text-white pr-5 pl-2 py-4 rounded-b-xl transition
+    }
+
+    .taminel-sport__caption:hover,
+    .promo-area__caption:hover {
+        backdrop-filter: blur(2px);
+        @apply bg-custom-gradient2
+    }
+
+    .category__title,
+    .special-product__title {
+        @apply flex-center gap-x-1.5 my-10
+    }
+
+    .special-product__wrapper {
+        @apply grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 border-collapse border border-neutralBorder rounded-[14px]
+    }
+
+    .special-product__item {
+        @apply flex-center flex-col gap-y-1 border-collapse border border-neutralBorder p-3
+    }
+
+    /* Set Border Radius for Grid Items Special Product */
+    .special-product__item:nth-child(1) {
+        @apply rounded-tr-xl
+    }
+
+    .special-product__item:nth-child(6) {
+        @apply lg:rounded-tl-xl
+    }
+
+    .special-product__item:nth-child(7) {
+        @apply lg:rounded-br-xl
+    }
+
+    .special-product__item:nth-child(12) {
+        @apply rounded-bl-xl
+    }
+
+    .special-product__item:nth-child(4) {
+        @apply sm:rounded-tl-xl lg:rounded-none
+    }
+
+    .special-product__item:nth-child(9) {
+        @apply sm:rounded-br-xl lg:rounded-none
+    }
+
+    .special-product__item:nth-child(3) {
+        @apply xs:rounded-tl-xl sm:rounded-none
+    }
+
+    .special-product__item:nth-child(10) {
+        @apply xs:rounded-br-xl sm:rounded-none
+    }
+
+    .special-product__item:nth-child(2) {
+        @apply rounded-tl-xl xs:rounded-none
+    }
+
+    .special-product__item:nth-child(11) {
+        @apply rounded-br-xl xs:rounded-none
+    }
+
+
+
+    .overlay {
+        @apply fixed inset-0 z-10 bg-overlayBcg invisible opacity-0 w-full h-full transition-all
+    }
+
+    .overlay--visible {
+        @apply visible opacity-100
+    }
+}
+
+@layer utilities {
+    .flex-center {
+        @apply flex justify-center items-center
+    }
+
+    .flex-between {
+        @apply flex justify-between items-center
+    }
+
+    .dir-rtl {
+        text-align: right;
+        direction: rtl;
+    }
+}
