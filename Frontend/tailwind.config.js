@@ -29,13 +29,11 @@ module.exports = {
         "custom-gradient3" : 'linear-gradient(90deg, rgba(243, 67, 67, 0.58) 0%, #F64F77 100%)',
       },
       fontFamily : {
-        "dana": "Dana Regular",
-        "danaMedium": "Dana Medium",
-        "danaDemiBold": "Dana DemiBold",
-        "morabbaMedium" : "Morabba Medium",
-        "morabbaLight" : "Morabba Light",
-        "morabbaBold" : "Morabba Bold",
-        "vazirRegular" : "Vazir Regular"
+        "vazir" : "Vazir",
+        "vazirLight" : "Vazir Light",
+        "vazirMedium": "Vazir Medium",
+        "vazirBold" : "Vazir Bold",
+        "vazirblack" : "Vazir black",
       },
       dropShadow : {
         "bannerTitle" : "0 5px .6px rgba(0,0,0,.25)"
