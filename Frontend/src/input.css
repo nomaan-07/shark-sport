@@ -161,7 +161,10 @@
         @apply rounded-br-xl xs:rounded-none
     }
 
-
+    .footer-infos__tel::before{
+        content: "";
+        @apply block xs:absolute m-auto top-0 bottom-0 -left-3 w-0.5 bg-neutralBorder
+    }
 
     .overlay {
         @apply fixed inset-0 z-10 bg-overlayBcg invisible opacity-0 w-full h-full transition-all
