@@ -71,6 +71,14 @@
         @apply bg-orangeBrand text-white rounded-xl cursor-pointer
     }
 
+    .menu-mobile__item {
+        @apply flex items-center p-2 gap-x-2 transition-all
+    }
+
+    .menu-mobile__item--active {
+        @apply bg-orangeBrand text-white rounded-xl
+    }
+
     .nav-menu-desktop__seperator::after {
         content: "";
         @apply absolute bottom-0 top-0 -right-2.5 m-auto h-full border-[1.5px] border-dashed border-grayTint_2 z-10
@@ -167,7 +175,7 @@
     }
 
     .overlay {
-        @apply fixed inset-0 z-10 bg-overlayBcg invisible opacity-0 w-full h-full transition-all
+        @apply fixed inset-0 z-20 bg-overlayBcg invisible opacity-0 w-full h-full transition-all
     }
 
     .overlay--visible {

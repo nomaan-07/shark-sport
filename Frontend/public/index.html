@@ -103,6 +103,7 @@
             <path class="fill-current" d="M13.3302 10H10.6602C9.56016 10 8.66016 10.9 8.66016 12V21C8.66016 21.55 9.11016 22 9.66016 22H14.3302C14.8802 22 15.3302 21.55 15.3302 21V12C15.3302 10.9 14.4402 10 13.3302 10Z" fill="#292D32"/>
             <path class="fill-current" d="M20.0001 17H17.3301C16.7801 17 16.3301 17.45 16.3301 18V21C16.3301 21.55 16.7801 22 17.3301 22H21.0001C21.5501 22 22.0001 21.55 22.0001 21V19C22.0001 17.9 21.1001 17 20.0001 17Z" fill="#292D32"/>
             <path class="fill-current" d="M15.0095 4.85047C15.3195 4.54047 15.4395 4.17047 15.3395 3.85047C15.2395 3.53047 14.9295 3.30047 14.4895 3.23047L13.5295 3.07047C13.4895 3.07047 13.3995 3.00047 13.3795 2.96047L12.8495 1.90047C12.4495 1.09047 11.5395 1.09047 11.1395 1.90047L10.6095 2.96047C10.5995 3.00047 10.5095 3.07047 10.4695 3.07047L9.50945 3.23047C9.06945 3.30047 8.76945 3.53047 8.65945 3.85047C8.55945 4.17047 8.67945 4.54047 8.98945 4.85047L9.72945 5.60047C9.76945 5.63047 9.79945 5.75047 9.78945 5.79047L9.57945 6.71047C9.41945 7.40047 9.67945 7.71047 9.84945 7.83047C10.0195 7.95047 10.3895 8.11047 10.9995 7.75047L11.8995 7.22047C11.9395 7.19047 12.0695 7.19047 12.1095 7.22047L12.9995 7.75047C13.2795 7.92047 13.5095 7.97047 13.6895 7.97047C13.8995 7.97047 14.0495 7.89047 14.1395 7.83047C14.3095 7.71047 14.5695 7.40047 14.4095 6.71047L14.1995 5.79047C14.1895 5.74047 14.2195 5.63047 14.2595 5.60047L15.0095 4.85047Z" fill="#292D32"/>
+
         </symbol>           
         <symbol id="arrow-up" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M19.92 15.8001C19.73 15.8001 19.54 15.7301 19.39 15.5801L12.87 9.06008C12.39 8.58008 11.61 8.58008 11.13 9.06008L4.61002 15.5801C4.32002 15.8701 3.84002 15.8701 3.55002 15.5801C3.26002 15.2901 3.26002 14.8101 3.55002 14.5201L10.07 8.00008C11.13 6.94008 12.86 6.94008 13.93 8.00008L20.45 14.5201C20.74 14.8101 20.74 15.2901 20.45 15.5801C20.3 15.7201 20.11 15.8001 19.92 15.8001Z" fill="#999999"/>
@@ -149,6 +150,11 @@
             <path class="fill-current" d="M13.7 12.77C13.51 12.77 13.32 12.7 13.17 12.55L3.56003 2.93997C3.27003 2.64997 3.27003 2.16998 3.56003 1.87998C3.85003 1.58998 4.33003 1.58998 4.62003 1.87998L14.23 11.49C14.52 11.78 14.52 12.26 14.23 12.55C14.09 12.7 13.89 12.77 13.7 12.77Z" fill="black"/>
             <path class="fill-current" d="M16.9001 15.98C16.7201 15.98 16.5301 15.91 16.3901 15.76L16.3601 15.73C16.0701 15.44 16.0701 14.96 16.3701 14.67C16.6701 14.38 17.1401 14.38 17.4301 14.68C17.7201 14.97 17.7301 15.47 17.4401 15.76C17.2801 15.91 17.0901 15.98 16.9001 15.98Z" fill="black"/>
         </symbol>
+      
+        </symbol>       
+        <symbol id="x-mark" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </symbol>                                                 
     </svg>
     <!-- Header -->
     <header class="header">
@@ -188,18 +194,18 @@
             <!-- Head of Header : Logo | search-box | shopping-cart | register | -->
             <div class="header-head flex-between mt-4 sm:mt-8">
                 <!-- Logo & search-box -->
-                 <div class="flex items-center w-full md:w-auto justify-between">
-                    <!-- Hamburger Menu Logo -->
-                    <a href="#" class="header-logo__hamburger block md:hidden shrink-0">
-                        <img class="w-[90px] h-[90px]" src="images/fav-icon.png" alt="simple-shark-logo">
-                    </a>
+                 <div class="flex items-center gap-x-6 flex-wrap w-full md:w-auto justify-between">
+                    <!-- Hamburger Menu -->
+                     <svg class="mobile-menu__open-btn md:hidden size-8">
+                        <use href="#menu"></use>
+                     </svg>
                     <!-- Header Logo -->
-                    <a href="#" class="header-logo hidden md:flex items-center">
-                        <img class="header-logo__imgw-[90px] h-[90px]" src="images/fav-icon.png" alt="simple-shark-logo">
-                        <h1 class="header-logo__title text-[28px] lg:text-32 -mr-3">شـــــارک اسپــــرت</h1>
+                    <a href="#" class="header-logo flex items-center -ml-4 md:ml-0">
+                        <img class="header-logo__img w-[90px] h-[90px]" src="images/fav-icon.png" alt="simple-shark-logo">
+                        <h1 class="header-logo__title hidden md:block text-[28px] lg:text-32 -mr-3">شـــــارک اسپــــرت</h1>
                     </a>
                     <!-- Header Search Box -->
-                    <div class="header-search-box flex-between p-4 rounded-xl max-w-[500px] sm:w-[350px] xl:w-[500px] bg-grayTint_1 mr-6">
+                    <div class="header-search-box flex-between py-3 xs:py-4 px-4 rounded-xl bg-grayTint_1 w-full md:w-auto -mt-3 md:mt-0">
                         <input class="dir-rtl placeholder:text-grayTint_4 bg-transparent w-[85%] outline-none" type="text" placeholder="جستجو میان هزاران محصول...">
                         <svg class="size-6">
                             <use href="#search-normal"></use>
@@ -309,8 +315,75 @@
 
             </div>
         </div>
-
     </header>
+    <!-- Header (Menu Mobile) -->
+    <div class="menu-mobile md:hidden fixed top-0 bottom-0 -right-64 w-64 pt-5 px-[22px] z-40 transition-all overflow-y-auto bg-white">
+        <!-- Header Mobile Menu -->
+        <div class="flex justify-between items-center mb-6 pb-5 border-b border-b-grayTint_2">
+            <div class="w-[75%] h-full">
+                <img class="size-full" src="images/shark-sport-text-logo.png" alt="">
+            </div>
+            <div class="menu-mobile__close-btn">
+                <svg class="size-[18px]">
+                    <use href="#x-mark"></use>
+                </svg>
+            </div>
+        </div>
+        <!-- Body Mobile Menu -->
+        <div class="space-y-6">
+            <a class="menu-mobile__item menu-mobile__item--active" href="#">
+                <svg class="size-6">
+                    <use href="#menu"></use>
+                </svg>
+                <span>دسته بندی محصولات</span>
+            </a>
+            <a class="menu-mobile__item" href="#">
+                <svg class="size-6">
+                    <use href="#flag"></use>
+                </svg>
+                <span>برند ها</span>
+            </a>
+            <a class="menu-mobile__item" href="#">
+                <svg class="size-6">
+                    <use href="#happy-emoji"></use>
+                </svg>
+                <span>شگفت انگیز ها</span>
+            </a>
+            <a class="menu-mobile__item" href="#">
+                <svg class="size-6">
+                    <use href="#wallet-money"></use>
+                </svg>
+                <span>پرفروش ترین ها</span>
+            </a>
+            <a class="menu-mobile__item" href="#">
+                <svg class="size-6">
+                    <use href="#coffee"></use>
+                </svg>
+                <span>پیشنهادی</span>
+            </a>
+            <a class="menu-mobile__item" href="#">
+                <svg class="size-6">
+                    <use href="#message-question"></use>
+                </svg>
+                <span>سوالی دارید</span>
+            </a>
+        </div>
+        <!-- Footer Mobile Menu -->
+        <div class="flex flex-col items-start gap-y-6 py-8 px-2.5 mt-8 border-t border-t-grayTint_2 ">
+            <a class="inline-flex items-center gap-x-2" href="#">
+                <svg class="size-6">
+                    <use href="#shopping-cart"></use>
+                </svg>
+                <span>سبد خرید</span>
+            </a>    
+            <a class="inline-flex items-center gap-x-2" href="#">
+                <svg class="size-6">
+                    <use href="#login"></use>
+                </svg>
+                <span>عضویت | ورود</span>
+            </a>
+        </div>
+    </div>
     <!-- Main -->
     <main class="main md:mt-16">
         <!-- Section Stories -->
@@ -435,7 +508,7 @@
         <section class="home-product my-5 md:my-10">
             <div class="container">
                 <!-- Home Product Wrapper -->
-                 <div class="home-product__wrapper relative flex  gap-x-6 bg-orangeBrand overflow-hidden rounded-xl">
+                 <div class="home-product__wrapper relative flex bg-orangeBrand overflow-hidden rounded-xl">
                     <!-- Home Product Right Part => Title | Image | Link -->
                      <div class="home-product__right hidden sm:flex-center flex-col text-white font-vazirBold z-30 px-2.5 py-6">
                         <h2 class="w-[110px] text-center text-3xl">پیشنهاد ویژه برای شما</h2>
@@ -451,12 +524,12 @@
                      </div>
                     <!-- Home Product Left Part -->
                      <div class="home-product__left w-full z-30 px-2.5 py-6">
-                        <div class="swiper home-product-swiper rounded-r-xl">
+                        <div class="swiper home-product-swiper w-[86%] sm:mr-0 rounded-r-xl">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <div class="home-product__box relative font-vazirBold h-[326px] bg-white overflow-hidden text-lg">
+                                    <div class="home-product__box flex flex-col relative font-vazirBold h-[326px] pb-7 bg-white overflow-hidden text-lg">
                                         <span class="flex-center absolute left-1.5 top-1.5 text-orangeBrand bg-orangeTint_1 w-14 h-8 rounded-full">24%</span>
-                                        <a class="flex-center m-auto size-[68%]" href="#">
+                                        <a class="flex-center m-auto w-[150px] h-[55%]" href="#">
                                             <img class="size-full" src="images/home-product/product-1.png" alt="">
                                         </a>
                                         <h4 class="text-center mb-2.5">کفش فوتبال آبی</h4>
@@ -470,10 +543,10 @@
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="home-product__box relative font-vazirBold h-[326px] bg-white overflow-hidden text-lg">
+                                    <div class="home-product__box flex flex-col relative font-vazirBold h-[326px] pb-7 bg-white overflow-hidden text-lg">
                                         <span class="flex-center absolute left-1.5 top-1.5 text-orangeBrand bg-orangeTint_1 w-14 h-8 rounded-full">24%</span>
-                                        <a class="flex-center m-auto size-[68%]" href="#">
-                                            <img class="size-[68%]" src="images/home-product/product-2.png" alt="">
+                                        <a class="flex-center m-auto w-[150px] h-[55%]" href="#">
+                                            <img class="size-full" src="images/home-product/product-2.png" alt="">
                                         </a>
                                         <h4 class="text-center mb-2.5">توپ فوتبال آدیداس</h4>
                                         <div class="home-product__price flex-center gap-x-2">
@@ -486,9 +559,9 @@
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="home-product__box relative font-vazirBold h-[326px] bg-white overflow-hidden text-lg">
+                                    <div class="home-product__box flex flex-col relative font-vazirBold h-[326px] pb-7 bg-white overflow-hidden text-lg">
                                         <span class="flex-center absolute left-1.5 top-1.5 text-orangeBrand bg-orangeTint_1 w-14 h-8 rounded-full">24%</span>
-                                        <a class="flex-center m-auto size-[68%]" href="#">
+                                        <a class="flex-center m-auto w-[150px] h-[55%]" href="#">
                                             <img class="size-full" src="images/home-product/product-3.png" alt="">
                                         </a>
                                         <h4 class="text-center mb-2.5">لباس ورزشی بارسلونا</h4>
@@ -502,9 +575,9 @@
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="home-product__box relative font-vazirBold h-[326px] bg-white overflow-hidden text-lg">
+                                    <div class="home-product__box flex flex-col relative font-vazirBold h-[326px] pb-7 bg-white overflow-hidden text-lg">
                                         <span class="flex-center absolute left-1.5 top-1.5 text-orangeBrand bg-orangeTint_1 w-14 h-8 rounded-full">24%</span>
-                                        <a class="flex-center m-auto size-[68%]" href="#">
+                                        <a class="flex-center m-auto w-[150px] h-[55%]" href="#">
                                             <img class="size-full" src="images/home-product/product-4.png" alt="">
                                         </a>
                                         <h4 class="text-center mb-2.5">کیف ورزشی سفید</h4>
@@ -518,9 +591,9 @@
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="home-product__box relative font-vazirBold h-[326px] bg-white overflow-hidden text-lg">
+                                    <div class="home-product__box flex flex-col relative font-vazirBold h-[326px] pb-7 bg-white overflow-hidden text-lg">
                                         <span class="flex-center absolute left-1.5 top-1.5 text-orangeBrand bg-orangeTint_1 w-14 h-8 rounded-full">24%</span>
-                                        <a class="flex-center m-auto size-[68%]" href="#">
+                                        <a class="flex-center m-auto w-[150px] h-[55%]" href="#">
                                             <img class="size-full" src="images/home-product/product-5.png" alt="">
                                         </a>
                                         <h4 class="text-center mb-2.5">کفش والیبال پوما</h4>
@@ -534,10 +607,12 @@
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="home-product__box relative font-vazirBold h-[326px] bg-white overflow-hidden text-lg">
+                                    <div class="home-product__box flex flex-col relative font-vazirBold h-[326px] pb-7 bg-white overflow-hidden text-lg">
                                         <span class="flex-center absolute left-1.5 top-1.5 text-orangeBrand bg-orangeTint_1 w-14 h-8 rounded-full">24%</span>
-                                        <img class="size-[68%]" src="images/home-product/product-1.png" alt="">
-                                        <h4 class="text-center mb-2.5">کفش فوتبال آبی</h4>
+                                        <a class="flex-center m-auto w-[150px] h-[55%]" href="#">
+                                            <img class="size-full" src="images/home-product/product-4.png" alt="">
+                                        </a>
+                                        <h4 class="text-center mb-2.5">کیف ورزشی سفید</h4>
                                         <div class="home-product__price flex-center gap-x-2">
                                             <div class="flex-center flex-col gap-y-1">
                                                 <span>12,000,000 </span>
@@ -548,10 +623,12 @@
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="home-product__box relative font-vazirBold h-[326px] bg-white overflow-hidden text-lg">
+                                    <div class="home-product__box flex flex-col relative font-vazirBold h-[326px] pb-7 bg-white overflow-hidden text-lg">
                                         <span class="flex-center absolute left-1.5 top-1.5 text-orangeBrand bg-orangeTint_1 w-14 h-8 rounded-full">24%</span>
-                                        <img class="size-[68%]" src="images/home-product/product-1.png" alt="">
-                                        <h4 class="text-center mb-2.5">کفش فوتبال آبی</h4>
+                                        <a class="flex-center m-auto w-[150px] h-[55%]" href="#">
+                                            <img class="size-full" src="images/home-product/product-5.png" alt="">
+                                        </a>
+                                        <h4 class="text-center mb-2.5">کفش والیبال پوما</h4>
                                         <div class="home-product__price flex-center gap-x-2">
                                             <div class="flex-center flex-col gap-y-1">
                                                 <span>12,000,000 </span>
@@ -761,7 +838,7 @@
                 </div>
             </div>
         </section>
-        <!-- Section Taminel Sport (Part2) -->
+        <!-- Section Taminel Sport (Part 2) -->
         <section class="taminel-sport my-5 md:my-10">
             <div class="container">
                 <!-- Taminel sport Wrapper -->
@@ -934,6 +1011,149 @@
                  </div>
             </div>
         </section>
+        <!-- Section Home Product (Part 2) -->
+        <section class="home-product my-5 md:my-10">
+            <div class="container">
+                <!-- Home Product Wrapper -->
+                 <div class="home-product__wrapper relative flex bg-blueBrand overflow-hidden rounded-xl">
+                    <!-- Home Product Right Part => Title | Image | Link -->
+                     <div class="home-product__right hidden sm:flex-center flex-col text-white font-vazirBold z-30 px-2.5 py-6">
+                        <h2 class="w-[110px] text-center text-3xl">تخفیف ویژه برای شما</h2>
+                        <div class="size-40">
+                            <img class="size-full" src="images/home-product/home-product-link-discount.png" alt="">
+                        </div>
+                        <a class="flex items-center gap-x-1.5" href="#">
+                            <span class="text-xl">مشاهده همه</span>
+                            <svg class="size-6">
+                                <use href="#arrow-left"></use>
+                            </svg>
+                        </a>
+                     </div>
+                    <!-- Home Product Left Part -->
+                     <div class="home-product__left w-full z-30 px-2.5 py-6">
+                        <div class="swiper home-product-swiper w-[86%] sm:mr-0 rounded-r-xl">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="home-product__box flex flex-col relative font-vazirBold h-[326px] pb-7 bg-white overflow-hidden text-lg">
+                                        <span class="flex-center absolute left-1.5 top-1.5 text-blueBrand bg-blueTint_1 w-14 h-8 rounded-full">24%</span>
+                                        <a class="flex-center m-auto w-[150px] h-[55%]" href="#">
+                                            <img class="size-full" src="images/home-product/product-1.png" alt="">
+                                        </a>
+                                        <h4 class="text-center mb-2.5">کفش فوتبال آبی</h4>
+                                        <div class="home-product__price flex-center gap-x-2">
+                                            <div class="flex-center flex-col gap-y-1">
+                                                <span>12,000,000 </span>
+                                                <span class="text-grayTint_4">12,405,000</span>
+                                            </div>
+                                            <span class="text-base">تومان</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="home-product__box flex flex-col relative font-vazirBold h-[326px] pb-7 bg-white overflow-hidden text-lg">
+                                        <span class="flex-center absolute left-1.5 top-1.5 text-blueBrand bg-blueTint_1 w-14 h-8 rounded-full">24%</span>
+                                        <a class="flex-center m-auto w-[150px] h-[55%]" href="#">
+                                            <img class="size-full" src="images/home-product/product-2.png" alt="">
+                                        </a>
+                                        <h4 class="text-center mb-2.5">توپ فوتبال آدیداس</h4>
+                                        <div class="home-product__price flex-center gap-x-2">
+                                            <div class="flex-center flex-col gap-y-1">
+                                                <span>12,000,000 </span>
+                                                <span class="text-grayTint_4">12,405,000</span>
+                                            </div>
+                                            <span class="text-base">تومان</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="home-product__box flex flex-col relative font-vazirBold h-[326px] pb-7 bg-white overflow-hidden text-lg">
+                                        <span class="flex-center absolute left-1.5 top-1.5 text-blueBrand bg-blueTint_1 w-14 h-8 rounded-full">24%</span>
+                                        <a class="flex-center m-auto w-[150px] h-[55%]" href="#">
+                                            <img class="size-full" src="images/home-product/product-3.png" alt="">
+                                        </a>
+                                        <h4 class="text-center mb-2.5">لباس ورزشی بارسلونا</h4>
+                                        <div class="home-product__price flex-center gap-x-2">
+                                            <div class="flex-center flex-col gap-y-1">
+                                                <span>12,000,000 </span>
+                                                <span class="text-grayTint_4">12,405,000</span>
+                                            </div>
+                                            <span class="text-base">تومان</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="home-product__box flex flex-col relative font-vazirBold h-[326px] pb-7 bg-white overflow-hidden text-lg">
+                                        <span class="flex-center absolute left-1.5 top-1.5 text-blueBrand bg-blueTint_1 w-14 h-8 rounded-full">24%</span>
+                                        <a class="flex-center m-auto w-[150px] h-[55%]" href="#">
+                                            <img class="size-full" src="images/home-product/product-4.png" alt="">
+                                        </a>
+                                        <h4 class="text-center mb-2.5">کیف ورزشی سفید</h4>
+                                        <div class="home-product__price flex-center gap-x-2">
+                                            <div class="flex-center flex-col gap-y-1">
+                                                <span>12,000,000 </span>
+                                                <span class="text-grayTint_4">12,405,000</span>
+                                            </div>
+                                            <span class="text-base">تومان</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="home-product__box flex flex-col relative font-vazirBold h-[326px] pb-7 bg-white overflow-hidden text-lg">
+                                        <span class="flex-center absolute left-1.5 top-1.5 text-blueBrand bg-blueTint_1 w-14 h-8 rounded-full">24%</span>
+                                        <a class="flex-center m-auto w-[150px] h-[55%]" href="#">
+                                            <img class="size-full" src="images/home-product/product-5.png" alt="">
+                                        </a>
+                                        <h4 class="text-center mb-2.5">کفش والیبال پوما</h4>
+                                        <div class="home-product__price flex-center gap-x-2">
+                                            <div class="flex-center flex-col gap-y-1">
+                                                <span>12,000,000 </span>
+                                                <span class="text-grayTint_4">12,405,000</span>
+                                            </div>
+                                            <span class="text-base">تومان</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="home-product__box flex flex-col relative font-vazirBold h-[326px] pb-7 bg-white overflow-hidden text-lg">
+                                        <span class="flex-center absolute left-1.5 top-1.5 text-blueBrand bg-blueTint_1 w-14 h-8 rounded-full">24%</span>
+                                        <a class="flex-center m-auto w-[150px] h-[55%]" href="#">
+                                            <img class="size-full" src="images/home-product/product-4.png" alt="">
+                                        </a>
+                                        <h4 class="text-center mb-2.5">کیف ورزشی سفید</h4>
+                                        <div class="home-product__price flex-center gap-x-2">
+                                            <div class="flex-center flex-col gap-y-1">
+                                                <span>12,000,000 </span>
+                                                <span class="text-grayTint_4">12,405,000</span>
+                                            </div>
+                                            <span class="text-base">تومان</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="home-product__box flex flex-col relative font-vazirBold h-[326px] pb-7 bg-white overflow-hidden text-lg">
+                                        <span class="flex-center absolute left-1.5 top-1.5 text-blueBrand bg-blueTint_1 w-14 h-8 rounded-full">24%</span>
+                                        <a class="flex-center m-auto w-[150px] h-[55%]" href="#">
+                                            <img class="size-full" src="images/home-product/product-5.png" alt="">
+                                        </a>
+                                        <h4 class="text-center mb-2.5">کفش والیبال پوما</h4>
+                                        <div class="home-product__price flex-center gap-x-2">
+                                            <div class="flex-center flex-col gap-y-1">
+                                                <span>12,000,000 </span>
+                                                <span class="text-grayTint_4">12,405,000</span>
+                                            </div>
+                                            <span class="text-base">تومان</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
+                     </div>
+
+                     <!-- Gift Bg -->
+                      <img class="absolute -right-2.5 top-0 bottom-0 m-auto z-20" src="images/home-product/Discount-Bg.png" alt="">
+                 </div>
+            </div>
+        </section>
         <!-- Section Useful services -->
         <section class="useful-services my-5 md:my-10">
             <div class="container">
@@ -972,7 +1192,7 @@
                 <div class="best-month__wrapper grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-12 gap-y-10 px-6 py-5 border border-neutralBorder rounded-xl">
                     <!-- Best Of Month Item -->
                      <div class="best-month__item flex-between flex-col">
-                        <a class="block w-full h-36" href="#">
+                        <a class="block w-full md:w-[244px] h-36" href="#">
                             <img class="size-full" src="images/best-month/best-month-1.png" alt="">
                         </a>
                         <div class="flex justify-center sm:justify-between w-full">
@@ -981,7 +1201,7 @@
                         </div>
                      </div>
                      <div class="best-month__item flex-between flex-col">
-                        <a class="block w-full h-36" href="#">
+                        <a class="block w-full md:w-[244px] h-36" href="#">
                             <img class="size-full" src="images/best-month/best-month-2.jpg" alt="">
                         </a>
                         <div class="flex justify-center sm:justify-between w-full">
@@ -990,7 +1210,7 @@
                         </div>
                      </div>
                      <div class="best-month__item flex-between flex-col">
-                        <a class="block w-full h-36" href="#">
+                        <a class="block w-full md:w-[244px] h-36" href="#">
                             <img class="size-full" src="images/best-month/best-month-3.png" alt="">
                         </a>
                         <div class="flex justify-center sm:justify-between w-full">
@@ -999,7 +1219,7 @@
                         </div>
                      </div>
                      <div class="best-month__item flex-between flex-col">
-                        <a class="block w-full h-36" href="#">
+                        <a class="block w-full md:w-[244px] h-36" href="#">
                             <img class="size-full" src="images/best-month/best-month-4.png" alt="">
                         </a>
                         <div class="flex justify-center sm:justify-between w-full">
@@ -1008,7 +1228,7 @@
                         </div>
                      </div>
                      <div class="best-month__item flex-between flex-col">
-                        <a class="block w-full h-36" href="#">
+                        <a class="block w-full md:w-[244px] h-36" href="#">
                             <img class="size-full" src="images/best-month/best-month-5.png" alt="">
                         </a>
                         <div class="flex justify-center sm:justify-between w-full">
@@ -1017,7 +1237,7 @@
                         </div>
                      </div>
                      <div class="best-month__item flex-between flex-col">
-                        <a class="block w-full h-36" href="#">
+                        <a class="block w-full md:w-[244px] h-36" href="#">
                             <img class="size-full" src="images/best-month/best-month-6.png" alt="">
                         </a>
                         <div class="flex justify-center sm:justify-between w-full">
@@ -1026,7 +1246,7 @@
                         </div>
                      </div>
                      <div class="best-month__item flex-between flex-col">
-                        <a class="block w-full h-36" href="#">
+                        <a class="block w-full md:w-[244px] h-36" href="#">
                             <img class="size-full" src="images/best-month/best-month-7.png" alt="">
                         </a>
                         <div class="flex justify-center sm:justify-between w-full">
@@ -1035,7 +1255,7 @@
                         </div>
                      </div>
                      <div class="best-month__item flex-between flex-col">
-                        <a class="block w-full h-36" href="#">
+                        <a class="block w-full md:w-[244px] h-36" href="#">
                             <img class="size-full" src="images/best-month/best-month-8.png" alt="">
                         </a>
                         <div class="flex justify-center sm:justify-between w-full">
@@ -1044,7 +1264,7 @@
                         </div>
                      </div>
                      <div class="best-month__item flex-between flex-col">
-                        <a class="block w-full h-36" href="#">
+                        <a class="block w-full md:w-[244px] h-36" href="#">
                             <img class="size-full" src="images/best-month/best-month-9.png" alt="">
                         </a>
                         <div class="flex justify-center sm:justify-between w-full">
@@ -1053,7 +1273,7 @@
                         </div>
                      </div>
                      <div class="best-month__item flex-between flex-col">
-                        <a class="block w-full h-36" href="#">
+                        <a class="block w-full md:w-[244px] h-36" href="#">
                             <img class="size-full" src="images/best-month/best-month-10.png" alt="">
                         </a>
                         <div class="flex justify-center sm:justify-between w-full">
@@ -1062,7 +1282,7 @@
                         </div>
                      </div>
                      <div class="best-month__item flex-between flex-col">
-                        <a class="block w-full h-36" href="#">
+                        <a class="block w-full md:w-[244px] h-36" href="#">
                             <img class="size-full" src="images/best-month/best-month-11.png" alt="">
                         </a>
                         <div class="flex justify-center sm:justify-between w-full">
@@ -1071,7 +1291,7 @@
                         </div>
                      </div>
                      <div class="best-month__item flex-between flex-col">
-                        <a class="block w-full h-36" href="#">
+                        <a class="block w-full md:w-[244px] h-36" href="#">
                             <img class="size-full" src="images/best-month/best-month-12.png" alt="">
                         </a>
                         <div class="flex justify-center sm:justify-between w-full">
@@ -1080,7 +1300,7 @@
                         </div>
                      </div>
                      <div class="best-month__item flex-between flex-col">
-                        <a class="block w-full h-36" href="#">
+                        <a class="block w-full md:w-[244px] h-36" href="#">
                             <img class="size-full" src="images/best-month/best-month-13.png" alt="">
                         </a>
                         <div class="flex justify-center sm:justify-between w-full">
@@ -1089,7 +1309,7 @@
                         </div>
                      </div>
                      <div class="best-month__item flex-between flex-col">
-                        <a class="block w-full h-36" href="#">
+                        <a class="block w-full md:w-[244px] h-36" href="#">
                             <img class="size-full" src="images/best-month/best-month-14.png" alt="">
                         </a>
                         <div class="flex justify-center sm:justify-between w-full">
@@ -1098,7 +1318,7 @@
                         </div>
                      </div>
                      <div class="best-month__item flex-between flex-col">
-                        <a class="block w-full h-36" href="#">
+                        <a class="block w-full md:w-[244px] h-36" href="#">
                             <img class="size-full" src="images/best-month/best-month-15.png" alt="">
                         </a>
                         <div class="flex justify-center sm:justify-between w-full">
@@ -1107,7 +1327,7 @@
                         </div>
                      </div>
                      <div class="best-month__item flex-between flex-col">
-                        <a class="block w-full h-36" href="#">
+                        <a class="block w-full md:w-[244px] h-36" href="#">
                             <img class="size-full" src="images/best-month/best-month-16.png" alt="">
                         </a>
                         <div class="flex justify-center sm:justify-between w-full">
@@ -1161,7 +1381,7 @@
                  </div>
             </div>
         </section>
-        <!-- Section Taminel Sport (Part3) -->
+        <!-- Section Taminel Sport (Part 3) -->
         <section class="taminel-sport my-5 md:my-10">
             <div class="container">
                 <!-- Taminel sport Wrapper -->

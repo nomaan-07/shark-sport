@@ -72,7 +72,7 @@ const swiperBrands = new Swiper(".brand-swiper", {
 const swiperHomeProduct = new Swiper(".home-product-swiper", {
   loop: true,
   lazy: true,
-  slidesPerView: 1.8,
+  slidesPerView: 1.5,
   spaceBetween: 10,
   // autoplay: {
   //   delay: 2000,
@@ -83,19 +83,20 @@ const swiperHomeProduct = new Swiper(".home-product-swiper", {
   },
   breakpoints: {
     576: {
-      slidesPerView: 2.5,
+      slidesPerView: 2.2,
     },
     768: {
-      slidesPerView: 3,
+      slidesPerView: 3.2,
     },
     992: {
-      slidesPerView: 3,
+      slidesPerView: 3.8,
     },
-    // 1200: {
-    //   slidesPerView: 6,
-    // },
+    1200: {
+      slidesPerView: 4.5,
+    },
     1400: {
-      slidesPerView: 4.60,
+      slidesPerView: 4.8,
+      spaceBetween: 10,
     },
   },
 });
