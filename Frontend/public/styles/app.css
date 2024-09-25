@@ -1164,6 +1164,10 @@ video {
   margin-top: -0.75rem;
 }
 
+.-ml-4 {
+  margin-left: -1rem;
+}
+
 .block {
   display: block;
 }
@@ -1922,6 +1926,11 @@ video {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .xs\:py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
   .xs\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
@@ -2058,6 +2067,14 @@ video {
 
   .md\:mr-6 {
     margin-right: 1.5rem;
+  }
+
+  .md\:mt-0 {
+    margin-top: 0px;
+  }
+
+  .md\:ml-0 {
+    margin-left: 0px;
   }
 
   .md\:block {
