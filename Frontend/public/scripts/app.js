@@ -2,9 +2,9 @@
 const $ = document
 
 // Menu Mobile Elements 
-const openMobileBtn = $.querySelector(".header-logo__hamburger")
+const openMobileBtn = $.querySelector(".mobile-menu__open-btn")
 const menuMobile = $.querySelector(".menu-mobile")
-const closeMobileBtn = $.querySelector(".menu-mobile")
+const closeMobileBtn = $.querySelector(".menu-mobile__close-btn")
 const overlay = $.querySelector(".overlay")
 
 // Function Open Menu For Mobile
@@ -15,12 +15,12 @@ const openMobileBtnHandler = () => {
 }
 
 // Function Close Menu For Mobile
-const closeMobileBtnHandler = () => {
+const closeMobileMenuHandler = () => {
     menuMobile.classList.add("-right-64")    
     menuMobile.classList.remove("right-0")    
     overlay.classList.remove("overlay--visible")
 }
 
 openMobileBtn.addEventListener("click", openMobileBtnHandler)
-closeMobileBtn.addEventListener("click", closeMobileBtnHandler)
-overlay.addEventListener("click", closeMobileBtnHandler)
+closeMobileBtn.addEventListener("click", closeMobileMenuHandler)
+overlay.addEventListener("click", closeMobileMenuHandler)
