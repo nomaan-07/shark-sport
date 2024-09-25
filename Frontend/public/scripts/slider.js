@@ -100,3 +100,27 @@ const swiperHomeProduct = new Swiper(".home-product-swiper", {
     },
   },
 });
+const swiperServices = new Swiper(".services", {
+  loop: true,
+  lazy: true,
+  slidesPerView: 2.5,
+  spaceBetween: 10,
+  autoplay: {
+    delay: 2000,
+  },
+  freeMode: {
+    enabled: true,
+    sticky: true,
+  },
+  breakpoints: {
+    576: {
+      slidesPerView: 3,
+    },
+    768: {
+      slidesPerView: 4,
+    },
+    992: {
+      slidesPerView: 5,
+    },
+  },
+})
