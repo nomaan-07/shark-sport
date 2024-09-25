@@ -12,6 +12,7 @@ module.exports = {
       },
       colors:{
         blueBrand : "#4455E8",
+        blueTint_1 : "#D8DCFD",
         orangeBrand : "#FF9447",
         orangeTint_1 : "#FFDEC7",
         orangeTint_3 : "#F29F64",
