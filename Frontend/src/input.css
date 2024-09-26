@@ -95,7 +95,7 @@
 
     .taminel-sport__item,
     .promo-area__item {
-        @apply relative
+        @apply relative 
     }
 
     .taminel-sport__img,
@@ -169,7 +169,15 @@
         @apply rounded-br-xl xs:rounded-none
     }
 
+    .brand__item::before{
+        content: "";
+        @apply xs:absolute -left-6 top-0 bottom-0 bg-neutralBorder h-full w-0.5;   
+    }
 
+    .footer-infos__tel::before{
+        content: "";
+        @apply block xs:absolute m-auto top-0 bottom-0 -left-3 w-0.5 bg-neutralBorder
+    }
 
     .overlay {
         @apply fixed inset-0 z-20 bg-overlayBcg invisible opacity-0 w-full h-full transition-all
