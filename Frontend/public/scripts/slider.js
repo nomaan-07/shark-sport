@@ -105,9 +105,9 @@ const swiperServices = new Swiper(".services", {
   lazy: true,
   slidesPerView: 2.5,
   spaceBetween: 10,
-  // autoplay: {
-  //   delay: 2000,
-  // },
+  autoplay: {
+    delay: 2000,
+  },
   freeMode: {
     enabled: true,
     sticky: true,
