@@ -2447,6 +2447,10 @@ video {
     margin-right: 6rem;
   }
 
+  .xl\:h-\[272px\] {
+    height: 272px;
+  }
+
   .xl\:h-\[75px\] {
     height: 75px;
   }
