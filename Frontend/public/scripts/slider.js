@@ -37,7 +37,7 @@ const swiperStoris = new Swiper(".stories__swiper", {
 const swiperBrands = new Swiper(".brand-swiper", {
   loop: true,
   lazy: true,
-  slidesPerView: 2.5,
+  slidesPerView: 2.2,
   spaceBetween: 10,
   autoplay: {
     delay: 2000,
@@ -48,7 +48,7 @@ const swiperBrands = new Swiper(".brand-swiper", {
   },
   breakpoints: {
     576: {
-      slidesPerView: 3.5,
+      slidesPerView: 3.2,
       spaceBetween: 15,
     },
     768: {
@@ -74,9 +74,9 @@ const swiperHomeProduct = new Swiper(".home-product-swiper", {
   lazy: true,
   slidesPerView: 1.5,
   spaceBetween: 10,
-  // autoplay: {
-  //   delay: 2000,
-  // },
+  autoplay: {
+    delay: 2000,
+  },
   freeMode: {
     enabled: true,
     sticky: true,
