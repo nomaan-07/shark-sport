@@ -186,15 +186,15 @@
     }
     
     .panel__sidebar::-webkit-scrollbar-thumb {
-        @apply bg-neutral-200 rounded-3xl cursor-pointer;     
+        @apply bg-neutral-200 dark:bg-neutral-800 rounded-3xl cursor-pointer;     
     }
     
     .panel__sidebar::-webkit-scrollbar-thumb:hover {
-        @apply bg-neutral-300;
+        @apply bg-neutral-300 dark:bg-neutral-700;
     }
     
     .panel-sidebar-menu__item--active {
-        @apply bg-neutral-50 text-rose-500;
+        @apply bg-neutral-50 dark:bg-neutral-800 text-rose-500 dark:text-rose-50;
     }
 }
 
