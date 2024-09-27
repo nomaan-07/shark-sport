@@ -170,6 +170,32 @@
     .overlay--visible {
         @apply visible opacity-100
     }
+
+
+    /* 
+    
+    ============
+    -- Panel --
+    ============
+    
+    */
+
+
+    .panel__sidebar::-webkit-scrollbar {  
+        width: 6px;
+    }
+    
+    .panel__sidebar::-webkit-scrollbar-thumb {
+        @apply bg-neutral-200 rounded-3xl cursor-pointer;     
+    }
+    
+    .panel__sidebar::-webkit-scrollbar-thumb:hover {
+        @apply bg-neutral-300;
+    }
+    
+    .panel-sidebar-menu__item--active {
+        @apply bg-neutral-50 text-rose-500;
+    }
 }
 
 @layer utilities {
