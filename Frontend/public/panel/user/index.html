@@ -126,10 +126,8 @@
         <div class="my-10 flex gap-6 relative">
             <!-- Sidebar -->
             <aside class="panel__sidebar">
-                <!-- Sidebar Header: Logo | Close Btn| User Info -->
+                <!-- Sidebar Header: Logo | Close Btn-->
                 <div>
-                    <!-- Logo | Close Btn-->
-                    <div>
                         <div class="flex items-center justify-between md:justify-center px-2">
                             <a class="block w-52 md:w-64 shrink-0" href="#">
                                 <img class="w-full" src="../images/logo.png" alt="logo">
@@ -141,25 +139,26 @@
                         <svg class="h-px">
                             <use href="#dashed-line"></use>
                         </svg>
-                    </div>
-                    <!-- User Info -->
-                    <div class="mt-4 space-y-4 text-center text-lg leading-4">
-                        <!-- Profile Picture -->
-                        <div class="relative w-fit mx-auto">
-                            <div class="size-[150px] border-[5px] border-neutral-50 dark:border-neutral-800 rounded-full overflow-hidden">
-                                <img class="h-full object-cover" src="../images/avatar-1.jpg" alt="تصویر کاربر">
-                            </div>
-                            <!-- Picture Circle -->
-                                <div class="absolute -bottom-0.5 right-7 size-6 border-[3px] border-neutral-50 dark:border-neutral-800 bg-green-500 rounded-full"></div>
-                        </div>
-                        <!-- Welcome -->
-                        <p>
-                            <span>احمد موسوی</span> خوش آمدی
-                        </p>
-                        <!-- Username -->
-                        <p>A.mosavi</p>
-                    </div>
                 </div>
+
+                <!-- User Info -->
+                <div class="mt-4 space-y-4 text-center text-lg leading-4">
+                    <!-- Profile Picture -->
+                    <div class="relative w-fit mx-auto">
+                        <div class="size-[150px] border-[5px] border-neutral-50 dark:border-neutral-800 rounded-full overflow-hidden">
+                            <img class="h-full object-cover" src="../images/avatar-1.jpg" alt="تصویر کاربر">
+                        </div>
+                        <!-- Picture Circle -->
+                            <div class="absolute -bottom-0.5 right-7 size-6 border-[3px] border-neutral-50 dark:border-neutral-800 bg-green-500 rounded-full"></div>
+                    </div>
+                    <!-- Welcome -->
+                    <p>
+                        <span>احمد موسوی</span> خوش آمدی
+                    </p>
+                    <!-- Username -->
+                    <p>A.mosavi</p>
+                </div>
+
                 <!-- Sidebar Menu -->
                 <ul class="my-4 space-y-1 text-xl/5 h-full">
                     <li>
@@ -176,7 +175,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
+                        <a href="./order.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#box"></use>
@@ -189,7 +188,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
+                        <a href="./comments.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#messages-3"></use>
@@ -202,7 +201,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
+                        <a href="./ticket.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#ticket"></use>
@@ -215,7 +214,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
+                        <a href="./favorites.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#lovely"></use>
@@ -228,7 +227,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
+                        <a href="./compare.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#convertshape"></use>
@@ -241,7 +240,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
+                        <a href="./settings.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#setting-2"></use>
@@ -254,6 +253,7 @@
                         </a>
                     </li>
                 </ul>
+                
                 <!-- Logout Button -->
                 <div class="mx-auto flex gap-1 text-xl/5 p-2 rounded-full cursor-pointer sm:hover:bg-rose-400 transition-colors">
                     <svg class="size-6">
@@ -262,6 +262,7 @@
                     <span>خروج از حساب</span>
                 </div>
             </aside>
+
             <!-- Main -->
             <main class="w-full md:mr-[312px] text-neutral-950 dark:text-neutral-50 bg-neutral-50 dark:bg-neutral-800 space-y-6 pt-6 px-6 pb-7 rounded-3xl">
                 <!-- Main Header: Sidebar Open Btn | Buttons -->
