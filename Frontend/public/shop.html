@@ -413,8 +413,30 @@
                     <!-- Filter Price -->
                     <div class="p-3 border-2 border-neutralBorder rounded-xl">
                         <h4 class="mb-8">فیلتر قیمت</h4>
-                        <!-- Slider Price -->
-                       
+                        <!-- Filter Price Wrapper -->
+                        <div class="filter-price-wrapper">
+                            <!-- Filter Price -->
+                            <div class="price-input-container">
+                                <div class="price-input">
+                                    <div class="price-field w-1/2">
+                                        <input type="number" class="min-input font-vazir block bg-white outline-none" value="0" readonly>
+                                        <span>تومان</span>
+                                    </div>
+                                    <div class="price-field w-1/2">
+                                        <input type="number" class="max-input font-vazir block bg-white outline-none" value="10000" readonly>
+                                        <span>تومان</span>
+                                    </div>
+                                </div>
+                                <div class="slider-container">
+                                    <div class="price-slider" style="left: 25%; right: 0%;"></div>
+                                </div>
+                            </div>
+                            <!-- Slider Price -->
+                            <div class="range-input">
+                                <input type="range" class="min-range" min="0" max="10000" value="0" step="100">
+                                <input type="range" class="max-range" min="0" max="10000" value="10000" step="100">
+                            </div>
+                        </div>
                     </div>
                     <!-- Product categories filter -->
                     <div class="product-categories-filter">
@@ -564,7 +586,7 @@
                             <span class="text-xl lg:text-2xl">1,200,000</span>
                             <span class="text-lg">تومان</span>
                         </div>
-                        <span class="text-lg lg:text-xl text-grayTint_3">2,000,000</span>
+                        <span class="price-strike relative text-lg lg:text-xl text-grayTint_3">2,000,000</span>
                         <div class="flex-center flex-col text-xl gap-2 mt-5">
                             <a class="flex-center text-white bg-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">مشاهده</a>
                             <a class="flex-center text-orangeTint_3 border-2 border-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">سبد خرید</a>
@@ -573,6 +595,12 @@
                     <div class="border border-grayTint_2 bg-white h-[420px] text-center rounded-xl">
                         <div class="relative flex-center bg-orangeTint_2 h-[42%] rounded-t-xl rounded-b-[50px]">
                             <div class="absolute top-3 left-3 p-3 flex-center text-orangeBrand bg-white w-12 h-6 rounded-[20px]">50%</div>
+                            <div class="absolute top-3 right-3 flex-center gap-x-1.5">
+                                <div class="size-5 bg-stateRed rounded-md"></div>
+                                <div class="size-5 bg-white rounded-md"></div>
+                                <div class="size-5 bg-black rounded-md"></div>
+                                <div class="size-5 bg-stateBlue rounded-md"></div>
+                            </div>
                             <div class="w-[150px] h-[138px] -mb-2">
                                 <img class="size-full" src="images/shops/shop-2.png" alt="">
                             </div>
@@ -582,7 +610,7 @@
                             <span class="text-xl lg:text-2xl">2,000,000</span>
                             <span class="text-lg">تومان</span>
                         </div>
-                        <span class="text-lg lg:text-xl text-grayTint_3">3,000,000</span>
+                        <span class="price-strike relative text-lg lg:text-xl text-grayTint_3">3,000,000</span>
                         <div class="flex-center flex-col text-xl gap-2 mt-5">
                             <a class="flex-center text-white bg-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">مشاهده</a>
                             <a class="flex-center text-orangeTint_3 border-2 border-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">سبد خرید</a>
@@ -600,7 +628,7 @@
                             <span class="text-xl lg:text-2xl">3,000,000</span>
                             <span class="text-lg">تومان</span>
                         </div>
-                        <span class="text-lg lg:text-xl text-grayTint_3">4,000,000</span>
+                        <span class="price-strike relative text-lg lg:text-xl text-grayTint_3">4,000,000</span>
                         <div class="flex-center flex-col text-xl gap-2 mt-5">
                             <a class="flex-center text-white bg-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">مشاهده</a>
                             <a class="flex-center text-orangeTint_3 border-2 border-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">سبد خرید</a>
@@ -618,7 +646,7 @@
                             <span class="text-xl lg:text-2xl">7,000,000</span>
                             <span class="text-lg">تومان</span>
                         </div>
-                        <span class="text-lg lg:text-xl text-grayTint_3">10,000,000</span>
+                        <span class="price-strike relative text-lg lg:text-xl text-grayTint_3">10,000,000</span>
                         <div class="flex-center flex-col text-xl gap-2 mt-5">
                             <a class="flex-center text-white bg-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">مشاهده</a>
                             <a class="flex-center text-orangeTint_3 border-2 border-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">سبد خرید</a>
@@ -636,7 +664,7 @@
                             <span class="text-xl lg:text-2xl">3,000,000</span>
                             <span class="text-lg">تومان</span>
                         </div>
-                        <span class="text-lg lg:text-xl text-grayTint_3">4,000,000</span>
+                        <span class="price-strike relative text-lg lg:text-xl text-grayTint_3">4,000,000</span>
                         <div class="flex-center flex-col text-xl gap-2 mt-5">
                             <a class="flex-center text-white bg-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">مشاهده</a>
                             <a class="flex-center text-orangeTint_3 border-2 border-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">سبد خرید</a>
@@ -654,7 +682,7 @@
                             <span class="text-xl lg:text-2xl">12,000,000</span>
                             <span class="text-lg">تومان</span>
                         </div>
-                        <span class="text-lg lg:text-xl text-grayTint_3">12,400,000</span>
+                        <span class="price-strike relative text-lg lg:text-xl text-grayTint_3">12,400,000</span>
                         <div class="flex-center flex-col text-xl gap-2 mt-5">
                             <a class="flex-center text-white bg-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">مشاهده</a>
                             <a class="flex-center text-orangeTint_3 border-2 border-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">سبد خرید</a>
@@ -663,6 +691,12 @@
                     <div class="border border-grayTint_2 bg-white h-[420px] text-center rounded-xl">
                         <div class="relative flex-center bg-orangeTint_2 h-[42%] rounded-t-xl rounded-b-[50px]">
                             <div class="absolute top-3 left-3 p-3 flex-center text-orangeBrand bg-white w-12 h-6 rounded-[20px]">10%</div>
+                            <div class="absolute top-3 right-3 flex-center gap-x-1.5">
+                                <div class="size-5 bg-stateRed rounded-md"></div>
+                                <div class="size-5 bg-white rounded-md"></div>
+                                <div class="size-5 bg-black rounded-md"></div>
+                                <div class="size-5 bg-stateBlue rounded-md"></div>
+                            </div>
                             <div class="w-[150px] h-[138px] -mb-2">
                                 <img class="size-full" src="images/shops/shop-7.png" alt="">
                             </div>
@@ -672,7 +706,7 @@
                             <span class="text-xl lg:text-2xl">900,000</span>
                             <span class="text-lg">تومان</span>
                         </div>
-                        <span class="text-lg lg:text-xl text-grayTint_3">1,000,000</span>
+                        <span class="price-strike relative text-lg lg:text-xl text-grayTint_3">1,000,000</span>
                         <div class="flex-center flex-col text-xl gap-2 mt-5">
                             <a class="flex-center text-white bg-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">مشاهده</a>
                             <a class="flex-center text-orangeTint_3 border-2 border-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">سبد خرید</a>
@@ -681,6 +715,12 @@
                     <div class="border border-grayTint_2 bg-white h-[420px] text-center rounded-xl">
                         <div class="relative flex-center bg-orangeTint_2 h-[42%] rounded-t-xl rounded-b-[50px]">
                             <div class="absolute top-3 left-3 p-3 flex-center text-orangeBrand bg-white w-12 h-6 rounded-[20px]">40%</div>
+                            <div class="absolute top-3 right-3 flex-center gap-x-1.5">
+                                <div class="size-5 bg-stateRed rounded-md"></div>
+                                <div class="size-5 bg-white rounded-md"></div>
+                                <div class="size-5 bg-black rounded-md"></div>
+                                <div class="size-5 bg-stateBlue rounded-md"></div>
+                            </div>
                             <div class="w-[150px] h-[138px] -mb-2">
                                 <img class="size-full" src="images/shops/shop-8.png" alt="">
                             </div>
@@ -690,7 +730,7 @@
                             <span class="text-xl lg:text-2xl">3,000,000</span>
                             <span class="text-lg">تومان</span>
                         </div>
-                        <span class="text-lg lg:text-xl text-grayTint_3">4,000,000</span>
+                        <span class="price-strike relative text-lg lg:text-xl text-grayTint_3">4,000,000</span>
                         <div class="flex-center flex-col text-xl gap-2 mt-5">
                             <a class="flex-center text-white bg-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">مشاهده</a>
                             <a class="flex-center text-orangeTint_3 border-2 border-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">سبد خرید</a>
@@ -699,6 +739,12 @@
                     <div class="border border-grayTint_2 bg-white h-[420px] text-center rounded-xl">
                         <div class="relative flex-center bg-orangeTint_2 h-[42%] rounded-t-xl rounded-b-[50px]">
                             <div class="absolute top-3 left-3 p-3 flex-center text-orangeBrand bg-white w-12 h-6 rounded-[20px]">24%</div>
+                            <div class="absolute top-3 right-3 flex-center gap-x-1.5">
+                                <div class="size-5 bg-stateRed rounded-md"></div>
+                                <div class="size-5 bg-white rounded-md"></div>
+                                <div class="size-5 bg-black rounded-md"></div>
+                                <div class="size-5 bg-stateBlue rounded-md"></div>
+                            </div>
                             <div class="w-[150px] h-[138px] -mb-2">
                                 <img class="size-full" src="images/shops/shop-9.png" alt="">
                             </div>
@@ -708,7 +754,7 @@
                             <span class="text-xl lg:text-2xl">2,000,000</span>
                             <span class="text-lg">تومان</span>
                         </div>
-                        <span class="text-lg lg:text-xl text-grayTint_3">2,060,000</span>
+                        <span class="price-strike relative text-lg lg:text-xl text-grayTint_3">2,060,000</span>
                         <div class="flex-center flex-col text-xl gap-2 mt-5">
                             <a class="flex-center text-white bg-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">مشاهده</a>
                             <a class="flex-center text-orangeTint_3 border-2 border-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">سبد خرید</a>
@@ -726,7 +772,7 @@
                             <span class="text-xl lg:text-2xl">4,300,000</span>
                             <span class="text-lg">تومان</span>
                         </div>
-                        <span class="text-lg lg:text-xl text-grayTint_3">4,000,000</span>
+                        <span class="price-strike relative text-lg lg:text-xl text-grayTint_3">4,000,000</span>
                         <div class="flex-center flex-col text-xl gap-2 mt-5">
                             <a class="flex-center text-white bg-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">مشاهده</a>
                             <a class="flex-center text-orangeTint_3 border-2 border-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">سبد خرید</a>
@@ -735,6 +781,12 @@
                     <div class="border border-grayTint_2 bg-white h-[420px] text-center rounded-xl">
                         <div class="relative flex-center bg-orangeTint_2 h-[42%] rounded-t-xl rounded-b-[50px]">
                             <div class="absolute top-3 left-3 p-3 flex-center text-orangeBrand bg-white w-12 h-6 rounded-[20px]">12%</div>
+                            <div class="absolute top-3 right-3 flex-center gap-x-1.5">
+                                <div class="size-5 bg-stateRed rounded-md"></div>
+                                <div class="size-5 bg-white rounded-md"></div>
+                                <div class="size-5 bg-black rounded-md"></div>
+                                <div class="size-5 bg-stateBlue rounded-md"></div>
+                            </div>
                             <div class="w-[150px] h-[138px] -mb-2">
                                 <img class="size-full" src="images/shops/shop-11.png" alt="">
                             </div>
@@ -744,7 +796,7 @@
                             <span class="text-xl lg:text-2xl">2,000,000</span>
                             <span class="text-lg">تومان</span>
                         </div>
-                        <span class="text-lg lg:text-xl text-grayTint_3">2,100,000</span>
+                        <span class="price-strike relative text-lg lg:text-xl text-grayTint_3">2,100,000</span>
                         <div class="flex-center flex-col text-xl gap-2 mt-5">
                             <a class="flex-center text-white bg-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">مشاهده</a>
                             <a class="flex-center text-orangeTint_3 border-2 border-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">سبد خرید</a>
@@ -753,6 +805,12 @@
                     <div class="border border-grayTint_2 bg-white h-[420px] text-center rounded-xl">
                         <div class="relative flex-center bg-orangeTint_2 h-[42%] rounded-t-xl rounded-b-[50px]">
                             <div class="absolute top-3 left-3 p-3 flex-center text-orangeBrand bg-white w-12 h-6 rounded-[20px]">34%</div>
+                            <div class="absolute top-3 right-3 flex-center gap-x-1.5">
+                                <div class="size-5 bg-stateRed rounded-md"></div>
+                                <div class="size-5 bg-white rounded-md"></div>
+                                <div class="size-5 bg-black rounded-md"></div>
+                                <div class="size-5 bg-stateBlue rounded-md"></div>
+                            </div>
                             <div class="w-[150px] h-[138px] -mb-2">
                                 <img class="size-full" src="images/shops/shop-12.png" alt="">
                             </div>
@@ -762,7 +820,7 @@
                             <span class="text-xl lg:text-2xl">3,000,000</span>
                             <span class="text-lg">تومان</span>
                         </div>
-                        <span class="text-lg lg:text-xl text-grayTint_3">4,400,000</span>
+                        <span class="price-strike relative text-lg lg:text-xl text-grayTint_3">4,400,000</span>
                         <div class="flex-center flex-col text-xl gap-2 mt-5">
                             <a class="flex-center text-white bg-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">مشاهده</a>
                             <a class="flex-center text-orangeTint_3 border-2 border-orangeTint_3 w-[70%] h-9 rounded-xl" href="#">سبد خرید</a>
@@ -771,10 +829,10 @@
                    
                 </div>
                 <!-- Shop Footer -->
-                <div class="flex-center gap-x-4  mt-6">
-                    <button class="page-btn lg:text-xl page-btn--active flex-center p-3 border-2 border-orangeBrand rounded-xl size-9">1</button>
-                    <button class="page-btn lg:text-xl flex-center p-3 border-2 border-orangeBrand rounded-xl size-9">2</button>
-                    <button class="page-btn lg:text-xl flex-center p-3 border-2 border-orangeBrand rounded-xl h-9">بعدی</button>
+                <div class="product-pagination flex-center gap-x-4  mt-6">
+                    <button class="page-btn lg:text-xl flex-center p-3 border-2 border-orangeBrand rounded-xl hover:bg-orangeBrand hover:text-white transition-all size-9 page-btn--active">1</button>
+                    <button class="page-btn lg:text-xl flex-center p-3 border-2 border-orangeBrand rounded-xl hover:bg-orangeBrand hover:text-white transition-all size-9">2</button>
+                    <button class="page-btn lg:text-xl flex-center p-3 border-2 border-orangeBrand rounded-xl hover:bg-orangeBrand hover:text-white transition-all h-9">بعدی</button>
                 </div>
             </section>
             <!--Mobile Menu Filter -->
@@ -792,7 +850,6 @@
                 </div>
                 <!-- Mobile Menu Filter (Body) -->
                 <div class="space-y-6">
-                  
                 </div>
                 <!-- Mobile Menu Filter (Footer) -->
                 <div class="flex flex-col items-start gap-y-6 py-8 px-2.5 mt-8 border-t border-t-grayTint_2 ">
@@ -1001,6 +1058,8 @@
     <!-- Script Links -->
     <script src="vendor/SwiperSlider/swiper-bundle.min.js"></script>
     <script src="scripts/slider.js"></script>
+    <script src="scripts/shared/header-footer.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="scripts/shop.js"></script>
 </body>
 </html>

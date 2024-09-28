@@ -13,6 +13,8 @@ module.exports = {
         }
       },
       colors:{
+        stateRed : "#FF1313",
+        stateBlue : "#308CF8",
         blueBrand : "#4455E8",
         blueTint_1 : "#D8DCFD",
         orangeBrand : "#FF9447",
