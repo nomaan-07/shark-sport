@@ -30,7 +30,12 @@
             <path d="M11.9955 16.7H12.0045" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M8.29431 13.7H8.30329" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M8.29431 16.7H8.30329" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </symbol>    
+        </symbol> 
+        <symbol id="close-circle" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9.16998 14.83L14.83 9.17004" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14.83 14.83L9.16998 9.17004" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol>               
         <symbol id="convertshape" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M22.9166 5.36459V9.21875C22.9166 11.5625 21.9791 12.5 19.6354 12.5H16.8229C14.4791 12.5 13.5416 11.5625 13.5416 9.21875V5.36459C13.5416 3.02084 14.4791 2.08334 16.8229 2.08334H19.6354C21.9791 2.08334 22.9166 3.02084 22.9166 5.36459Z" fill="currentColor"/>
             <path d="M11.4584 15.7812V19.6354C11.4584 21.9792 10.5209 22.9167 8.17712 22.9167H5.36462C3.02087 22.9167 2.08337 21.9792 2.08337 19.6354V15.7812C2.08337 13.4375 3.02087 12.5 5.36462 12.5H8.17712C10.5209 12.5 11.4584 13.4375 11.4584 15.7812Z" fill="currentColor"/>
@@ -112,14 +117,19 @@
         <!-- Panel Wrapper: Sidebar |  Main-->
         <div class="my-10 flex gap-6 relative">
             <!-- Sidebar -->
-            <div class="panel__sidebar fixed top-10 bottom-10 -right-72 md:right-auto flex flex-col justify-between w-72 text-rose-50 dark:text-neutral-800 bg-rose-500 pt-2 pb-6 rounded-3xl overflow-y-auto overflow-x-hidden transition-all">
-                <!-- Sidebar Header: Title | User Info -->
+            <div class="panel__sidebar">
+                <!-- Sidebar Header: Logo | Close Btn| User Info -->
                 <div>
-                    <!-- Title -->
+                    <!-- Logo | Close Btn-->
                     <div>
-                        <a class="block w-64 mx-auto" href="#">
-                            <img class="w-full" src="../images/logo.png" alt="logo">
-                        </a>
+                        <div class="flex items-center justify-between md:justify-center px-2">
+                            <a class="block w-52 md:w-64 shrink-0" href="#">
+                                <img class="w-full" src="../images/logo.png" alt="logo">
+                            </a>
+                            <svg id="sidebar-close-btn" class="size-10 md:hidden sm:cursor-pointer">
+                                <use href="#close-circle"></use>
+                            </svg>
+                        </div>
                         <svg class="h-px">
                             <use href="#dashed-line"></use>
                         </svg>
@@ -246,10 +256,10 @@
             </div>
             <!-- Main -->
             <main class="w-full md:mr-[312px] text-neutral-950 dark:text-neutral-50 bg-neutral-50 dark:bg-neutral-800 space-y-6 pt-6 px-6 pb-7 rounded-3xl">
-                <!-- Main Header: Sidebar toggle Btn | Buttons -->
+                <!-- Main Header: Sidebar Open Btn | Buttons -->
                 <div class="flex items-center justify-between md:justify-end text-neutral-800">
-                    <!-- Sidebar toggle btn -->
-                    <div class="md:hidden p-2 bg-rose-100 rounded-full sm:cursor-pointer sm:hover:bg-rose-200 transition-colors">
+                    <!-- Sidebar Open btn -->
+                    <div id="sidebar-open-btn" class="md:hidden p-2 bg-rose-100 rounded-full sm:cursor-pointer sm:hover:bg-rose-200 transition-colors">
                         <svg class="size-5">
                             <use href="#menu"></use>
                         </svg>
@@ -327,6 +337,7 @@
         </div>
      </div>
 
+     <div id="overlay" class="hidden fixed inset-0 bg-black/20 backdrop-blur-md z-40"></div>
 
      <script src="../js/shared/app.js" type="module"></script>
   </body>

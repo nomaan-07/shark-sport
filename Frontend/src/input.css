@@ -180,7 +180,9 @@
     
     */
 
-
+    .panel__sidebar {
+        @apply fixed top-10 bottom-10 -right-72 md:right-auto flex flex-col justify-between w-72 text-rose-50 dark:text-neutral-800 bg-rose-500 pt-2 pb-6 rounded-3xl overflow-y-auto overflow-x-hidden transition-all z-50;
+    }
     .panel__sidebar::-webkit-scrollbar {  
         width: 6px;
     }

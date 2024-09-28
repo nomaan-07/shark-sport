@@ -4,6 +4,13 @@ const changeThemeBtn = document.querySelector('.theme-btn');
 const moonIcon = document.querySelector('#moon-icon');
 const sunIcon = document.querySelector('#sun-icon');
 
+const sidebarOpenBtn = document.querySelector('#sidebar-open-btn');
+const sidebarCloseBtn = document.querySelector('#sidebar-close-btn');
+
+const panelSidebar = document.querySelector('.panel__sidebar');
+
+const overlay = document.querySelector('#overlay');
+
 function changeThemeHandler(theme) {
     document.documentElement.className = theme;
 
@@ -33,8 +40,21 @@ function localThemeHandler() {
     changeThemeHandler(localTheme);
 }
 
-changeThemeBtn.addEventListener('click', themeBtnClickHandler);
+function sidebarToggleHandler() {
+    panelSidebar.classList.toggle('-translate-x-80');
+    overlay.classList.toggle('hidden');
+}
 
-window.addEventListener('load', () => {
-    localThemeHandler();
+changeThemeBtn.addEventListener('click', themeBtnClickHandler);
+sidebarOpenBtn.addEventListener('click', sidebarToggleHandler);
+sidebarCloseBtn.addEventListener('click', sidebarToggleHandler);
+overlay.addEventListener('click', sidebarToggleHandler);
+
+window.addEventListener('resize', (e) => {
+    if (e.target.innerWidth < 992) return;
+
+    panelSidebar.classList.remove('-translate-x-80');
+    overlay.classList.add('hidden');
 });
+
+window.addEventListener('load', localThemeHandler);
