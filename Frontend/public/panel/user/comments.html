@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>پنل کاربر | سفارشات</title>
+    <title>پنل کاربر | دیدگاه ها</title>
     <link rel="stylesheet" href="../../styles/app.css" />
         <!-- Page Icon -->
         <link rel="icon" href="../../images/fav-icon.png" type="image/png">
@@ -176,7 +176,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./orders.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full panel-sidebar-menu__item--active">
+                        <a href="./orders.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#box"></use>
@@ -189,7 +189,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./comments.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
+                        <a href="./comments.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full  panel-sidebar-menu__item--active">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#messages-3"></use>
@@ -304,16 +304,15 @@
 
 
                 <!-- Title -->
-                <h2 class="text-2xl font-vazirMedium">تاریخچه سفارشات</h2>
+                <h2 class="text-2xl font-vazirMedium">تاریخچه دیدگاه ها</h2>
 
                 <!-- Filters -->
                 <div class="flex items-center gap-y-3 gap-x-7 flex-wrap font-vazirMedium pb-3 border-b border-b-neutral-300 sm:cursor-pointer">
                     <!-- text-rose-500 for active filter -->
-                    <span class="sm:hover:text-rose-500 transition-colors text-rose-500">همه ی سفارشات</span>
-                    <span class="sm:hover:text-rose-500 transition-colors">تحویل شده</span>
+                    <span class="sm:hover:text-rose-500 transition-colors text-rose-500">همه ی دیدگاه ها</span>
+                    <span class="sm:hover:text-rose-500 transition-colors">منتشر شده</span>
                     <span class="sm:hover:text-rose-500 transition-colors">درحال بررسی</span>
-                    <span class="sm:hover:text-rose-500 transition-colors">مرجوع شده</span>
-                    <span class="sm:hover:text-rose-500 transition-colors">لغو شده</span>
+                    <span class="sm:hover:text-rose-500 transition-colors">رد شده</span>
                 </div>
 
                 <!-- Orders -->
@@ -321,7 +320,7 @@
 
                     <!-- Order -->
                     <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price -->
+                        <!-- Right: Checkbox | Image | Name | Category -->
                         <div class="flex items-center gap-y-2 gap-x-6 flex-wrap">
                             <!-- Checkbox -->
                             <label class="relative inline-block">
@@ -330,28 +329,23 @@
                             </label>
     
                             <!-- Image -->
-                            <div class="size-[72px] rounded-xl overflow-hidden">
-                                <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
+                            <div class="size-[72px] flex items-center rounded-xl overflow-hidden">
+                                <img class="rounded-xl" src="../images/shoe-2.jpg" alt="کفش">
                             </div>
 
                             <!-- Name -->
                             <span class="font-vazirMedium">کفش استوک فوتبالی</span>
+                            
+                            <!-- Category -->
+                            <span class="font-vazirMedium">ورزشی</span>
 
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500 font-vazirMedium">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
-                            </div>
                         </div>
 
                         <!-- Left: Situation | Buttons -->
                         <div class="flex items-center gap-8 justify-end grow">
                             <!-- classes: panel-situation__: success || fail || review -->
                             <!-- Situation -->
-                            <div class="w-28 h-8 flex items-center justify-center font-vazirMedium rounded-2xl panel-situation__success">تحویل شده</div>
+                            <div class="w-28 h-8 flex items-center justify-center font-vazirMedium rounded-2xl panel-situation__success">منتشر شده</div>
 
                             <!-- Buttons: Edit Btn | View Btn-->
                              <div class="flex items-center gap-2">
@@ -370,7 +364,7 @@
                     
                     <!-- Order -->
                     <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price -->
+                        <!-- Right: Checkbox | Image | Name | Category -->
                         <div class="flex items-center gap-y-2 gap-x-6 flex-wrap">
                             <!-- Checkbox -->
                             <label class="relative inline-block">
@@ -379,28 +373,23 @@
                             </label>
     
                             <!-- Image -->
-                            <div class="size-[72px] rounded-xl overflow-hidden">
-                                <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
+                            <div class="size-[72px] flex items-center rounded-xl overflow-hidden">
+                                <img class="rounded-xl" src="../images/shoe-2.jpg" alt="کفش">
                             </div>
 
                             <!-- Name -->
                             <span class="font-vazirMedium">کفش استوک فوتبالی</span>
+                            
+                            <!-- Category -->
+                            <span class="font-vazirMedium">ورزشی</span>
 
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500 font-vazirMedium">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
-                            </div>
                         </div>
 
                         <!-- Left: Situation | Buttons -->
                         <div class="flex items-center gap-8 justify-end grow">
                             <!-- classes: panel-situation__: success || fail || review -->
                             <!-- Situation -->
-                            <div class="w-28 h-8 flex items-center justify-center font-vazirMedium rounded-2xl panel-situation__fail">لغو شده</div>
+                            <div class="w-28 h-8 flex items-center justify-center font-vazirMedium rounded-2xl panel-situation__fail">رد شده</div>
 
                             <!-- Buttons: Edit Btn | View Btn-->
                              <div class="flex items-center gap-2">
@@ -419,7 +408,7 @@
 
                     <!-- Order -->
                     <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price -->
+                        <!-- Right: Checkbox | Image | Name | Category -->
                         <div class="flex items-center gap-y-2 gap-x-6 flex-wrap">
                             <!-- Checkbox -->
                             <label class="relative inline-block">
@@ -428,21 +417,16 @@
                             </label>
     
                             <!-- Image -->
-                            <div class="size-[72px] rounded-xl overflow-hidden">
-                                <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
+                            <div class="size-[72px] flex items-center rounded-xl overflow-hidden">
+                                <img class="rounded-xl" src="../images/shoe-2.jpg" alt="کفش">
                             </div>
 
                             <!-- Name -->
                             <span class="font-vazirMedium">کفش استوک فوتبالی</span>
+                            
+                            <!-- Category -->
+                            <span class="font-vazirMedium">ورزشی</span>
 
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500 font-vazirMedium">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
-                            </div>
                         </div>
 
                         <!-- Left: Situation | Buttons -->
@@ -468,7 +452,7 @@
 
                     <!-- Order -->
                     <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price -->
+                        <!-- Right: Checkbox | Image | Name | Category -->
                         <div class="flex items-center gap-y-2 gap-x-6 flex-wrap">
                             <!-- Checkbox -->
                             <label class="relative inline-block">
@@ -477,28 +461,23 @@
                             </label>
     
                             <!-- Image -->
-                            <div class="size-[72px] rounded-xl overflow-hidden">
-                                <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
+                            <div class="size-[72px] flex items-center rounded-xl overflow-hidden">
+                                <img class="rounded-xl" src="../images/shoe-2.jpg" alt="کفش">
                             </div>
 
                             <!-- Name -->
                             <span class="font-vazirMedium">کفش استوک فوتبالی</span>
+                            
+                            <!-- Category -->
+                            <span class="font-vazirMedium">ورزشی</span>
 
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500 font-vazirMedium">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
-                            </div>
                         </div>
 
                         <!-- Left: Situation | Buttons -->
                         <div class="flex items-center gap-8 justify-end grow">
                             <!-- classes: panel-situation__: success || fail || review -->
                             <!-- Situation -->
-                            <div class="w-28 h-8 flex items-center justify-center font-vazirMedium rounded-2xl panel-situation__success">تحویل شده</div>
+                            <div class="w-28 h-8 flex items-center justify-center font-vazirMedium rounded-2xl panel-situation__success">منتشر شده</div>
 
                             <!-- Buttons: Edit Btn | View Btn-->
                              <div class="flex items-center gap-2">
@@ -517,7 +496,7 @@
 
                     <!-- Order -->
                     <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price -->
+                        <!-- Right: Checkbox | Image | Name | Category -->
                         <div class="flex items-center gap-y-2 gap-x-6 flex-wrap">
                             <!-- Checkbox -->
                             <label class="relative inline-block">
@@ -526,28 +505,23 @@
                             </label>
     
                             <!-- Image -->
-                            <div class="size-[72px] rounded-xl overflow-hidden">
-                                <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
+                            <div class="size-[72px] flex items-center rounded-xl overflow-hidden">
+                                <img class="rounded-xl" src="../images/shoe-2.jpg" alt="کفش">
                             </div>
 
                             <!-- Name -->
                             <span class="font-vazirMedium">کفش استوک فوتبالی</span>
+                            
+                            <!-- Category -->
+                            <span class="font-vazirMedium">ورزشی</span>
 
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500 font-vazirMedium">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
-                            </div>
                         </div>
 
                         <!-- Left: Situation | Buttons -->
                         <div class="flex items-center gap-8 justify-end grow">
                             <!-- classes: panel-situation__: success || fail || review -->
                             <!-- Situation -->
-                            <div class="w-28 h-8 flex items-center justify-center font-vazirMedium rounded-2xl panel-situation__success">تحویل شده</div>
+                            <div class="w-28 h-8 flex items-center justify-center font-vazirMedium rounded-2xl panel-situation__success">منتشر شده</div>
 
                             <!-- Buttons: Edit Btn | View Btn-->
                              <div class="flex items-center gap-2">
