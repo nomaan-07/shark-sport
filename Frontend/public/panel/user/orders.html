@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>پنل کاربر | پیشخوان</title>
+    <title>پنل کاربر | سفارشات</title>
     <link rel="stylesheet" href="../../styles/app.css" />
         <!-- Page Icon -->
         <link rel="icon" href="../../images/fav-icon.png" type="image/png">
@@ -48,6 +48,12 @@
         <symbol id="dashed-line" width="288" height="1" viewBox="0 0 288 1" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line x1="4.37114e-08" y1="0.5" x2="288" y2="0.500025" stroke="currentColor" stroke-dasharray="10 10"/>
         </symbol>
+        <symbol id="edit" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H11C11.41 1.25 11.75 1.59 11.75 2C11.75 2.41 11.41 2.75 11 2.75H9C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V13C21.25 12.59 21.59 12.25 22 12.25C22.41 12.25 22.75 12.59 22.75 13V15C22.75 20.43 20.43 22.75 15 22.75Z" fill="currentColor"/>
+            <path d="M8.50002 17.69C7.89002 17.69 7.33002 17.47 6.92002 17.07C6.43002 16.58 6.22002 15.87 6.33002 15.12L6.76002 12.11C6.84002 11.53 7.22002 10.78 7.63002 10.37L15.51 2.49C17.5 0.499998 19.52 0.499998 21.51 2.49C22.6 3.58 23.09 4.69 22.99 5.8C22.9 6.7 22.42 7.58 21.51 8.48L13.63 16.36C13.22 16.77 12.47 17.15 11.89 17.23L8.88002 17.66C8.75002 17.69 8.62002 17.69 8.50002 17.69ZM16.57 3.55L8.69002 11.43C8.50002 11.62 8.28002 12.06 8.24002 12.32L7.81002 15.33C7.77002 15.62 7.83002 15.86 7.98002 16.01C8.13002 16.16 8.37002 16.22 8.66002 16.18L11.67 15.75C11.93 15.71 12.38 15.49 12.56 15.3L20.44 7.42C21.09 6.77 21.43 6.19 21.48 5.65C21.54 5 21.2 4.31 20.44 3.54C18.84 1.94 17.74 2.39 16.57 3.55Z" fill="currentColor"/>
+            <path d="M19.85 9.83003C19.78 9.83003 19.71 9.82003 19.65 9.80003C17.02 9.06003 14.93 6.97003 14.19 4.34003C14.08 3.94003 14.31 3.53003 14.71 3.41003C15.11 3.30003 15.52 3.53003 15.63 3.93003C16.23 6.06003 17.92 7.75003 20.05 8.35003C20.45 8.46003 20.68 8.88003 20.57 9.28003C20.48 9.62003 20.18 9.83003 19.85 9.83003Z" fill="currentColor"/>
+        </symbol>
+            
         <symbol id="empty-wallet" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M18.04 13.55C17.62 13.96 17.38 14.55 17.44 15.18C17.53 16.26 18.52 17.05 19.6 17.05H21.5V18.24C21.5 20.31 19.81 22 17.74 22H6.26C4.19 22 2.5 20.31 2.5 18.24V11.51C2.5 9.44001 4.19 7.75 6.26 7.75H17.74C19.81 7.75 21.5 9.44001 21.5 11.51V12.95H19.48C18.92 12.95 18.41 13.17 18.04 13.55Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M2.5 12.4101V7.8401C2.5 6.6501 3.23 5.59006 4.34 5.17006L12.28 2.17006C13.52 1.70006 14.85 2.62009 14.85 3.95009V7.75008" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -61,12 +67,7 @@
         <symbol id="home-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.79 22.75H6.21C3.47 22.75 1.25 20.52 1.25 17.78V10.37C1.25 9.00997 2.09 7.29997 3.17 6.45997L8.56 2.25997C10.18 0.999974 12.77 0.939974 14.45 2.11997L20.63 6.44997C21.82 7.27997 22.75 9.05997 22.75 10.51V17.79C22.75 20.52 20.53 22.75 17.79 22.75ZM9.48 3.43997L4.09 7.63997C3.38 8.19997 2.75 9.46997 2.75 10.37V17.78C2.75 19.69 4.3 21.25 6.21 21.25H17.79C19.7 21.25 21.25 19.7 21.25 17.79V10.51C21.25 9.54997 20.56 8.21997 19.77 7.67997L13.59 3.34997C12.45 2.54997 10.57 2.58997 9.48 3.43997Z" fill="currentColor"/>
             <path d="M12 18.75C11.59 18.75 11.25 18.41 11.25 18V15C11.25 14.59 11.59 14.25 12 14.25C12.41 14.25 12.75 14.59 12.75 15V18C12.75 18.41 12.41 18.75 12 18.75Z" fill="currentColor"/>
-        </symbol> 
-        <symbol id="information" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12.01 22.74C11.38 22.74 10.76 22.53 10.27 22.11L8.68999 20.76C8.52999 20.62 8.13 20.48 7.92 20.48H6.17C4.69 20.48 3.49 19.28 3.49 17.8V16.09C3.49 15.88 3.35 15.48 3.22 15.33L1.86 13.73C1.04 12.76 1.04 11.24 1.86 10.26L3.22 8.66001C3.35 8.51001 3.49 8.11001 3.49 7.90001V6.20001C3.49 4.72001 4.69 3.52001 6.17 3.52001H7.9C8.11 3.52001 8.5 3.37001 8.67 3.23001L10.25 1.88001C11.23 1.05001 12.76 1.05001 13.74 1.88001L15.32 3.23001C15.48 3.37001 15.89 3.51001 16.1 3.51001H17.8C19.28 3.51001 20.48 4.71001 20.48 6.19001V7.89001C20.48 8.10001 20.63 8.49001 20.77 8.66001L22.12 10.24C22.96 11.23 22.95 12.76 22.12 13.73L20.77 15.31C20.63 15.48 20.49 15.87 20.49 16.08V17.78C20.49 19.26 19.29 20.46 17.81 20.46H16.11C15.9 20.46 15.51 20.61 15.33 20.75L13.75 22.1C13.26 22.53 12.63 22.74 12.01 22.74ZM6.17 5.02001C5.52 5.02001 4.98999 5.55001 4.98999 6.20001V7.90001C4.98999 8.47001 4.73 9.19001 4.36 9.63001L3 11.23C2.66 11.64 2.66 12.36 3 12.76L4.34999 14.35C4.70999 14.76 4.98 15.51 4.98 16.08V17.79C4.98 18.44 5.50999 18.97 6.16 18.97H7.9C8.46 18.97 9.2 19.24 9.64 19.61L11.23 20.97C11.64 21.32 12.36 21.32 12.77 20.97L14.35 19.62C14.8 19.24 15.53 18.98 16.09 18.98H17.79C18.44 18.98 18.97 18.45 18.97 17.8V16.1C18.97 15.54 19.24 14.81 19.61 14.36L20.97 12.77C21.32 12.36 21.32 11.64 20.97 11.23L19.62 9.65001C19.24 9.20001 18.98 8.47001 18.98 7.91001V6.20001C18.98 5.55001 18.45 5.02001 17.8 5.02001H16.1C15.53 5.02001 14.79 4.75001 14.35 4.38001L12.76 3.02001C12.35 2.67001 11.64 2.67001 11.22 3.02001L9.64999 4.38001C9.2 4.75001 8.47 5.02001 7.9 5.02001H6.17Z" fill="currentColor"/>
-            <path d="M12 16.87C11.45 16.87 11 16.42 11 15.87C11 15.32 11.44 14.87 12 14.87C12.55 14.87 13 15.32 13 15.87C13 16.42 12.56 16.87 12 16.87Z" fill="currentColor"/>
-            <path d="M12 13.72C11.59 13.72 11.25 13.38 11.25 12.97V8.13C11.25 7.72 11.59 7.38 12 7.38C12.41 7.38 12.75 7.72 12.75 8.13V12.96C12.75 13.38 12.42 13.72 12 13.72Z" fill="currentColor"/>
-        </symbol>            
+        </symbol>           
         <symbol id="menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
             <path d="M3 7H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             <path d="M3 12H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -162,7 +163,7 @@
                 <!-- Sidebar Menu -->
                 <ul class="my-4 space-y-1 text-xl/5 h-full">
                     <li>
-                        <a href="./index.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full panel-sidebar-menu__item--active">
+                        <a href="./index.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#home-2"></use>
@@ -175,7 +176,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./orders.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
+                        <a href="./orders.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full panel-sidebar-menu__item--active">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#box"></use>
@@ -301,282 +302,283 @@
 
                 </div>
 
-                <!-- Stats: Balance | Membership | orders | Last Login  -->
-                <div class="grid 2xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 font-vazirMedium">
-                    <!-- Balance -->
-                    <div class="border border-neutral-300 py-4 px-2 rounded-2xl">
-                        <div class="xs:text-xl flex gap-1.5">
-                            <svg class="size-5 xs:size-6">
-                                <use href="#empty-wallet"></use>
-                            </svg>
-                            <span>موجودی کیف پول</span>
+
+                <!-- Title -->
+                <h2 class="text-2xl font-vazirMedium">تاریخچه سفارشات</h2>
+
+                <!-- Filters -->
+                <div class="flex items-center gap-y-3 gap-x-7 flex-wrap font-vazirMedium pb-3 border-b border-b-neutral-300 sm:cursor-pointer">
+                    <!-- text-rose-500 for active filter -->
+                    <span class="sm:hover:text-rose-500 transition-colors text-rose-500">همه ی سفارشات</span>
+                    <span class="sm:hover:text-rose-500 transition-colors">تحویل شده</span>
+                    <span class="sm:hover:text-rose-500 transition-colors">درحال بررسی</span>
+                    <span class="sm:hover:text-rose-500 transition-colors">مرجوع شده</span>
+                    <span class="sm:hover:text-rose-500 transition-colors">لغو شد</span>
+                </div>
+
+                <!-- Orders -->
+                <div class="space-y-6">
+
+                    <!-- Order -->
+                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
+                        <!-- Right: Checkbox | Image | Name | Price -->
+                        <div class="flex items-center gap-y-2 gap-x-6 flex-wrap">
+                            <!-- Checkbox -->
+                            <label class="relative inline-block">
+                                <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer" />
+                                <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
+                            </label>
+    
+                            <!-- Image -->
+                            <div class="size-[72px] rounded-xl overflow-hidden">
+                                <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
+                            </div>
+
+                            <!-- Name -->
+                            <span class="font-vazirMedium">کفش استوک فوتبالی</span>
+
+                            <!-- Price -->
+                            <div class="flex items-center gap-0.5">
+                                <div class="text-end">
+                                    <div class="text-rose-500 font-vazirMedium">2,000,000</div>
+                                    <div class="text-sm text-rose-300 line-through">5,000,000</div>
+                                </div>
+                                <span class="text-sm text-rose-500">تومان</span>
+                            </div>
                         </div>
-                        <div class="text-sm xs:text-base flex justify-end">25,000 تومان</div>
+
+                        <!-- Left: Situation | Buttons -->
+                        <div class="flex items-center gap-8 justify-end grow">
+                            <!-- classes: panel-situation__: success || fail || review -->
+                            <!-- Situation -->
+                            <div class="w-28 h-8 flex items-center justify-center font-vazirMedium rounded-2xl panel-situation__success">تحویل شده</div>
+
+                            <!-- Buttons: Edit Btn | View Btn-->
+                             <div class="flex items-center gap-2">
+                                <!-- Edit Btn -->
+                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                                    <use href="#edit"></use>
+                                </svg>
+
+                                <!-- View Btn -->
+                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                                    <use href="#eye"></use>
+                                </svg>
+                             </div>
+                        </div>
                     </div>
-                    <!-- Membership Period -->
-                    <div class="border border-neutral-300 py-4 px-2 rounded-2xl">
-                        <div class="xs:text-xl flex gap-1.5">
-                            <svg class="size-5 xs:size-6">
-                                <use href="#calendar"></use>
-                            </svg>
-                            <span>مدت عضویت</span>
+                    
+                    <!-- Order -->
+                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
+                        <!-- Right: Checkbox | Image | Name | Price -->
+                        <div class="flex items-center gap-y-2 gap-x-6 flex-wrap">
+                            <!-- Checkbox -->
+                            <label class="relative inline-block">
+                                <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer" />
+                                <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
+                            </label>
+    
+                            <!-- Image -->
+                            <div class="size-[72px] rounded-xl overflow-hidden">
+                                <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
+                            </div>
+
+                            <!-- Name -->
+                            <span class="font-vazirMedium">کفش استوک فوتبالی</span>
+
+                            <!-- Price -->
+                            <div class="flex items-center gap-0.5">
+                                <div class="text-end">
+                                    <div class="text-rose-500 font-vazirMedium">2,000,000</div>
+                                    <div class="text-sm text-rose-300 line-through">5,000,000</div>
+                                </div>
+                                <span class="text-sm text-rose-500">تومان</span>
+                            </div>
                         </div>
-                        <div class="text-sm xs:text-base flex justify-end">۲۵۰ روز</div>
+
+                        <!-- Left: Situation | Buttons -->
+                        <div class="flex items-center gap-8 justify-end grow">
+                            <!-- classes: panel-situation__: success || fail || review -->
+                            <!-- Situation -->
+                            <div class="w-28 h-8 flex items-center justify-center font-vazirMedium rounded-2xl panel-situation__fail">لغو شده</div>
+
+                            <!-- Buttons: Edit Btn | View Btn-->
+                             <div class="flex items-center gap-2">
+                                <!-- Edit Btn -->
+                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                                    <use href="#edit"></use>
+                                </svg>
+
+                                <!-- View Btn -->
+                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                                    <use href="#eye"></use>
+                                </svg>
+                             </div>
+                        </div>
                     </div>
-                    <!-- Orders Count -->
-                    <div class="border border-neutral-300 py-4 px-2 rounded-2xl">
-                        <div class="xs:text-xl flex gap-1.5">
-                            <svg class="size-5 xs:size-6">
-                                <use href="#truck"></use>
-                            </svg>
-                            <span>تعداد سفارش</span>
+
+                    <!-- Order -->
+                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
+                        <!-- Right: Checkbox | Image | Name | Price -->
+                        <div class="flex items-center gap-y-2 gap-x-6 flex-wrap">
+                            <!-- Checkbox -->
+                            <label class="relative inline-block">
+                                <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer" />
+                                <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
+                            </label>
+    
+                            <!-- Image -->
+                            <div class="size-[72px] rounded-xl overflow-hidden">
+                                <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
+                            </div>
+
+                            <!-- Name -->
+                            <span class="font-vazirMedium">کفش استوک فوتبالی</span>
+
+                            <!-- Price -->
+                            <div class="flex items-center gap-0.5">
+                                <div class="text-end">
+                                    <div class="text-rose-500 font-vazirMedium">2,000,000</div>
+                                    <div class="text-sm text-rose-300 line-through">5,000,000</div>
+                                </div>
+                                <span class="text-sm text-rose-500">تومان</span>
+                            </div>
                         </div>
-                        <div class="text-sm xs:text-base flex justify-end">۱۲ سفارش</div>
+
+                        <!-- Left: Situation | Buttons -->
+                        <div class="flex items-center gap-8 justify-end grow">
+                            <!-- classes: panel-situation__: success || fail || review -->
+                            <!-- Situation -->
+                            <div class="w-28 h-8 flex items-center justify-center font-vazirMedium rounded-2xl panel-situation__review">در حال بررسی</div>
+
+                            <!-- Buttons: Edit Btn | View Btn-->
+                             <div class="flex items-center gap-2">
+                                <!-- Edit Btn -->
+                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                                    <use href="#edit"></use>
+                                </svg>
+
+                                <!-- View Btn -->
+                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                                    <use href="#eye"></use>
+                                </svg>
+                             </div>
+                        </div>
                     </div>
-                    <!-- Last Login -->
-                    <div class="border border-neutral-300 py-4 px-2 rounded-2xl">
-                        <div class="xs:text-xl flex gap-1.5">
-                            <svg class="size-5 xs:size-6">
-                                <use href="#eye"></use>
-                            </svg>
-                            <span>آخرین بازدید</span>
+
+                    <!-- Order -->
+                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
+                        <!-- Right: Checkbox | Image | Name | Price -->
+                        <div class="flex items-center gap-y-2 gap-x-6 flex-wrap">
+                            <!-- Checkbox -->
+                            <label class="relative inline-block">
+                                <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer" />
+                                <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
+                            </label>
+    
+                            <!-- Image -->
+                            <div class="size-[72px] rounded-xl overflow-hidden">
+                                <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
+                            </div>
+
+                            <!-- Name -->
+                            <span class="font-vazirMedium">کفش استوک فوتبالی</span>
+
+                            <!-- Price -->
+                            <div class="flex items-center gap-0.5">
+                                <div class="text-end">
+                                    <div class="text-rose-500 font-vazirMedium">2,000,000</div>
+                                    <div class="text-sm text-rose-300 line-through">5,000,000</div>
+                                </div>
+                                <span class="text-sm text-rose-500">تومان</span>
+                            </div>
                         </div>
-                        <div class="text-sm xs:text-base flex justify-end">۶ مهر ۱۴۰۳</div>
+
+                        <!-- Left: Situation | Buttons -->
+                        <div class="flex items-center gap-8 justify-end grow">
+                            <!-- classes: panel-situation__: success || fail || review -->
+                            <!-- Situation -->
+                            <div class="w-28 h-8 flex items-center justify-center font-vazirMedium rounded-2xl panel-situation__success">تحویل شده</div>
+
+                            <!-- Buttons: Edit Btn | View Btn-->
+                             <div class="flex items-center gap-2">
+                                <!-- Edit Btn -->
+                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                                    <use href="#edit"></use>
+                                </svg>
+
+                                <!-- View Btn -->
+                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                                    <use href="#eye"></use>
+                                </svg>
+                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Order -->
+                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
+                        <!-- Right: Checkbox | Image | Name | Price -->
+                        <div class="flex items-center gap-y-2 gap-x-6 flex-wrap">
+                            <!-- Checkbox -->
+                            <label class="relative inline-block">
+                                <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer" />
+                                <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
+                            </label>
+    
+                            <!-- Image -->
+                            <div class="size-[72px] rounded-xl overflow-hidden">
+                                <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
+                            </div>
+
+                            <!-- Name -->
+                            <span class="font-vazirMedium">کفش استوک فوتبالی</span>
+
+                            <!-- Price -->
+                            <div class="flex items-center gap-0.5">
+                                <div class="text-end">
+                                    <div class="text-rose-500 font-vazirMedium">2,000,000</div>
+                                    <div class="text-sm text-rose-300 line-through">5,000,000</div>
+                                </div>
+                                <span class="text-sm text-rose-500">تومان</span>
+                            </div>
+                        </div>
+
+                        <!-- Left: Situation | Buttons -->
+                        <div class="flex items-center gap-8 justify-end grow">
+                            <!-- classes: panel-situation__: success || fail || review -->
+                            <!-- Situation -->
+                            <div class="w-28 h-8 flex items-center justify-center font-vazirMedium rounded-2xl panel-situation__success">تحویل شده</div>
+
+                            <!-- Buttons: Edit Btn | View Btn-->
+                             <div class="flex items-center gap-2">
+                                <!-- Edit Btn -->
+                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                                    <use href="#edit"></use>
+                                </svg>
+
+                                <!-- View Btn -->
+                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                                    <use href="#eye"></use>
+                                </svg>
+                             </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Pagination -->
+                <div class="flex justify-center gap-2">
+                    <!-- Active class: panel__pagination--active -->
+                    <div class="panel__pagination panel__pagination--active">1</div>
+                    <div class="panel__pagination">2</div>
+                    <div class="panel__pagination">3</div>
+                    <div class="panel__pagination">
+                        <svg class="size-6">
+                            <use href="#arrow-left-outline"></use>
+                        </svg>
                     </div>
                 </div>
 
-                <!-- Alert Message -->
-                <div class="panel__alert-message">
-                    <svg class="size-6 shrink-0">
-                        <use href="#information"></use>
-                    </svg>
-                    <!-- Message -->
-                    <span>شما دو محصول را به لیست علاقه مندی اضافه کرده اید.</span>
-                </div>
-
-                <!-- Last Orders: Head | Products -->
-                <div class="p-5 border border-neutral-300 rounded-2xl">
-                    <!-- Head -->
-                     <div class="flex flex-col xs:flex-row gap-4 items-center justify-between font-vazirMedium mb-6">
-                        <h2 class="text-xl">آخرین سفارش های شما</h2>
-                        <a href="#" class="flex items-center">
-                            <span class="text-rose-500 text-sm  sm:hover:text-rose-700 transition-colors">نمایش بیشتر</span>
-                            <svg class="size-6 text-rose-700">
-                                <use href="#arrow-left-outline"></use>
-                            </svg>
-                        </a>
-                     </div>
-                    <!-- Products -->
-                    <div class="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 flex-wrap">
-                        <!-- Product: Image | Name | Discount | price -->
-                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div>
-                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
-                            </div>
-                            <!-- Name -->
-                            <span class="font-vazirMedium">توپ اروپا ۲۴/۲۳</span>
-                            <!-- Discount && Price -->
-                            <div class="flex items-center justify-between">
-                                <!-- Discount -->
-                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
-                                <!-- Price -->
-                                <div class="flex items-center gap-0.5">
-                                    <div>
-                                        <div class="text-rose-500 font-vazirMedium">1,000,000</div>
-                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
-                                    </div>
-                                    <span class="text-xs text-rose-500">تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product: Image | Name | Discount | price -->
-                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div>
-                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
-                            </div>
-                            <!-- Name -->
-                            <span class="font-vazirMedium">توپ اروپا ۲۴/۲۳</span>
-                            <!-- Discount && Price -->
-                            <div class="flex items-center justify-between">
-                                <!-- Discount -->
-                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
-                                <!-- Price -->
-                                <div class="flex items-center gap-0.5">
-                                    <div>
-                                        <div class="text-rose-500 font-vazirMedium">1,000,000</div>
-                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
-                                    </div>
-                                    <span class="text-xs text-rose-500">تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product: Image | Name | Discount | price -->
-                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div>
-                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
-                            </div>
-                            <!-- Name -->
-                            <span class="font-vazirMedium">توپ اروپا ۲۴/۲۳</span>
-                            <!-- Discount && Price -->
-                            <div class="flex items-center justify-between">
-                                <!-- Discount -->
-                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
-                                <!-- Price -->
-                                <div class="flex items-center gap-0.5">
-                                    <div>
-                                        <div class="text-rose-500 font-vazirMedium">1,000,000</div>
-                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
-                                    </div>
-                                    <span class="text-xs text-rose-500">تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product: Image | Name | Discount | price -->
-                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div>
-                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
-                            </div>
-                            <!-- Name -->
-                            <span class="font-vazirMedium">توپ اروپا ۲۴/۲۳</span>
-                            <!-- Discount && Price -->
-                            <div class="flex items-center justify-between">
-                                <!-- Discount -->
-                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
-                                <!-- Price -->
-                                <div class="flex items-center gap-0.5">
-                                    <div>
-                                        <div class="text-rose-500 font-vazirMedium">1,000,000</div>
-                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
-                                    </div>
-                                    <span class="text-xs text-rose-500">تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product: Image | Name | Discount | price -->
-                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div>
-                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
-                            </div>
-                            <!-- Name -->
-                            <span class="font-vazirMedium">توپ اروپا ۲۴/۲۳</span>
-                            <!-- Discount && Price -->
-                            <div class="flex items-center justify-between">
-                                <!-- Discount -->
-                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
-                                <!-- Price -->
-                                <div class="flex items-center gap-0.5">
-                                    <div>
-                                        <div class="text-rose-500 font-vazirMedium">1,000,000</div>
-                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
-                                    </div>
-                                    <span class="text-xs text-rose-500">تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Last Comments: Head | Comments -->
-                <div class="p-5 border border-neutral-300 rounded-2xl">
-                    <!-- Head -->
-                     <div class="flex flex-col xs:flex-row gap-4 items-center justify-between font-vazirMedium mb-6">
-                        <h2 class="text-xl">آخرین دیدگاه های شما</h2>
-                        <a href="#" class="flex items-center">
-                            <span class="text-rose-500 text-sm  sm:hover:text-rose-700 transition-colors">نمایش بیشتر</span>
-                            <svg class="size-6 text-rose-700">
-                                <use href="#arrow-left-outline"></use>
-                            </svg>
-                        </a>
-                     </div>
-                    <!-- Comments -->
-                    <div class="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 flex-wrap">
-                        <!-- Comment: Image | Title | Link -->
-                        <div class="pt-2 px-2 font-vazirMedium border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div class="h-24 2xs:h-28 rounded-2xl overflow-hidden ">
-                                <img class="h-full object-cover" src="../images/gym.jpg" alt="باشگاه">
-                            </div>
-                            <!-- Title -->
-                            <p class="text-sm text-center my-1">بهترین وسایل باشگاه</p>
-                            <!-- Link -->
-                            <a href="#" class="flex items-center justify-center text-rose-500 gap-0.5 text-xs">
-                                <svg class="size-3 text-rose-600">
-                                    <use href="#eye"></use>
-                                </svg>
-                                <span>دیدن دیدگاه</span>
-                            </a>
-                        </div>
-                        <!-- Comment: Image | Title | Link -->
-                        <div class="pt-2 px-2 font-vazirMedium border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div class="h-24 2xs:h-28 rounded-2xl overflow-hidden ">
-                                <img class="h-full object-cover" src="../images/gym.jpg" alt="باشگاه">
-                            </div>
-                            <!-- Title -->
-                            <p class="text-sm text-center my-1">بهترین وسایل باشگاه</p>
-                            <!-- Link -->
-                            <a href="#" class="flex items-center justify-center text-rose-500 gap-0.5 text-xs">
-                                <svg class="size-3 text-rose-600">
-                                    <use href="#eye"></use>
-                                </svg>
-                                <span>دیدن دیدگاه</span>
-                            </a>
-                        </div>
-                        <!-- Comment: Image | Title | Link -->
-                        <div class="pt-2 px-2 font-vazirMedium border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div class="h-24 2xs:h-28 rounded-2xl overflow-hidden ">
-                                <img class="h-full object-cover" src="../images/gym.jpg" alt="باشگاه">
-                            </div>
-                            <!-- Title -->
-                            <p class="text-sm text-center my-1">بهترین وسایل باشگاه</p>
-                            <!-- Link -->
-                            <a href="#" class="flex items-center justify-center text-rose-500 gap-0.5 text-xs">
-                                <svg class="size-3 text-rose-600">
-                                    <use href="#eye"></use>
-                                </svg>
-                                <span>دیدن دیدگاه</span>
-                            </a>
-                        </div>
-                        <!-- Comment: Image | Title | Link -->
-                        <div class="pt-2 px-2 font-vazirMedium border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div class="h-24 2xs:h-28 rounded-2xl overflow-hidden ">
-                                <img class="h-full object-cover" src="../images/gym.jpg" alt="باشگاه">
-                            </div>
-                            <!-- Title -->
-                            <p class="text-sm text-center my-1">بهترین وسایل باشگاه</p>
-                            <!-- Link -->
-                            <a href="#" class="flex items-center justify-center text-rose-500 gap-0.5 text-xs">
-                                <svg class="size-3 text-rose-600">
-                                    <use href="#eye"></use>
-                                </svg>
-                                <span>دیدن دیدگاه</span>
-                            </a>
-                        </div>
-                        <!-- Comment: Image | Title | Lih-24 2xs:nk -->
-                        <div class="pt-2 px-2 font-vazirMedium border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div class="h-28 rounded-2xl overflow-hidden ">
-                                <img class="h-full object-cover" src="../images/gym.jpg" alt="توپ">
-                            </div>
-                            <!-- Title -->
-                            <p class="text-sm text-center my-1">بهترین وسایل باشگاه</p>
-                            <!-- Link -->
-                            <a href="#" class="flex items-center justify-center text-rose-500 gap-0.5 text-xs">
-                                <svg class="size-3 text-rose-600">
-                                    <use href="#eye"></use>
-                                </svg>
-                                <span>دیدن دیدگاه</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
 
             </main>
         </div>

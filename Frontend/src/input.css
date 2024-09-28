@@ -205,6 +205,26 @@
         @apply  flex items-center gap-2.5 min-h-14 bg-blue-500 text-neutral-50 font-vazirMedium text-lg sm:text-xl px-4 rounded-2xl;
     }
 
+    /* Order */
+
+    .panel-situation__success {
+        @apply bg-green-100 text-green-600;
+    }
+    .panel-situation__fail {
+        @apply bg-red-100 text-red-600;
+
+    }
+    .panel-situation__review {
+        @apply bg-yellow-100 text-yellow-600;
+    }
+
+    /* Pagination */
+    .panel__pagination {
+        @apply text-lg flex items-center justify-center size-10 font-vazirMedium border border-rose-500 rounded-lg sm:cursor-pointer sm:hover:text-neutral-50 sm:hover:bg-rose-500 transition-colors;
+    }
+    .panel__pagination--active {
+        @apply text-neutral-50 bg-rose-500;
+    }
 
 }
 
