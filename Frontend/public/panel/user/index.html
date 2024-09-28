@@ -14,6 +14,9 @@
         <symbol id="arrow-left" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10.4851 3.98999L8.07755 6.39749L6.60005 7.86749C5.97755 8.48999 5.97755 9.50249 6.60005 10.125L10.4851 14.01C10.9951 14.52 11.8651 14.1525 11.8651 13.44V9.23249V4.55999C11.8651 3.83999 10.9951 3.47999 10.4851 3.98999Z" fill="currentColor"/>
         </symbol>
+        <symbol id="arrow-left-outline" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 20.67C14.81 20.67 14.62 20.6 14.47 20.45L7.95003 13.93C6.89003 12.87 6.89003 11.13 7.95003 10.07L14.47 3.55C14.76 3.26 15.24 3.26 15.53 3.55C15.82 3.84 15.82 4.32 15.53 4.61L9.01003 11.13C8.53003 11.61 8.53003 12.39 9.01003 12.87L15.53 19.39C15.82 19.68 15.82 20.16 15.53 20.45C15.38 20.59 15.19 20.67 15 20.67Z" fill="currentColor"/>
+        </symbol>            
         <symbol id="box" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12.5 13.8542C12.3646 13.8542 12.2292 13.8229 12.1042 13.75L2.90626 8.42708C2.54167 8.20833 2.40626 7.72917 2.62501 7.35417C2.84376 6.97917 3.32292 6.85417 3.69792 7.07292L12.5 12.1667L21.25 7.10417C21.625 6.88542 22.1042 7.02083 22.3229 7.38542C22.5417 7.76042 22.4063 8.23958 22.0417 8.45833L12.9063 13.75C12.7708 13.8125 12.6354 13.8542 12.5 13.8542Z" fill="currentColor"/>
             <path d="M12.5 23.2917C12.0729 23.2917 11.7188 22.9375 11.7188 22.5104V13.0625C11.7188 12.6354 12.0729 12.2812 12.5 12.2812C12.9271 12.2812 13.2812 12.6354 13.2812 13.0625V22.5104C13.2812 22.9375 12.9271 23.2917 12.5 23.2917Z" fill="currentColor"/>
@@ -122,7 +125,7 @@
         <!-- Panel Wrapper: Sidebar |  Main-->
         <div class="my-10 flex gap-6 relative">
             <!-- Sidebar -->
-            <div class="panel__sidebar">
+            <aside class="panel__sidebar">
                 <!-- Sidebar Header: Logo | Close Btn| User Info -->
                 <div>
                     <!-- Logo | Close Btn-->
@@ -258,7 +261,7 @@
                     </svg>
                     <span>خروج از حساب</span>
                 </div>
-            </div>
+            </aside>
             <!-- Main -->
             <main class="w-full md:mr-[312px] text-neutral-950 dark:text-neutral-50 bg-neutral-50 dark:bg-neutral-800 space-y-6 pt-6 px-6 pb-7 rounded-3xl">
                 <!-- Main Header: Sidebar Open Btn | Buttons -->
@@ -297,7 +300,7 @@
                 </div>
 
                 <!-- Stats: Balance | Membership | orders | Last Login  -->
-                <div class="flex items-center justify-center sm:justify-between flex-wrap gap-4 font-vazirMedium">
+                <div class="flex items-center justify-center lg:justify-start xl:justify-between flex-wrap gap-4 font-vazirMedium">
                     <!-- Balance -->
                     <div class="w-44 xs:w-[200px] border border-neutral-300 py-4 px-2 rounded-2xl">
                         <div class="text-lg xs:text-xl flex gap-1.5">
@@ -349,11 +352,138 @@
                     <span>شما دو محصول را به لیست علاقه مندی اضافه کرده اید.</span>
                 </div>
 
+                <!-- Last Orders: Head | Products -->
+                <div class="p-5 border border-neutral-300 rounded-2xl">
+                    <!-- Head -->
+                     <div class="flex items-center justify-between font-vazirMedium mb-6">
+                        <h2 class="text-xl">آخرین سفارش های شما</h2>
+                        <div class="flex items-center">
+                            <span class="text-rose-500 text-sm">نمایش بیشتر</span>
+                            <svg class="size-6 text-rose-700">
+                                <use href="#arrow-left-outline"></use>
+                            </svg>
+                        </div>
+                     </div>
+                    <!-- Products -->
+                    <div class="flex justify-center lg:justify-between gap-2 flex-wrap">
+                        <!-- Product: Image | Name | Discount | price -->
+                        <div class="w-32 xs:w-40 pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
+                            <!-- Image -->
+                            <div>
+                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
+                            </div>
+                            <!-- Name -->
+                            <span class="font-vazirMedium">توپ اروپا ۲۴/۲۳</span>
+                            <!-- Discount && Price -->
+                            <div class="flex items-center justify-between">
+                                <!-- Discount -->
+                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
+                                <!-- Price -->
+                                <div class="flex items-center gap-0.5">
+                                    <div>
+                                        <div class="text-rose-500">1,000,000</div>
+                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
+                                    </div>
+                                    <span class="text-xs text-rose-500">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product: Image | Name | Discount | price -->
+                        <div class="w-32 xs:w-40 pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
+                            <!-- Image -->
+                            <div>
+                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
+                            </div>
+                            <!-- Name -->
+                            <span class="font-vazirMedium">توپ اروپا ۲۴/۲۳</span>
+                            <!-- Discount && Price -->
+                            <div class="flex items-center justify-between">
+                                <!-- Discount -->
+                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
+                                <!-- Price -->
+                                <div class="flex items-center gap-0.5">
+                                    <div>
+                                        <div class="text-rose-500">1,000,000</div>
+                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
+                                    </div>
+                                    <span class="text-xs text-rose-500">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product: Image | Name | Discount | price -->
+                        <div class="w-32 xs:w-40 pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
+                            <!-- Image -->
+                            <div>
+                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
+                            </div>
+                            <!-- Name -->
+                            <span class="font-vazirMedium">توپ اروپا ۲۴/۲۳</span>
+                            <!-- Discount && Price -->
+                            <div class="flex items-center justify-between">
+                                <!-- Discount -->
+                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
+                                <!-- Price -->
+                                <div class="flex items-center gap-0.5">
+                                    <div>
+                                        <div class="text-rose-500">1,000,000</div>
+                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
+                                    </div>
+                                    <span class="text-xs text-rose-500">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product: Image | Name | Discount | price -->
+                        <div class="w-32 xs:w-40 pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
+                            <!-- Image -->
+                            <div>
+                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
+                            </div>
+                            <!-- Name -->
+                            <span class="font-vazirMedium">توپ اروپا ۲۴/۲۳</span>
+                            <!-- Discount && Price -->
+                            <div class="flex items-center justify-between">
+                                <!-- Discount -->
+                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
+                                <!-- Price -->
+                                <div class="flex items-center gap-0.5">
+                                    <div>
+                                        <div class="text-rose-500">1,000,000</div>
+                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
+                                    </div>
+                                    <span class="text-xs text-rose-500">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product: Image | Name | Discount | price -->
+                        <div class="w-32 xs:w-40 pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
+                            <!-- Image -->
+                            <div>
+                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
+                            </div>
+                            <!-- Name -->
+                            <span class="font-vazirMedium">توپ اروپا ۲۴/۲۳</span>
+                            <!-- Discount && Price -->
+                            <div class="flex items-center justify-between">
+                                <!-- Discount -->
+                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
+                                <!-- Price -->
+                                <div class="flex items-center gap-0.5">
+                                    <div>
+                                        <div class="text-rose-500">1,000,000</div>
+                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
+                                    </div>
+                                    <span class="text-xs text-rose-500">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </main>
         </div>
      </div>
 
-     <div id="overlay" class="hidden fixed inset-0 bg-black/20 backdrop-blur-md z-40"></div>
+     <div id="overlay" class="hidden fixed inset-0 bg-black/10 backdrop-blur-sm z-40"></div>
 
      <script src="../js/shared/app.js" type="module"></script>
   </body>
