@@ -198,6 +198,10 @@
     .panel-sidebar-menu__item--active {
         @apply bg-neutral-50 dark:bg-neutral-800 text-rose-500 dark:text-rose-50;
     }
+
+    .panel__alert-message {
+        @apply  flex items-center gap-2.5 min-h-14 bg-blue-500 text-neutral-50 font-vazirMedium text-lg sm:text-xl px-4 rounded-2xl;
+    }
 }
 
 @layer utilities {
