@@ -300,46 +300,46 @@
                 </div>
 
                 <!-- Stats: Balance | Membership | orders | Last Login  -->
-                <div class="flex items-center justify-center lg:justify-start xl:justify-between flex-wrap gap-4 font-vazirMedium">
+                <div class="grid 2xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 font-vazirMedium">
                     <!-- Balance -->
-                    <div class="w-44 xs:w-[200px] border border-neutral-300 py-4 px-2 rounded-2xl">
-                        <div class="text-lg xs:text-xl flex gap-1.5">
-                            <svg class="size-6">
+                    <div class="border border-neutral-300 py-4 px-2 rounded-2xl">
+                        <div class="xs:text-xl flex gap-1.5">
+                            <svg class="size-5 xs:size-6">
                                 <use href="#empty-wallet"></use>
                             </svg>
                             <span>موجودی کیف پول</span>
                         </div>
-                        <div class="flex justify-end">25,000 تومان</div>
+                        <div class="text-sm xs:text-base flex justify-end">25,000 تومان</div>
                     </div>
                     <!-- Membership Period -->
-                    <div class="w-44 xs:w-[200px] border border-neutral-300 py-4 px-2 rounded-2xl">
-                        <div class="text-lg xs:text-xl flex gap-1.5">
-                            <svg class="size-6">
+                    <div class="border border-neutral-300 py-4 px-2 rounded-2xl">
+                        <div class="xs:text-xl flex gap-1.5">
+                            <svg class="size-5 xs:size-6">
                                 <use href="#calendar"></use>
                             </svg>
                             <span>مدت عضویت</span>
                         </div>
-                        <div class="flex justify-end">۲۵۰ روز</div>
+                        <div class="text-sm xs:text-base flex justify-end">۲۵۰ روز</div>
                     </div>
                     <!-- Orders Count -->
-                    <div class="w-44 xs:w-[200px] border border-neutral-300 py-4 px-2 rounded-2xl">
-                        <div class="text-lg xs:text-xl flex gap-1.5">
-                            <svg class="size-6">
+                    <div class="border border-neutral-300 py-4 px-2 rounded-2xl">
+                        <div class="xs:text-xl flex gap-1.5">
+                            <svg class="size-5 xs:size-6">
                                 <use href="#truck"></use>
                             </svg>
                             <span>تعداد سفارش</span>
                         </div>
-                        <div class="flex justify-end">۱۲ سفارش</div>
+                        <div class="text-sm xs:text-base flex justify-end">۱۲ سفارش</div>
                     </div>
                     <!-- Last Login -->
-                    <div class="w-44 xs:w-[200px] border border-neutral-300 py-4 px-2 rounded-2xl">
-                        <div class="text-lg xs:text-xl flex gap-1.5">
-                            <svg class="size-6">
+                    <div class="border border-neutral-300 py-4 px-2 rounded-2xl">
+                        <div class="xs:text-xl flex gap-1.5">
+                            <svg class="size-5 xs:size-6">
                                 <use href="#eye"></use>
                             </svg>
                             <span>آخرین بازدید</span>
                         </div>
-                        <div class="flex justify-end">۶ مهر ۱۴۰۳</div>
+                        <div class="text-sm xs:text-base flex justify-end">۶ مهر ۱۴۰۳</div>
                     </div>
                 </div>
 
@@ -355,19 +355,19 @@
                 <!-- Last Orders: Head | Products -->
                 <div class="p-5 border border-neutral-300 rounded-2xl">
                     <!-- Head -->
-                     <div class="flex items-center justify-between font-vazirMedium mb-6">
+                     <div class="flex flex-col xs:flex-row gap-4 items-center justify-between font-vazirMedium mb-6">
                         <h2 class="text-xl">آخرین سفارش های شما</h2>
-                        <div class="flex items-center">
-                            <span class="text-rose-500 text-sm">نمایش بیشتر</span>
+                        <a href="#" class="flex items-center">
+                            <span class="text-rose-500 text-sm  sm:hover:text-rose-700 transition-colors">نمایش بیشتر</span>
                             <svg class="size-6 text-rose-700">
                                 <use href="#arrow-left-outline"></use>
                             </svg>
-                        </div>
+                        </a>
                      </div>
                     <!-- Products -->
-                    <div class="flex justify-center lg:justify-between gap-2 flex-wrap">
+                    <div class="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 flex-wrap">
                         <!-- Product: Image | Name | Discount | price -->
-                        <div class="w-32 xs:w-40 pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
+                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
                             <!-- Image -->
                             <div>
                                 <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
@@ -389,7 +389,7 @@
                             </div>
                         </div>
                         <!-- Product: Image | Name | Discount | price -->
-                        <div class="w-32 xs:w-40 pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
+                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
                             <!-- Image -->
                             <div>
                                 <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
@@ -411,7 +411,7 @@
                             </div>
                         </div>
                         <!-- Product: Image | Name | Discount | price -->
-                        <div class="w-32 xs:w-40 pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
+                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
                             <!-- Image -->
                             <div>
                                 <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
@@ -433,7 +433,7 @@
                             </div>
                         </div>
                         <!-- Product: Image | Name | Discount | price -->
-                        <div class="w-32 xs:w-40 pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
+                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
                             <!-- Image -->
                             <div>
                                 <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
@@ -455,7 +455,7 @@
                             </div>
                         </div>
                         <!-- Product: Image | Name | Discount | price -->
-                        <div class="w-32 xs:w-40 pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
+                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
                             <!-- Image -->
                             <div>
                                 <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
