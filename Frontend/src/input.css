@@ -10,6 +10,7 @@
         font-display: swap;
         src: url("../fonts/Vazir/Vazir-Regular-FD.woff2") format('woff2');
     }
+
     @font-face {
         font-family: "Vazir Medium";
         font-weight: 400;
@@ -17,6 +18,7 @@
         font-display: swap;
         src: url("../fonts/Vazir/Vazir-Medium-FD.woff2") format('woff2');
     }
+
     @font-face {
         font-family: "Vazir Bold";
         font-weight: 400;
@@ -24,6 +26,7 @@
         font-display: swap;
         src: url("../fonts/Vazir/Vazir-Bold-FD.woff2") format('woff2');
     }
+
     @font-face {
         font-family: "Vazir Light";
         font-weight: 400;
@@ -31,6 +34,7 @@
         font-display: swap;
         src: url("../fonts/Vazir/Vazir-Light-FD.woff2") format('woff2');
     }
+
     @font-face {
         font-family: "Vazir Black";
         font-weight: 400;
@@ -95,7 +99,7 @@
 
     .taminel-sport__item,
     .promo-area__item {
-        @apply relative 
+        @apply relative
     }
 
     .taminel-sport__img,
@@ -169,14 +173,35 @@
         @apply rounded-br-xl xs:rounded-none
     }
 
-    .brand__item::before{
+    .brand__item::before {
         content: "";
-        @apply xs:absolute -left-6 top-0 bottom-0 bg-neutralBorder h-full w-0.5;   
+        @apply xs:absolute -left-6 top-0 bottom-0 bg-neutralBorder h-full w-0.5;
     }
 
-    .footer-infos__tel::before{
+    .footer-infos__tel::before {
         content: "";
         @apply block xs:absolute m-auto top-0 bottom-0 -left-3 w-0.5 bg-neutralBorder
+    }
+
+    /* Input Range Value */
+    .select-option {
+        @apply hidden justify-center items-center flex-col -mt-0.5 border-2 border-b-neutralBorder transition-transform rounded-xl
+    }
+
+    .select-option--visible {
+        @apply flex
+    }
+
+    /* Start Slider Price Input */
+
+
+    /* Finish Slider Price Input */
+
+
+
+    /* Page Btn Style (Active) */
+    .page-btn--active {
+        @apply text-white bg-orangeBrand
     }
 
     .overlay {

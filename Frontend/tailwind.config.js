@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./public/**/*.{html,js}"],
@@ -15,6 +17,7 @@ module.exports = {
         blueTint_1 : "#D8DCFD",
         orangeBrand : "#FF9447",
         orangeTint_1 : "#FFDEC7",
+        orangeTint_2 : "#FCC197",
         orangeTint_3 : "#F29F64",
         grayTint_1 : "#E6E6E6",
         grayTint_2 : "#CCC",
@@ -51,5 +54,10 @@ module.exports = {
       'xl': '1400px',
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function({addVarient}){
+      addVarient("child", '&>*');
+      addVarient("child-hover", "&>:hover");
+    },)
+  ]
 }
