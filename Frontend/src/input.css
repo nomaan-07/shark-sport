@@ -60,7 +60,7 @@
 
     .header-seperator::after {
         content: "";
-        @apply absolute m-auto left-0 right-0 bottom-6 md:-bottom-6 bg-grayTint_2 w-full lg:w-[90%] h-[1px]
+        @apply absolute m-auto left-0 right-0 bottom-6 md:-bottom-6 bg-grayTint_2 w-full xs:w-[95%] lg:w-[90%] h-[1px]
     }
 
     .header-shopping-cart--notif {
@@ -288,17 +288,69 @@
 
 
     /* Price Strike */
-    .price-strike::after{
+    .price-strike::after,
+    .price-strike-single__product::after{
         content: "";
-        @apply absolute w-full h-[1px] -top-0.5 inset-0 m-auto bg-grayTint_3
+        @apply absolute w-full h-[1px] -top-0.5 inset-0 m-auto
     }
-
+    .price-strike::after{
+        @apply bg-grayTint_3
+    }
+    .price-strike-single__product::after{
+        @apply bg-shade_2
+    }
 
     /* Page Btn Style (Active) */
     .page-btn--active {
         @apply text-white bg-orangeBrand
     }
+    /* Product Nav Item (Active) */
+    .product-nav__item--active{
+        @apply text-orangeBrand relative
+    }
+    .product-nav__item--active::after{
+        content: "";
+        @apply absolute left-0 right-0 -bottom-2.5 w-full h-[3px] bg-orangeBrand rounded-xl z-10
+    }
 
+    /* Lines Seperator */
+    .warranty::after,
+    .warranty::before{
+        content: "";
+        @apply absolute left-0 right-0 w-full h-0.5 bg-neutralBorder
+    }
+    .warranty::after{
+        @apply top-0.5
+    }
+    .warranty::before{
+        @apply bottom-0.5
+    }
+    .dividing-line__nav::after,
+    .product-detail__content::after,
+    .product-detail__left--separator::after{
+        content: "";
+        @apply w-full h-0.5 bg-neutralBorder absolute left-0 right-0 m-auto 
+    }
+    .dividing-line__nav::after{
+        @apply -bottom-2.5
+    }
+    .product-detail__content::after,
+    .product-detail__left--separator::after{
+        @apply -bottom-6
+    }
+    .product-detail__info::after{
+        content: "";
+        @apply absolute left-0 right-0 -bottom-6 w-full h-[1px] bg-neutralBorder
+    }
+    .footer-line::before{
+        content: "";
+        @apply absolute m-auto left-0 right-0 top-0 md:-top-2 w-full xs:w-[95%] lg:w-[90%] h-0.5 bg-neutralBorder
+    }
+
+    .product-detail__title::after{
+        content: "";
+        @apply absolute right-0 -bottom-2.5 m-auto bg-orangeBrand w-[133px] h-0.5 rounded-xl
+    }
     .overlay {
         @apply fixed inset-0 z-20 bg-overlayBcg invisible opacity-0 w-full h-full transition-all
     }
