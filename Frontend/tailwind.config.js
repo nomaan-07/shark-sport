@@ -29,7 +29,7 @@ module.exports = {
         grayShade_1 : "#666666",
         overlayBcg : "#00000066",
         neutralBorder : "#E0E0E2",
-        green : "#0A8E46",
+        customGreen : "#0A8E46",
         darkGreen : "#20AC60",
         sea : "#F5F5F5",
         shade_2 : "#4D4D4D",
