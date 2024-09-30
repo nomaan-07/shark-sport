@@ -229,13 +229,45 @@
     /* Form */
     .panel__form input,
     .panel__form textarea,
-    .panel__form .select {
+    .panel__form .panel__select {
         @apply w-full px-2.5 py-4 bg-transparent dark:bg-neutral-700 text-lg sm:text-xl border border-neutral-300 rounded-2xl outline-none font-vazirMedium placeholder:text-neutral-400 focus:border-neutral-400 dark:focus:border-neutral-100 transition-all;
     }
 
-    .panel__form .select {
-        @apply flex items-center justify-between sm:hover:border-neutral-400 dark:sm:hover:border-neutral-100 focus-within:border-neutral-400 dark:focus-within:border-neutral-100 sm:cursor-pointer transition-all;
+    .panel__form .panel__select {
+        @apply relative;
     } 
+    .panel__form .panel__select-header {
+        @apply flex items-center justify-between sm:hover:border-neutral-400 dark:sm:hover:border-neutral-100 sm:cursor-pointer transition-all;
+    }
+
+    .panel__form .panel__select span {
+        @apply  text-neutral-400;
+    }
+
+    .panel__form .panel__select svg {
+        @apply  text-neutral-400 size-6 transition-all;
+    }
+
+    .panel__form .panel__select .panel__select--active {
+        @apply text-inherit;
+    }
+    .panel__form .panel__options-wrapper {
+        @apply absolute top-16 left-0 right-0 text-lg bg-neutral-50 dark:bg-neutral-700 sm:text-xl border border-neutral-300 rounded-2xl font-vazirMedium overflow-hidden z-10 transition-all;
+    }
+
+    
+    .panel__form .panel__option {
+        @apply px-2.5 py-4 sm:hover:bg-neutral-200 sm:hover:dark:bg-neutral-600 transition-colors;
+    }
+
+    .panel__form .panel__option:first-child {
+        @apply text-neutral-400;
+    }
+
+    .panel__form .panel__option--active {
+        @apply bg-neutral-300 dark:bg-neutral-500;
+    }
+
     .panel__form textarea {
         @apply  min-h-44 resize-none;
 
@@ -259,5 +291,9 @@
     .dir-rtl {
         text-align: right;
         direction: rtl;
+    }
+
+    .hide {
+        @apply invisible opacity-0;
     }
 }
