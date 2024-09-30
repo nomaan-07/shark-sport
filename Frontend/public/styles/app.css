@@ -2328,6 +2328,11 @@ input[type="range"]::-webkit-slider-thumb {
   background-color: rgb(230 230 230 / var(--tw-bg-opacity));
 }
 
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+}
+
 .bg-neutralBorder {
   --tw-bg-opacity: 1;
   background-color: rgb(224 224 226 / var(--tw-bg-opacity));
@@ -2603,6 +2608,11 @@ input[type="range"]::-webkit-slider-thumb {
   color: rgb(68 85 232 / var(--tw-text-opacity));
 }
 
+.text-customGreen {
+  --tw-text-opacity: 1;
+  color: rgb(10 142 70 / var(--tw-text-opacity));
+}
+
 .text-darkGreen {
   --tw-text-opacity: 1;
   color: rgb(32 172 96 / var(--tw-text-opacity));
@@ -2631,11 +2641,6 @@ input[type="range"]::-webkit-slider-thumb {
 .text-grayTint_4 {
   --tw-text-opacity: 1;
   color: rgb(153 153 153 / var(--tw-text-opacity));
-}
-
-.text-green {
-  --tw-text-opacity: 1;
-  color: rgb(10 142 70 / var(--tw-text-opacity));
 }
 
 .text-neutralBorder {
