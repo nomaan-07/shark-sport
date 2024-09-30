@@ -226,6 +226,25 @@
         @apply text-neutral-50 bg-rose-500;
     }
 
+    /* Form */
+    .panel__form input,
+    .panel__form textarea,
+    .panel__form .select {
+        @apply w-full px-2.5 py-4 bg-transparent dark:bg-neutral-700 text-lg sm:text-xl border border-neutral-300 rounded-2xl outline-none font-vazirMedium placeholder:text-neutral-400 focus:border-neutral-400 dark:focus:border-neutral-100 transition-all;
+    }
+
+    .panel__form .select {
+        @apply flex items-center justify-between sm:hover:border-neutral-400 dark:sm:hover:border-neutral-100 focus-within:border-neutral-400 dark:focus-within:border-neutral-100 sm:cursor-pointer transition-all;
+    } 
+    .panel__form textarea {
+        @apply  min-h-44 resize-none;
+
+    }
+
+    .panel__form button {
+        @apply w-full 2xs:w-56 h-12 2xs:h-16 flex items-center justify-center mx-auto bg-rose-500 sm:hover:bg-rose-600 text-neutral-50 text-lg sm:text-xl rounded-2xl font-vazirMedium transition-colors;
+    }
+
 }
 
 @layer utilities {

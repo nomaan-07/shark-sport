@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>پنل کاربر | سفارشات</title>
+    <title>پنل کاربر | تیکت ها</title>
     <link rel="stylesheet" href="../../styles/app.css" />
         <!-- Page Icon -->
         <link rel="icon" href="../../images/fav-icon.png" type="image/png">
@@ -11,6 +11,9 @@
   <body class="bg-neutral-200 dark:bg-neutral-600 font-vazir">
     <!-- SVGs -->
      <svg class="hidden">
+        <symbol id="arrow-down" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 16.7999C11.3 16.7999 10.6 16.5299 10.07 15.9999L3.55002 9.47989C3.26002 9.18989 3.26002 8.70989 3.55002 8.41989C3.84002 8.12989 4.32002 8.12989 4.61002 8.41989L11.13 14.9399C11.61 15.4199 12.39 15.4199 12.87 14.9399L19.39 8.41989C19.68 8.12989 20.16 8.12989 20.45 8.41989C20.74 8.70989 20.74 9.18989 20.45 9.47989L13.93 15.9999C13.4 16.5299 12.7 16.7999 12 16.7999Z" fill="currentColor"/>
+        </symbol>            
         <symbol id="arrow-left" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10.4851 3.98999L8.07755 6.39749L6.60005 7.86749C5.97755 8.48999 5.97755 9.50249 6.60005 10.125L10.4851 14.01C10.9951 14.52 11.8651 14.1525 11.8651 13.44V9.23249V4.55999C11.8651 3.83999 10.9951 3.47999 10.4851 3.98999Z" fill="currentColor"/>
         </symbol>
@@ -67,7 +70,12 @@
         <symbol id="home-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.79 22.75H6.21C3.47 22.75 1.25 20.52 1.25 17.78V10.37C1.25 9.00997 2.09 7.29997 3.17 6.45997L8.56 2.25997C10.18 0.999974 12.77 0.939974 14.45 2.11997L20.63 6.44997C21.82 7.27997 22.75 9.05997 22.75 10.51V17.79C22.75 20.52 20.53 22.75 17.79 22.75ZM9.48 3.43997L4.09 7.63997C3.38 8.19997 2.75 9.46997 2.75 10.37V17.78C2.75 19.69 4.3 21.25 6.21 21.25H17.79C19.7 21.25 21.25 19.7 21.25 17.79V10.51C21.25 9.54997 20.56 8.21997 19.77 7.67997L13.59 3.34997C12.45 2.54997 10.57 2.58997 9.48 3.43997Z" fill="currentColor"/>
             <path d="M12 18.75C11.59 18.75 11.25 18.41 11.25 18V15C11.25 14.59 11.59 14.25 12 14.25C12.41 14.25 12.75 14.59 12.75 15V18C12.75 18.41 12.41 18.75 12 18.75Z" fill="currentColor"/>
-        </symbol>           
+        </symbol>    
+        <symbol id="information" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.01 22.74C11.38 22.74 10.76 22.53 10.27 22.11L8.68999 20.76C8.52999 20.62 8.13 20.48 7.92 20.48H6.17C4.69 20.48 3.49 19.28 3.49 17.8V16.09C3.49 15.88 3.35 15.48 3.22 15.33L1.86 13.73C1.04 12.76 1.04 11.24 1.86 10.26L3.22 8.66001C3.35 8.51001 3.49 8.11001 3.49 7.90001V6.20001C3.49 4.72001 4.69 3.52001 6.17 3.52001H7.9C8.11 3.52001 8.5 3.37001 8.67 3.23001L10.25 1.88001C11.23 1.05001 12.76 1.05001 13.74 1.88001L15.32 3.23001C15.48 3.37001 15.89 3.51001 16.1 3.51001H17.8C19.28 3.51001 20.48 4.71001 20.48 6.19001V7.89001C20.48 8.10001 20.63 8.49001 20.77 8.66001L22.12 10.24C22.96 11.23 22.95 12.76 22.12 13.73L20.77 15.31C20.63 15.48 20.49 15.87 20.49 16.08V17.78C20.49 19.26 19.29 20.46 17.81 20.46H16.11C15.9 20.46 15.51 20.61 15.33 20.75L13.75 22.1C13.26 22.53 12.63 22.74 12.01 22.74ZM6.17 5.02001C5.52 5.02001 4.98999 5.55001 4.98999 6.20001V7.90001C4.98999 8.47001 4.73 9.19001 4.36 9.63001L3 11.23C2.66 11.64 2.66 12.36 3 12.76L4.34999 14.35C4.70999 14.76 4.98 15.51 4.98 16.08V17.79C4.98 18.44 5.50999 18.97 6.16 18.97H7.9C8.46 18.97 9.2 19.24 9.64 19.61L11.23 20.97C11.64 21.32 12.36 21.32 12.77 20.97L14.35 19.62C14.8 19.24 15.53 18.98 16.09 18.98H17.79C18.44 18.98 18.97 18.45 18.97 17.8V16.1C18.97 15.54 19.24 14.81 19.61 14.36L20.97 12.77C21.32 12.36 21.32 11.64 20.97 11.23L19.62 9.65001C19.24 9.20001 18.98 8.47001 18.98 7.91001V6.20001C18.98 5.55001 18.45 5.02001 17.8 5.02001H16.1C15.53 5.02001 14.79 4.75001 14.35 4.38001L12.76 3.02001C12.35 2.67001 11.64 2.67001 11.22 3.02001L9.64999 4.38001C9.2 4.75001 8.47 5.02001 7.9 5.02001H6.17Z" fill="currentColor"/>
+            <path d="M12 16.87C11.45 16.87 11 16.42 11 15.87C11 15.32 11.44 14.87 12 14.87C12.55 14.87 13 15.32 13 15.87C13 16.42 12.56 16.87 12 16.87Z" fill="currentColor"/>
+            <path d="M12 13.72C11.59 13.72 11.25 13.38 11.25 12.97V8.13C11.25 7.72 11.59 7.38 12 7.38C12.41 7.38 12.75 7.72 12.75 8.13V12.96C12.75 13.38 12.42 13.72 12 13.72Z" fill="currentColor"/>
+        </symbol>       
         <symbol id="menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
             <path d="M3 7H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             <path d="M3 12H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -176,7 +184,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./orders.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full panel-sidebar-menu__item--active">
+                        <a href="./orders.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#box"></use>
@@ -202,7 +210,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./ticket.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
+                        <a href="./ticket.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full  panel-sidebar-menu__item--active">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#ticket"></use>
@@ -303,282 +311,43 @@
                 </div>
 
 
-                <!-- Title -->
-                <h2 class="text-2xl font-vazirMedium">تاریخچه سفارشات</h2>
+                <!-- Form Title -->
+                <h2 class="text-2xl font-vazirMedium">ثبت تیکت</h2>
 
-                <!-- Filters -->
-                <div class="flex items-center gap-y-3 gap-x-7 flex-wrap font-vazirMedium pb-3 border-b border-b-neutral-300 sm:cursor-pointer">
-                    <!-- text-rose-500 for active filter -->
-                    <span class="sm:hover:text-rose-500 transition-colors text-rose-500">همه ی سفارشات</span>
-                    <span class="sm:hover:text-rose-500 transition-colors">تحویل شده</span>
-                    <span class="sm:hover:text-rose-500 transition-colors">درحال بررسی</span>
-                    <span class="sm:hover:text-rose-500 transition-colors">مرجوع شده</span>
-                    <span class="sm:hover:text-rose-500 transition-colors">لغو شده</span>
+                <!-- Form -->
+                <form class="panel__form space-y-6">
+                    <!-- Ticket Title | Ticket Level -->
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
+                        <!-- Title Input -->
+                        <input type="text" placeholder="عنوان تیکت ..." >
+
+                        <!-- Level  -->
+                        <div class="select">
+                            <span class="text-neutral-400">سطح تیکت...</span>
+                            <svg class="text-neutral-400 size-6">
+                                <use href="#arrow-down"></use>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Ticket Message -->
+                    <textarea placeholder="پیام"></textarea>
+
+                    <!-- Submit Btn -->
+                    <button class="">ارسال تیکت</button>
+                </form>
+
+                <!-- Tickets Title -->
+                <h2 class="text-2xl font-vazirMedium pb-4 border-b border-b-neutral-300">‌تاریخچه تیکت ها</h2>
+
+                <!-- Alert Message -->
+                <div class="panel__alert-message">
+                    <svg class="size-6 shrink-0">
+                        <use href="#information"></use>
+                    </svg>
+                    <!-- Message -->
+                    <span>کاربر گرامی شما تا الان تیکتی ثبت نکرده اید.</span>
                 </div>
-
-                <!-- Orders -->
-                <div class="space-y-6">
-
-                    <!-- Order -->
-                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price -->
-                        <div class="flex items-center gap-y-2 gap-x-6 flex-wrap">
-                            <!-- Checkbox -->
-                            <label class="relative inline-block">
-                                <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer" />
-                                <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
-                            </label>
-    
-                            <!-- Image -->
-                            <div class="size-[72px] rounded-xl overflow-hidden">
-                                <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
-                            </div>
-
-                            <!-- Name -->
-                            <span class="font-vazirMedium">کفش استوک فوتبالی</span>
-
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500 font-vazirMedium">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
-                            </div>
-                        </div>
-
-                        <!-- Left: Situation | Buttons -->
-                        <div class="flex items-center gap-8 justify-end grow">
-                            <!-- classes: panel-situation__: success || fail || review -->
-                            <!-- Situation -->
-                            <div class="w-28 h-8 flex items-center justify-center font-vazirMedium rounded-2xl panel-situation__success">تحویل شده</div>
-
-                            <!-- Buttons: Edit Btn | View Btn-->
-                             <div class="flex items-center gap-2">
-                                <!-- Edit Btn -->
-                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                    <use href="#edit"></use>
-                                </svg>
-
-                                <!-- View Btn -->
-                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                    <use href="#eye"></use>
-                                </svg>
-                             </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Order -->
-                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price -->
-                        <div class="flex items-center gap-y-2 gap-x-6 flex-wrap">
-                            <!-- Checkbox -->
-                            <label class="relative inline-block">
-                                <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer" />
-                                <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
-                            </label>
-    
-                            <!-- Image -->
-                            <div class="size-[72px] rounded-xl overflow-hidden">
-                                <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
-                            </div>
-
-                            <!-- Name -->
-                            <span class="font-vazirMedium">کفش استوک فوتبالی</span>
-
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500 font-vazirMedium">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
-                            </div>
-                        </div>
-
-                        <!-- Left: Situation | Buttons -->
-                        <div class="flex items-center gap-8 justify-end grow">
-                            <!-- classes: panel-situation__: success || fail || review -->
-                            <!-- Situation -->
-                            <div class="w-28 h-8 flex items-center justify-center font-vazirMedium rounded-2xl panel-situation__fail">لغو شده</div>
-
-                            <!-- Buttons: Edit Btn | View Btn-->
-                             <div class="flex items-center gap-2">
-                                <!-- Edit Btn -->
-                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                    <use href="#edit"></use>
-                                </svg>
-
-                                <!-- View Btn -->
-                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                    <use href="#eye"></use>
-                                </svg>
-                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Order -->
-                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price -->
-                        <div class="flex items-center gap-y-2 gap-x-6 flex-wrap">
-                            <!-- Checkbox -->
-                            <label class="relative inline-block">
-                                <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer" />
-                                <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
-                            </label>
-    
-                            <!-- Image -->
-                            <div class="size-[72px] rounded-xl overflow-hidden">
-                                <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
-                            </div>
-
-                            <!-- Name -->
-                            <span class="font-vazirMedium">کفش استوک فوتبالی</span>
-
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500 font-vazirMedium">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
-                            </div>
-                        </div>
-
-                        <!-- Left: Situation | Buttons -->
-                        <div class="flex items-center gap-8 justify-end grow">
-                            <!-- classes: panel-situation__: success || fail || review -->
-                            <!-- Situation -->
-                            <div class="w-28 h-8 flex items-center justify-center font-vazirMedium rounded-2xl panel-situation__review">در حال بررسی</div>
-
-                            <!-- Buttons: Edit Btn | View Btn-->
-                             <div class="flex items-center gap-2">
-                                <!-- Edit Btn -->
-                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                    <use href="#edit"></use>
-                                </svg>
-
-                                <!-- View Btn -->
-                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                    <use href="#eye"></use>
-                                </svg>
-                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Order -->
-                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price -->
-                        <div class="flex items-center gap-y-2 gap-x-6 flex-wrap">
-                            <!-- Checkbox -->
-                            <label class="relative inline-block">
-                                <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer" />
-                                <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
-                            </label>
-    
-                            <!-- Image -->
-                            <div class="size-[72px] rounded-xl overflow-hidden">
-                                <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
-                            </div>
-
-                            <!-- Name -->
-                            <span class="font-vazirMedium">کفش استوک فوتبالی</span>
-
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500 font-vazirMedium">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
-                            </div>
-                        </div>
-
-                        <!-- Left: Situation | Buttons -->
-                        <div class="flex items-center gap-8 justify-end grow">
-                            <!-- classes: panel-situation__: success || fail || review -->
-                            <!-- Situation -->
-                            <div class="w-28 h-8 flex items-center justify-center font-vazirMedium rounded-2xl panel-situation__success">تحویل شده</div>
-
-                            <!-- Buttons: Edit Btn | View Btn-->
-                             <div class="flex items-center gap-2">
-                                <!-- Edit Btn -->
-                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                    <use href="#edit"></use>
-                                </svg>
-
-                                <!-- View Btn -->
-                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                    <use href="#eye"></use>
-                                </svg>
-                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Order -->
-                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price -->
-                        <div class="flex items-center gap-y-2 gap-x-6 flex-wrap">
-                            <!-- Checkbox -->
-                            <label class="relative inline-block">
-                                <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer" />
-                                <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
-                            </label>
-    
-                            <!-- Image -->
-                            <div class="size-[72px] rounded-xl overflow-hidden">
-                                <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
-                            </div>
-
-                            <!-- Name -->
-                            <span class="font-vazirMedium">کفش استوک فوتبالی</span>
-
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500 font-vazirMedium">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
-                            </div>
-                        </div>
-
-                        <!-- Left: Situation | Buttons -->
-                        <div class="flex items-center gap-8 justify-end grow">
-                            <!-- classes: panel-situation__: success || fail || review -->
-                            <!-- Situation -->
-                            <div class="w-28 h-8 flex items-center justify-center font-vazirMedium rounded-2xl panel-situation__success">تحویل شده</div>
-
-                            <!-- Buttons: Edit Btn | View Btn-->
-                             <div class="flex items-center gap-2">
-                                <!-- Edit Btn -->
-                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                    <use href="#edit"></use>
-                                </svg>
-
-                                <!-- View Btn -->
-                                <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                    <use href="#eye"></use>
-                                </svg>
-                             </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Pagination -->
-                <div class="flex justify-center gap-2">
-                    <!-- Active class: panel__pagination--active -->
-                    <div class="panel__pagination panel__pagination--active">1</div>
-                    <div class="panel__pagination">2</div>
-                    <div class="panel__pagination">3</div>
-                    <div class="panel__pagination">
-                        <svg class="size-6">
-                            <use href="#arrow-left-outline"></use>
-                        </svg>
-                    </div>
-                </div>
-
 
             </main>
         </div>
