@@ -21,6 +21,7 @@ module.exports = {
         orangeTint_1 : "#FFDEC7",
         orangeTint_2 : "#FCC197",
         orangeTint_3 : "#F29F64",
+        orangeTint_4 : "#E48849",
         grayBrand : "#808080",
         grayTint_1 : "#E6E6E6",
         grayTint_2 : "#CCC",
