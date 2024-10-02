@@ -351,6 +351,19 @@
         content: "";
         @apply absolute right-0 -bottom-2.5 m-auto bg-orangeBrand w-[133px] h-0.5 rounded-xl
     }
+    .line-seperator::after,
+    .line-seperator__label::after,
+    .line-seperator__label::before{
+        content: "";
+        @apply absolute h-0.5 w-full bg-neutralBorder left-0 right-0 m-auto
+    }
+    .line-seperator::after,
+    .line-seperator__label::after{
+        @apply -bottom-4
+    }
+    .line-seperator__label::before{
+        @apply -top-4
+    }
     .overlay {
         @apply fixed inset-0 z-20 bg-overlayBcg invisible opacity-0 w-full h-full transition-all
     }
