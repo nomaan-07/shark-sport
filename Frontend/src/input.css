@@ -277,6 +277,20 @@
         @apply w-full 2xs:w-56 h-12 2xs:h-16 flex items-center justify-center mx-auto bg-rose-500 sm:hover:bg-rose-600 text-neutral-50 text-lg sm:text-xl rounded-2xl font-vazirMedium transition-colors;
     }
 
+    /* Compare */
+    .panel__compare-product {
+        @apply px-4 space-y-4 pb-10 text-center border-b-2 lg:border-l-2 lg:border-b-none border-neutral-300 dark:border-neutral-50;
+    }
+
+    .panel__compare-product:first-child {
+        @apply xs:border-l-2;
+    }
+
+    .panel__compare-product:last-child {
+        @apply border-none;
+        
+    }
+
 }
 
 @layer utilities {
@@ -295,5 +309,9 @@
 
     .hide {
         @apply invisible opacity-0;
+    }
+
+    .border-b-none {
+        border-bottom-style: none;
     }
 }
