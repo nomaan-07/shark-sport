@@ -1918,6 +1918,18 @@ input[type="range"]::-webkit-slider-thumb {
   top: 0.75rem;
 }
 
+.-bottom-2 {
+  bottom: -0.5rem;
+}
+
+.-right-0\.5 {
+  right: -0.125rem;
+}
+
+.-right-0 {
+  right: -0px;
+}
+
 .z-0 {
   z-index: 0;
 }
