@@ -3852,6 +3852,11 @@ input[type="range"]::-webkit-slider-thumb {
   background-color: rgb(38 38 38 / var(--tw-bg-opacity));
 }
 
+.dark\:bg-neutral-700:is(.dark *) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(64 64 64 / var(--tw-bg-opacity));
+}
+
 .dark\:text-inherit:is(.dark *) {
   color: inherit;
 }
