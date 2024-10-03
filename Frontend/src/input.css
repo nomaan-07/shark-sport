@@ -371,6 +371,127 @@
     .overlay--visible {
         @apply visible opacity-100
     }
+
+
+    /* 
+    
+    ============
+    -- Panel --
+    ============
+    
+    */
+
+    /* Sidebar */
+    .panel__sidebar {
+        @apply fixed top-10 bottom-10 -right-72 md:right-auto flex flex-col justify-between w-72 text-rose-50 dark:text-neutral-800 bg-rose-500 pt-2 pb-6 rounded-3xl overflow-y-auto overflow-x-hidden transition-all z-50;
+    }
+    .panel__sidebar::-webkit-scrollbar {  
+        width: 6px;
+    }
+    
+    .panel__sidebar::-webkit-scrollbar-thumb {
+        @apply bg-neutral-200 dark:bg-neutral-800 rounded-3xl cursor-pointer;     
+    }
+    
+    .panel__sidebar::-webkit-scrollbar-thumb:hover {
+        @apply bg-neutral-300 dark:bg-neutral-700;
+    }
+    
+    .panel-sidebar-menu__item--active {
+        @apply bg-neutral-50 dark:bg-neutral-800 text-rose-500 dark:text-rose-50;
+    }
+
+    /* alert message */
+    .panel__alert-message {
+        @apply  flex items-center gap-2.5 min-h-14 bg-blue-500 text-neutral-50 font-vazirMedium text-lg sm:text-xl px-4 rounded-2xl;
+    }
+
+    /* Order */
+
+    .panel-situation__success {
+        @apply bg-green-100 text-green-600;
+    }
+    .panel-situation__fail {
+        @apply bg-red-100 text-red-600;
+
+    }
+    .panel-situation__review {
+        @apply bg-yellow-100 text-yellow-600;
+    }
+
+    /* Pagination */
+    .panel__pagination {
+        @apply text-lg flex items-center justify-center size-10 font-vazirMedium border border-rose-500 rounded-lg sm:cursor-pointer sm:hover:text-neutral-50 sm:hover:bg-rose-500 transition-colors;
+    }
+    .panel__pagination--active {
+        @apply text-neutral-50 bg-rose-500;
+    }
+
+    /* Form */
+    .panel__form input,
+    .panel__form textarea,
+    .panel__form .panel__select {
+        @apply w-full px-2.5 py-4 bg-neutral-100 dark:bg-neutral-700 text-lg sm:text-xl border border-neutral-300 rounded-2xl outline-none font-vazirMedium placeholder:text-neutral-400 focus:border-neutral-400 dark:focus:border-neutral-100 transition-all;
+    }
+
+    .panel__form .panel__select {
+        @apply relative;
+    } 
+    .panel__form .panel__select-header {
+        @apply flex items-center justify-between sm:hover:border-neutral-400 dark:sm:hover:border-neutral-100 sm:cursor-pointer transition-all;
+    }
+
+    .panel__form .panel__select span {
+        @apply  text-neutral-400;
+    }
+
+    .panel__form .panel__select svg {
+        @apply  text-neutral-400 size-6 transition-all;
+    }
+
+    .panel__form .panel__select .panel__select--active {
+        @apply text-inherit;
+    }
+    .panel__form .panel__options-wrapper {
+        @apply absolute top-16 left-0 right-0 text-lg bg-neutral-50 dark:bg-neutral-700 sm:text-xl border border-neutral-300 rounded-2xl font-vazirMedium overflow-hidden z-10 transition-all;
+    }
+
+    
+    .panel__form .panel__option {
+        @apply px-2.5 py-4 sm:hover:bg-neutral-200 sm:hover:dark:bg-neutral-600 transition-colors;
+    }
+
+    .panel__form .panel__option:first-child {
+        @apply text-neutral-400;
+    }
+
+    .panel__form .panel__option--active {
+        @apply bg-neutral-300 dark:bg-neutral-500;
+    }
+
+    .panel__form textarea {
+        @apply  min-h-44 resize-none;
+
+    }
+
+    .panel__form button {
+        @apply w-full 2xs:w-56 h-12 2xs:h-16 flex items-center justify-center mx-auto bg-rose-500 sm:hover:bg-rose-600 text-neutral-50 text-lg sm:text-xl rounded-2xl font-vazirMedium transition-colors;
+    }
+
+    /* Compare */
+    .panel__compare-product {
+        @apply px-4 space-y-4 pb-10 text-center border-b-2 lg:border-l-2 lg:border-b-none border-neutral-300 dark:border-neutral-50;
+    }
+
+    .panel__compare-product:first-child {
+        @apply xs:border-l-2;
+    }
+
+    .panel__compare-product:last-child {
+        @apply border-none;
+        
+    }
+
 }
 
 @layer utilities {
@@ -385,5 +506,13 @@
     .dir-rtl {
         text-align: right;
         direction: rtl;
+    }
+
+    .hide {
+        @apply invisible opacity-0;
+    }
+
+    .border-b-none {
+        border-bottom-style: none;
     }
 }

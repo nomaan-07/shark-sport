@@ -3,6 +3,7 @@ const plugin = require('tailwindcss');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./public/**/*.{html,js}"],
+  darkMode: 'class',
   theme: {
     extend: {
       container:{
@@ -55,6 +56,7 @@ module.exports = {
       },
     },
     screens :{
+      '2xs': '440px',
       'xs': '576px',
       'sm': '768px',
       'md': '992px',
