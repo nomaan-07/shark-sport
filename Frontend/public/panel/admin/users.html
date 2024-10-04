@@ -11,7 +11,7 @@
   <body class="bg-neutral-200 dark:bg-neutral-600 font-vazir">
     <!-- SVGs -->
      <svg class="hidden">
-        <symbol id="arrow-down-outline" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="arrow-down" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 16.7999C11.3 16.7999 10.6 16.5299 10.07 15.9999L3.55002 9.47989C3.26002 9.18989 3.26002 8.70989 3.55002 8.41989C3.84002 8.12989 4.32002 8.12989 4.61002 8.41989L11.13 14.9399C11.61 15.4199 12.39 15.4199 12.87 14.9399L19.39 8.41989C19.68 8.12989 20.16 8.12989 20.45 8.41989C20.74 8.70989 20.74 9.18989 20.45 9.47989L13.93 15.9999C13.4 16.5299 12.7 16.7999 12 16.7999Z" fill="currentColor"/>
         </symbol>             
         <symbol id="arrow-left" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -350,7 +350,7 @@
                         <div class="panel-filter__header">
                             <span class="panel-filter__selected">فیلتر</span>
                             <svg class="panel-filter__icon">
-                                <use href="#arrow-down-outline"></use>
+                                <use href="#arrow-down"></use>
                             </svg>
                         </div>
                         <!-- Options -->
@@ -669,7 +669,7 @@
     <div id="overlay" class="hidden fixed inset-0 bg-black/10 backdrop-blur-sm z-40"></div>
 
     <script src="../js/shared/app.js" type="module"></script>
-    <script src="./js/shared/shared.js" type="module"></script>
+    <script src="./js/shared/filter-sort.js" type="module"></script>
     
   </body>
 </html>

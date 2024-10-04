@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>پنل ادمین | محصولات</title>
+    <title>پنل ادمین | افزودن کاربر</title>
     <link rel="stylesheet" href="../../styles/app.css" />
         <!-- Page Icon -->
         <link rel="icon" href="../../images/fav-icon.png" type="image/png">
@@ -11,15 +11,17 @@
   <body class="bg-neutral-200 dark:bg-neutral-600 font-vazir">
     <!-- SVGs -->
      <svg class="hidden">
+        <symbol id="add-circle" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z" fill="currentColor"/>
+            <path d="M16 12.75H8C7.59 12.75 7.25 12.41 7.25 12C7.25 11.59 7.59 11.25 8 11.25H16C16.41 11.25 16.75 11.59 16.75 12C16.75 12.41 16.41 12.75 16 12.75Z" fill="currentColor"/>
+            <path d="M12 16.75C11.59 16.75 11.25 16.41 11.25 16V8C11.25 7.59 11.59 7.25 12 7.25C12.41 7.25 12.75 7.59 12.75 8V16C12.75 16.41 12.41 16.75 12 16.75Z" fill="currentColor"/>
+        </symbol>            
         <symbol id="arrow-down" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 16.8C11.3 16.8 10.6 16.53 10.07 16L3.55 9.48001C3.26 9.19001 3.26 8.71001 3.55 8.42001C3.84 8.13001 4.32 8.13001 4.61 8.42001L11.13 14.94C11.61 15.42 12.39 15.42 12.87 14.94L19.39 8.42001C19.68 8.13001 20.16 8.13001 20.45 8.42001C20.74 8.71001 20.74 9.19001 20.45 9.48001L13.93 16C13.4 16.53 12.7 16.8 12 16.8Z" fill="currentColor"/>
-        </symbol>    
+            <path d="M12 16.7999C11.3 16.7999 10.6 16.5299 10.07 15.9999L3.55002 9.47989C3.26002 9.18989 3.26002 8.70989 3.55002 8.41989C3.84002 8.12989 4.32002 8.12989 4.61002 8.41989L11.13 14.9399C11.61 15.4199 12.39 15.4199 12.87 14.9399L19.39 8.41989C19.68 8.12989 20.16 8.12989 20.45 8.41989C20.74 8.70989 20.74 9.18989 20.45 9.47989L13.93 15.9999C13.4 16.5299 12.7 16.7999 12 16.7999Z" fill="currentColor"/>
+        </symbol>             
         <symbol id="arrow-left" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10.4851 3.98999L8.07755 6.39749L6.60005 7.86749C5.97755 8.48999 5.97755 9.50249 6.60005 10.125L10.4851 14.01C10.9951 14.52 11.8651 14.1525 11.8651 13.44V9.23249V4.55999C11.8651 3.83999 10.9951 3.47999 10.4851 3.98999Z" fill="currentColor"/>
-        </symbol>
-        <symbol id="arrow-left-outline" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15 20.67C14.81 20.67 14.62 20.6 14.47 20.45L7.95003 13.93C6.89003 12.87 6.89003 11.13 7.95003 10.07L14.47 3.55C14.76 3.26 15.24 3.26 15.53 3.55C15.82 3.84 15.82 4.32 15.53 4.61L9.01003 11.13C8.53003 11.61 8.53003 12.39 9.01003 12.87L15.53 19.39C15.82 19.68 15.82 20.16 15.53 20.45C15.38 20.59 15.19 20.67 15 20.67Z" fill="currentColor"/>
-        </symbol>            
+        </symbol>                  
         <symbol id="box" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12.5 13.8542C12.3646 13.8542 12.2292 13.8229 12.1042 13.75L2.90626 8.42708C2.54167 8.20833 2.40626 7.72917 2.62501 7.35417C2.84376 6.97917 3.32292 6.85417 3.69792 7.07292L12.5 12.1667L21.25 7.10417C21.625 6.88542 22.1042 7.02083 22.3229 7.38542C22.5417 7.76042 22.4063 8.23958 22.0417 8.45833L12.9063 13.75C12.7708 13.8125 12.6354 13.8542 12.5 13.8542Z" fill="currentColor"/>
             <path d="M12.5 23.2917C12.0729 23.2917 11.7188 22.9375 11.7188 22.5104V13.0625C11.7188 12.6354 12.0729 12.2812 12.5 12.2812C12.9271 12.2812 13.2812 12.6354 13.2812 13.0625V22.5104C13.2812 22.9375 12.9271 23.2917 12.5 23.2917Z" fill="currentColor"/>
@@ -45,12 +47,7 @@
         </symbol>                      
         <symbol id="dashed-line" viewBox="0 0 288 1" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line x1="4.37114e-08" y1="0.5" x2="288" y2="0.500025" stroke="currentColor" stroke-dasharray="10 10"/>
-        </symbol>
-        <symbol id="edit" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H11C11.41 1.25 11.75 1.59 11.75 2C11.75 2.41 11.41 2.75 11 2.75H9C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V13C21.25 12.59 21.59 12.25 22 12.25C22.41 12.25 22.75 12.59 22.75 13V15C22.75 20.43 20.43 22.75 15 22.75Z" fill="currentColor"/>
-            <path d="M8.50002 17.69C7.89002 17.69 7.33002 17.47 6.92002 17.07C6.43002 16.58 6.22002 15.87 6.33002 15.12L6.76002 12.11C6.84002 11.53 7.22002 10.78 7.63002 10.37L15.51 2.49C17.5 0.499998 19.52 0.499998 21.51 2.49C22.6 3.58 23.09 4.69 22.99 5.8C22.9 6.7 22.42 7.58 21.51 8.48L13.63 16.36C13.22 16.77 12.47 17.15 11.89 17.23L8.88002 17.66C8.75002 17.69 8.62002 17.69 8.50002 17.69ZM16.57 3.55L8.69002 11.43C8.50002 11.62 8.28002 12.06 8.24002 12.32L7.81002 15.33C7.77002 15.62 7.83002 15.86 7.98002 16.01C8.13002 16.16 8.37002 16.22 8.66002 16.18L11.67 15.75C11.93 15.71 12.38 15.49 12.56 15.3L20.44 7.42C21.09 6.77 21.43 6.19 21.48 5.65C21.54 5 21.2 4.31 20.44 3.54C18.84 1.94 17.74 2.39 16.57 3.55Z" fill="currentColor"/>
-            <path d="M19.85 9.83003C19.78 9.83003 19.71 9.82003 19.65 9.80003C17.02 9.06003 14.93 6.97003 14.19 4.34003C14.08 3.94003 14.31 3.53003 14.71 3.41003C15.11 3.30003 15.52 3.53003 15.63 3.93003C16.23 6.06003 17.92 7.75003 20.05 8.35003C20.45 8.46003 20.68 8.88003 20.57 9.28003C20.48 9.62003 20.18 9.83003 19.85 9.83003Z" fill="currentColor"/>
-        </symbol>              
+        </symbol>                      
         <symbol id="headphone" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2.86458 19.4271C2.43749 19.4271 2.08333 19.0729 2.08333 18.6458V12.7083C2.03124 9.88542 3.08333 7.21876 5.04166 5.21876C6.99999 3.22917 9.62499 2.13542 12.4479 2.13542C18.2187 2.13542 22.9167 6.83334 22.9167 12.6042V18.5417C22.9167 18.9688 22.5625 19.3229 22.1354 19.3229C21.7083 19.3229 21.3542 18.9688 21.3542 18.5417V12.6042C21.3542 7.69792 17.3646 3.69792 12.4479 3.69792C10.0417 3.69792 7.81249 4.62501 6.15624 6.31251C4.48958 8.01042 3.60416 10.2708 3.64583 12.6875V18.6354C3.64583 19.0729 3.30208 19.4271 2.86458 19.4271Z" fill="currentColor"/>
             <path d="M6.18751 12.9688H6.05209C3.86459 12.9688 2.08334 14.75 2.08334 16.9375V18.8958C2.08334 21.0833 3.86459 22.8646 6.05209 22.8646H6.18751C8.37501 22.8646 10.1563 21.0833 10.1563 18.8958V16.9375C10.1563 14.75 8.37501 12.9688 6.18751 12.9688Z" fill="currentColor"/>
@@ -104,20 +101,13 @@
         <symbol id="sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 18.5C15.5899 18.5 18.5 15.5899 18.5 12C18.5 8.41015 15.5899 5.5 12 5.5C8.41015 5.5 5.5 8.41015 5.5 12C5.5 15.5899 8.41015 18.5 12 18.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M19.14 19.14L19.01 19.01M19.01 4.99L19.14 4.86L19.01 4.99ZM4.86 19.14L4.99 19.01L4.86 19.14ZM12 2.08V2V2.08ZM12 22V21.92V22ZM2.08 12H2H2.08ZM22 12H21.92H22ZM4.99 4.99L4.86 4.86L4.99 4.99Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </symbol>           
+        </symbol>         
         <symbol id="ticket" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.7084 21.6146H7.29171C2.69796 21.6146 1.30212 20.2188 1.30212 15.625V15.1042C1.30212 14.6771 1.65629 14.3229 2.08337 14.3229C3.08337 14.3229 3.90629 13.5 3.90629 12.5C3.90629 11.5 3.08337 10.6771 2.08337 10.6771C1.65629 10.6771 1.30212 10.3229 1.30212 9.89583V9.375C1.30212 4.78125 2.69796 3.38542 7.29171 3.38542H17.7084C22.3021 3.38542 23.698 4.78125 23.698 9.375V10.4167C23.698 10.8438 23.3438 11.1979 22.9167 11.1979C21.9167 11.1979 21.0938 12.0208 21.0938 13.0208C21.0938 14.0208 21.9167 14.8438 22.9167 14.8438C23.3438 14.8438 23.698 15.1979 23.698 15.625C23.698 20.2188 22.3021 21.6146 17.7084 21.6146ZM2.86462 15.7917C2.88546 19.375 3.62504 20.0521 7.29171 20.0521H17.7084C21.1875 20.0521 22.0313 19.4375 22.125 16.3125C20.6355 15.9583 19.5313 14.6146 19.5313 13.0208C19.5313 11.4271 20.6459 10.0833 22.1355 9.72917V9.375C22.1355 5.65625 21.4375 4.94792 17.7084 4.94792H7.29171C3.62504 4.94792 2.88546 5.625 2.86462 9.20833C4.35421 9.5625 5.46879 10.9063 5.46879 12.5C5.46879 14.0938 4.35421 15.4375 2.86462 15.7917Z" fill="currentColor"/>
             <path d="M10.4166 7.55208C9.98954 7.55208 9.63538 7.19792 9.63538 6.77083V4.16667C9.63538 3.73958 9.98954 3.38542 10.4166 3.38542C10.8437 3.38542 11.1979 3.73958 11.1979 4.16667V6.77083C11.1979 7.19792 10.8437 7.55208 10.4166 7.55208Z" fill="currentColor"/>
             <path d="M10.4166 15.1875C9.98954 15.1875 9.63538 14.8333 9.63538 14.4062V10.5833C9.63538 10.1562 9.98954 9.80208 10.4166 9.80208C10.8437 9.80208 11.1979 10.1562 11.1979 10.5833V14.4062C11.1979 14.8437 10.8437 15.1875 10.4166 15.1875Z" fill="currentColor"/>
             <path d="M10.4166 21.6146C9.98954 21.6146 9.63538 21.2604 9.63538 20.8333V18.2292C9.63538 17.8021 9.98954 17.4479 10.4166 17.4479C10.8437 17.4479 11.1979 17.8021 11.1979 18.2292V20.8333C11.1979 21.2604 10.8437 21.6146 10.4166 21.6146Z" fill="currentColor"/>
-        </symbol>
-        <symbol id="trash" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21 6.72998C20.98 6.72998 20.95 6.72998 20.92 6.72998C15.63 6.19998 10.35 5.99998 5.11998 6.52998L3.07998 6.72998C2.65998 6.76998 2.28998 6.46998 2.24998 6.04998C2.20998 5.62998 2.50998 5.26998 2.91998 5.22998L4.95998 5.02998C10.28 4.48998 15.67 4.69998 21.07 5.22998C21.48 5.26998 21.78 5.63998 21.74 6.04998C21.71 6.43998 21.38 6.72998 21 6.72998Z" fill="currentColor"/>
-            <path d="M8.50001 5.72C8.46001 5.72 8.42001 5.72 8.37001 5.71C7.97001 5.64 7.69001 5.25 7.76001 4.85L7.98001 3.54C8.14001 2.58 8.36001 1.25 10.69 1.25H13.31C15.65 1.25 15.87 2.63 16.02 3.55L16.24 4.85C16.31 5.26 16.03 5.65 15.63 5.71C15.22 5.78 14.83 5.5 14.77 5.1L14.55 3.8C14.41 2.93 14.38 2.76 13.32 2.76H10.7C9.64001 2.76 9.62001 2.9 9.47001 3.79L9.24001 5.09C9.18001 5.46 8.86001 5.72 8.50001 5.72Z" fill="currentColor"/>
-            <path d="M15.21 22.75H8.79002C5.30002 22.75 5.16002 20.82 5.05002 19.26L4.40002 9.19001C4.37002 8.78001 4.69002 8.42001 5.10002 8.39001C5.52002 8.37001 5.87002 8.68001 5.90002 9.09001L6.55002 19.16C6.66002 20.68 6.70002 21.25 8.79002 21.25H15.21C17.31 21.25 17.35 20.68 17.45 19.16L18.1 9.09001C18.13 8.68001 18.49 8.37001 18.9 8.39001C19.31 8.42001 19.63 8.77001 19.6 9.19001L18.95 19.26C18.84 20.82 18.7 22.75 15.21 22.75Z" fill="currentColor"/>
-            <path d="M13.66 17.25H10.33C9.92002 17.25 9.58002 16.91 9.58002 16.5C9.58002 16.09 9.92002 15.75 10.33 15.75H13.66C14.07 15.75 14.41 16.09 14.41 16.5C14.41 16.91 14.07 17.25 13.66 17.25Z" fill="currentColor"/>
-            <path d="M14.5 13.25H9.5C9.09 13.25 8.75 12.91 8.75 12.5C8.75 12.09 9.09 11.75 9.5 11.75H14.5C14.91 11.75 15.25 12.09 15.25 12.5C15.25 12.91 14.91 13.25 14.5 13.25Z" fill="currentColor"/>
-        </symbol>            
+        </symbol>                 
         <symbol id="truck-fast" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M22.3958 16.1458C22.6875 16.1458 22.9167 16.375 22.9167 16.6667V17.7083C22.9167 19.4375 21.5208 20.8333 19.7917 20.8333C19.7917 19.1146 18.3854 17.7083 16.6667 17.7083C14.9479 17.7083 13.5417 19.1146 13.5417 20.8333H11.4583C11.4583 19.1146 10.0521 17.7083 8.33334 17.7083C6.61459 17.7083 5.20834 19.1146 5.20834 20.8333C3.47918 20.8333 2.08334 19.4375 2.08334 17.7083V15.625C2.08334 15.0521 2.55209 14.5833 3.12501 14.5833H13.0208C14.4583 14.5833 15.625 13.4167 15.625 11.9792V6.25C15.625 5.67709 16.0938 5.20834 16.6667 5.20834H17.5417C18.2917 5.20834 18.9792 5.61459 19.3542 6.26042L20.0208 7.42709C20.1146 7.59375 19.9896 7.8125 19.7917 7.8125C18.3542 7.8125 17.1875 8.97917 17.1875 10.4167V13.5417C17.1875 14.9792 18.3542 16.1458 19.7917 16.1458H22.3958Z" fill="currentColor"/>
             <path d="M8.33333 22.9167C9.48393 22.9167 10.4167 21.9839 10.4167 20.8333C10.4167 19.6827 9.48393 18.75 8.33333 18.75C7.18274 18.75 6.25 19.6827 6.25 20.8333C6.25 21.9839 7.18274 22.9167 8.33333 22.9167Z" fill="currentColor"/>
@@ -165,7 +155,7 @@
                             <img class="h-full object-cover" src="../images/avatar-1.jpg" alt="تصویر کاربر">
                         </div>
                         <!-- Picture Circle -->
-                            <div class="absolute -bottom-0.5 right-7 size-6 border-[3px] border-neutral-50 dark:border-neutral-800 bg-green-500 rounded-full"></div>
+                        <div class="absolute -bottom-0.5 right-7 size-6 border-[3px] border-neutral-50 dark:border-neutral-800 bg-green-500 rounded-full"></div>
                     </div>
                     <!-- Welcome -->
                     <p>
@@ -191,7 +181,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./products.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full panel-sidebar-menu__item--active">
+                        <a href="./products.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#box"></use>
@@ -230,7 +220,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./add-user.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
+                        <a href="./add-user.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full  panel-sidebar-menu__item--active">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#user-add"></use>
@@ -339,385 +329,92 @@
 
                 </div>
 
-                <!-- Title -->
-                <h2 class="text-2xl font-vazirMedium">لیست محصولات</h2>
-                
-                <!-- Filter | Sort -->
-                <div class="space-y-4 xs:space-y-0 xs:flex items-center justify-between font-vazirMedium">
-                    <!-- Filter -->
-                    <div class="panel-filter" data-filter="null">
-                        <!-- Select -->
-                        <div class="panel-filter__header">
-                            <span class="panel-filter__selected">فیلتر</span>
-                            <svg class="panel-filter__icon">
-                                <use href="#arrow-down"></use>
-                            </svg>
-                        </div>
-                        <!-- Options -->
-                        <div class="panel-filter__options-wrapper hide">
-                            <p class="panel-filter__option" data-filter="null">فیلتر</p>
-                            <p class="panel-filter__option" data-filter="all">همه</p>
-                            <p class="panel-filter__option" data-filter="all">همه</p>
-                        </div>
-                    </div>
-
-                    <!-- Sort -->
-                    <div class="panel-sort" data-sort="null">
-                        <!-- Select -->
-                        <div class="panel-sort__header">
-                            <svg class="panel-sort__icon">
-                                <use href="#sort"></use>
-                            </svg>
-                            <span class="panel-sort__selected">مرتب سازی بر اساس</span>
-                        </div>
-                        <!-- Options -->
-                        <div class="panel-sort__options-wrapper hide">
-                            <p class="panel-sort__option" data-sort="null">مرتب سازی بر اساس</p>
-                            <p class="panel-sort__option" data-sort="newest">جدیدترین</p>
-                            <p class="panel-sort__option" data-sort="oldest">قدیمی ترین</p>
-                        </div>
-                    </div>
-
+                <!-- Image -->
+                <div class="relative w-fit mx-auto">
+                    <img class="size-[184px] object-cover rounded-full" src="../images/avatar-2.jpg" alt="تصویر پروفایل">
+                    <!-- Upload Btn -->
+                    <svg class="image-upload-btn absolute -bottom-2.5 right-7 size-6 text-rose-500 sm:hover:text-rose-700 sm:cursor-pointer transition-colors">
+                        <use href="#add-circle"></use>
+                    </svg>
+                    <input class="image-upload-input hidden" type="file" accept="image/*">  
                 </div>
 
-                <!-- Products -->
-                <div class="space-y-2 font-vazirMedium">
-                    <!-- Product -->
-                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price | Category | Tags | Seller -->
-                        <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
-                            <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
-                                <!-- Checkbox -->
-                                <label class="relative inline-block">
-                                    <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer">
-                                    <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
-                                </label>
-                                <!-- Image -->
-                                <div class="size-[72px] rounded-xl overflow-hidden">
-                                    <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
-                                </div>
-                            </div>
+                <!-- Form: Name | Last Name | Username | Email | Role | Access | Phone | Password -->
+                <form class="panel__form pt-6 space-y-6">
+                    <!-- Name & Last Name -->
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
+                        <!-- Name Input -->
+                        <input type="text" placeholder="نام...">
 
-                            <!-- Name -->
-                            <span>کفش استوک فوتبالی</span>
-
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through font-vazir">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
-                            </div>
-
-                            <!-- Category -->
-                            <span>فوتبالی</span>
-
-                            <!-- Tags -->
-                            <span>کفش , فوتبال</span>
-
-                            <!-- Seller -->
-                            <span>مدیر سایت</span>
-
-                        </div>
-
-                        <!-- Buttons: Edit Btn | Delete Btn-->
-                        <div class="flex items-center gap-2 justify-end grow">
-                            <!-- Edit Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#edit"></use>
-                            </svg>
-
-                            <!-- Delete Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#trash"></use>
-                            </svg>
-                        </div>
+                        <!-- Last Name Input -->
+                        <input type="text" placeholder="نام خانوادگی...">
                     </div>
-                    <!-- Product -->
-                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price | Category | Tags | Seller -->
-                        <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
-                            <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
-                                <!-- Checkbox -->
-                                <label class="relative inline-block">
-                                    <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer">
-                                    <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
-                                </label>
-                                <!-- Image -->
-                                <div class="size-[72px] rounded-xl overflow-hidden">
-                                    <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
-                                </div>
-                            </div>
 
-                            <!-- Name -->
-                            <span>کفش استوک فوتبالی</span>
+                    <!-- Username & Email -->
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
+                        <!-- Username Input -->
+                        <input type="text" placeholder="نام کاربری...">
 
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through font-vazir">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
-                            </div>
-
-                            <!-- Category -->
-                            <span>فوتبالی</span>
-
-                            <!-- Tags -->
-                            <span>کفش , فوتبال</span>
-
-                            <!-- Seller -->
-                            <span>مدیر سایت</span>
-
-                        </div>
-
-                        <!-- Buttons: Edit Btn | Delete Btn-->
-                        <div class="flex items-center gap-2 justify-end grow">
-                            <!-- Edit Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#edit"></use>
-                            </svg>
-
-                            <!-- Delete Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#trash"></use>
-                            </svg>
-                        </div>
+                        <!-- Email Name Input -->
+                        <input type="email" placeholder="ایمیل...">
                     </div>
-                    <!-- Product -->
-                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price | Category | Tags | Seller -->
-                        <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
-                            <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
-                                <!-- Checkbox -->
-                                <label class="relative inline-block">
-                                    <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer">
-                                    <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
-                                </label>
-                                <!-- Image -->
-                                <div class="size-[72px] rounded-xl overflow-hidden">
-                                    <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
-                                </div>
+
+                    <!-- Role & Access  -->
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
+                        <!-- Role -->
+                        <div id="product-role" class="panel-select panel-select--role" data-role="null">
+                            <div class="panel-select__header" data-type="role">
+                                <span class="panel-select__selected-option panel-select__selected-option--role text-neutral-400">نقش</span>
+                                <svg class="panel-select__icon panel-select__icon--role">
+                                    <use href="#arrow-down"></use>
+                                </svg>
                             </div>
-
-                            <!-- Name -->
-                            <span>کفش استوک فوتبالی</span>
-
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through font-vazir">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
+                            <div class="panel__options-wrapper panel__options-wrapper--role hide">
+                                <p class="panel__option panel__option--role" data-role="null">نقش</p>
+                                <p class="panel__option panel__option--role" data-role="user">کاربر</p>
+                                <p class="panel__option panel__option--role" data-role="admin">مدیر</p>
                             </div>
-
-                            <!-- Category -->
-                            <span>فوتبالی</span>
-
-                            <!-- Tags -->
-                            <span>کفش , فوتبال</span>
-
-                            <!-- Seller -->
-                            <span>مدیر سایت</span>
-
                         </div>
 
-                        <!-- Buttons: Edit Btn | Delete Btn-->
-                        <div class="flex items-center gap-2 justify-end grow">
-                            <!-- Edit Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#edit"></use>
-                            </svg>
-
-                            <!-- Delete Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#trash"></use>
-                            </svg>
-                        </div>
-                    </div>
-                    <!-- Product -->
-                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price | Category | Tags | Seller -->
-                        <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
-                            <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
-                                <!-- Checkbox -->
-                                <label class="relative inline-block">
-                                    <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer">
-                                    <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
-                                </label>
-                                <!-- Image -->
-                                <div class="size-[72px] rounded-xl overflow-hidden">
-                                    <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
-                                </div>
+                        <!-- Access -->
+                        <div id="product-access" class="panel-select panel-select--access" data-access="null">
+                            <div class="panel-select__header" data-type="access">
+                                <span class="panel-select__selected-option panel-select__selected-option--access text-neutral-400">دسترسی ها</span>
+                                <svg class="panel-select__icon panel-select__icon--access">
+                                    <use href="#arrow-down"></use>
+                                </svg>
                             </div>
-
-                            <!-- Name -->
-                            <span>کفش استوک فوتبالی</span>
-
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through font-vazir">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
+                            <div class="panel__options-wrapper panel__options-wrapper--access hide">
+                                <p class="panel__option panel__option--access" data-access="null">دسترسی ها</p>
+                                <p class="panel__option panel__option--access" data-access="all">همه</p>
+                                <p class="panel__option panel__option--access" data-access="ticket">تیکت</p>
+                                <p class="panel__option panel__option--access" data-access="user">کاربر</p>
                             </div>
-
-                            <!-- Category -->
-                            <span>فوتبالی</span>
-
-                            <!-- Tags -->
-                            <span>کفش , فوتبال</span>
-
-                            <!-- Seller -->
-                            <span>مدیر سایت</span>
-
-                        </div>
-
-                        <!-- Buttons: Edit Btn | Delete Btn-->
-                        <div class="flex items-center gap-2 justify-end grow">
-                            <!-- Edit Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#edit"></use>
-                            </svg>
-
-                            <!-- Delete Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#trash"></use>
-                            </svg>
-                        </div>
-                    </div>
-                    <!-- Product -->
-                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price | Category | Tags | Seller -->
-                        <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
-                            <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
-                                <!-- Checkbox -->
-                                <label class="relative inline-block">
-                                    <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer">
-                                    <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
-                                </label>
-                                <!-- Image -->
-                                <div class="size-[72px] rounded-xl overflow-hidden">
-                                    <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
-                                </div>
-                            </div>
-
-                            <!-- Name -->
-                            <span>کفش استوک فوتبالی</span>
-
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through font-vazir">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
-                            </div>
-
-                            <!-- Category -->
-                            <span>فوتبالی</span>
-
-                            <!-- Tags -->
-                            <span>کفش , فوتبال</span>
-
-                            <!-- Seller -->
-                            <span>مدیر سایت</span>
-
-                        </div>
-
-                        <!-- Buttons: Edit Btn | Delete Btn-->
-                        <div class="flex items-center gap-2 justify-end grow">
-                            <!-- Edit Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#edit"></use>
-                            </svg>
-
-                            <!-- Delete Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#trash"></use>
-                            </svg>
-                        </div>
-                    </div>
-                    <!-- Product -->
-                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price | Category | Tags | Seller -->
-                        <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
-                            <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
-                                <!-- Checkbox -->
-                                <label class="relative inline-block">
-                                    <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer">
-                                    <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
-                                </label>
-                                <!-- Image -->
-                                <div class="size-[72px] rounded-xl overflow-hidden">
-                                    <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
-                                </div>
-                            </div>
-
-                            <!-- Name -->
-                            <span>کفش استوک فوتبالی</span>
-
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through font-vazir">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
-                            </div>
-
-                            <!-- Category -->
-                            <span>فوتبالی</span>
-
-                            <!-- Tags -->
-                            <span>کفش , فوتبال</span>
-
-                            <!-- Seller -->
-                            <span>مدیر سایت</span>
-
-                        </div>
-
-                        <!-- Buttons: Edit Btn | Delete Btn-->
-                        <div class="flex items-center gap-2 justify-end grow">
-                            <!-- Edit Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#edit"></use>
-                            </svg>
-
-                            <!-- Delete Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#trash"></use>
-                            </svg>
                         </div>
                     </div>
 
-                </div>
+                    <!-- Phone & Password -->
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
+                        <!-- Password Input -->
+                        <input type="text" placeholder="شماره تماس...">
 
-                <!-- Pagination -->
-                <div class="flex justify-center gap-2">
-                    <!-- Active class: panel__pagination--active -->
-                    <div class="panel__pagination panel__pagination--active">1</div>
-                    <div class="panel__pagination">2</div>
-                    <div class="panel__pagination">3</div>
-                    <div class="panel__pagination">
-                        <svg class="size-6">
-                            <use href="#arrow-left-outline"></use>
-                        </svg>
+                        <!-- Password Input -->
+                        <input type="password" placeholder="تکرار رمز عبور...">
                     </div>
-                </div>
+
+                    <!-- Register Btn -->
+                    <button>ذخیره تغییرات</button>
+
+                </form>
 
             </main>
 
         </div>
-     </div>
+    </div>
 
-     <div id="overlay" class="hidden fixed inset-0 bg-black/10 backdrop-blur-sm z-40"></div>
+    <div id="overlay" class="hidden fixed inset-0 bg-black/10 backdrop-blur-sm z-40"></div>
 
-     <script src="../js/shared/app.js" type="module"></script>
-     <script src="./js/shared/filter-sort.js" type="module"></script>
+    <script src="../js/shared/app.js" type="module"></script>
+    <script src="./js/shared/select-option.js" type="module"></script>    
   </body>
 </html>

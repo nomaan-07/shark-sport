@@ -1,4 +1,4 @@
-import { toggleSelect, selectOption } from '../../js/ui/ui-handlers.js';
+import { toggleSelect, selectOption } from '../../../js/ui/ui-handlers.js';
 
 const imageUploadButtons = document.querySelectorAll('.image-upload-btn');
 
@@ -24,16 +24,16 @@ function handleSelect(el) {
                 optionElements,
                 option,
                 type,
-                'panel-select__-active',
+                'panel-select--active',
                 'panel__option--active'
             );
 
-            toggleSelect(icon, optionsWrapperEl, 'panel-select__-active');
+            toggleSelect(icon, optionsWrapperEl, 'panel-select--active');
         });
     });
 
     el.addEventListener('click', () =>
-        toggleSelect(icon, optionsWrapperEl, 'panel-select__-active')
+        toggleSelect(icon, optionsWrapperEl, 'panel-select--active')
     );
 }
 
