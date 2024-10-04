@@ -1,4 +1,4 @@
-function toggleSelect(icon, optionsWrapper, selectActiveClass = '') {
+function toggleSelect(icon, optionsWrapper, selectActiveClass) {
     icon.classList.toggle('rotate-180');
     icon.classList.toggle(selectActiveClass);
     optionsWrapper.classList.toggle('hide');
@@ -10,8 +10,8 @@ function selectOption(
     options,
     option,
     type,
-    selectActiveClass = '',
-    optionActiveClass = ''
+    selectActiveClass,
+    optionActiveClass
 ) {
     const optionDataset = option.dataset[type];
     select.dataset[type] = optionDataset;
