@@ -453,7 +453,7 @@
         @apply text-inherit;
     }
     .panel__form .panel__options-wrapper {
-        @apply absolute top-16 left-0 right-0 text-lg bg-neutral-50 dark:bg-neutral-700 sm:text-xl border border-neutral-300 rounded-2xl font-vazirMedium overflow-hidden z-10 transition-all;
+        @apply absolute top-16 left-0 right-0 text-lg bg-neutral-100 dark:bg-neutral-700 sm:text-xl border border-neutral-300 rounded-2xl font-vazirMedium overflow-hidden z-10 transition-all;
     }
 
     
@@ -490,6 +490,73 @@
     .panel__compare-product:last-child {
         @apply border-none;
         
+    }
+
+
+    /* Filter */
+    .panel-filter {
+        @apply text-neutral-500 dark:text-neutral-300 select-none relative;
+    }
+
+    .panel-filter__header {
+        @apply flex items-center justify-between w-[170px] h-12 px-4 bg-neutral-200 dark:bg-neutral-600 sm:hover:text-neutral-950 dark:sm:hover:text-neutral-50 rounded-2xl sm:cursor-pointer;
+    }
+
+    .panel-filter__selected {
+        @apply transition-all;
+    }
+
+    .panel-filter__icon {
+        @apply size-6 transition-all;
+    }
+
+    .panel-filter__active {
+        @apply text-neutral-950 dark:text-neutral-50;
+    }
+
+    .panel-filter__options-wrapper {
+        @apply absolute top-14 left-0 right-0 bg-neutral-200 dark:bg-neutral-600 rounded-2xl sm:cursor-pointer overflow-hidden z-30;
+    }
+
+    .panel-filter__option {
+        @apply  py-2 px-4 sm:hover:bg-neutral-300 sm:hover:dark:bg-neutral-700 transition-colors;
+    }
+
+    .panel-filter__option--active {
+        @apply  bg-neutral-400 sm:hover:bg-neutral-400 text-neutral-50 dark:bg-neutral-500 dark:sm:hover:bg-neutral-500; 
+    }
+
+    /* Sort */
+    .panel-sort {
+        @apply flex justify-end relative select-none;
+    }
+
+    .panel-sort__header {
+        @apply  flex items-center gap-px cursor-pointer sm:hover:text-rose-500;
+    }
+
+    .panel-sort__selected {
+        @apply w-[130px] transition-colors;
+    }
+
+    .panel-sort__icon {
+        @apply size-6 transition-colors;
+    }
+
+    .panel-sort__active {
+        @apply text-neutral-950 dark:text-neutral-50 sm:hover:text-rose-500 ;
+    }
+
+    .panel-sort__options-wrapper {
+        @apply absolute top-8 left-0 right-0 bg-neutral-200 dark:bg-neutral-600 rounded-2xl sm:cursor-pointer overflow-hidden z-30;
+    }
+
+    .panel-sort__option {
+        @apply  p-2 sm:hover:bg-neutral-300 sm:hover:dark:bg-neutral-700 transition-colors;
+    }
+
+    .panel-sort__option--active {
+        @apply  bg-neutral-400 sm:hover:bg-neutral-400 text-neutral-50 dark:bg-neutral-500 dark:sm:hover:bg-neutral-500; 
     }
 
 }
