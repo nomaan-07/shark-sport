@@ -430,26 +430,26 @@
     /* Form */
     .panel__form input,
     .panel__form textarea,
-    .panel__form .panel__select {
+    .panel__form .panel-select {
         @apply w-full px-2.5 py-4 bg-neutral-100 dark:bg-neutral-700 text-lg sm:text-xl border border-neutral-300 rounded-2xl outline-none font-vazirMedium placeholder:text-neutral-400 focus:border-neutral-400 dark:focus:border-neutral-100 transition-all;
     }
 
-    .panel__form .panel__select {
+    .panel__form .panel-select {
         @apply relative;
     } 
-    .panel__form .panel__select-header {
+    .panel__form .panel-select__header {
         @apply flex items-center justify-between sm:hover:border-neutral-400 dark:sm:hover:border-neutral-100 sm:cursor-pointer transition-all;
     }
 
-    .panel__form .panel__select span {
+    .panel__form .panel-select span {
         @apply  text-neutral-400;
     }
 
-    .panel__form .panel__select svg {
+    .panel__form .panel-select svg {
         @apply  text-neutral-400 size-6 transition-all;
     }
 
-    .panel__form .panel__select .panel__select--active {
+    .panel__form .panel-select .panel-select__-active {
         @apply text-inherit;
     }
     .panel__form .panel__options-wrapper {

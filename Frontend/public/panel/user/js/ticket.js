@@ -1,9 +1,11 @@
 import { toggleSelect, selectOption } from '../../js/ui/ui-handlers.js';
 
-const levelSelect = document.querySelector('.panel__select');
-const levelSelectHeaderEl = document.querySelector('.panel__select-header');
-const selectedLevelEl = document.querySelector('.selected-level');
-const levelIcon = document.querySelector('.level__icon');
+const levelSelect = document.querySelector('.panel-select');
+const levelSelectHeaderEl = document.querySelector('.panel-select__header');
+const selectedLevelEl = document.querySelector(
+    '.panel-select__selected-option'
+);
+const levelIcon = document.querySelector('.panel-select__icon');
 const levelOptionsWrapperEl = document.querySelector('.panel__options-wrapper');
 const levelOptions = document.querySelectorAll('.panel__option');
 
@@ -15,14 +17,14 @@ levelOptions.forEach((option) => {
             levelOptions,
             option,
             'level',
-            'panel__select--active',
+            'panel-select__-active',
             'panel__option--active'
         );
 
-        toggleSelect(levelIcon, levelOptionsWrapperEl, 'panel__select--active');
+        toggleSelect(levelIcon, levelOptionsWrapperEl, 'panel-select__-active');
     });
 });
 
 levelSelectHeaderEl.addEventListener('click', () =>
-    toggleSelect(levelIcon, levelOptionsWrapperEl, 'panel__select--active')
+    toggleSelect(levelIcon, levelOptionsWrapperEl, 'panel-select__-active')
 );

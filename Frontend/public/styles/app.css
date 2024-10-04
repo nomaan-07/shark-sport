@@ -1527,7 +1527,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 .panel__form input,
     .panel__form textarea,
-    .panel__form .panel__select {
+    .panel__form .panel-select {
   width: 100%;
   border-radius: 1rem;
   border-width: 1px;
@@ -1549,35 +1549,35 @@ input[type="range"]::-webkit-slider-thumb {
   transition-duration: 150ms;
 }
 
-.panel__form input::-moz-placeholder, .panel__form textarea::-moz-placeholder, .panel__form .panel__select::-moz-placeholder {
+.panel__form input::-moz-placeholder, .panel__form textarea::-moz-placeholder, .panel__form .panel-select::-moz-placeholder {
   --tw-text-opacity: 1;
   color: rgb(163 163 163 / var(--tw-text-opacity));
 }
 
 .panel__form input::placeholder,
     .panel__form textarea::placeholder,
-    .panel__form .panel__select::placeholder {
+    .panel__form .panel-select::placeholder {
   --tw-text-opacity: 1;
   color: rgb(163 163 163 / var(--tw-text-opacity));
 }
 
 .panel__form input:focus,
     .panel__form textarea:focus,
-    .panel__form .panel__select:focus {
+    .panel__form .panel-select:focus {
   --tw-border-opacity: 1;
   border-color: rgb(163 163 163 / var(--tw-border-opacity));
 }
 
 .panel__form input:is(.dark *),
     .panel__form textarea:is(.dark *),
-    .panel__form .panel__select:is(.dark *) {
+    .panel__form .panel-select:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(64 64 64 / var(--tw-bg-opacity));
 }
 
 .panel__form input:focus:is(.dark *),
     .panel__form textarea:focus:is(.dark *),
-    .panel__form .panel__select:focus:is(.dark *) {
+    .panel__form .panel-select:focus:is(.dark *) {
   --tw-border-opacity: 1;
   border-color: rgb(245 245 245 / var(--tw-border-opacity));
 }
@@ -1585,17 +1585,17 @@ input[type="range"]::-webkit-slider-thumb {
 @media (min-width: 768px) {
   .panel__form input,
     .panel__form textarea,
-    .panel__form .panel__select {
+    .panel__form .panel-select {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
 }
 
-.panel__form .panel__select {
+.panel__form .panel-select {
   position: relative;
 }
 
-.panel__form .panel__select-header {
+.panel__form .panel-select__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1605,27 +1605,27 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 @media (min-width: 768px) {
-  .panel__form .panel__select-header {
+  .panel__form .panel-select__header {
     cursor: pointer;
   }
 
-  .panel__form .panel__select-header:hover {
+  .panel__form .panel-select__header:hover {
     --tw-border-opacity: 1;
     border-color: rgb(163 163 163 / var(--tw-border-opacity));
   }
 
-  .panel__form .panel__select-header:hover:is(.dark *) {
+  .panel__form .panel-select__header:hover:is(.dark *) {
     --tw-border-opacity: 1;
     border-color: rgb(245 245 245 / var(--tw-border-opacity));
   }
 }
 
-.panel__form .panel__select span {
+.panel__form .panel-select span {
   --tw-text-opacity: 1;
   color: rgb(163 163 163 / var(--tw-text-opacity));
 }
 
-.panel__form .panel__select svg {
+.panel__form .panel-select svg {
   width: 1.5rem;
   height: 1.5rem;
   --tw-text-opacity: 1;
@@ -1635,7 +1635,7 @@ input[type="range"]::-webkit-slider-thumb {
   transition-duration: 150ms;
 }
 
-.panel__form .panel__select .panel__select--active {
+.panel__form .panel-select .panel-select__-active {
   color: inherit;
 }
 
@@ -2162,6 +2162,10 @@ input[type="range"]::-webkit-slider-thumb {
 
 .right-0 {
   right: 0px;
+}
+
+.right-1 {
+  right: 0.25rem;
 }
 
 .right-2 {
@@ -2935,6 +2939,11 @@ input[type="range"]::-webkit-slider-thumb {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.-translate-y-16 {
+  --tw-translate-y: -4rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .rotate-180 {
   --tw-rotate: 180deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -3048,6 +3057,10 @@ input[type="range"]::-webkit-slider-thumb {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-\[154px\] {
+  gap: 154px;
 }
 
 .gap-\[15px\] {
@@ -3171,6 +3184,12 @@ input[type="range"]::-webkit-slider-thumb {
   margin-bottom: calc(3rem * var(--tw-space-y-reverse));
 }
 
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
+
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
@@ -3181,12 +3200,6 @@ input[type="range"]::-webkit-slider-thumb {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
-}
-
-.space-y-2 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 
 .overflow-hidden {
@@ -4765,10 +4778,6 @@ input[type="range"]::-webkit-slider-thumb {
 
   .xl\:w-\[227px\] {
     width: 227px;
-  }
-
-  .xl\:w-auto {
-    width: auto;
   }
 
   .xl\:max-w-none {
