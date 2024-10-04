@@ -96,24 +96,24 @@
      </svg>
 
      <div class="container">
-        <!-- Panel Wrapper: Sidebar |  Main-->
-        <div class="my-10 flex gap-6 relative">
+        <!-- Panel Wrapper: Sidebar | Main -->
+        <div class="my-10 flex gap-6">
             <!-- Sidebar -->
             <aside class="panel__sidebar">
-                <!-- Sidebar Header: Logo | Close Btn-->
-                <div>
-                        <div class="flex items-center justify-between md:justify-center px-2">
-                            <a class="block w-52 md:w-64 shrink-0" href="#">
-                                <img class="w-full" src="../images/logo.png" alt="logo">
-                            </a>
-                            <svg id="sidebar-close-btn" class="size-10 md:hidden sm:cursor-pointer">
-                                <use href="#close-circle"></use>
-                            </svg>
-                        </div>
-                        <svg class="h-px">
-                            <use href="#dashed-line"></use>
-                        </svg>
+                <!-- Logo | Close Btn -->
+                <div class="flex items-center justify-between md:justify-center px-2">
+                    <a class="block w-52 md:w-64 shrink-0" href="#">
+                        <img class="w-full" src="../images/logo.png" alt="logo">
+                    </a>
+                    <svg id="sidebar-close-btn" class="size-10 md:hidden sm:cursor-pointer">
+                        <use href="#close-circle"></use>
+                    </svg>
                 </div>
+                
+                <!-- Line -->
+                <svg class="h-px">
+                    <use href="#dashed-line"></use>
+                </svg>
 
                 <!-- User Info -->
                 <div class="mt-4 space-y-4 text-center text-lg leading-4">
@@ -229,7 +229,7 @@
                 </ul>
                 
                 <!-- Logout Button -->
-                <div class="mx-auto flex gap-1 text-xl/5 p-2 rounded-full cursor-pointer sm:hover:bg-rose-400 transition-colors">
+                <div class="flex gap-1 w-max mx-auto text-xl/5 p-2 rounded-full cursor-pointer sm:hover:bg-rose-400 transition-colors">
                     <svg class="size-6">
                         <use href="#logout"></use>
                     </svg>
@@ -238,7 +238,7 @@
             </aside>
 
             <!-- Main -->
-            <main class="w-full min-h-[90vh] md:mr-[312px] text-neutral-950 dark:text-neutral-50 bg-neutral-50 dark:bg-neutral-800 space-y-6 p-6 rounded-3xl">
+            <main class="w-full min-h-[90vh] text-neutral-950 dark:text-neutral-50 bg-neutral-50 dark:bg-neutral-800 space-y-6 p-6 rounded-3xl">
                 <!-- Main Header: Sidebar Open Btn | Buttons -->
                 <div class="flex items-center justify-between md:justify-end text-neutral-800">
                     <!-- Sidebar Open btn -->

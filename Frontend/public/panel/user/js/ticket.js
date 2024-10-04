@@ -17,14 +17,14 @@ levelOptions.forEach((option) => {
             levelOptions,
             option,
             'level',
-            'panel-select__-active',
+            'panel-select--active',
             'panel__option--active'
         );
 
-        toggleSelect(levelIcon, levelOptionsWrapperEl, 'panel-select__-active');
+        toggleSelect(levelIcon, levelOptionsWrapperEl, 'panel-select--active');
     });
 });
 
 levelSelectHeaderEl.addEventListener('click', () =>
-    toggleSelect(levelIcon, levelOptionsWrapperEl, 'panel-select__-active')
+    toggleSelect(levelIcon, levelOptionsWrapperEl, 'panel-select--active')
 );

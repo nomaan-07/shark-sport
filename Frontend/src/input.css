@@ -383,18 +383,7 @@
 
     /* Sidebar */
     .panel__sidebar {
-        @apply fixed top-10 bottom-10 -right-72 md:right-auto flex flex-col justify-between w-72 text-rose-50 dark:text-neutral-800 bg-rose-500 pt-2 pb-6 rounded-3xl overflow-y-auto overflow-x-hidden transition-all z-50;
-    }
-    .panel__sidebar::-webkit-scrollbar {  
-        width: 6px;
-    }
-    
-    .panel__sidebar::-webkit-scrollbar-thumb {
-        @apply bg-neutral-200 dark:bg-neutral-800 rounded-3xl cursor-pointer;     
-    }
-    
-    .panel__sidebar::-webkit-scrollbar-thumb:hover {
-        @apply bg-neutral-300 dark:bg-neutral-700;
+        @apply fixed md:sticky top-4 md:top-10 bottom-4 md:bottom-0 -right-[300px] md:right-auto min-w-72 md:h-max pt-2 pb-6 text-rose-50 dark:text-neutral-800 bg-rose-500 overflow-y-auto overflow-x-hidden md:overflow-y-visible rounded-3xl transition-all z-50;
     }
     
     .panel-sidebar-menu__item--active {
@@ -449,7 +438,7 @@
         @apply  text-neutral-400 size-6 transition-all;
     }
 
-    .panel__form .panel-select .panel-select__-active {
+    .panel__form .panel-select .panel-select--active {
         @apply text-inherit;
     }
     .panel__form .panel__options-wrapper {

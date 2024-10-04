@@ -24,6 +24,7 @@ function changeThemeHandler(theme) {
         changeThemeBtn.dataset.theme = 'dark';
     }
 }
+
 function themeBtnClickHandler() {
     const theme = changeThemeBtn.dataset.theme;
 
@@ -43,6 +44,7 @@ function localThemeHandler() {
 function sidebarToggleHandler() {
     panelSidebar.classList.toggle('-translate-x-80');
     overlay.classList.toggle('hidden');
+    document.body.classList.toggle("overflow-hidden");
 }
 
 changeThemeBtn.addEventListener('click', themeBtnClickHandler);
