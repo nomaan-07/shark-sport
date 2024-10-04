@@ -1,7 +1,10 @@
 from fastapi import HTTPException
 from datetime import datetime
-from models.user import UserDB as UserModel
+from models.user import User as UserModel
+from models import user as UserModel
 import bcrypt, uuid, jwt
+
+
 
 from dotenv import load_dotenv
 import os
@@ -23,18 +26,23 @@ def create_user(user, db):
     return new_user
 
 
-def Login_user(user, db):
-    user_db = db.query(UserModel).filter(UserModel.username == user.username).first()
 
-    
-    if user_db == None :
-        raise HTTPException(status_code=404, detail=f"Login Failed, User With {user.username} and Password not found")
-        
-    check_hash_pw = bcrypt.checkpw(user.password.encode(), user_db.password)
 
-    if not check_hash_pw:
-        raise HTTPException(status_code=404, detail=f"Login Failed, User With {user.username} and Password not found")
 
-    token = jwt.encode(payload={"id": user_db.id}, key=PASSWORD_KEY)
 
-    return {"token": token, "user": user_db}
+
+
+
+
+def update_address(address, db, uid):
+    id = str(uuid.uuid4)
+    new_address = UserModel.Address(id=id,
+                               id_user=uid,
+                               province=address.province,
+                               city=address.city,
+                               postal_code=address.postal_code,
+                               detail=address.detail)
+
+    db.add(new_address)
+    db.commit()
+    return new_address
