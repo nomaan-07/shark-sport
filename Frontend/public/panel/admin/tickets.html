@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>پنل ادمین | سفارشات</title>
+    <title>پنل ادمین | تیکت ها</title>
     <link rel="stylesheet" href="../../styles/app.css" />
         <!-- Page Icon -->
         <link rel="icon" href="../../images/fav-icon.png" type="image/png">
@@ -46,11 +46,6 @@
         <symbol id="dashed-line" viewBox="0 0 288 1" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line x1="4.37114e-08" y1="0.5" x2="288" y2="0.500025" stroke="currentColor" stroke-dasharray="10 10"/>
         </symbol>
-        <symbol id="edit" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H11C11.41 1.25 11.75 1.59 11.75 2C11.75 2.41 11.41 2.75 11 2.75H9C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V13C21.25 12.59 21.59 12.25 22 12.25C22.41 12.25 22.75 12.59 22.75 13V15C22.75 20.43 20.43 22.75 15 22.75Z" fill="currentColor"/>
-            <path d="M8.50002 17.6901C7.89002 17.6901 7.33002 17.4701 6.92002 17.0701C6.43002 16.5801 6.22002 15.8701 6.33002 15.1201L6.76002 12.1101C6.84002 11.5301 7.22002 10.7801 7.63002 10.3701L15.51 2.49006C17.5 0.500059 19.52 0.500059 21.51 2.49006C22.6 3.58006 23.09 4.69006 22.99 5.80006C22.9 6.70006 22.42 7.58006 21.51 8.48006L13.63 16.3601C13.22 16.7701 12.47 17.1501 11.89 17.2301L8.88002 17.6601C8.75002 17.6901 8.62002 17.6901 8.50002 17.6901ZM16.57 3.55006L8.69002 11.4301C8.50002 11.6201 8.28002 12.0601 8.24002 12.3201L7.81002 15.3301C7.77002 15.6201 7.83002 15.8601 7.98002 16.0101C8.13002 16.1601 8.37002 16.2201 8.66002 16.1801L11.67 15.7501C11.93 15.7101 12.38 15.4901 12.56 15.3001L20.44 7.42006C21.09 6.77006 21.43 6.19006 21.48 5.65006C21.54 5.00006 21.2 4.31006 20.44 3.54006C18.84 1.94006 17.74 2.39006 16.57 3.55006Z" fill="currentColor"/>
-            <path d="M19.85 9.83003C19.78 9.83003 19.71 9.82003 19.65 9.80003C17.02 9.06003 14.93 6.97003 14.19 4.34003C14.08 3.94003 14.31 3.53003 14.71 3.41003C15.11 3.30003 15.52 3.53003 15.63 3.93003C16.23 6.06003 17.92 7.75003 20.05 8.35003C20.45 8.46003 20.68 8.88003 20.57 9.28003C20.48 9.62003 20.18 9.83003 19.85 9.83003Z" fill="currentColor"/>
-        </symbol> 
         <symbol id="eye" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 16.3299C9.60998 16.3299 7.66998 14.3899 7.66998 11.9999C7.66998 9.60992 9.60998 7.66992 12 7.66992C14.39 7.66992 16.33 9.60992 16.33 11.9999C16.33 14.3899 14.39 16.3299 12 16.3299ZM12 9.16992C10.44 9.16992 9.16998 10.4399 9.16998 11.9999C9.16998 13.5599 10.44 14.8299 12 14.8299C13.56 14.8299 14.83 13.5599 14.83 11.9999C14.83 10.4399 13.56 9.16992 12 9.16992Z" fill="currentColor"/>
             <path d="M12 21.02C8.24002 21.02 4.69002 18.82 2.25002 15C1.19002 13.35 1.19002 10.66 2.25002 8.99998C4.70002 5.17998 8.25002 2.97998 12 2.97998C15.75 2.97998 19.3 5.17998 21.74 8.99998C22.8 10.65 22.8 13.34 21.74 15C19.3 18.82 15.75 21.02 12 21.02ZM12 4.47998C8.77002 4.47998 5.68002 6.41998 3.52002 9.80998C2.77002 10.98 2.77002 13.02 3.52002 14.19C5.68002 17.58 8.77002 19.52 12 19.52C15.23 19.52 18.32 17.58 20.48 14.19C21.23 13.02 21.23 10.98 20.48 9.80998C18.32 6.41998 15.23 4.47998 12 4.47998Z" fill="currentColor"/>
@@ -247,7 +242,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./orders.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full panel-sidebar-menu__item--active">
+                        <a href="./orders.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#truck-fast"></use>
@@ -260,7 +255,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./tickets.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
+                        <a href="./tickets.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full panel-sidebar-menu__item--active">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#headphone"></use>
@@ -344,7 +339,7 @@
                 </div>
 
                 <!-- Title -->
-                <h2 class="text-2xl font-vazirMedium">لیست سفارشات</h2>
+                <h2 class="text-2xl font-vazirMedium">لیست تیکت ها</h2>
 
                 <!-- Filter | Sort -->
                 <div class="space-y-4 xs:space-y-0 xs:flex items-center justify-between font-vazirMedium">
@@ -384,15 +379,15 @@
 
                 </div>
 
-                <!-- Orders -->
+                <!-- Tickets -->
                 <div class="space-y-2 font-vazirMedium">
-                    <!-- Order -->
+                    <!-- Ticket -->
                     <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price | Buyer | Situation -->
+                        <!-- Right: Checkbox | Image | Username | Email | Message | Situation -->
                         <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
 
                             <!-- Checkbox & Image -->
-                            <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
+                            <div class="flex items-center gap-x-4">
                                 <!-- Checkbox -->
                                 <label class="relative inline-block">
                                     <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer">
@@ -400,29 +395,28 @@
                                 </label>
                                 <!-- Image -->
                                 <div class="size-[72px] rounded-xl overflow-hidden">
-                                    <img class="size-full object-cover" src="../images/shoe-1.jpg" alt="کفش">
+                                    <img class="size-full object-cover" src="../images/avatar-2.jpg" alt="کفش">
                                 </div>
                             </div>
 
-                            <!-- Name -->
-                            <span>کفش فوتبالی حرفه ای</span>
-
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through font-vazir">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
+                            <!-- Username && Email -->
+                            <div class="text-center">
+                                <p>sanaz.asadi</p>
+                                <p>sanaz@gmail.com</p>
                             </div>
 
-                            <!-- Buyer Username -->
-                            <span>sanaz.asadi</span>
+                            <!-- Message -->
+                            <p class="min-w-60 max-w-[340px] h-16 p-2 leading-7 bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-50 rounded-2xl font-vazirMedium overflow-hidden line-clamp-2">
+                                سلام وقتتون بخیر.
+                                <br>
+                                میخواستم ببینم چرا پنل کاربری من غیر فعاله و فعال نمیشه
+                            </p>
+                            
 
                             <!-- Situation -->
                             <!-- classes: panel-situation__: success || fail || review -->
-                            <div class="w-32 h-9 pl-1.5 px-2 flex items-center justify-between font-vazirMedium rounded-2xl panel-situation__review">
-                                <span>درحال پیگیری</span>
+                            <div class="w-32 h-9 pl-1.5 px-2 flex items-center justify-between font-vazirMedium rounded-2xl panel-situation__success">
+                                <span>ارسال شده</span>
                                 <svg class="size-6">
                                     <use href="#arrow-down"></use>
                                 </svg>
@@ -430,16 +424,68 @@
 
                         </div>
 
-                        <!-- Buttons: View Btn | Edit Btn | Delete Btn-->
+                        <!-- Buttons: View Btn | Delete Btn-->
                         <div class="flex items-center gap-2 justify-end grow">
                             <!-- View Btn -->
                             <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
                                 <use href="#eye"></use>
                             </svg>
 
-                            <!-- Edit Btn -->
+                            <!-- Delete Btn -->
                             <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#edit"></use>
+                                <use href="#trash"></use>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Ticket -->
+                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
+                        <!-- Right: Checkbox | Image | Username | Email | Message | Situation -->
+                        <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
+
+                            <!-- Checkbox & Image -->
+                            <div class="flex items-center gap-x-4">
+                                <!-- Checkbox -->
+                                <label class="relative inline-block">
+                                    <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer">
+                                    <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
+                                </label>
+                                <!-- Image -->
+                                <div class="size-[72px] rounded-xl overflow-hidden">
+                                    <img class="size-full object-cover" src="../images/avatar-2.jpg" alt="کفش">
+                                </div>
+                            </div>
+
+                            <!-- Username && Email -->
+                            <div class="text-center">
+                                <p>sanaz.asadi</p>
+                                <p>sanaz@gmail.com</p>
+                            </div>
+
+                            <!-- Message -->
+                            <p class="min-w-60 max-w-[340px] h-16 p-2 leading-7 bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-50 rounded-2xl font-vazirMedium overflow-hidden line-clamp-2">
+                                سلام وقتتون بخیر.
+                                <br>
+                                میخواستم ببینم چرا پنل کاربری من غیر فعاله و فعال نمیشه
+                            </p>
+                            
+
+                            <!-- Situation -->
+                            <!-- classes: panel-situation__: success || fail || review -->
+                            <div class="w-32 h-9 pl-1.5 px-2 flex items-center justify-between font-vazirMedium rounded-2xl panel-situation__review">
+                                <span>دریافت شده</span>
+                                <svg class="size-6">
+                                    <use href="#arrow-down"></use>
+                                </svg>
+                            </div>
+
+                        </div>
+
+                        <!-- Buttons: View Btn | Delete Btn-->
+                        <div class="flex items-center gap-2 justify-end grow">
+                            <!-- View Btn -->
+                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                                <use href="#eye"></use>
                             </svg>
 
                             <!-- Delete Btn -->
@@ -449,13 +495,13 @@
                         </div>
                     </div>
                     
-                    <!-- Order -->
+                    <!-- Ticket -->
                     <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price | Buyer | Situation -->
+                        <!-- Right: Checkbox | Image | Username | Email | Message | Situation -->
                         <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
 
                             <!-- Checkbox & Image -->
-                            <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
+                            <div class="flex items-center gap-x-4">
                                 <!-- Checkbox -->
                                 <label class="relative inline-block">
                                     <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer">
@@ -463,29 +509,28 @@
                                 </label>
                                 <!-- Image -->
                                 <div class="size-[72px] rounded-xl overflow-hidden">
-                                    <img class="size-full object-cover" src="../images/shoe-1.jpg" alt="کفش">
+                                    <img class="size-full object-cover" src="../images/avatar-2.jpg" alt="کفش">
                                 </div>
                             </div>
 
-                            <!-- Name -->
-                            <span>کفش فوتبالی حرفه ای</span>
-
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through font-vazir">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
+                            <!-- Username && Email -->
+                            <div class="text-center">
+                                <p>sanaz.asadi</p>
+                                <p>sanaz@gmail.com</p>
                             </div>
 
-                            <!-- Buyer Username -->
-                            <span>sanaz.asadi</span>
+                            <!-- Message -->
+                            <p class="min-w-60 max-w-[340px] h-16 p-2 leading-7 bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-50 rounded-2xl font-vazirMedium overflow-hidden line-clamp-2">
+                                سلام وقتتون بخیر.
+                                <br>
+                                میخواستم ببینم چرا پنل کاربری من غیر فعاله و فعال نمیشه
+                            </p>
+                            
 
                             <!-- Situation -->
                             <!-- classes: panel-situation__: success || fail || review -->
                             <div class="w-32 h-9 pl-1.5 px-2 flex items-center justify-between font-vazirMedium rounded-2xl panel-situation__success">
-                                <span>تحویل شده</span>
+                                <span>ارسال شده</span>
                                 <svg class="size-6">
                                     <use href="#arrow-down"></use>
                                 </svg>
@@ -493,16 +538,11 @@
 
                         </div>
 
-                        <!-- Buttons: View Btn | Edit Btn | Delete Btn-->
+                        <!-- Buttons: View Btn | Delete Btn-->
                         <div class="flex items-center gap-2 justify-end grow">
                             <!-- View Btn -->
                             <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
                                 <use href="#eye"></use>
-                            </svg>
-
-                            <!-- Edit Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#edit"></use>
                             </svg>
 
                             <!-- Delete Btn -->
@@ -512,13 +552,13 @@
                         </div>
                     </div>
 
-                    <!-- Order -->
+                    <!-- Ticket -->
                     <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price | Buyer | Situation -->
+                        <!-- Right: Checkbox | Image | Username | Email | Message | Situation -->
                         <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
 
                             <!-- Checkbox & Image -->
-                            <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
+                            <div class="flex items-center gap-x-4">
                                 <!-- Checkbox -->
                                 <label class="relative inline-block">
                                     <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer">
@@ -526,92 +566,28 @@
                                 </label>
                                 <!-- Image -->
                                 <div class="size-[72px] rounded-xl overflow-hidden">
-                                    <img class="size-full object-cover" src="../images/shoe-1.jpg" alt="کفش">
+                                    <img class="size-full object-cover" src="../images/avatar-2.jpg" alt="کفش">
                                 </div>
                             </div>
 
-                            <!-- Name -->
-                            <span>کفش فوتبالی حرفه ای</span>
-
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through font-vazir">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
+                            <!-- Username && Email -->
+                            <div class="text-center">
+                                <p>sanaz.asadi</p>
+                                <p>sanaz@gmail.com</p>
                             </div>
 
-                            <!-- Buyer Username -->
-                            <span>sanaz.asadi</span>
-
-                            <!-- Situation -->
-                            <!-- classes: panel-situation__: success || fail || review -->
-                            <div class="w-32 h-9 pl-1.5 px-2 flex items-center justify-between font-vazirMedium rounded-2xl panel-situation__fail">
-                                <span>لغو شده</span>
-                                <svg class="size-6">
-                                    <use href="#arrow-down"></use>
-                                </svg>
-                            </div>
-
-                        </div>
-
-                        <!-- Buttons: View Btn | Edit Btn | Delete Btn-->
-                        <div class="flex items-center gap-2 justify-end grow">
-                            <!-- View Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#eye"></use>
-                            </svg>
-
-                            <!-- Edit Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#edit"></use>
-                            </svg>
-
-                            <!-- Delete Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#trash"></use>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <!-- Order -->
-                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price | Buyer | Situation -->
-                        <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
-
-                            <!-- Checkbox & Image -->
-                            <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
-                                <!-- Checkbox -->
-                                <label class="relative inline-block">
-                                    <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer">
-                                    <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
-                                </label>
-                                <!-- Image -->
-                                <div class="size-[72px] rounded-xl overflow-hidden">
-                                    <img class="size-full object-cover" src="../images/shoe-1.jpg" alt="کفش">
-                                </div>
-                            </div>
-
-                            <!-- Name -->
-                            <span>کفش فوتبالی حرفه ای</span>
-
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through font-vazir">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
-                            </div>
-
-                            <!-- Buyer Username -->
-                            <span>sanaz.asadi</span>
+                            <!-- Message -->
+                            <p class="min-w-60 max-w-[340px] h-16 p-2 leading-7 bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-50 rounded-2xl font-vazirMedium overflow-hidden line-clamp-2">
+                                سلام وقتتون بخیر.
+                                <br>
+                                میخواستم ببینم چرا پنل کاربری من غیر فعاله و فعال نمیشه
+                            </p>
+                            
 
                             <!-- Situation -->
                             <!-- classes: panel-situation__: success || fail || review -->
                             <div class="w-32 h-9 pl-1.5 px-2 flex items-center justify-between font-vazirMedium rounded-2xl panel-situation__review">
-                                <span>درحال پیگیری</span>
+                                <span>دریافت شده</span>
                                 <svg class="size-6">
                                     <use href="#arrow-down"></use>
                                 </svg>
@@ -619,142 +595,11 @@
 
                         </div>
 
-                        <!-- Buttons: View Btn | Edit Btn | Delete Btn-->
+                        <!-- Buttons: View Btn | Delete Btn-->
                         <div class="flex items-center gap-2 justify-end grow">
                             <!-- View Btn -->
                             <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
                                 <use href="#eye"></use>
-                            </svg>
-
-                            <!-- Edit Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#edit"></use>
-                            </svg>
-
-                            <!-- Delete Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#trash"></use>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <!-- Order -->
-                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price | Buyer | Situation -->
-                        <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
-
-                            <!-- Checkbox & Image -->
-                            <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
-                                <!-- Checkbox -->
-                                <label class="relative inline-block">
-                                    <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer">
-                                    <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
-                                </label>
-                                <!-- Image -->
-                                <div class="size-[72px] rounded-xl overflow-hidden">
-                                    <img class="size-full object-cover" src="../images/shoe-1.jpg" alt="کفش">
-                                </div>
-                            </div>
-
-                            <!-- Name -->
-                            <span>کفش فوتبالی حرفه ای</span>
-
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through font-vazir">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
-                            </div>
-
-                            <!-- Buyer Username -->
-                            <span>sanaz.asadi</span>
-
-                            <!-- Situation -->
-                            <!-- classes: panel-situation__: success || fail || review -->
-                            <div class="w-32 h-9 pl-1.5 px-2 flex items-center justify-between font-vazirMedium rounded-2xl panel-situation__success">
-                                <span>تحویل شده</span>
-                                <svg class="size-6">
-                                    <use href="#arrow-down"></use>
-                                </svg>
-                            </div>
-
-                        </div>
-
-                        <!-- Buttons: View Btn | Edit Btn | Delete Btn-->
-                        <div class="flex items-center gap-2 justify-end grow">
-                            <!-- View Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#eye"></use>
-                            </svg>
-
-                            <!-- Edit Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#edit"></use>
-                            </svg>
-
-                            <!-- Delete Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#trash"></use>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <!-- Order -->
-                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Name | Price | Buyer | Situation -->
-                        <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
-
-                            <!-- Checkbox & Image -->
-                            <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
-                                <!-- Checkbox -->
-                                <label class="relative inline-block">
-                                    <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer">
-                                    <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
-                                </label>
-                                <!-- Image -->
-                                <div class="size-[72px] rounded-xl overflow-hidden">
-                                    <img class="size-full object-cover" src="../images/shoe-1.jpg" alt="کفش">
-                                </div>
-                            </div>
-
-                            <!-- Name -->
-                            <span>کفش فوتبالی حرفه ای</span>
-
-                            <!-- Price -->
-                            <div class="flex items-center gap-0.5">
-                                <div class="text-end">
-                                    <div class="text-rose-500">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through font-vazir">5,000,000</div>
-                                </div>
-                                <span class="text-sm text-rose-500">تومان</span>
-                            </div>
-
-                            <!-- Buyer Username -->
-                            <span>sanaz.asadi</span>
-
-                            <!-- Situation -->
-                            <!-- classes: panel-situation__: success || fail || review -->
-                            <div class="w-32 h-9 pl-1.5 px-2 flex items-center justify-between font-vazirMedium rounded-2xl panel-situation__fail">
-                                <span>لغو شده</span>
-                                <svg class="size-6">
-                                    <use href="#arrow-down"></use>
-                                </svg>
-                            </div>
-
-                        </div>
-
-                        <!-- Buttons: View Btn | Edit Btn | Delete Btn-->
-                        <div class="flex items-center gap-2 justify-end grow">
-                            <!-- View Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#eye"></use>
-                            </svg>
-
-                            <!-- Edit Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#edit"></use>
                             </svg>
 
                             <!-- Delete Btn -->
@@ -764,6 +609,120 @@
                         </div>
                     </div>
                     
+                    <!-- Ticket -->
+                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
+                        <!-- Right: Checkbox | Image | Username | Email | Message | Situation -->
+                        <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
+
+                            <!-- Checkbox & Image -->
+                            <div class="flex items-center gap-x-4">
+                                <!-- Checkbox -->
+                                <label class="relative inline-block">
+                                    <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer">
+                                    <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
+                                </label>
+                                <!-- Image -->
+                                <div class="size-[72px] rounded-xl overflow-hidden">
+                                    <img class="size-full object-cover" src="../images/avatar-2.jpg" alt="کفش">
+                                </div>
+                            </div>
+
+                            <!-- Username && Email -->
+                            <div class="text-center">
+                                <p>sanaz.asadi</p>
+                                <p>sanaz@gmail.com</p>
+                            </div>
+
+                            <!-- Message -->
+                            <p class="min-w-60 max-w-[340px] h-16 p-2 leading-7 bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-50 rounded-2xl font-vazirMedium overflow-hidden line-clamp-2">
+                                سلام وقتتون بخیر.
+                                <br>
+                                میخواستم ببینم چرا پنل کاربری من غیر فعاله و فعال نمیشه
+                            </p>
+                            
+
+                            <!-- Situation -->
+                            <!-- classes: panel-situation__: success || fail || review -->
+                            <div class="w-32 h-9 pl-1.5 px-2 flex items-center justify-between font-vazirMedium rounded-2xl panel-situation__success">
+                                <span>ارسال شده</span>
+                                <svg class="size-6">
+                                    <use href="#arrow-down"></use>
+                                </svg>
+                            </div>
+
+                        </div>
+
+                        <!-- Buttons: View Btn | Delete Btn-->
+                        <div class="flex items-center gap-2 justify-end grow">
+                            <!-- View Btn -->
+                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                                <use href="#eye"></use>
+                            </svg>
+
+                            <!-- Delete Btn -->
+                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                                <use href="#trash"></use>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Ticket -->
+                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
+                        <!-- Right: Checkbox | Image | Username | Email | Message | Situation -->
+                        <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
+
+                            <!-- Checkbox & Image -->
+                            <div class="flex items-center gap-x-4">
+                                <!-- Checkbox -->
+                                <label class="relative inline-block">
+                                    <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer">
+                                    <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
+                                </label>
+                                <!-- Image -->
+                                <div class="size-[72px] rounded-xl overflow-hidden">
+                                    <img class="size-full object-cover" src="../images/avatar-2.jpg" alt="کفش">
+                                </div>
+                            </div>
+
+                            <!-- Username && Email -->
+                            <div class="text-center">
+                                <p>sanaz.asadi</p>
+                                <p>sanaz@gmail.com</p>
+                            </div>
+
+                            <!-- Message -->
+                            <p class="min-w-60 max-w-[340px] h-16 p-2 leading-7 bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-50 rounded-2xl font-vazirMedium overflow-hidden line-clamp-2">
+                                سلام وقتتون بخیر.
+                                <br>
+                                میخواستم ببینم چرا پنل کاربری من غیر فعاله و فعال نمیشه
+                            </p>
+                            
+
+                            <!-- Situation -->
+                            <!-- classes: panel-situation__: success || fail || review -->
+                            <div class="w-32 h-9 pl-1.5 px-2 flex items-center justify-between font-vazirMedium rounded-2xl panel-situation__review">
+                                <span>دریافت شده</span>
+                                <svg class="size-6">
+                                    <use href="#arrow-down"></use>
+                                </svg>
+                            </div>
+
+                        </div>
+
+                        <!-- Buttons: View Btn | Delete Btn-->
+                        <div class="flex items-center gap-2 justify-end grow">
+                            <!-- View Btn -->
+                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                                <use href="#eye"></use>
+                            </svg>
+
+                            <!-- Delete Btn -->
+                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                                <use href="#trash"></use>
+                            </svg>
+                        </div>
+                    </div>
+                         
                 </div>
 
                 <!-- Pagination -->

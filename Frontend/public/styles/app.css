@@ -2881,6 +2881,10 @@ input[type="range"]::-webkit-slider-thumb {
   width: max-content;
 }
 
+.w-\[340px\] {
+  width: 340px;
+}
+
 .min-w-3 {
   min-width: 0.75rem;
 }
@@ -2907,6 +2911,18 @@ input[type="range"]::-webkit-slider-thumb {
 
 .max-w-\[704px\] {
   max-width: 704px;
+}
+
+.max-w-\[340px\] {
+  max-width: 340px;
+}
+
+.max-w-\[339px\] {
+  max-width: 339px;
+}
+
+.max-w-\[334px\] {
+  max-width: 334px;
 }
 
 .shrink-0 {
@@ -3214,6 +3230,10 @@ input[type="range"]::-webkit-slider-thumb {
 
 .overflow-ellipsis {
   text-overflow: ellipsis;
+}
+
+.text-wrap {
+  text-wrap: wrap;
 }
 
 .rounded-2xl {
