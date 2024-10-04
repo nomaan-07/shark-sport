@@ -525,7 +525,7 @@
     }
 
     .panel-sort__selected {
-        @apply w-[130px] transition-colors;
+        @apply w-[130px] transition-colors text-center;
     }
 
     .panel-sort__icon {

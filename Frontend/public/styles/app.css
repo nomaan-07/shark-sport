@@ -1941,6 +1941,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 .panel-sort__selected {
   width: 130px;
+  text-align: center;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
@@ -4518,10 +4519,6 @@ input[type="range"]::-webkit-slider-thumb {
 
   .md\:ml-0 {
     margin-left: 0px;
-  }
-
-  .md\:mr-\[312px\] {
-    margin-right: 312px;
   }
 
   .md\:mt-0 {
