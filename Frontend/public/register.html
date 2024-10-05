@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>شارک اسپرت | ورود</title>
+    <title>شارک اسپرت | ثبت نام</title>
     <link rel="stylesheet" href="styles/app.css" />
     <!-- Page Icon -->
     <link rel="icon" href="images/fav-icon.png" type="image/png" />
@@ -29,13 +29,21 @@
             <div class="mb-5">
                 <h2 class="font-vazirBold text-center text-orangeBrand text-2xl">خوش آمدید</h2>
                 <div class="text-center mt-3">
-                    <span class="text-grayTint_4">حساب کاربری ندارید؟</span> 
-                    <a class="text-rose-400 hover:text-rose-500 transition-colors" href="register.html">ثبت نام</a>
+                    <span class="text-grayTint_4">قبلا ثبت نام کرده اید؟</span> 
+                    <a class="text-rose-400 hover:text-rose-500 transition-colors" href="login.html">ورود</a>
                 </div>
             </div>
             <div class="relative z-0 w-full mb-5 group">
+                <input type="text" name="floating_name" id="floating_name" class="block dir-rtl py-2.5 px-0 w-full text-black bg-transparent border-0 border-b-2 border-neutralBorder appearance-none focus:outline-none focus:ring-0 focus:border-rose-500 peer" placeholder=" " required/>
+                <label for="floating_name" class="peer-focus:font-medium absolute text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-rose-500  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">نام</label>
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
+                <input type="text" name="floating_last-name" id="floating_last-name" class="block dir-rtl py-2.5 px-0 w-full text-black bg-transparent border-0 border-b-2 border-neutralBorder appearance-none focus:outline-none focus:ring-0 focus:border-rose-500 peer" placeholder=" " required/>
+                <label for="floating_last-name" class="peer-focus:font-medium absolute text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-rose-500  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">نام خانوادگی</label>
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
                 <input type="text" name="floating_email" id="floating_email" class="block dir-ltr py-2.5 px-0 w-full text-black bg-transparent border-0 border-b-2 border-neutralBorder appearance-none focus:outline-none focus:ring-0 focus:border-rose-500 peer" placeholder=" " required/>
-               <label for="floating_email" class="peer-focus:font-medium absolute text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-rose-500  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">ایمیل یا شماره موبایل</label>
+                <label for="floating_email" class="peer-focus:font-medium absolute text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-rose-500  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">ایمیل یا تلفن همراه</label>
             </div>
             <div class="relative z-0 w-full mb-5 group">
                 <input type="password" name="floating_password" id="floating_password" class="block dir-ltr py-2.5 px-0 w-full text-black bg-transparent border-0 border-b-2 border-neutralBorder appearance-none focus:outline-none focus:ring-0 focus:border-rose-500 peer" placeholder=" " required/>
@@ -43,13 +51,10 @@
                 <svg class="hidden absolute right-0 bottom-3 size-6" href="#eye-slash-svg"><use href="#eye-slash"></use></svg>
                 <label for="floating_password" class="peer-focus:font-medium absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-rose-500  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">رمز عبور</label>
             </div>
-            <button type="submit" class="flex-center mt-8 w-full text-white bg-rose-500 hover:bg-rose-600 transition-colors rounded-full  px-5 py-2.5 text-center">ورود</button>
+            <button type="submit" class="flex-center mt-8 w-full text-white bg-rose-500 hover:bg-rose-600 transition-colors rounded-full  px-5 py-2.5 text-center">ثبت نام</button>
         </form>
-        <div class="mx-auto mt-5">
-            <a class="text-center text-rose-400 hover:text-rose-500 transition-colors" href="#">فراموشی رمز عبور</a>
-        </div>
       </div>
     </main>
-    <script src="scripts/login.js"></script>
+    <script src="scripts/register.js"></script>
   </body>
 </html>
