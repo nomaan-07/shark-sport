@@ -564,6 +564,11 @@
         direction: rtl;
     }
 
+    .dir-ltr {  
+        text-align: left;
+        direction: ltr;
+    }
+
     .hide {
         @apply invisible opacity-0;
     }
