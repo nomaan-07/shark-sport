@@ -19,7 +19,7 @@
         </symbol>            
     </svg>
     <main class="h-screen flex flex-col items-center justify-center relative p-4 overflow-hidden">
-      <a href="#" class="header__logo block transition-all mb-5 w-[300px]">
+      <a href="index.html" class="header__logo block transition-all mb-5 w-[300px]">
         <img class="size-full" src="images/shark-sport-text-logo.png" alt="" />
       </a>
       <!-- Form Wrapper -->
@@ -38,9 +38,11 @@
                <label for="floating_email" class="peer-focus:font-medium absolute text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-rose-500  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">ایمیل یا شماره موبایل</label>
             </div>
             <div class="relative z-0 w-full mb-5 group">
-                <input type="password" name="floating_password" id="floating_password" class="block dir-ltr py-2.5 px-0 w-full text-black bg-transparent border-0 border-b-2 border-neutralBorder appearance-none focus:outline-none focus:ring-0 focus:border-rose-500 peer" placeholder=" " required/>
-                <svg class="hidden absolute right-0 bottom-3 size-6" href="#eye-svg"><use href="#eye"></use></svg>
-                <svg class="hidden absolute right-0 bottom-3 size-6" href="#eye-slash-svg"><use href="#eye-slash"></use></svg>
+                <input type="password" name="floating_password" id="password-input" class="block dir-ltr py-2.5 px-0 w-full text-black bg-transparent border-0 border-b-2 border-neutralBorder appearance-none focus:outline-none focus:ring-0 focus:border-rose-500 peer" placeholder=" " required/>
+                <svg class="absolute right-0 bottom-3 size-6 cursor-pointer hide" id="display-password-btn">
+                    <use class="" href="#eye"></use>
+                    <use class="hidden" href="#eye-slash"></use>
+                </svg>
                 <label for="floating_password" class="peer-focus:font-medium absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-rose-500  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">رمز عبور</label>
             </div>
             <button type="submit" class="flex-center mt-8 w-full text-white bg-rose-500 hover:bg-rose-600 transition-colors rounded-full  px-5 py-2.5 text-center">ورود</button>
@@ -50,6 +52,7 @@
         </div>
       </div>
     </main>
+    <script src="scripts/shared/form-password.js"></script>
     <script src="scripts/login.js"></script>
   </body>
 </html>
