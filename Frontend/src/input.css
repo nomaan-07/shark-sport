@@ -351,6 +351,19 @@
         content: "";
         @apply absolute right-0 -bottom-2.5 m-auto bg-orangeBrand w-[133px] h-0.5 rounded-xl
     }
+    .line-seperator::after,
+    .line-seperator__label::after,
+    .line-seperator__label::before{
+        content: "";
+        @apply absolute h-0.5 w-full bg-neutralBorder left-0 right-0 m-auto
+    }
+    .line-seperator::after,
+    .line-seperator__label::after{
+        @apply -bottom-4
+    }
+    .line-seperator__label::before{
+        @apply -top-4
+    }
     .overlay {
         @apply fixed inset-0 z-20 bg-overlayBcg invisible opacity-0 w-full h-full transition-all
     }
@@ -358,6 +371,183 @@
     .overlay--visible {
         @apply visible opacity-100
     }
+
+
+    /* 
+    
+    ============
+    -- Panel --
+    ============
+    
+    */
+
+    /* Sidebar */
+    .panel__sidebar {
+        @apply fixed md:sticky top-4 md:top-10 bottom-4 md:bottom-0 -right-[300px] md:right-auto min-w-72 md:h-max pt-2 pb-6 text-rose-50 dark:text-neutral-800 bg-rose-500 overflow-y-auto overflow-x-hidden md:overflow-y-visible rounded-3xl transition-all z-50;
+    }
+    
+    .panel-sidebar-menu__item--active {
+        @apply bg-neutral-50 dark:bg-neutral-800 text-rose-500 dark:text-rose-50;
+    }
+
+    /* alert message */
+    .panel__alert-message {
+        @apply  flex items-center gap-2.5 min-h-14 bg-blue-500 text-neutral-50 font-vazirMedium text-lg sm:text-xl px-4 rounded-2xl;
+    }
+
+    /* Order */
+
+    .panel-situation__success {
+        @apply bg-green-100 text-green-600;
+    }
+    .panel-situation__fail {
+        @apply bg-red-100 text-red-600;
+
+    }
+    .panel-situation__review {
+        @apply bg-yellow-100 text-yellow-600;
+    }
+
+    /* Pagination */
+    .panel__pagination {
+        @apply text-lg flex items-center justify-center size-10 font-vazirMedium border border-rose-500 rounded-lg sm:cursor-pointer sm:hover:text-neutral-50 sm:hover:bg-rose-500 transition-colors;
+    }
+    .panel__pagination--active {
+        @apply text-neutral-50 bg-rose-500;
+    }
+
+    /* Form */
+    .panel__form input,
+    .panel__form textarea,
+    .panel__form .panel-select {
+        @apply w-full px-2.5 py-4 bg-neutral-100 dark:bg-neutral-700 text-lg sm:text-xl border border-neutral-300 rounded-2xl outline-none font-vazirMedium placeholder:text-neutral-400 focus:border-neutral-400 dark:focus:border-neutral-100 transition-all;
+    }
+
+    .panel__form .panel-select {
+        @apply relative;
+    } 
+    .panel__form .panel-select__header {
+        @apply flex items-center justify-between sm:hover:border-neutral-400 dark:sm:hover:border-neutral-100 sm:cursor-pointer transition-all;
+    }
+
+    .panel__form .panel-select span {
+        @apply  text-neutral-400;
+    }
+
+    .panel__form .panel-select svg {
+        @apply  text-neutral-400 size-6 transition-all;
+    }
+
+    .panel__form .panel-select .panel-select--active {
+        @apply text-inherit;
+    }
+    .panel__form .panel__options-wrapper {
+        @apply absolute top-16 left-0 right-0 text-lg bg-neutral-100 dark:bg-neutral-700 sm:text-xl border border-neutral-300 rounded-2xl font-vazirMedium overflow-hidden z-10 transition-all;
+    }
+
+    
+    .panel__form .panel__option {
+        @apply px-2.5 py-4 sm:hover:bg-neutral-200 sm:hover:dark:bg-neutral-600 transition-colors;
+    }
+
+    .panel__form .panel__option:first-child {
+        @apply text-neutral-400;
+    }
+
+    .panel__form .panel__option--active {
+        @apply bg-neutral-300 dark:bg-neutral-500;
+    }
+
+    .panel__form textarea {
+        @apply  min-h-44 resize-none;
+
+    }
+
+    .panel__form button {
+        @apply w-full 2xs:w-56 h-12 2xs:h-16 flex items-center justify-center mx-auto bg-rose-500 sm:hover:bg-rose-600 text-neutral-50 text-lg sm:text-xl rounded-2xl font-vazirMedium transition-colors;
+    }
+
+    /* Compare */
+    .panel__compare-product {
+        @apply px-4 space-y-4 pb-10 text-center border-b-2 lg:border-l-2 lg:border-b-none border-neutral-300 dark:border-neutral-50;
+    }
+
+    .panel__compare-product:first-child {
+        @apply xs:border-l-2;
+    }
+
+    .panel__compare-product:last-child {
+        @apply border-none;
+        
+    }
+
+
+    /* Filter */
+    .panel-filter {
+        @apply text-neutral-500 dark:text-neutral-300 select-none relative;
+    }
+
+    .panel-filter__header {
+        @apply flex items-center justify-between w-[170px] h-12 px-4 bg-neutral-200 dark:bg-neutral-600 sm:hover:text-neutral-950 dark:sm:hover:text-neutral-50 rounded-2xl sm:cursor-pointer;
+    }
+
+    .panel-filter__selected {
+        @apply transition-all;
+    }
+
+    .panel-filter__icon {
+        @apply size-6 transition-all;
+    }
+
+    .panel-filter__active {
+        @apply text-neutral-950 dark:text-neutral-50;
+    }
+
+    .panel-filter__options-wrapper {
+        @apply absolute top-14 left-0 right-0 bg-neutral-200 dark:bg-neutral-600 rounded-2xl sm:cursor-pointer overflow-hidden z-30;
+    }
+
+    .panel-filter__option {
+        @apply  py-2 px-4 sm:hover:bg-neutral-300 sm:hover:dark:bg-neutral-700 transition-colors;
+    }
+
+    .panel-filter__option--active {
+        @apply  bg-neutral-400 sm:hover:bg-neutral-400 text-neutral-50 dark:bg-neutral-500 dark:sm:hover:bg-neutral-500; 
+    }
+
+    /* Sort */
+    .panel-sort {
+        @apply flex justify-end relative select-none;
+    }
+
+    .panel-sort__header {
+        @apply  flex items-center gap-px cursor-pointer sm:hover:text-rose-500;
+    }
+
+    .panel-sort__selected {
+        @apply w-[130px] transition-colors text-center;
+    }
+
+    .panel-sort__icon {
+        @apply size-6 transition-colors;
+    }
+
+    .panel-sort__active {
+        @apply text-neutral-950 dark:text-neutral-50 sm:hover:text-rose-500 ;
+    }
+
+    .panel-sort__options-wrapper {
+        @apply absolute top-8 left-0 right-0 bg-neutral-200 dark:bg-neutral-600 rounded-2xl sm:cursor-pointer overflow-hidden z-30;
+    }
+
+    .panel-sort__option {
+        @apply  p-2 sm:hover:bg-neutral-300 sm:hover:dark:bg-neutral-700 transition-colors;
+    }
+
+    .panel-sort__option--active {
+        @apply  bg-neutral-400 sm:hover:bg-neutral-400 text-neutral-50 dark:bg-neutral-500 dark:sm:hover:bg-neutral-500; 
+    }
+
 }
 
 @layer utilities {
@@ -372,5 +562,18 @@
     .dir-rtl {
         text-align: right;
         direction: rtl;
+    }
+
+    .dir-ltr {  
+        text-align: left;
+        direction: ltr;
+    }
+
+    .hide {
+        @apply invisible opacity-0;
+    }
+
+    .border-b-none {
+        border-bottom-style: none;
     }
 }

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>شارک اسپرت | ثبت نام</title>
+    <link rel="stylesheet" href="styles/app.css" />
+    <!-- Page Icon -->
+    <link rel="icon" href="images/fav-icon.png" type="image/png" />
+  </head>
+  <body class="font-vazirMedium bg-rose-100">
+    <svg class="hidden">
+        <symbol id="eye" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+        </symbol>
+        <symbol id="eye-slash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+        </symbol>            
+    </svg>
+    <main class="h-screen flex flex-col items-center justify-center relative p-4 overflow-hidden">
+      <a href="#" class="header__logo block transition-all mb-5 w-[300px]">
+        <img class="size-full" src="images/shark-sport-text-logo.png" alt="" />
+      </a>
+      <!-- Form Wrapper -->
+      <div class="flex flex-col relative">
+        <!-- Form -->
+        <form action="#" class="mx-auto w-[300px]">
+            <div class="mb-5">
+                <h2 class="font-vazirBold text-center text-orangeBrand text-2xl">خوش آمدید</h2>
+                <div class="text-center mt-3">
+                    <span class="text-grayTint_4">قبلا ثبت نام کرده اید؟</span> 
+                    <a class="text-rose-400 hover:text-rose-500 transition-colors" href="login.html">ورود</a>
+                </div>
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
+                <input type="text" name="floating_name" id="floating_name" class="block dir-rtl py-2.5 px-0 w-full text-black bg-transparent border-0 border-b-2 border-neutralBorder appearance-none focus:outline-none focus:ring-0 focus:border-rose-500 peer" placeholder=" " required/>
+                <label for="floating_name" class="peer-focus:font-medium absolute text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-rose-500  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">نام</label>
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
+                <input type="text" name="floating_last-name" id="floating_last-name" class="block dir-rtl py-2.5 px-0 w-full text-black bg-transparent border-0 border-b-2 border-neutralBorder appearance-none focus:outline-none focus:ring-0 focus:border-rose-500 peer" placeholder=" " required/>
+                <label for="floating_last-name" class="peer-focus:font-medium absolute text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-rose-500  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">نام خانوادگی</label>
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
+                <input type="text" name="floating_email" id="floating_email" class="block dir-ltr py-2.5 px-0 w-full text-black bg-transparent border-0 border-b-2 border-neutralBorder appearance-none focus:outline-none focus:ring-0 focus:border-rose-500 peer" placeholder=" " required/>
+                <label for="floating_email" class="peer-focus:font-medium absolute text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-rose-500  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">ایمیل یا تلفن همراه</label>
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
+                <input type="password" name="floating_password" id="floating_password" class="block dir-ltr py-2.5 px-0 w-full text-black bg-transparent border-0 border-b-2 border-neutralBorder appearance-none focus:outline-none focus:ring-0 focus:border-rose-500 peer" placeholder=" " required/>
+                <svg class="hidden absolute right-0 bottom-3 size-6" href="#eye-svg"><use href="#eye"></use></svg>
+                <svg class="hidden absolute right-0 bottom-3 size-6" href="#eye-slash-svg"><use href="#eye-slash"></use></svg>
+                <label for="floating_password" class="peer-focus:font-medium absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-rose-500  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">رمز عبور</label>
+            </div>
+            <button type="submit" class="flex-center mt-8 w-full text-white bg-rose-500 hover:bg-rose-600 transition-colors rounded-full  px-5 py-2.5 text-center">ثبت نام</button>
+        </form>
+      </div>
+    </main>
+    <script src="scripts/register.js"></script>
+  </body>
+</html>

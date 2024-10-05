@@ -3,6 +3,7 @@ const plugin = require('tailwindcss');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./public/**/*.{html,js}"],
+  darkMode: 'class',
   theme: {
     extend: {
       container:{
@@ -21,6 +22,7 @@ module.exports = {
         orangeTint_1 : "#FFDEC7",
         orangeTint_2 : "#FCC197",
         orangeTint_3 : "#F29F64",
+        orangeTint_4 : "#E48849",
         grayBrand : "#808080",
         grayTint_1 : "#E6E6E6",
         grayTint_2 : "#CCC",
@@ -29,7 +31,7 @@ module.exports = {
         grayShade_1 : "#666666",
         overlayBcg : "#00000066",
         neutralBorder : "#E0E0E2",
-        green : "#0A8E46",
+        customGreen : "#0A8E46",
         darkGreen : "#20AC60",
         sea : "#F5F5F5",
         shade_2 : "#4D4D4D",
@@ -54,6 +56,7 @@ module.exports = {
       },
     },
     screens :{
+      '2xs': '440px',
       'xs': '576px',
       'sm': '768px',
       'md': '992px',
@@ -68,3 +71,4 @@ module.exports = {
     },)
   ]
 }
+
