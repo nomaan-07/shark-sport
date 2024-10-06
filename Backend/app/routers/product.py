@@ -1,148 +1,102 @@
-from fastapi import APIRouter, HTTPException, Depends, UploadFile, File
+from fastapi import APIRouter, Depends, HTTPException
+from models import product_management
 from db import Base, Session, get_db
+from schemas import schema
 from datetime import datetime
-from schemas.product import BaseProduct as SchemaBaseProduct
-from schemas.product import Image as SchemaImage
-from schemas.product import Product as SchemaProduct
-from models.product import Product as ModelProduct
-from models import product as ProductModel
-from middleware.auth_middleware import auth_middleware
-from uuid import uuid4
-from urllib.parse import quote
-from sqlalchemy.exc import IntegrityError
-import os,boto3
-
+from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 
 router = APIRouter()
 
-LIARA_ENDPOINT = os.getenv("LIARA_ENDPOINT")
-LIARA_ACCESS_KEY = os.getenv("LIARA_ACCESS_KEY")
-LIARA_SECRET_KEY = os.getenv("LIARA_SECRET_KEY")
-LIARA_BUCKET_NAME = os.getenv("LIARA_BUCKET_NAME")
 
-s3 = boto3.client(
-    "s3",
-    endpoint_url=LIARA_ENDPOINT,
-    aws_access_key_id=LIARA_ACCESS_KEY,
-    aws_secret_access_key=LIARA_SECRET_KEY,
-)
 
-@router.post("/product", response_model=SchemaProduct, status_code=201)
-def create_product(product: SchemaBaseProduct, db: Session=Depends(get_db), auth_dict= Depends(auth_middleware)):
-    
-    if db.query(ModelProduct).filter(ModelProduct.product_code == product.product_code).first():
-        raise HTTPException(status_code=409, detail="Duplicated product")
-    product_id = str(uuid4())
-    new_product = ModelProduct(id=product_id,
-                               product_code=product.product_code,
-                               name=product.name,
-                               description=product.description,
-                               category_id=product.category_id,
-                               created_at=datetime.now().replace(second=0, microsecond=0))
-    
+
+
+@router.post("/products/", response_model=schema.ProductResponse)
+def create_product(product: schema.ProductCreate, db: Session = Depends(get_db)):
     try:
-        db.add(new_product)
+        product_data = product.model_dump()
+        db_product = product_management.Product(**product_data, created_at=datetime.now().replace(second=0, microsecond=0))
+
+        db.add(db_product)
         db.commit()
-        return new_product
-    except IntegrityError as e:
-        db.rollback()
-        if 'foreign key constraint' in str(e.orig):
-            raise HTTPException(status_code=400, detail="Invalid category_id: does not exist in products_categories")
-        else:
-            raise HTTPException(status_code=500, detail="An error occurred while creating the product")
+        db.refresh(db_product)
 
-@router.get("/product/bycode/", response_model=SchemaProduct, status_code=200)
-def get_product_by_code(product_code:str, db: Session=Depends(get_db)):
-    product_db = db.query(ProductModel.Product).filter(ProductModel.Product.product_code == product_code).first()
-    if not product_db:
-        raise HTTPException(status_code=404, detail="product not found")
-    else:
-        return product_db
+        return db_product
 
-@router.post("/product/image", response_model=SchemaImage)
-def post_image(product_code: str ,image: UploadFile=File(...), db: Session=Depends(get_db), auth_dict= Depends(auth_middleware)):
-    image_id = str(uuid4())
+    except IntegrityError:
+        db.rollback() 
+        raise HTTPException(status_code=409, detail="Product with this identifier already exists.")
 
-    if not db.query(ModelProduct).filter(ModelProduct.product_code == product_code).first():
-        raise HTTPException(status_code=404, detail=f"product with code {product_code} not found!")
-    else:
-        image_upload_res = s3.upload_fileobj(image.file, LIARA_BUCKET_NAME, f'sharksport/images/{image_id}.jpg')
+    except SQLAlchemyError as e:
+        db.rollback()  
+        raise HTTPException(status_code=500, detail="An error occurred while creating the product.")
 
-        image_filename_encoded = quote(f'sharksport/images/{image_id}.jpg')
-        image_permanent_url = f"https://{LIARA_BUCKET_NAME}.{LIARA_ENDPOINT.replace('https://', '')}/{image_filename_encoded}"
+    except Exception as e:
+        db.rollback()  
+        raise HTTPException(status_code=500, detail="An unexpected error occurred: " + str(e))
 
-        new_image = ProductModel.Image(id=image_id,
-                            url=image_permanent_url,
-                            product_code= product_code,
-                            created_at=datetime.now().replace(second=0, microsecond=0))
 
-        db.add(new_image)
+
+# Read all products
+@router.get("/products/", response_model=list[schema.ProductResponse])
+def read_products(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+    try:
+        products = db.query(product_management.Product).offset(skip).limit(limit).all()
+        return products
+    except SQLAlchemyError as e:
+        raise HTTPException(status_code=500, detail="An error occurred while retrieving products.")
+
+
+
+# Read a single product
+@router.get("/products/{product_id}", response_model=schema.ProductResponse)
+def read_product(product_id: int, db: Session = Depends(get_db)):
+    try:
+        product = db.query(product_management.Product).filter(product_management.Product.id == product_id).first()
+        if product is None:
+            raise HTTPException(status_code=404, detail="Product not found")
+        return product
+    except SQLAlchemyError as e:
+        raise HTTPException(status_code=500, detail="An error occurred while retrieving the product.")
+
+
+
+# Update a product
+@router.put("/products/{product_id}", response_model=schema.ProductResponse)
+def update_product(product_id: int, product: schema.ProductCreate, db: Session = Depends(get_db)):
+    try:
+        db_product = db.query(product_management.Product).filter(product_management.Product.id == product_id).first()
+        if db_product is None:
+            raise HTTPException(status_code=404, detail="Product not found")
+        
+        for key, value in product.model_dump().items():
+            setattr(db_product, key, value)
+
         db.commit()
-        db.refresh(new_image)
-        return new_image
+        db.refresh(db_product)
+        return db_product
 
+    except IntegrityError:
+        db.rollback()  
+        raise HTTPException(status_code=400, detail="Product update failed due to integrity constraints.")
 
-@router.get("/product/images", status_code=200)
-def get_prodcut_images(product_code: str, db: Session=Depends(get_db)):
-    images = db.query(ProductModel.Image).filter(ProductModel.Image.product_code == product_code).all()
-
-    return images
-
-
-
-@router.delete("/product/images")
-def delete_product_image(product_code: str, db: Session=Depends(get_db), auth_dict=Depends(auth_middleware)):
-    db_image = db.query(ProductModel.Image).filter(ProductModel.Image.product_code == product_code).first()
-
-    db.delete(db_image)
-    db.commit()
-    return db_image
-
-
-
-
-
-
-@router.get("/product/list", status_code=200)
-def get_product_list(db: Session=Depends(get_db)):
-    return db.query(ModelProduct).filter(ModelProduct.deleted_at.is_(None)).first()
-
-
-
-
-
-
-
-@router.patch("/product", response_model=SchemaProduct, status_code=200)
-def update_product(product_code: str, patch_dict: SchemaBaseProduct, db: Session=Depends(get_db), auth_dict= Depends(auth_middleware)):
+    except SQLAlchemyError as e:
+        db.rollback()  
+        raise HTTPException(status_code=500, detail="An error occurred while updating the product.")
     
-    if not db.query(ModelProduct).filter(ModelProduct.product_code == product_code).first():
-        raise HTTPException(status_code=404, detail="Product not found!")
-    
-    product_model =  db.query(ModelProduct).filter(ModelProduct.product_code == product_code).first()
 
-    product_model.product_code = patch_dict.product_code
-    product_model.name = patch_dict.name
-    product_model.description = patch_dict.description
-    product_model.modified_at = datetime.now().replace(second=0, microsecond=0)
+# Delete a product
+@router.delete("/products/{product_id}", response_model=dict)
+def delete_product(product_id: int, db: Session = Depends(get_db)):
+    try:
+        db_product = db.query(product_management.Product).filter(product_management.Product.id == product_id).first()
+        if db_product is None:
+            raise HTTPException(status_code=404, detail="Product not found")
+        
+        db.delete(db_product)
+        db.commit()
+        return {"message": "Product deleted successfully"}
 
-    db.commit()
-    return product_model 
-
-
-
-
-
-@router.delete("/product", response_model=SchemaProduct, status_code=200)
-def product_soft_delete(product_code: str, db: Session=Depends(get_db), auth_dict= Session(auth_middleware)):
-    if not db.query(ModelProduct).filter(ModelProduct.product_code == product_code).first():
-        raise HTTPException(status_code=404,detail="Product not found!")
-    
-    delete_product = db.query(ModelProduct).filter(ModelProduct.product_code == product_code).first()
-
-    delete_product.deleted_at = datetime.now().replace(second=0, microsecond=0)
-
-    db.commit()
-    return delete_product
-
-    
+    except SQLAlchemyError as e:
+        db.rollback()  
+        raise HTTPException(status_code=500, detail="An error occurred while deleting the product.")

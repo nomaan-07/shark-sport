@@ -1,13 +1,20 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from db import Base, engine
-import models
-from routers import category, product, user
+import routers
+import routers.product
 
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # You can specify the origins you want to allow
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 Base.metadata.create_all(bind=engine)
 
 
-app.include_router(category.router, tags=["Product Category"])
-app.include_router(product.router, tags=["Prodcts"])
-app.include_router(user.router, tags=["User"])
+app.include_router(routers.product.router, tags=["Products"])
