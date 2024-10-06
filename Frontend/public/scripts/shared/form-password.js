@@ -4,15 +4,13 @@ const form = document.querySelector("form");
 
 const showEyeSvg = (e) => {
   if (e.target.id === "password-input") {
-    setTimeout(() => displayPasswordBtn.classList.remove("hide"), 400);
+    setTimeout(() => displayPasswordBtn.classList.remove("hide"), 20);
   }
 };
 
 const hideEyeSvg = () => {
   if (!passwordInput.value) {
-    if (passwordInput.id === "password-input") {
-      displayPasswordBtn.classList.add("hide");
-    }
+    setTimeout(() => displayPasswordBtn.classList.add("hide"), 20);
   }
 };
 
@@ -21,6 +19,7 @@ const showPassword = () => {
   displayPasswordBtn.children[1].classList.remove("hidden");
   passwordInput.type = "text";
 };
+
 const hidePassword = () => {
   displayPasswordBtn.children[0].classList.remove("hidden");
   displayPasswordBtn.children[1].classList.add("hidden");
