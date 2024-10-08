@@ -187,7 +187,9 @@
     .select-option {
         @apply hidden justify-center items-center flex-col -mt-0.5 border-2 border-b-neutralBorder transition-transform rounded-xl
     }
-
+    .select-option__item--active {
+        @apply text-white bg-orangeBrand
+    }
     .select-option--visible {
         @apply flex
     }

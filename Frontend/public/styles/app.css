@@ -1056,6 +1056,13 @@ video {
   transition-duration: 150ms;
 }
 
+.select-option__item--active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 148 71 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .select-option--visible {
   display: flex;
 }

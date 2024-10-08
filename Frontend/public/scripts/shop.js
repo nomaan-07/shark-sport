@@ -1,6 +1,4 @@
-// Filtration elements of products
-const selectBoxes = $.querySelectorAll(".select-box")
-const selectOptions = $.querySelectorAll(".select-option")
+import {toggleSelect , selectOption} from "./ui/ui-handlers.js";
 
 // Filtration elements, product prices
 const rangevalue = document.querySelector(".price-slider");
@@ -8,18 +6,37 @@ const rangeInputvalue = document.querySelectorAll(".range-input input");
 const priceInputvalue = document.querySelectorAll(".price-input input");
 let priceGap = 1000;
 
-// 
-selectBoxes.forEach((box) => {
-    box.addEventListener("click", () => {
-        let contentID = box.getAttribute("data-content-id")
-        let svgID = box.lastElementChild.id
-        $.querySelector(contentID).classList.toggle("select-option--visible")
-        $.getElementById(svgID).classList.toggle("rotate-180")
-    })
-})
-// 
 
-// 
+// Filtration elements of products
+const selectElementsHeaders = document.querySelectorAll(".panel-select__header");
+// Filtration Funcs
+const handleSelect = el => {
+    const type = el.dataset.type
+    const selectElement = document.querySelector(`.panel-select--${type}`)
+    const selectedElement = document.querySelector(`.panel-select__selected-option--${type}`)
+    const icon = document.querySelector(`.panel-select__icon--${type}`)
+    const optionWrapperElement = document.querySelector(`.panel__options-wrapper--${type}`)
+    const optionElements = document.querySelectorAll(`panel__option--${type}`)
+
+    optionElements.forEach(option => {
+        option.addEventListener("click", () => {
+            selectOption(type , selectElement , selectedElement , optionElements , option , "panel-select--active", "select-option__item--active" )
+            toggleSelect(icon , optionWrapperElement , "panel-select--active")
+        })
+    })
+    optionElements.forEach(option => {
+        option.addEventListener("click" , () => {
+            option.classList.add("select-option__item--active")
+        })
+    })
+    el.addEventListener("click" , () => {
+        toggleSelect(icon , optionWrapperElement , "panel-select--active")
+    })
+}
+
+selectElementsHeaders.forEach(el => handleSelect(el))
+
+
 function updateSlider() {
     let minp = parseInt(priceInputvalue[0].value);
     let maxp = parseInt(priceInputvalue[1].value);
@@ -72,9 +89,3 @@ for (let i = 0; i < rangeInputvalue.length; i++) {
 }
 
 updateSlider(); // Initialize slider on page load
-// 
-
-
-// 
-
-// 
