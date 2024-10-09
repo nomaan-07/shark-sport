@@ -185,7 +185,10 @@
 
     /* Input Range Value */
     .select-option {
-        @apply hidden justify-center items-center flex-col -mt-0.5 border-2 border-b-neutralBorder transition-transform rounded-xl
+        @apply hidden justify-center items-center flex-col mt-2.5 border-2 border-b-neutralBorder transition-transform rounded-xl
+    }
+    .select-option__item{
+        @apply flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px] cursor-pointer
     }
     .select-option__item--active {
         @apply text-white bg-orangeBrand
