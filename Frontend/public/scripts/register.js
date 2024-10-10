@@ -1,19 +1,35 @@
+//// Test Fetching
 
-const response = await fetch("http://localhost:8000/user/signup/", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json", // Correct header for JSON
-        "Accept": "application/json" // Adding accept header
+const nameInputElement = document.querySelector(".name-input")
+const lastnameInputElement = document.querySelector(".lastname-input")
+const emailInputElement = document.querySelector(".email-input")
+const passwordInputElement = document.querySelector(".password-input")
+const registerBtn = document.querySelector("#register-btn")
+
+const testFetch = () => {
+  const addNewUser = {
+    name : nameInputElement.value,
+    lastname : lastnameInputElement.value,
+    email : emailInputElement.value,
+    password : passwordInputElement.value,
+  }
+  fetch("URL" , {
+    method : "POST",
+    headers : {
+
     },
-    body:JSON.stringify({
-      name: "اسم تستی",
-      lastname : "فامیل تستی",
-      username : "یوزر تستی",
-      password : "1234",
-      })
+    body : JSON.stringify(addNewUser),
+  }) 
+  .then(response => {
+    console.log(response)
+    return response.json()
   })
-  const data = await response.json();
-  return data 
+  .then(data => {
+    console.log(data)
+  })
+}
 
-console.log(getMeInfoFromBack())
-//
+registerBtn.addEventListener("click", (e) => {
+  e.preventDefault()
+  testFetch()
+})

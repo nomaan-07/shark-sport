@@ -5,44 +5,10 @@ const rangevalue = document.querySelector(".price-slider");
 const rangeInputvalue = document.querySelectorAll(".range-input input");
 const priceInputvalue = document.querySelectorAll(".price-input input");
 let priceGap = 1000;
-
 // Filtration elements of products
 const selectElementsHeaders = document.querySelectorAll(
   ".panel-select__header"
 );
-// Filtration Funcs
-const handleSelect = (el) => {
-  const type = el.dataset.type;
-  const selectElement = document.querySelector(`.panel-select--${type}`);
-  const selectedElement = document.querySelector(
-    `.panel-select__selected-option--${type}`
-  );
-  const icon = document.querySelector(`.panel-select__icon--${type}`);
-  const optionWrapperElement = document.querySelector(
-    `.panel__options-wrapper--${type}`
-  );
-  const optionElements = document.querySelectorAll(`.panel__option--${type}`);
-
-  optionElements.forEach((option) => {
-    option.addEventListener("click", () => {
-      selectOption(
-        selectElement,
-        selectedElement,
-        optionElements,
-        option,
-        type,
-        "text-orangeBrand",
-        "select-option--visible"
-      );
-      toggleSelect(icon, optionWrapperElement, "text-orangeBrand");
-    });
-  });
-  el.addEventListener("click", () => {
-    toggleSelect(icon, optionWrapperElement, "text-orangeBrand");
-  });
-};
-
-selectElementsHeaders.forEach((el) => handleSelect(el));
 
 function updateSlider() {
   let minp = parseInt(priceInputvalue[0].value);
@@ -95,4 +61,47 @@ for (let i = 0; i < rangeInputvalue.length; i++) {
   });
 }
 
+// Filtration Funcs
+const handleSelect = (el) => {
+  const type = el.dataset.type;
+  const selectElement = document.querySelector(`.panel-select--${type}`);
+  const selectedElement = document.querySelector(
+    `.panel-select__selected-option--${type}`
+  );
+  const icon = document.querySelector(`.panel-select__icon--${type}`);
+  const optionWrapperElement = document.querySelector(
+    `.panel__options-wrapper--${type}`
+  );
+  const optionElements = document.querySelectorAll(`.panel__option--${type}`);
+
+  optionElements.forEach((option) => {
+    option.addEventListener("click", () => {
+      selectOption(
+        selectElement,
+        selectedElement,
+        optionElements,
+        option,
+        type,
+        "text-orangeBrand",
+        "select-option--visible"
+      );
+      toggleSelect(icon, optionWrapperElement, "text-orangeBrand");
+    });
+  });
+  el.addEventListener("click", () => {
+    toggleSelect(icon, optionWrapperElement, "text-orangeBrand");
+  });
+};
+
 updateSlider(); // Initialize slider on page load
+selectElementsHeaders.forEach((el) => handleSelect(el));
+
+//////////////////////////////////////////////////////////
+const viewFiltersBtn = document.getElementById("view-filters-btn");
+const mobileMenuFilter = document.querySelector(".mobile-menu-filter");
+const openFilterMenu = () => {
+  overlayVisible();
+  overlayHidden();
+};
+
+viewFiltersBtn.addEventListener("click", openFilterMenu);
