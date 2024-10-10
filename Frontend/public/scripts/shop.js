@@ -1,15 +1,25 @@
 import { toggleSelect, selectOption } from "./ui/ui-handlers.js";
-
+import { overlay } from "./shared/header-footer.js";
+import {
+  overlayVisible,
+  overlayHidden,
+  mobileMenuVisible,
+  mobileMenuHidden,
+} from "./funcs/shared.js";
 // Filtration elements, product prices
 const rangevalue = document.querySelector(".price-slider");
 const rangeInputvalue = document.querySelectorAll(".range-input input");
 const priceInputvalue = document.querySelectorAll(".price-input input");
 let priceGap = 1000;
-
 // Filtration elements of products
 const selectElementsHeaders = document.querySelectorAll(
   ".panel-select__header"
 );
+// Filter Menu Mobile Elements
+const openfilterBtn = document.getElementById("filter-btn");
+const closeFilterBtn = document.getElementById("close-filter-btn");
+const mobileMenuFilter = document.querySelector(".mobile-menu-filter");
+
 // Filtration Funcs
 const handleSelect = (el) => {
   const type = el.dataset.type;
@@ -43,6 +53,16 @@ const handleSelect = (el) => {
 };
 
 selectElementsHeaders.forEach((el) => handleSelect(el));
+
+const openFilterMenuHandler = () => {
+  mobileMenuVisible(mobileMenuFilter, "-right-[300px]", "right-0");
+  overlayVisible(overlay, "overlay--visible");
+};
+
+const closeFilterMenuHandler = () => {
+  mobileMenuHidden(mobileMenuFilter, "-right-[300px]", "right-0");
+  overlayHidden(overlay, "overlay--visible");
+};
 
 function updateSlider() {
   let minp = parseInt(priceInputvalue[0].value);
@@ -96,3 +116,7 @@ for (let i = 0; i < rangeInputvalue.length; i++) {
 }
 
 updateSlider(); // Initialize slider on page load
+
+openfilterBtn.addEventListener("click", openFilterMenuHandler);
+closeFilterBtn.addEventListener("click", closeFilterMenuHandler);
+overlay.addEventListener("click", closeFilterMenuHandler);

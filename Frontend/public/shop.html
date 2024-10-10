@@ -562,7 +562,7 @@
                 <!-- Shop Header -->
                 <div class="flex-between w-full h-[72px] p-4 bg-orangeTint_2 mb-3.5 md:mb-7 rounded-xl">
                     <h2 class="hidden md:block md:text-2xl lg:text-[28px]">فروشگاه</h2>
-                    <button class="flex-center gap-x-1 md:hidden">
+                    <button class="flex-center gap-x-1 md:hidden" id="filter-btn">
                         <svg class="size-6">
                             <use href="#adjustments-horizontal"></use>
                         </svg>
@@ -860,13 +860,13 @@
                 </div>
             </section>
             <!--Mobile Menu Filter -->
-            <div class="mobile-menu-filter hidden fixed top-0 right-0 bottom-0 w-64 pt-5 px-[22px] z-40 transition-all overflow-y-auto bg-white">
+            <div class="mobile-menu-filter md:hidden fixed top-0 -right-[300px] w-[300px] bottom-0  pt-5 px-[22px] z-40 transition-all overflow-y-auto bg-white">
                 <!-- Mobile Menu Filter (Header) -->
                 <div class="flex justify-between items-center mb-6 pb-5 border-b border-b-grayTint_2">
                     <div class="w-[75%] h-full">
                         <img class="size-full" src="images/shark-sport-text-logo.png" alt="">
                     </div>
-                    <div class="menu-mobile__close-btn">
+                    <div id="close-filter-btn">
                         <svg class="size-[18px]">
                             <use href="#x-mark"></use>
                         </svg>
@@ -910,7 +910,7 @@
                     </div>
                 </div>
                 <!-- Footer Services -->
-                <div class="footer-services px-2.5">
+                <div class="footer-services px-2.5">    
                     <!-- Services Slider -->
                     <div class="swiper services">
                         <div class="swiper-wrapper">
@@ -1082,7 +1082,7 @@
     <!-- Script Links -->
     <script src="vendor/SwiperSlider/swiper-bundle.min.js"></script>
     <script src="scripts/slider.js"></script>
-    <script src="scripts/shared/header-footer.js"></script>
+    <script src="scripts/shared/header-footer.js" type="module"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/shop.js" type="module"></script>
 </body>

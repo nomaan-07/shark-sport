@@ -1,49 +1,40 @@
-// Header Script Js 
-
-const $ = document
-
-// Menu Mobile Elements 
-const openMobileBtn = $.querySelector(".mobile-menu__open-btn")
-const menuMobile = $.querySelector(".menu-mobile")
-const closeMobileBtn = $.querySelector(".menu-mobile__close-btn")
-const overlay = $.querySelector(".overlay")
+import {
+  overlayVisible,
+  overlayHidden,
+  mobileMenuVisible,
+  mobileMenuHidden,
+} from "../funcs/shared.js";
+// Menu Mobile Elements (Header)
+const openMobileBtn = document.querySelector(".mobile-menu__open-btn");
+const menuMobile = document.querySelector(".menu-mobile");
+const closeMobileBtn = document.querySelector(".menu-mobile__close-btn");
+const overlay = document.querySelector(".overlay");
+// Back to top button Element (Footer)
+const backToTopBtn = document.getElementById("back-to-top-button");
 
 // Function Open Menu For Mobile
 const openMobileBtnHandler = () => {
-    mobileMenuVisible()
-    overlayVisible()
-}
+  mobileMenuVisible(menuMobile, "-right-64", "right-0");
+  overlayVisible(overlay, "overlay--visible");
+};
 
 // Function Close Menu For Mobile
 const closeMobileMenuHandler = () => {
-    mobileMenuHidden()
-    overlayHidden()
-}
+  mobileMenuHidden(menuMobile, "-right-64", "right-0");
+  overlayHidden(overlay, "overlay--visible");
+};
 
-// Overlay Funcs
-const overlayVisible = () => overlay.classList.add("overlay--visible")
-const overlayHidden = () => overlay.classList.remove("overlay--visible")
-const mobileMenuVisible = () => {
-    menuMobile.classList.remove("-right-64")    
-    menuMobile.classList.add("right-0")
-}
-const mobileMenuHidden = () => {
-    menuMobile.classList.add("-right-64")    
-    menuMobile.classList.remove("right-0") 
-}
-
-openMobileBtn.addEventListener("click", openMobileBtnHandler)
-closeMobileBtn.addEventListener("click", closeMobileMenuHandler)
-overlay.addEventListener("click", closeMobileMenuHandler)
-
-// Footer Script Js 
+openMobileBtn.addEventListener("click", openMobileBtnHandler);
+closeMobileBtn.addEventListener("click", closeMobileMenuHandler);
+overlay.addEventListener("click", closeMobileMenuHandler);
 
 // Back to Top Btn
-const backToTopBtn = $.getElementById("back-to-top-button")
+const backToTopBtnHandler = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+backToTopBtn.addEventListener("click", backToTopBtnHandler);
 
-backToTopBtn.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-    });
-})
+export { overlay };

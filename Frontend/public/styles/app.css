@@ -2123,6 +2123,10 @@ input[type="range"]::-webkit-slider-thumb {
   right: -18px;
 }
 
+.-right-\[300px\] {
+  right: -300px;
+}
+
 .-top-1 {
   top: -0.25rem;
 }
