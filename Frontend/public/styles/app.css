@@ -1042,7 +1042,7 @@ video {
 /* Input Range Value */
 
 .select-option {
-  margin-top: -0.125rem;
+  margin-top: 0.625rem;
   display: none;
   flex-direction: column;
   align-items: center;
@@ -1054,6 +1054,27 @@ video {
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.select-option__item {
+  height: 42px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 10px;
+  text-align: center;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-option__item:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 148 71 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .select-option--visible {
@@ -2186,6 +2207,10 @@ input[type="range"]::-webkit-slider-thumb {
   top: 0.75rem;
 }
 
+.top-5 {
+  top: 1.25rem;
+}
+
 .-z-10 {
   z-index: -10;
 }
@@ -2367,6 +2392,10 @@ input[type="range"]::-webkit-slider-thumb {
 
 .mt-1 {
   margin-top: 0.25rem;
+}
+
+.mt-1\.5 {
+  margin-top: 0.375rem;
 }
 
 .mt-10 {
@@ -2718,10 +2747,6 @@ input[type="range"]::-webkit-slider-thumb {
 
 .h-\[420px\] {
   height: 420px;
-}
-
-.h-\[42px\] {
-  height: 42px;
 }
 
 .h-\[45px\] {
@@ -3266,10 +3291,6 @@ input[type="range"]::-webkit-slider-thumb {
 
 .rounded-3xl {
   border-radius: 1.5rem;
-}
-
-.rounded-\[10px\] {
-  border-radius: 10px;
 }
 
 .rounded-\[20px\] {

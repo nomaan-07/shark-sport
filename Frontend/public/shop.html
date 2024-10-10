@@ -439,94 +439,115 @@
                         </div>
                     </div>
                     <!-- Product categories filter -->
-                    <div class="product-categories-filter">
-                        <button class="select-box flex-between w-full p-3 border-2 border-neutralBorder cursor-pointer rounded-xl" data-content-id="#product-categories">
-                            <span>دسته بندی محصولات</span>
-                            <svg class="size-5 transition-transform" id="product-svg-1">
+                    <div class="product-categories-filter panel-select--category" data-category="null">
+                        <button class="panel-select__header flex-between w-full p-3 border-2 border-neutralBorder cursor-pointer rounded-xl" data-type="category">
+                            <span class="panel-select__selected-option--category">دسته بندی محصولات</span>
+                            <svg class="panel-select__icon--category size-5 transition-transform">
                                 <use href="#bold-arrow-down"></use>
                             </svg>
                         </button>
-                        <ul class="select-option" id="product-categories">
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block w-full" href="#">متن تستی جهت نمایش</a>
+                        <ul class="select-option panel__options-wrapper--category" id="product-categories">
+                            <li class="select-option__item panel__option--category" data-category="null">
+                                دسته بندی محصولات
                             </li>
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block w-full" href="#">متن تستی جهت نمایش</a>
+                            <li class="select-option__item panel__option--category" data-category="sport">
+                                ورزشی
                             </li>
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block w-full" href="#">متن تستی جهت نمایش</a>
+                            <li class="select-option__item panel__option--category" data-category="football">
+                                فوتبال
                             </li>
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block w-full" href="#">متن تستی جهت نمایش</a>
+                            <li class="select-option__item panel__option--category" data-category="tennis">
+                                تنیس
                             </li>
                         </ul>
                     </div>
                     <!-- Product brand filter -->
-                    <div class="product-brand-filter">
-                        <button class="select-box flex-between p-3 w-full border-2 border-neutralBorder cursor-pointer rounded-xl" data-content-id="#product-brand">
-                            <span>برند محصولات</span>
-                            <svg class="size-5 transition-transform" id="product-svg-2">
+                    <div class="product-brands-filter panel-select--brand" data-brand="null">
+                        <button class="panel-select__header flex-between p-3 w-full border-2 border-neutralBorder cursor-pointer rounded-xl" data-type="brand">
+                            <span class="panel-select__selected-option--brand">برند محصولات</span>
+                            <svg class="panel-select__icon--brand size-5 transition-transform">
                                 <use href="#bold-arrow-down"></use>
                             </svg>
                         </button>
-                        <ul class="select-option" id="product-brand">
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block w-full" href="#">برند محصولات 1</a>
+                        <ul class="select-option panel__options-wrapper--brand" id="product-brands">
+                            <li class="select-option__item panel__option--brand" data-brand="null">
+                                برند محصولات
                             </li>
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block w-full" href="#">برند محصولات 2</a>
+                            <li class="select-option__item panel__option--brand" data-brand="mikasa">
+                                میکاسا
                             </li>
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block w-full" href="#">برند محصولات 3</a>
+                            <li class="select-option__item panel__option--brand" data-brand="reebok">
+                                ریبوک
                             </li>
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block w-full" href="#">برند محصولات 4</a>
+                            <li class="select-option__item panel__option--brand" data-brand="adidas">
+                                آدیداس
+                            </li>
+                            <li class="select-option__item panel__option--brand" data-brand="puma">
+                                پوما
+                            </li>
+                            <li class="select-option__item panel__option--brand" data-brand="polo">
+                                پولو
+                            </li>
+                            <li class="select-option__item panel__option--brand" data-brand="nike">
+                                نایک
                             </li>
                         </ul>
                     </div>
                     <!-- Product colors filter -->
-                    <div class="product-colors-filter">
-                        <button class="select-box flex-between p-3 w-full border-2 border-neutralBorder cursor-pointer rounded-xl" data-content-id="#product-colors">
-                            <span>رنگ محصول</span>
-                            <svg class="size-5 transition-transform" id="product-svg-3">
+                    <div class="product-colors-filter panel-select--color" data-color="null">
+                        <button class="panel-select__header flex-between p-3 w-full border-2 border-neutralBorder cursor-pointer rounded-xl" data-type="color">
+                            <span class="panel-select__selected-option--color">رنگ محصول</span>
+                            <svg class="panel-select__icon--color size-5 transition-transform">
                                 <use href="#bold-arrow-down"></use>
                             </svg>
                         </button>
-                        <ul class="select-option" id="product-colors">
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block w-full" href="#">رنگ محصول 1</a>
+                        <ul class="select-option panel__options-wrapper--color" id="product-colors">
+                            <li class="select-option__item panel__option--color" data-color="null">
+                                رنگ محصول
                             </li>
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block w-full" href="#">رنگ محصول 2</a>
+                            <li class="select-option__item panel__option--color" data-color="red">
+                                قرمز
                             </li>
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block w-full" href="#">رنگ محصول 3</a>
+                            <li class="select-option__item panel__option--color" data-color="white">
+                                سفید
                             </li>
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block w-full" href="#">رنگ محصول 4</a>
+                            <li class="select-option__item panel__option--color" data-color="black">
+                                سیاه
+                            </li>
+                            <li class="select-option__item panel__option--color" data-color="blue">
+                                آبی
                             </li>
                         </ul>
                     </div>
-                    <!-- Product type filter -->
-                    <div class="product-type-filter">
-                        <button class="select-box flex-between p-3 w-full border-2 border-neutralBorder cursor-pointer rounded-xl" data-content-id="#product-type">
-                            <span>جنس محصول</span>
-                            <svg class="size-5 transition-transform" id="product-svg-4">
+                    <!-- Product materials filter -->
+                    <div class="product-materials-filter panel-select--material" data-material="null">
+                        <button class="panel-select__header flex-between p-3 w-full border-2 border-neutralBorder cursor-pointer rounded-xl" data-type="material">
+                            <span class="panel-select__selected-option--material">جنس محصول</span>
+                            <svg class="panel-select__icon--material size-5 transition-transform">
                                 <use href="#bold-arrow-down"></use>
                             </svg>
                         </button>
-                        <ul class="select-option" id="product-type">
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block w-full" href="#">جنس محصول 1</a>
+                        <ul class="select-option panel__options-wrapper--material" id="product-materials">
+                            <li class="select-option__item panel__option--material" data-material="null">
+                                جنس محصول
                             </li>
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block w-full" href="#">جنس محصول 2</a>
+                            <li class="select-option__item panel__option--material" data-material="polyester">
+                                پلی استر
                             </li>
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block w-full" href="#">جنس محصول 3</a>
+                            <li class="select-option__item panel__option--material" data-material="silk">
+                                ابریشم
                             </li>
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block w-full" href="#">جنس محصول 4</a>
+                            <li class="select-option__item panel__option--material" data-material="cotton">
+                                کتان
+                            </li>
+                            <li class="select-option__item panel__option--material" data-material="mesh">
+                                مش
+                            </li>
+                            <li class="select-option__item panel__option--material" data-material="stretch">
+                                استرچ
+                            </li>
+                            <li class="select-option__item panel__option--material" data-material="leather">
+                                چرم
                             </li>
                         </ul>
                     </div>
@@ -548,25 +569,28 @@
                         <span class="text-sm sm:text-base">مشاهده فیلتر ها</span>
                     </button>
                     <!-- Sort product by -->
-                    <div class="sort-product-by relative">
-                        <button class="select-box flex-between w-40 h-9 p-1 bg-white rounded-xl" data-content-id="#sort-product">
-                            <span class="text-sm sm:text-base text-orangeBrand">مرتب سازی براساس</span>
-                            <svg class="size-5 transition-transform text-orangeTint_2" id="product-svg-5">
+                    <div class="sort-product-by panel-select--sort relative" data-sort="null">
+                        <button class="panel-select__header flex-between w-40 h-9 p-1 bg-white rounded-xl" data-type="sort">
+                            <span class="panel-select__selected-option--sort text-sm sm:text-base text-orangeBrand">مرتب سازی براساس</span>
+                            <svg class="panel-select__icon--sort size-5 transition-transform text-orangeTint_2">
                                 <use href="#bold-arrow-down"></use>
                             </svg>
                         </button>
-                        <ul class="select-option absolute left-0 right-0 m-auto bg-white z-50" id="sort-product">
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block text-sm sm:text-base w-full" href="#">مرتب سازی براساس 1</a>
+                        <ul class="select-option panel__options-wrapper--sort absolute left-0 right-0 m-auto mt-1.5 bg-white z-50" id="sort-product">
+                            <li class="select-option__item panel__option--sort" data-sort="null">
+                                مرتب سازی براساس
                             </li>
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block text-sm sm:text-base w-full" href="#">مرتب سازی براساس 2</a>
+                            <li class="select-option__item panel__option--sort" data-sort="cheapest">
+                                ارزان ترین
                             </li>
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block text-sm sm:text-base w-full" href="#">مرتب سازی براساس 3</a>
+                            <li class="select-option__item panel__option--sort" data-sort="expensive">
+                                گران ترین
                             </li>
-                            <li class="select-option__item flex-center h-[42px] text-center w-full transition-colors hover:bg-orangeBrand hover:text-white rounded-[10px]">
-                                <a class="inline-block text-sm sm:text-base w-full" href="#">مرتب سازی براساس 4</a>
+                            <li class="select-option__item panel__option--sort" data-sort="celebrities">
+                                پرمخاطب ها
+                            </li>
+                            <li class="select-option__item panel__option--sort" data-sort="best-sellers">
+                                پرفروش ها
                             </li>
                         </ul>
                     </div>
@@ -1060,6 +1084,6 @@
     <script src="scripts/slider.js"></script>
     <script src="scripts/shared/header-footer.js"></script>
     <script src="scripts/app.js"></script>
-    <script src="scripts/shop.js"></script>
+    <script src="scripts/shop.js" type="module"></script>
 </body>
 </html>
