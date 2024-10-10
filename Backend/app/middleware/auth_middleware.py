@@ -1,23 +1,41 @@
 from fastapi import HTTPException, Header
+from datetime import datetime, timedelta
 import jwt
 from dotenv import load_dotenv
 import os
+import uuid
+import logging
 load_dotenv()
 
 PASSWORD_KEY = os.getenv("PASSWORD_KEY")
+ALGORITH = os.getenv("ALGORITHM")
+ACCESS_TOKEN_EXPIRY = 3600
 
-def auth_middleware(x_auth_token = Header()):
-    try:    
-        if not x_auth_token:
-            raise HTTPException(status_code=401, detail="No auth token, access denied!")
-            
-        
-        verified_token = jwt.decode(jwt=x_auth_token, key=PASSWORD_KEY, algorithms=["HS256"])
-        if not verified_token:
-            raise HTTPException(status_code=401, detail="token verification faildd, auth denied")
-            
-        uid = verified_token.get('id')
-        return {"uid": uid, "token": x_auth_token}
+def create_access_token(user_data: dict, expiry: timedelta = None, refresh: bool=False):
+    payload = {}
+
+    payload['user'] = user_data
+    payload['exp'] = datetime.now() + ( expiry if expiry is not None else timedelta(seconds=ACCESS_TOKEN_EXPIRY))
+    payload['jti'] = str(uuid.uuid4)
+    payload['refresh'] = refresh
+    token = jwt.encode(
+         payload=payload, key=PASSWORD_KEY, algorithm=ALGORITH
+    )
+
+    return token
+
+
+def decode_token(token: str) -> dict:
+    try:
+        token_data = jwt.decode(
+            jwt=token,
+            key=PASSWORD_KEY,
+            algorithms=ALGORITH
+     )
+        return token_data
     
-    except jwt.PyJWTError:
-            raise HTTPException(status_code=401, detail="Token is not valid , auth proccess faile!")
+    except jwt.PyJWTError as e:
+        logging.exception(e)
+        return None 
+         
+    
