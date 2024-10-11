@@ -210,7 +210,8 @@
         width: 100%;
     }
     
-    .price-input .price-field {
+    .price-input .price-field,
+    .price-input-mobile .price-field {
         display: flex;
         margin-bottom: 22px;
     }
@@ -230,7 +231,8 @@
         width: 100%;
     }
     
-    .price-input {
+    .price-input,
+    .price-input-mobile {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -256,18 +258,21 @@
         @apply bg-neutralBorder
     }
     
-    .slider-container .price-slider {
+    .slider-container .price-slider,
+    .slider-container .price-slider-mobile {
         height: 100%;
         position: absolute;
         border-radius: 12px;
         background: black;
     }
     
-    .range-input {
+    .range-input,
+    .range-input-mobile {
         position: relative;
     }
     
-    .range-input input {
+    .range-input input,
+    .range-input-mobile input {
         position: absolute;
         width: 100%;
         height: 5px;

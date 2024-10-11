@@ -5,12 +5,20 @@ import {
   overlayHidden,
   mobileMenuVisible,
   mobileMenuHidden,
+  updateSlider,
 } from "./funcs/shared.js";
-// Filtration elements, product prices
+// Filtration elements, product prices (Desktop && Mobile)
 const rangevalue = document.querySelector(".price-slider");
 const rangeInputvalue = document.querySelectorAll(".range-input input");
 const priceInputvalue = document.querySelectorAll(".price-input input");
+const rangevalueMobile = document.querySelector(".price-slider-mobile");
 let priceGap = 1000;
+const rangeInputvalueMobile = document.querySelectorAll(
+  ".price-input-mobile input"
+);
+const priceInputvalueMobile = document.querySelectorAll(
+  ".range-input-mobile input"
+);
 // Filtration elements of products
 const selectElementsHeaders = document.querySelectorAll(
   ".panel-select__header"
@@ -52,8 +60,6 @@ const handleSelect = (el) => {
   });
 };
 
-selectElementsHeaders.forEach((el) => handleSelect(el));
-
 const openFilterMenuHandler = () => {
   mobileMenuVisible(mobileMenuFilter, "-right-[300px]", "right-0");
   overlayVisible(overlay, "overlay--visible");
@@ -64,14 +70,7 @@ const closeFilterMenuHandler = () => {
   overlayHidden(overlay, "overlay--visible");
 };
 
-function updateSlider() {
-  let minp = parseInt(priceInputvalue[0].value);
-  let maxp = parseInt(priceInputvalue[1].value);
-
-  rangevalue.style.right = `${(minp / rangeInputvalue[0].max) * 100}%`;
-  rangevalue.style.left = `${100 - (maxp / rangeInputvalue[1].max) * 100}%`;
-}
-
+// priceInputvalue && rangeInputvalue (Desktop)
 for (let i = 0; i < priceInputvalue.length; i++) {
   priceInputvalue[i].addEventListener("input", (e) => {
     let minp = parseInt(priceInputvalue[0].value);
@@ -92,7 +91,7 @@ for (let i = 0; i < priceInputvalue.length; i++) {
 
     rangeInputvalue[0].value = minp;
     rangeInputvalue[1].value = maxp;
-    updateSlider();
+    updateSlider(priceInputvalue, rangevalue, rangeInputvalue);
   });
 }
 
@@ -111,12 +110,57 @@ for (let i = 0; i < rangeInputvalue.length; i++) {
 
     priceInputvalue[0].value = rangeInputvalue[0].value;
     priceInputvalue[1].value = rangeInputvalue[1].value;
-    updateSlider();
+    updateSlider(priceInputvalue, rangevalue, rangeInputvalue);
+  });
+}
+updateSlider(priceInputvalue, rangevalue, rangeInputvalue); // Initialize slider (Desktop) on page load
+
+// priceInputvalue && rangeInputvalue (Mobile)
+for (let i = 0; i < priceInputvalueMobile.length; i++) {
+  priceInputvalueMobile[i].addEventListener("input", (e) => {
+    let minp = parseInt(priceInputvalueMobile[0].value);
+    let maxp = parseInt(priceInputvalueMobile[1].value);
+
+    if (minp < 0) {
+      priceInputvalueMobile[0].value = 0;
+      minp = 0;
+    }
+    if (maxp > 10000) {
+      priceInputvalueMobile[1].value = 10000;
+      maxp = 10000;
+    }
+    if (minp > maxp - priceGap) {
+      priceInputvalueMobile[0].value = maxp - priceGap;
+      minp = maxp - priceGap;
+    }
+
+    rangeInputvalueMobile[0].value = minp;
+    rangeInputvalueMobile[1].value = maxp;
+    updateSlider(priceInputvalueMobile, rangevalueMobile, rangeInputvalueMobile);
   });
 }
 
-updateSlider(); // Initialize slider on page load
+for (let i = 0; i < rangeInputvalueMobile.length; i++) {
+  rangeInputvalueMobile[i].addEventListener("input", (e) => {
+    let minVal = parseInt(rangeInputvalueMobile[0].value);
+    let maxVal = parseInt(rangeInputvalueMobile[1].value);
 
+    if (maxVal - minVal < priceGap) {
+      if (e.target.className === "min-range") {
+        rangeInputvalueMobile[0].value = maxVal - priceGap;
+      } else {
+        rangeInputvalueMobile[1].value = minVal + priceGap;
+      }
+    }
+
+    priceInputvalueMobile[0].value = rangeInputvalueMobile[0].value;
+    priceInputvalueMobile[1].value = rangeInputvalueMobile[1].value;
+    updateSlider(priceInputvalueMobile, rangevalueMobile, rangeInputvalueMobile);
+  });
+}
+updateSlider(priceInputvalueMobile, rangevalueMobile, rangeInputvalueMobile); // Initialize slider (Mobile) on page load
+
+selectElementsHeaders.forEach((el) => handleSelect(el));
 openfilterBtn.addEventListener("click", openFilterMenuHandler);
 closeFilterBtn.addEventListener("click", closeFilterMenuHandler);
 overlay.addEventListener("click", closeFilterMenuHandler);
