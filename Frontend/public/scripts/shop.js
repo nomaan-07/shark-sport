@@ -1,3 +1,4 @@
+// import noUiSlider from '../../node_modules/nouislider/dist/nouislider.mjs'
 import { toggleSelect, selectOption } from "./ui/ui-handlers.js";
 import { overlay } from "./shared/header-footer.js";
 import {
@@ -5,7 +6,11 @@ import {
   overlayHidden,
   mobileMenuVisible,
   mobileMenuHidden,
+  formatNumber,
 } from "./funcs/shared.js";
+// Price Slider Element
+const priceSliderElements = document.querySelectorAll(".price-slider");
+const priceSliderValues = document.querySelectorAll(".price-slider-value");
 // Filtration elements of products
 const selectElementsHeaders = document.querySelectorAll(
   ".panel-select__header"
@@ -14,6 +19,27 @@ const selectElementsHeaders = document.querySelectorAll(
 const openfilterBtn = document.getElementById("filter-btn");
 const closeFilterBtn = document.getElementById("close-filter-btn");
 const mobileMenuFilter = document.querySelector(".mobile-menu-filter");
+
+priceSliderElements.forEach((sliderElem) => {
+  noUiSlider.create(sliderElem, {
+    start: [0, 10000000],
+    connect: true,
+    range: {
+      min: 0,
+      max: 10000000,
+    },
+    step: 100000,
+  });
+
+  sliderElem.noUiSlider.on("update", (values) => {
+    const formattedMin = formatNumber(Math.round(values[0]));
+    const formattedMax = formatNumber(Math.round(values[1]));
+    const prices = [formattedMax, formattedMin];
+    priceSliderValues.forEach((value, index) => {
+      value.innerHTML = `${prices[index % 2]} تومان`
+    })
+  });
+});
 
 // Filtration Funcs
 const handleSelect = (el) => {
