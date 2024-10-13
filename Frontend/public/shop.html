@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شارک اسپرت | فروشگاه </title>
     <link rel="stylesheet" href="vendor/SwiperSlider/swiper-bundle.min.css">
+    <link rel="stylesheet" href="vendor/noUiSlider/nouislider.min.css">
     <link rel="stylesheet" href="styles/app.css">
     <!-- Page Icon -->
     <link rel="icon" href="images/fav-icon.png" type="image/png">
@@ -413,29 +414,11 @@
                     <!-- Filter Price -->
                     <div class="p-3 border-2 border-neutralBorder rounded-xl">
                         <h4 class="mb-8">فیلتر قیمت</h4>
-                        <!-- Filter Price Wrapper -->
-                        <div class="filter-price-wrapper">
-                            <!-- Filter Price -->
-                            <div class="price-input-container">
-                                <div class="price-input">
-                                    <div class="price-field w-1/2">
-                                        <input type="number" class="min-input font-vazir block bg-white outline-none" value="0" readonly>
-                                        <span>تومان</span>
-                                    </div>
-                                    <div class="price-field w-1/2">
-                                        <input type="number" class="max-input font-vazir block bg-white outline-none" value="10000" readonly>
-                                        <span>تومان</span>
-                                    </div>
-                                </div>
-                                <div class="slider-container">
-                                    <div class="price-slider" style="left: 25%; right: 0%;"></div>
-                                </div>
-                            </div>
-                            <!-- Slider Price -->
-                            <div class="range-input">
-                                <input type="range" class="min-range" min="0" max="10000" value="0" step="100">
-                                <input type="range" class="max-range" min="0" max="10000" value="10000" step="100">
-                            </div>
+                        <!-- Filter Price Slider -->
+                        <div class="price-slider "></div>
+                        <div class="flex flex-col gap-y-2 justify-center mt-6 text-center">
+                            <div class="price-slider-value"></div>
+                            <div class="price-slider-value"></div>
                         </div>
                     </div>
                     <!-- Product categories filter -->
@@ -873,11 +856,144 @@
                     </div>
                 </div>
                 <!-- Mobile Menu Filter (Body) -->
-                <div class="space-y-6">
+                <div class="product-filter__wrapper flex flex-col text-xl gap-y-5">
+                    <!-- Product Filter Search Box || Submit Btn -->
+                    <div class="product-filter__search-box py-3 xs:py-4 px-4 rounded-xl bg-grayTint_1 h-[57px]">
+                        <input class="dir-rtl placeholder:text-grayTint_4 bg-transparent w-full outline-none" type="text" placeholder="جستجوی محصولات">
+                    </div>
+                    <button class="product-filter__search-box py-3 xs:py-4 px-4 rounded-xl bg-blueBrand h-[57px]">
+                        <span class="text-white">جستجو کنید</span>
+                    </button>
+                    <!-- Filter Price -->
+                    <div class="p-3 border-2 border-neutralBorder rounded-xl">
+                        <h4 class="mb-8">فیلتر قیمت</h4>
+                        <!-- Filter Price Slider -->
+                        <div class="price-slider "></div>
+                        <div class="flex flex-col gap-y-2 justify-center mt-6 text-center">
+                            <div class="price-slider-value"></div>
+                            <div class="price-slider-value"></div>
+                        </div>
+                    </div>
+                    <!-- Product categories filter -->
+                    <div class="product-categories-filter panel-select--category" data-category="null">
+                        <button class="panel-select__header flex-between w-full p-3 border-2 border-neutralBorder cursor-pointer rounded-xl" data-type="category">
+                            <span class="panel-select__selected-option--category">دسته بندی محصولات</span>
+                            <svg class="panel-select__icon--category size-5 transition-transform">
+                                <use href="#bold-arrow-down"></use>
+                            </svg>
+                        </button>
+                        <ul class="select-option panel__options-wrapper--category" id="product-categories">
+                            <li class="select-option__item panel__option--category" data-category="null">
+                                دسته بندی محصولات
+                            </li>
+                            <li class="select-option__item panel__option--category" data-category="sport">
+                                ورزشی
+                            </li>
+                            <li class="select-option__item panel__option--category" data-category="football">
+                                فوتبال
+                            </li>
+                            <li class="select-option__item panel__option--category" data-category="tennis">
+                                تنیس
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Product brand filter -->
+                    <div class="product-brands-filter panel-select--brand" data-brand="null">
+                        <button class="panel-select__header flex-between p-3 w-full border-2 border-neutralBorder cursor-pointer rounded-xl" data-type="brand">
+                            <span class="panel-select__selected-option--brand">برند محصولات</span>
+                            <svg class="panel-select__icon--brand size-5 transition-transform">
+                                <use href="#bold-arrow-down"></use>
+                            </svg>
+                        </button>
+                        <ul class="select-option panel__options-wrapper--brand" id="product-brands">
+                            <li class="select-option__item panel__option--brand" data-brand="null">
+                                برند محصولات
+                            </li>
+                            <li class="select-option__item panel__option--brand" data-brand="mikasa">
+                                میکاسا
+                            </li>
+                            <li class="select-option__item panel__option--brand" data-brand="reebok">
+                                ریبوک
+                            </li>
+                            <li class="select-option__item panel__option--brand" data-brand="adidas">
+                                آدیداس
+                            </li>
+                            <li class="select-option__item panel__option--brand" data-brand="puma">
+                                پوما
+                            </li>
+                            <li class="select-option__item panel__option--brand" data-brand="polo">
+                                پولو
+                            </li>
+                            <li class="select-option__item panel__option--brand" data-brand="nike">
+                                نایک
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Product colors filter -->
+                    <div class="product-colors-filter panel-select--color" data-color="null">
+                        <button class="panel-select__header flex-between p-3 w-full border-2 border-neutralBorder cursor-pointer rounded-xl" data-type="color">
+                            <span class="panel-select__selected-option--color">رنگ محصول</span>
+                            <svg class="panel-select__icon--color size-5 transition-transform">
+                                <use href="#bold-arrow-down"></use>
+                            </svg>
+                        </button>
+                        <ul class="select-option panel__options-wrapper--color" id="product-colors">
+                            <li class="select-option__item panel__option--color" data-color="null">
+                                رنگ محصول
+                            </li>
+                            <li class="select-option__item panel__option--color" data-color="red">
+                                قرمز
+                            </li>
+                            <li class="select-option__item panel__option--color" data-color="white">
+                                سفید
+                            </li>
+                            <li class="select-option__item panel__option--color" data-color="black">
+                                سیاه
+                            </li>
+                            <li class="select-option__item panel__option--color" data-color="blue">
+                                آبی
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Product materials filter -->
+                    <div class="product-materials-filter panel-select--material" data-material="null">
+                        <button class="panel-select__header flex-between p-3 w-full border-2 border-neutralBorder cursor-pointer rounded-xl" data-type="material">
+                            <span class="panel-select__selected-option--material">جنس محصول</span>
+                            <svg class="panel-select__icon--material size-5 transition-transform">
+                                <use href="#bold-arrow-down"></use>
+                            </svg>
+                        </button>
+                        <ul class="select-option panel__options-wrapper--material" id="product-materials">
+                            <li class="select-option__item panel__option--material" data-material="null">
+                                جنس محصول
+                            </li>
+                            <li class="select-option__item panel__option--material" data-material="polyester">
+                                پلی استر
+                            </li>
+                            <li class="select-option__item panel__option--material" data-material="silk">
+                                ابریشم
+                            </li>
+                            <li class="select-option__item panel__option--material" data-material="cotton">
+                                کتان
+                            </li>
+                            <li class="select-option__item panel__option--material" data-material="mesh">
+                                مش
+                            </li>
+                            <li class="select-option__item panel__option--material" data-material="stretch">
+                                استرچ
+                            </li>
+                            <li class="select-option__item panel__option--material" data-material="leather">
+                                چرم
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <!-- Mobile Menu Filter (Footer) -->
                 <div class="flex flex-col items-start gap-y-6 py-8 px-2.5 mt-8 border-t border-t-grayTint_2 ">
-
+                    <!-- Filter Sumbit -->
+                    <button class="product-filter__search-box w-full py-3 xs:py-4 px-4 rounded-xl bg-blueBrand h-[57px]">
+                        <span class="text-white">اعمال فیلتر</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -1081,9 +1197,10 @@
     <div class="overlay"></div>
     <!-- Script Links -->
     <script src="vendor/SwiperSlider/swiper-bundle.min.js"></script>
+    <script src="vendor/noUiSlider/nouislider.min.js"></script>
     <script src="scripts/slider.js"></script>
     <script src="scripts/shared/header-footer.js" type="module"></script>
-    <script src="scripts/app.js"></script>
     <script src="scripts/shop.js" type="module"></script>
+    <script src="scripts/app.js"></script>
 </body>
 </html>

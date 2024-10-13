@@ -4,5 +4,8 @@
   },
   "scripts": {
     "build": "npx tailwindcss -i ./src/input.css -o ./public/styles/app.css --watch"
+  },
+  "dependencies": {
+    "nouislider": "^15.8.1"
   }
 }
