@@ -11,4 +11,14 @@ const mobileMenuHidden = (menu, hideClass, visibleClass) => {
   menu.classList.remove(visibleClass);
 };
 
-export { overlayVisible, overlayHidden, mobileMenuVisible, mobileMenuHidden };
+const formatNumber = (value) => {
+  return new Intl.NumberFormat("fa-IR").format(value);
+};
+
+export {
+  overlayVisible,
+  overlayHidden,
+  mobileMenuVisible,
+  mobileMenuHidden,
+  formatNumber,
+};
