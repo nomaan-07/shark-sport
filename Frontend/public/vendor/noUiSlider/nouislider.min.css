@@ -356,7 +356,7 @@
 }
 
 .noUi-base:nth-child(1) {
-    @apply md: !block
+    @apply md:!block
 }
 
 .noUi-txt-dir-rtl.noUi-horizontal .noUi-handle {
