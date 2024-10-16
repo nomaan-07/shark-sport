@@ -18,16 +18,16 @@ class BaseAdmin(BaseModel):
     root_access: bool = Field(default=False)
 
 class createAdmin_resp(BaseAdmin):
-    id: int
+    id: str
     created_at: datetime
 
 class Admin(BaseAdmin):
-    id: int
+    id: str
     created_at: datetime
-    modified_at: datetime
-    deleted_at: datetime
-    last_login: datetime
-    root_access: datetime
+    modified_at: datetime | None
+    deleted_at: datetime | None
+    last_login: datetime | None
+    root_access: bool
 
 
 class Login(BaseModel):
@@ -36,7 +36,7 @@ class Login(BaseModel):
 
 
 class LoginResp(BaseModel):
-    pass
+    access_token: str
 
 
 
@@ -48,3 +48,6 @@ class BasePermission(BaseModel):
 
 class create_permission_resp(BasePermission):
     creattor_id: int
+
+
+

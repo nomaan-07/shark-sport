@@ -13,8 +13,6 @@ class User(Base):
     email = Column(VARCHAR(255))
     phone_number = Column(VARCHAR(10))
     password = Column(LargeBinary, nullable=False)
-    access_token = Column(TEXT)
-    refresh_token = Column(TEXT)
     avatar_link = Column(TEXT)
     created_at = Column(TIMESTAMP)
     modified_at = Column(TIMESTAMP)

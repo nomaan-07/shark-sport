@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, Session
+from sqlalchemy.orm import sessionmaker, Session, joinedload, join
 from sqlalchemy.ext.declarative import declarative_base
 import os, dotenv
 

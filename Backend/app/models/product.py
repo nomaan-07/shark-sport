@@ -1,4 +1,4 @@
-"""from db import Base
+from db import Base
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, Integer, TEXT, LargeBinary, ForeignKey, VARCHAR, Boolean, TIMESTAMP
 from sqlalchemy.dialects.postgresql import JSON
@@ -7,47 +7,56 @@ from sqlalchemy.dialects.postgresql import JSON
 class Product(Base):
     __tablename__ = 'products'
 
-    id = Column(Integer, primary_key=True)
+    id = Column(VARCHAR(255), primary_key=True)
     name = Column(VARCHAR(255), unique=True)
-    description = Column(TEXT)
-    survay = Column(TEXT)
-    original_price = Column(TEXT)
-    price_after_discount = Column(TEXT)
-    warranty = Column(TEXT)
-    size_id = Column(Integer, ForeignKey("size.id"))  # Assuming size_id is a VARCHAR, could be an Integer if it references sizes
-    discount_id = Column(VARCHAR)  # Assuming discount_id is a VARCHAR, could be an Integer if it references discounts
-    category_id = Column(VARCHAR)  # Assuming category_id is a VARCHAR, could be an Integer if it references categories
-    specification_id = Column(VARCHAR)  # Assuming specification_id is a VARCHAR, could be an Integer if it references specifications
-    brand = Column(TEXT)
+    description = Column(VARCHAR(300))
+    survay = Column(VARCHAR(2000))
+    original_price = Column(Integer, nullable=False)
+    price_after_discount = Column(Integer)
+    warranty = Column(VARCHAR(255))
+    discount_id = Column(VARCHAR(100), ForeignKey("discount.discount_code"))  # Assuming discount_id is a VARCHAR, could be an Integer if it references discounts
+    category_id = Column(VARCHAR(255), ForeignKey("product_category.id"))  # Assuming category_id is a VARCHAR, could be an Integer if it references categories
+    brand = Column(VARCHAR(255))
     created_at = Column(TIMESTAMP)
     modified_at = Column(TIMESTAMP)
     deleted_at = Column(TIMESTAMP)
-    password = Column(LargeBinary)
-    refresh_token = Column(LargeBinary)
-    access_token = Column(LargeBinary)
+
+
 
     # Relationships
-    size = relationship('Size', back_populates='products')
-    category = relationship('ProductCategory', back_populates='products')
-    specification = relationship('Specification', back_populates='products')
-    tags = relationship('Tag', back_populates='product')
-    images = relationship('ProductImage', back_populates='product')
-    discount = relationship('Discount', back_populates='products')
+    sizes = relationship("Size", back_populates="product")
+    category = relationship("ProductCategory", back_populates="product")
+    discount = relationship("Discount", back_populates="products")
+    reviews = relationship("ProductReview", back_populates="product")
+    favorit_products = relationship("FavoritProduct", back_populates="product")
+    specifications = relationship("Specification", back_populates="product")
+    tags = relationship("ProductTag", back_populates="product")
+    image = relationship("Image", back_populates="product")
 
 
+
+
+class Image(Base):
+    __tablename__ = "product_images"
+
+    id = Column(VARCHAR, primary_key=True)
+    product_id = Column(VARCHAR(255), ForeignKey("products.id"))
+    url = Column(VARCHAR(300))
+
+    product = relationship("Product", back_populates="image")
 
 
 class Size(Base):
     __tablename__ = 'size'
 
-    id = Column(Integer, primary_key=True)
-    product_type = Column(TEXT)
-    sizes = Column(JSON)  
-    colors = Column(JSON) 
+    id = Column(VARCHAR, primary_key=True)
+    product_id = Column(VARCHAR(300), ForeignKey("products.id"))
+    size = Column(VARCHAR(10))  
+    color = Column(VARCHAR) 
     quantity = Column(Integer)
-
+    modified_at = Column(TIMESTAMP)
     # Relationship
-    products = relationship('Product', back_populates='size')
+    product = relationship("Product", back_populates="sizes")
 
 
 
@@ -55,52 +64,14 @@ class Size(Base):
 class ProductCategory(Base):
     __tablename__ = 'product_category'
 
-    id = Column(Integer, primary_key=True)
+    id = Column(VARCHAR(300), primary_key=True)
     name = Column(VARCHAR(255), unique=True)
-    description = Column(TEXT)
+    description = Column(VARCHAR(600))
     created_at = Column(TIMESTAMP)
     modified_at = Column(TIMESTAMP)
     deleted_at = Column(TIMESTAMP)
-
     # Relationship
-    products = relationship('Product', back_populates='category')
-
-
-
-
-class Specification(Base):
-    __tablename__ = 'specification'
-
-    id = Column(Integer, primary_key=True)
-    name = Column(VARCHAR)
-    product_code = Column(VARCHAR, unique=True)
-    description = Column(TEXT)
-
-    # Relationship
-    products = relationship('Product', back_populates='specification')
-
-
-
-
-class Tag(Base):
-    __tablename__ = 'tag'
-
-    id = Column(Integer, primary_key=True)
-    name = Column(VARCHAR(100))
-    product_id = Column(Integer, ForeignKey('products.id'))
-
-    # Relationship
-    product = relationship('Product', back_populates='tags')
-
-class ProductImage(Base):
-    __tablename__ = 'product_image'
-
-    id = Column(Integer, primary_key=True)
-    image_url = Column(TEXT)
-    product_id = Column(Integer, ForeignKey('products.id'))
-
-    # Relationship
-    product = relationship('Product', back_populates='images')
+    product = relationship("Product", back_populates="category")
 
 
 
@@ -108,49 +79,35 @@ class ProductImage(Base):
 class Discount(Base):
     __tablename__ = 'discount'
 
-    id = Column(Integer, primary_key=True)
+    id = Column(VARCHAR(300), primary_key=True)
     name = Column(VARCHAR(100))
     discount_code = Column(VARCHAR(20), unique=True)
-    discount_rate = Column(TEXT)
-    created_at = Column(TIMESTAMP)
+    discount_rate = Column(Integer)
     expires_at = Column(TIMESTAMP)
-
-    # Relationship
-    products = relationship('Product', back_populates='discount')
-
-
-
-
-class FavoritProduct(Base):
-    __tablename__ = 'favorit_product'
-
-    id = Column(Integer, primary_key=True)
-    product_id = Column(Integer, ForeignKey('products.id'))
-    user_id = Column(Integer)
     created_at = Column(TIMESTAMP)
     modified_at = Column(TIMESTAMP)
-
+    deleted_at = Column(TIMESTAMP)
+    # Relationship
+    products = relationship("Product", back_populates="discount")
 
 
 
 class ProductReview(Base):
     __tablename__ = 'product_review'
 
-    id = Column(Integer, primary_key=True)
-    user_id = Column(Integer)
-    product_id = Column(Integer, ForeignKey('products.id'))
+    id = Column(VARCHAR(300), primary_key=True)
+    user_id = Column(VARCHAR(300))
+    product_id = Column(VARCHAR(300), ForeignKey("products.id"))
     name = Column(TEXT)
-    points = Column(Integer)  # Assuming points range from 0 to 5
+    points = Column(Integer)  # 0-5 rating
     description = Column(TEXT)
-    Advantages = Column(JSON)  # Assuming JSON structure
-    disAdvantages = Column(JSON)  # Assuming JSON structure
+    advantages = Column(JSON)
+    disadvantages = Column(JSON)
     created_at = Column(TIMESTAMP)
-    status_id = Column(Integer)
-
+    status_id = Column(Integer, ForeignKey("review_status.id"))
     # Relationship
-    product = relationship('Product', back_populates='reviews')
-    status = relationship('ReviewStatus', back_populates='reviews')
-
+    product = relationship("Product", back_populates="reviews")
+    status = relationship("ReviewStatus", back_populates="reviews")
 
 
 
@@ -159,6 +116,44 @@ class ReviewStatus(Base):
 
     id = Column(Integer, primary_key=True)
     status = Column(TEXT)
-
     # Relationship
-    reviews = relationship('ProductReview', back_populates='status')"""
+    reviews = relationship("ProductReview", back_populates="status")
+
+
+class Tag(Base):
+    __tablename__ = 'tag'
+
+    id = Column(TEXT, primary_key=True)
+    name = Column(VARCHAR(100))
+
+
+
+class ProductTag(Base):
+    __tablename__ = 'productTag'
+
+    product_id = Column(TEXT, ForeignKey("products.id"), primary_key=True)
+    tag_id = Column(TEXT, ForeignKey("tag.id"), primary_key=True)
+    # Relationship
+    product = relationship("Product", back_populates="tags")
+    tag = relationship("Tag")
+
+class FavoritProduct(Base):
+    __tablename__ = 'favorit_product'
+
+    id = Column(VARCHAR(300), primary_key=True)
+    product_id = Column(VARCHAR(300), ForeignKey("products.id"))
+    user_id = Column(VARCHAR(300))
+    created_at = Column(TIMESTAMP)
+    modified_at = Column(TIMESTAMP)
+    # Relationship
+    product = relationship("Product", back_populates="favorit_products")
+
+class Specification(Base):
+    __tablename__ = 'specification'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(VARCHAR)
+    product_id = Column(VARCHAR(300), ForeignKey("products.id"), unique=True)
+    description = Column(TEXT)
+    # Relationship
+    product = relationship("Product", back_populates="specifications")

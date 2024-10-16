@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import List, Optional
 from datetime import datetime
 from typing import Any
@@ -10,32 +10,29 @@ class BaseModelWithTimestamps(BaseModel):
 
 # Product Schemas
 class ProductBase(BaseModel):
-    name: str
-    description: Optional[str] = None
+    name: str = Field(description= "Unique name")
+    description: Optional[str] = Field(default=None, description="Description about the product")
     survay: Optional[str] = None
-    original_price: str
-    price_after_discount: str
+    original_price: int
     warranty: Optional[str] = None
-    size_id: Optional[str] = None
     discount_id: Optional[str] = None
-    category_id: Optional[str] = None
-    specification_id: Optional[str] = None
-    tags: List[str] = []
+    category_id: str = Field(description="Category must be a category id")
     brand: str
 
-class ProductCreate(ProductBase):
-    id: int
+class ProductCreated(ProductBase):
+    id: str 
     created_at: datetime
+    price_after_discount: int
     
     
 
 class ProductUpdate(ProductBase):
-    id: int
+    id: str
     product_update: datetime
+    price_after_discount: int
+    
 
-class Product(ProductBase):
-    id: int
-    created_at: datetime
+class Product(ProductCreated):
     modified_at: datetime
     deleted_at: datetime
     
@@ -43,54 +40,94 @@ class Product(ProductBase):
 
 # Size Schemas
 class SizeBase(BaseModel):
-    product_type: Optional[str] = None
-    sizes: Optional[Any] = None
-    colors: Optional[Any] = None
+    product_id: str
+    size: Optional[Any] = None
+    color: Optional[str] = None
     quantity: Optional[int] = None
 
-class SizeCreate(SizeBase):
-    pass
 
-class SizeUpdate(SizeBase):
-    pass
+class Size(SizeBase):
+    modified_at: datetime
+    id: str
 
-class Size(SizeBase, BaseModelWithTimestamps):
-    id: int
+
+
 
    
 
 # Product Category Schemas
 class ProductCategoryBase(BaseModel):
+    id: str
     name: str
     description: Optional[str] = None
 
 class ProductCategoryCreate(ProductCategoryBase):
-    pass
+    created_at: datetime
 
 class ProductCategoryUpdate(ProductCategoryBase):
-    pass
+    modified_at: datetime
 
-class ProductCategory(ProductCategoryBase, BaseModelWithTimestamps):
-    id: int
+class ProductCategoryDelete(ProductCategoryBase):
+    deleted_at: datetime
 
-# Specification Schemas
-class SpecificationBase(BaseModel):
+class ProductCategory(ProductCategoryBase):
+    created_at: datetime
+    modified_at: datetime
+    deleted_at: datetime
+
+
+
+# Discount
+class DiscountBase(BaseModel):
     name: str
-    product_code: str
-    description: Optional[str] = None
+    discount_code: str = Field(max_length=10)
+    discount_rate: int = Field(ge=0, le=100, description="percentage 0-100%")
+    expires_at : datetime
 
-class SpecificationCreate(SpecificationBase):
+class Discount(DiscountBase):
+    id: str
+    created_at: Optional[datetime] = None
+    modified_at: Optional[datetime] = None
+    deleted_at: Optional[datetime] = None
+
+
+class ProductReviewBase(BaseModel):
+    name: str
+    points: int
+    description: str
+    advantages: Optional[list[str]] = []
+    disadvantages: Optional[list[str]] = []
+
+class ProductReviewCreate(ProductReviewBase):
+    product_id: str
+    user_id: str
+
+class ProductReviewUpdate(ProductReviewBase):
     pass
 
-class SpecificationUpdate(SpecificationBase):
+class ProductReview(ProductReviewBase):
+    id: str
+    product_id: str
+    user_id: str
+    created_at: str
+    status_id: int
+
+
+class ProductTagBase(BaseModel):
+    product_id: str
+    tag_id: str
+
+class ProductTagCreate(ProductTagBase):
     pass
 
-class Specification(SpecificationBase):
-    id: int
+class ProductTagUpdate(ProductTagBase):
+    pass
 
-    
+class ProductTag(ProductTagBase):
+    id: str
 
-# Tag Schemas
+
+
 class TagBase(BaseModel):
     name: str
 
@@ -101,92 +138,4 @@ class TagUpdate(TagBase):
     pass
 
 class Tag(TagBase):
-    id: int
-
-    
-
-# Product Image Schemas
-class ProductImageBase(BaseModel):
-    image_url: str
-    product_id: int
-
-class ProductImageCreate(ProductImageBase):
-    pass
-
-class ProductImageUpdate(ProductImageBase):
-    pass
-
-class ProductImage(ProductImageBase):
-    id: int
-
-    
-
-# Discount Schemas
-class DiscountBase(BaseModel):
-    name: str
-    discount_code: str
-    discount_rate: str
-
-class DiscountCreate(DiscountBase):
-    pass
-
-class DiscountUpdate(DiscountBase):
-    pass
-
-class Discount(DiscountBase):
-    id: int
-
-   
-
-# Favorite Product Schemas
-class FavoritProductBase(BaseModel):
-    product_id: int
-    user_id: int
-
-class FavoritProductCreate(FavoritProductBase):
-    pass
-
-class FavoritProductUpdate(FavoritProductBase):
-    pass
-
-class FavoritProduct(FavoritProductBase):
-    id: int
-
-    
-
-# Product Review Schemas
-class ProductReviewBase(BaseModel):
-    user_id: int
-    product_id: int
-    name: Optional[str] = None
-    points: int
-    description: Optional[str] = None
-    Advantages: Optional[Any] = None
-    disAdvantages: Optional[Any] = None
-    status_id: Optional[int] = None
-
-class ProductReviewCreate(ProductReviewBase):
-    pass
-
-class ProductReviewUpdate(ProductReviewBase):
-    pass
-
-class ProductReview(ProductReviewBase):
-    id: int
-
-
-
-# Review Status Schemas
-class ReviewStatusBase(BaseModel):
-    status: str
-
-class ReviewStatusCreate(ReviewStatusBase):
-    pass
-
-class ReviewStatusUpdate(ReviewStatusBase):
-    pass
-
-class ReviewStatus(ReviewStatusBase):
-    id: int
-
-    
+    id: str

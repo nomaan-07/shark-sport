@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from datetime import datetime
-
+from typing import Optional
 
 class UserBase(BaseModel):
     name: str
@@ -8,11 +8,16 @@ class UserBase(BaseModel):
     username: str
     password: str
 
-class CreateResp(UserBase):
-    avatar_link: str
+
+class UserCreateResp(UserBase):
     id: int
     created_at: datetime
 
+
+class UserUpdate(UserBase):
+    id: int
+    avatar_link: str
+    modified_at: datetime
 
 class Login(BaseModel):
     username: str
@@ -22,13 +27,12 @@ class Login(BaseModel):
 class LoginResp(BaseModel):
     access_token: str
     refresh_token: str
-    user: dict
+    uid: int
     
 
-class User(CreateResp):
-    avatar_link: str
+class User(UserUpdate):
     email: str
     phone_number: str
-    modified_at: datetime
-    deleted_at: datetime
+    deleted_at: Optional[datetime] = None
+    created_at: datetime
 
