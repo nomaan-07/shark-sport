@@ -10,13 +10,14 @@ const testFetch = () => {
   const addNewUser = {
     name : nameInputElement.value,
     lastname : lastnameInputElement.value,
-    email : emailInputElement.value,
+    username : emailInputElement.value,
     password : passwordInputElement.value,
   }
-  fetch("URL" , {
+  fetch("http://localhost:8000/user/signup" , {
     method : "POST",
     headers : {
-
+      "Content-Type": "application/json",
+      "accept": "application/json" 
     },
     body : JSON.stringify(addNewUser),
   }) 
