@@ -173,62 +173,10 @@ def delete_product_review(review_id: str, db: Session = Depends(get_db),
 def read_tags(db: Session = Depends(get_db)):
     return db.query(ModelProduct.Tag).all()
 
-@router.get("/tags/{tag_id}")
-def read_tag(tag_id: str, db: Session = Depends(get_db)):
-    tag = db.query(ModelProduct.Tag).filter(ModelProduct.Tag.id == tag_id).first()
-    if not tag:
-        raise HTTPException(status_code=404, detail="Tag not found")
-    return tag
-
-@admin_router.post("/create_tag/", response_model=SchemaProduct.Tag, status_code=201)
-def create_tag(tag: SchemaProduct.Tag, db: Session = Depends(get_db),
-               admin_auth=Depends(admin_auth_middleware)):
-    info = tag.model_dump()
-    new_tag = ModelProduct.Tag(**info)
-    db.add(new_tag)
-    db.commit()
-    return new_tag
-
-@admin_router.put("/tags/{tag_id}")
-def update_tag(tag: SchemaProduct.Tag, tag_id: str, db: Session = Depends(get_db),
-               admin_auth=Depends(admin_auth_middleware)):
-    db_tag = db.query(ModelProduct.Tag).filter(ModelProduct.Tag.id == tag_id).first()
-    if not db_tag:
-        raise HTTPException(status_code=404, detail="Tag not found")
-    db_tag.name = tag.name
-    db.commit()
-    return db_tag
-
-@admin_router.delete("/tags/{tag_id}")
-def delete_tag(tag_id: str, db: Session = Depends(get_db),
-               admin_auth=Depends(admin_auth_middleware)):
-    tag = db.query(ModelProduct.Tag).filter(ModelProduct.Tag.id == tag_id).first()
-    if not tag:
-        raise HTTPException(status_code=404, detail="Tag not found")
-    db.delete(tag)
-    db.commit()
-    return {"message": "Tag deleted"}
 
 
 
 
-@router.get("/product_tags/")
-def read_product_tags(db: Session = Depends(get_db)):
-    return db.query(ModelProduct.ProductTag).all()
-
-@router.get("/product_tags/{product_id}")
-def read_product_tags_by_product(product_id: str, db: Session = Depends(get_db)):
-    product_tags = db.query(ModelProduct.ProductTag).filter(ModelProduct.Tag == product_id).all()
-    if not product_tags:
-        raise HTTPException(status_code=404, detail="Product tags not found")
-    return product_tags
-
-@admin_router.post("/product_tags/")
-def create_product_tag(product_tag: SchemaProduct.ProductTag, db: Session = Depends(get_db),
-                       admin_auth=Depends(admin_auth_middleware)):
-    db.add(product_tag)
-    db.commit()
-    return product_tag
 
 @admin_router.delete("/product_tags/{product_id}/{tag_id}")
 def delete_product_tag(product_id: str, tag_id: str, db: Session = Depends(get_db),
@@ -239,6 +187,41 @@ def delete_product_tag(product_id: str, tag_id: str, db: Session = Depends(get_d
     db.delete(product_tag)
     db.commit()
     return {"message": "Product tag deleted"}
+
+
+
+@router.post("/tags/", response_model=SchemaProduct.TagCreate)
+def create_tag(tag: SchemaProduct.TagBase, db: Session = Depends(get_db)):
+    db_tag = db.query(ModelProduct.Tag).filter(ModelProduct.Tag.name == tag.name).first()
+    if db_tag:
+        raise HTTPException(status_code=400, detail="Tag already exists")
+    
+    new_tag = ModelProduct.Tag(name=tag.name)
+    db.add(new_tag)
+    db.commit()
+    db.refresh(new_tag)
+    return new_tag
+
+
+
+@router.post("/products/tags/")
+def associate_tags_with_product(product_tags: SchemaProduct.ProductTags, db: Session = Depends(get_db)):
+    product = db.query(ModelProduct.Product).filter(ModelProduct.Product.id == product_tags.product_id).first()
+    if not product:
+        raise HTTPException(status_code=404, detail="Product not found")
+
+    for tag_name in product_tags.tag_names:
+        tag = db.query(ModelProduct.Tag).filter(ModelProduct.Tag.name == tag_name).first()
+        if not tag:
+            tag = ModelProduct.Tag(name=tag_name)
+            db.add(tag)
+        
+        product_tag = ModelProduct.ProductTag(product_id=product_tags.product_id, tag=tag_name)
+        db.add(product_tag)
+
+    db.commit()
+    return {"message": "Tags associated with product successfully"}
+
 
 
 @admin_router.post("/create_image", status_code=201)
@@ -287,7 +270,8 @@ def get_products(limit:int =0, db: Session=Depends(get_db)):
 @router.get("/list/product-image-size" ,status_code=200)
 def product_n_image_n_size(limit:int =0, db: Session=Depends(get_db)):
     products = db.query(ModelProduct.Product).options(joinedload(ModelProduct.Product.image),
-                                                      joinedload(ModelProduct.Product.sizes)).limit(limit).all()
+                                                      joinedload(ModelProduct.Product.sizes),
+                                                      joinedload(ModelProduct.Product.tags)).limit(limit).all()
 
     transformed_products = []
     for product in products:
@@ -306,8 +290,67 @@ def product_n_image_n_size(limit:int =0, db: Session=Depends(get_db)):
             "modified_at": product.modified_at,
             "deleted_at": product.deleted_at,
             "image": [{"url": image.url} for image in product.image],  # Only include the URL
-            "sizes": [{"size": size.size, "color": size.color, "quantity": size.quantity} for size in product.sizes]  # Include size details
+            "sizes": [{"size": size.size, "color": size.color, "quantity": size.quantity} for size in product.sizes]
         }
         transformed_products.append(transformed_product)
 
     return transformed_products
+
+@router.get("/list_product/")
+def list_product(limit: int=10,
+                images: bool=False, tags: bool=False, sizes: bool=False,
+                specifications: bool=False,
+                db: Session=Depends(get_db)):
+    products_db = db.query(ModelProduct.Product).options(joinedload(ModelProduct.Product.image),
+                                                      joinedload(ModelProduct.Product.sizes),
+                                                      joinedload(ModelProduct.Product.tags),
+                                                      joinedload(ModelProduct.Product.specifications)).limit(limit).all()
+    filtered_products = []                                                      
+    for product in products_db:
+        filtered_product = {
+            "id": product.id,
+            "name": product.name,
+            "description": product.description,
+            "survay": product.survay,
+            "original_price": product.original_price,
+            "price_after_discount": product.price_after_discount,
+            "warranty": product.warranty,
+            "discount_id": product.discount_id,
+            "category_id": product.category_id,
+            "brand": product.brand,
+            "created_at": product.created_at,
+            "modified_at": product.modified_at,
+            "deleted_at": product.deleted_at,
+        }
+        if images:
+            filtered_product["images"] = [{"url": image.url} for image in product.image]
+        if sizes:
+            filtered_product["sizes"] = [{"size": size.size, "color": size.color, "quantity": size.quantity} for size in product.sizes]
+        if tags:
+            filtered_product["tags"] = [{"tag": pt.tag} for pt in product.tags]
+        if specifications:
+            filtered_product["specificaations"] = [{"name": specification.name, "description": specification.description } for specification in product.specifications]
+        filtered_products.append(filtered_product)
+
+    return filtered_products
+
+
+
+@admin_router.post("/product/create_specification", response_model=SchemaProduct.SpecificationCreated ,status_code=201)
+def create_specification(product_id: str, specification: SchemaProduct.SpecificationBase, 
+                         db: Session=Depends(get_db),
+                         admin_auth=Depends(admin_auth_middleware)):
+    product_db =  db.query(ModelProduct.Product).filter(ModelProduct.Product.id == product_id).first()
+    if product_db:
+        specification_db =  db.query(ModelProduct.Specification).filter(ModelProduct.Specification.name == specification.name).first()
+        if not specification_db:
+            new_specification = ModelProduct.Specification(id=f"{product_db.name}+{specification.name}",
+                                                           name=specification.name,
+                                                           product_id=product_id,
+                                                           description=specification.description)
+            db.add(new_specification)
+            db.commit()
+            return new_specification
+
+        raise HTTPException(status_code=409, detail="Duplicated Specification")
+    raise HTTPException(status_code=404, detail="Product not found")

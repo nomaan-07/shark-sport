@@ -1,6 +1,6 @@
 from db import Base
 from sqlalchemy.orm import relationship
-from sqlalchemy import Column, Integer, TEXT, LargeBinary, ForeignKey, VARCHAR, Boolean, TIMESTAMP
+from sqlalchemy import Column, Integer, TEXT, LargeBinary, ForeignKey, VARCHAR, Boolean, TIMESTAMP, JSON
 from sqlalchemy.dialects.postgresql import JSON
 
 
@@ -14,15 +14,12 @@ class Product(Base):
     original_price = Column(Integer, nullable=False)
     price_after_discount = Column(Integer)
     warranty = Column(VARCHAR(255))
-    discount_id = Column(VARCHAR(100), ForeignKey("discount.discount_code"))  # Assuming discount_id is a VARCHAR, could be an Integer if it references discounts
-    category_id = Column(VARCHAR(255), ForeignKey("product_category.id"))  # Assuming category_id is a VARCHAR, could be an Integer if it references categories
-    brand = Column(VARCHAR(255))
-    created_at = Column(TIMESTAMP)
+    discount_id = Column(VARCHAR(100), ForeignKey("discount.discount_code"))  
+    category_id = Column(VARCHAR(255), ForeignKey("product_category.id"))  
+    brand = Column(VARCHAR(50))
     modified_at = Column(TIMESTAMP)
     deleted_at = Column(TIMESTAMP)
-
-
-
+    created_at = Column(TIMESTAMP)
     # Relationships
     sizes = relationship("Size", back_populates="product")
     category = relationship("ProductCategory", back_populates="product")
@@ -30,9 +27,28 @@ class Product(Base):
     reviews = relationship("ProductReview", back_populates="product")
     favorit_products = relationship("FavoritProduct", back_populates="product")
     specifications = relationship("Specification", back_populates="product")
-    tags = relationship("ProductTag", back_populates="product")
     image = relationship("Image", back_populates="product")
+    tags = relationship("ProductTag", back_populates="product")
 
+
+
+class Tag(Base):
+    __tablename__ = 'tags'
+
+    name = Column(VARCHAR(20), primary_key=True)
+    # Relationship to ProductTag
+    product_tags = relationship("ProductTag", back_populates="tags")  
+
+
+
+class ProductTag(Base):
+    __tablename__ = 'product_tags'
+
+    product_id = Column(VARCHAR(255), ForeignKey('products.id'), primary_key=True)
+    tag = Column(VARCHAR(20), ForeignKey('tags.name'), primary_key=True)
+    # Relationships
+    product = relationship("Product", back_populates="tags")
+    tags = relationship("Tag", back_populates="product_tags") 
 
 
 
@@ -120,22 +136,6 @@ class ReviewStatus(Base):
     reviews = relationship("ProductReview", back_populates="status")
 
 
-class Tag(Base):
-    __tablename__ = 'tag'
-
-    id = Column(TEXT, primary_key=True)
-    name = Column(VARCHAR(100))
-
-
-
-class ProductTag(Base):
-    __tablename__ = 'productTag'
-
-    product_id = Column(TEXT, ForeignKey("products.id"), primary_key=True)
-    tag_id = Column(TEXT, ForeignKey("tag.id"), primary_key=True)
-    # Relationship
-    product = relationship("Product", back_populates="tags")
-    tag = relationship("Tag")
 
 class FavoritProduct(Base):
     __tablename__ = 'favorit_product'
@@ -151,9 +151,14 @@ class FavoritProduct(Base):
 class Specification(Base):
     __tablename__ = 'specification'
 
-    id = Column(Integer, primary_key=True)
+    id = Column(VARCHAR(255), primary_key=True)
     name = Column(VARCHAR)
     product_id = Column(VARCHAR(300), ForeignKey("products.id"), unique=True)
     description = Column(TEXT)
     # Relationship
     product = relationship("Product", back_populates="specifications")
+
+
+
+
+ 

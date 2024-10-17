@@ -113,18 +113,9 @@ class ProductReview(ProductReviewBase):
     status_id: int
 
 
-class ProductTagBase(BaseModel):
+class ProductTags(BaseModel):
     product_id: str
-    tag_id: str
-
-class ProductTagCreate(ProductTagBase):
-    pass
-
-class ProductTagUpdate(ProductTagBase):
-    pass
-
-class ProductTag(ProductTagBase):
-    id: str
+    tag_names: List[str]
 
 
 
@@ -139,3 +130,17 @@ class TagUpdate(TagBase):
 
 class Tag(TagBase):
     id: str
+
+
+
+
+
+class SpecificationBase(BaseModel):
+    name: str
+    description: str
+
+
+class SpecificationCreated(SpecificationBase):
+    id: str
+    product_id: str
+    

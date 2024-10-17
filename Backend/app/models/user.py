@@ -17,3 +17,5 @@ class User(Base):
     created_at = Column(TIMESTAMP)
     modified_at = Column(TIMESTAMP)
     deleted_at = Column(TIMESTAMP)
+
+

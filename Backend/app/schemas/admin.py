@@ -1,6 +1,6 @@
 from pydantic import BaseModel, AwareDatetime, Field
 from datetime import datetime
-
+from fastapi import UploadFile
 
 class BaseAdmin(BaseModel):
     name: str
@@ -10,11 +10,11 @@ class BaseAdmin(BaseModel):
     avatar_link: str
     phone: str
     password: str
-    google_analytics_token: str
-    instagram_token: str
-    google_analyze_website: str
-    google_analytics_token: str
-    instagram_token: str
+    google_analytics_token: str | None
+    instagram_token: str | None
+    google_analyze_website: bool
+    google_analytics_token: str | None
+    instagram_token: str | None
     root_access: bool = Field(default=False)
 
 class createAdmin_resp(BaseAdmin):
@@ -51,3 +51,15 @@ class create_permission_resp(BasePermission):
 
 
 
+class SchemaAdminUpdate(BaseModel):
+    name: str | None 
+    lastname: str | None
+    username: str | None
+    email: str | None
+    phone: str | None
+    google_analytics_token: str | None
+    google_analyze_website: bool | None
+    instagram_token: str | None
+    root_access: bool | None
+    password: str | None
+    avatar: UploadFile | None

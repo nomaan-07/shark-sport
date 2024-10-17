@@ -7,8 +7,6 @@ dotenv.load_dotenv()
 
 DB_PASS = os.getenv("DB_PASSWORD")
 
-print(DB_PASS)
-
 
 SQLALCHEMY_DATABASE_URL = f"postgresql://postgres:{DB_PASS}@localhost:5432/sharksport"
 
