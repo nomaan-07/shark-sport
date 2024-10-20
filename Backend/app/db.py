@@ -7,7 +7,7 @@ dotenv.load_dotenv()
 
 DB_PASS = os.getenv("DB_PASSWORD")
 
-DATABASE_URL= "postgresql://postgres:1050@host.docker.internal:5432/sharksport"
+DATABASE_URL= f"postgresql://postgres:DB_PASS@host.docker.internal:5432/sharksport"
 
 engine = create_engine(DATABASE_URL)
 
