@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends, UploadFile, File, Form, status
+"""from fastapi import APIRouter, HTTPException, Depends, UploadFile, File, Form, status
 from models import user as ModelUser
 from schemas import user as SchemaUser
 from db import get_db, Session
@@ -115,4 +115,4 @@ def delete_user(user_id: str, db: Session=Depends(get_db), admin_auth=Depends(ad
     user = db.query(ModelUser.User).filter(ModelUser.User.id == user_id).first()
     db.delete(user)
     db.commit()
-    return user
+    return user"""

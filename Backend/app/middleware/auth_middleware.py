@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 import os
 import uuid
 import logging
+import bcrypt
+import hashlib
 load_dotenv()
 
 PASSWORD_KEY = os.getenv("PASSWORD_KEY")
@@ -52,6 +54,20 @@ def decode_token(token: str) -> dict:
         return None 
          
     
+
+def check_pw(pw: str, hashed_pw: str) -> bool:
+    try:
+        return bcrypt.checkpw(pw.encode(), hashed_pw.encode())
+    except Exception as e:
+        raise RuntimeError("Password verification failed") from e
+
+def hash_pw(pw: str) -> str:
+    try:
+        return bcrypt.hashpw(pw.encode(), bcrypt.gensalt()).decode()
+    except Exception as e:
+        raise NotImplementedError("Algorithm not supported") from e
+
+
 
 
 

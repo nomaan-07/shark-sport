@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends, UploadFile, Form, File
+"""from fastapi import APIRouter, HTTPException, Depends, UploadFile, Form, File
 from db import Session, get_db, joinedload
 from models import product as ModelProduct
 from schemas import product as SchemaProduct
@@ -243,7 +243,7 @@ def upload_image(image: UploadFile=File(...), product_id:str=Form(...),
 
 @router.get("/list/product-image")
 def get_products(limit:int =0, db: Session=Depends(get_db)):
-    """ returns products with first related image"""
+    #returns products with first related image
     products = db.query(ModelProduct.Product).options(joinedload(ModelProduct.Product.image)).limit(limit).all()
     transformed_products = []
     for product in products:
@@ -354,3 +354,4 @@ def create_specification(product_id: str, specification: SchemaProduct.Specifica
 
         raise HTTPException(status_code=409, detail="Duplicated Specification")
     raise HTTPException(status_code=404, detail="Product not found")
+"""

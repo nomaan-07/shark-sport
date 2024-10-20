@@ -1,13 +1,17 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from db import Base, engine
+import routers.v2
+import routers.v2.user
+#from routers.v1 import admin, auth, product, user 
+"""import routers.v1.admin
+import routers.v1.product
+import routers.v1.user"""
 import routers
-import routers.admin
-import routers.product
-import routers.user
 import tools
 
 
+from models import article, tag, product, user, order
 
 
 app = FastAPI()
@@ -20,13 +24,20 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+user.Base.metadata.create_all(bind=engine) 
+product.Base.metadata.create_all(bind=engine) 
+article.Base.metadata.create_all(bind=engine) 
+tag.Base.metadata.create_all(bind=engine) 
+order.Base.metadata.create_all(bind=engine) 
 
-Base.metadata.create_all(bind=engine) 
 
+"""app.include_router(routers.v1.admin.router, tags=['v1-Admin-auth'])
+app.include_router(routers.v1.user.router, tags=['v1-User'])
+app.include_router(routers.v1.user.admin_router, tags=["v1-Admin-User"])
+app.include_router(routers.v1.product.router, tags=["v1-Product"])
+app.include_router(routers.v1.product.admin_router, tags=["v1-Admin-Product"])"""
+app.include_router(tools.router, tags=["v1-tools"])
 
-app.include_router(routers.admin.router, tags=['Admin-auth'])
-app.include_router(routers.user.router, tags=['User'])
-app.include_router(routers.user.admin_router, tags=["Admin-User"])
-app.include_router(routers.product.router, tags=["Product"])
-app.include_router(routers.product.admin_router, tags=["Admin-Product"])
-app.include_router(tools.router, tags=["tools"])
+"""----------------------------------------------------------- v2 section------------------------------------------------"""
+
+app.include_router(routers.v2.user.router, tags=["Register","SignUp"])

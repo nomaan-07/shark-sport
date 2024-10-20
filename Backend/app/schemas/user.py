@@ -1,38 +1,41 @@
-from pydantic import BaseModel
-from datetime import datetime
+from pydantic import BaseModel, Field
 from typing import Optional
+import datetime
 
 class UserBase(BaseModel):
-    name: str
-    lastname: str
-    username: str
-    password: str
-
-
-class UserCreateResp(UserBase):
-    id: int
-    created_at: datetime
-
+    name: str = Field(min_length=2, max_length=20, default="نام")
+    lastname: str = Field(min_length=2, max_length=25, default="نام خانوادگی")
+    username: str = Field(min_length=3, max_length=35, default="نام کاربری")
+    password: str = Field(min_length=8, max_length=100)
 
 class UserUpdate(UserBase):
-    id: int
-    avatar_link: str
-    modified_at: datetime
-
-class Login(BaseModel):
-    username: str
-    password: str
+    phone_number: str = Field(min_length="11", max_length="11")
+    email: str
+    avatar_url: str = Field(max_length="300")
 
 
-class LoginResp(BaseModel):
+class UserLogin(BaseModel):
+    username: str = Field(min_length=3, max_length=35, default="نام کاربری")
+    password: str = Field(min_length=8, max_length=100)
+
+
+class UserLoginResp(BaseModel):
     access_token: str
-    refresh_token: str
-    uid: int
-    
+
+
+
+
+class UserCreate(UserBase):
+    id: int
+    created_at: datetime.datetime
+
 
 class User(UserUpdate):
-    email: str
-    phone_number: str
-    deleted_at: Optional[datetime] = None
-    created_at: datetime
+    id: int
+    modified_at: datetime.datetime
+    deleted_at: Optional[datetime.datetime] = None
 
+
+class Config:
+    orm_mode = True
+    from_attributes = True
