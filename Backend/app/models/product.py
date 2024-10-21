@@ -15,6 +15,9 @@ class Product(Base):
     discount_id = Column(Integer, ForeignKey('discount.id'))
     category_id = Column(Integer, ForeignKey('product_category.id'))
     brand = Column(VARCHAR(255))
+    created_at = Column(TIMESTAMP)
+    modified_at = Column(TIMESTAMP)
+    deleted_at = Column(TIMESTAMP)
     #relationships
     category = relationship("ProductCategory", back_populates="products")
     discount = relationship("Discount", back_populates="products")
@@ -32,6 +35,7 @@ class Product(Base):
 class ProductCategory(Base):
     __tablename__ = 'product_category'
     id = Column(Integer, primary_key=True, autoincrement=True)
+    image_url = Column(VARCHAR(300))
     name = Column(VARCHAR(255), unique=True)
     description = Column(VARCHAR(100))
     created_at = Column(TIMESTAMP)

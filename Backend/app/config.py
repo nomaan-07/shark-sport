@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from db import Base, engine
 import routers.v2
+import routers.v2.product
 import routers.v2.user
 #from routers.v1 import admin, auth, product, user 
 """import routers.v1.admin
@@ -40,4 +41,7 @@ app.include_router(tools.router, tags=["v1-tools"])
 
 """----------------------------------------------------------- v2 section------------------------------------------------"""
 
-app.include_router(routers.v2.user.router, tags=["Register","SignUp"])
+app.include_router(routers.v2.user.router, tags=["User"])
+app.include_router(routers.v2.product.router_category, tags=["Category"])
+app.include_router(routers.v2.product.router_product, tags=["Product"])
+app.include_router(routers.v2.product.router_discount, tags=["Discount"])

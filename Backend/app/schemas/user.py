@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import Optional
+from typing import Optional, List
 import datetime
 
 class UserBase(BaseModel):
@@ -9,7 +9,7 @@ class UserBase(BaseModel):
     password: str = Field(min_length=8, max_length=100)
 
 class UserUpdate(UserBase):
-    phone_number: str = Field(min_length="11", max_length="11")
+    phone_number: str = Field(min_length=10, max_length=10)
     email: str
     avatar_url: str = Field(max_length="300")
 
@@ -21,7 +21,7 @@ class UserLogin(BaseModel):
 
 class UserLoginResp(BaseModel):
     access_token: str
-
+    refresh_token: str
 
 
 
@@ -32,9 +32,13 @@ class UserCreate(UserBase):
 
 class User(UserUpdate):
     id: int
+    created_at: datetime.datetime
     modified_at: datetime.datetime
     deleted_at: Optional[datetime.datetime] = None
 
+
+class UserDeleteRequest(BaseModel):
+    user_ids: List[int]
 
 class Config:
     orm_mode = True
