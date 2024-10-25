@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 import datetime
-from typing import Optional
+from typing import Annotated, List
 
 
 
@@ -24,9 +24,40 @@ class ProductCreate(ProductBase):
     tags: list[str]
 
 class Product(ProductCreate):
-    modified_at: Optional[datetime.datetime] = None
-    deleted_at: Optional[datetime.datetime] = None
+    modified_at: Annotated[None,datetime.datetime] = None
+    deleted_at: Annotated[None,datetime.datetime] = None
 
+
+
+
+class ProductResponse(BaseModel):
+    id: int
+    name: str
+    description: Annotated[None,str] = None
+    survey: Annotated[None,str] = None
+    original_price: int
+    price_after_discount: float
+    warranty: Annotated[None,str] = None
+    discount_id: int
+    category_id: int 
+    brand: Annotated[None,str]
+    created_at: str  # Adjust type as necessary (e.g., datetime)
+
+class SpecificationResponse(BaseModel):
+    name: str
+    description: str
+
+class SizeResponse(BaseModel):
+    size: str
+    color: str
+    quantity: int
+
+class CreateProductResponse(BaseModel):
+    product: ProductResponse
+    tags: List[str]
+    specifications: List[SpecificationResponse]
+    sizes: List[SizeResponse]
+    images: List[str]
 
 """----------------------------------------discount Section----------------------------"""
 
@@ -35,7 +66,7 @@ class Product(ProductCreate):
 class CategoryBase(BaseModel):
     name: str
     image_url: str
-    description: Optional[str]
+    description: Annotated[None,str]
 
 
 class CategoryCreate(CategoryBase):
@@ -44,14 +75,14 @@ class CategoryCreate(CategoryBase):
 
 
 class CategoryUpdate(BaseModel):
-    name: Optional[str] = None
-    image_url: Optional[str] = None
-    description: Optional[str] = None
+    name: Annotated[None,str] = None
+    image_url: Annotated[None,str] = None
+    description: Annotated[None,str] = None
 
 
 class Category(CategoryCreate):
-    modified_at: Optional[datetime.datetime] = None
-    deleted_at: Optional[datetime.datetime] = None
+    modified_at: Annotated[None,datetime.datetime] = None
+    deleted_at: Annotated[None,datetime.datetime] = None
 
 
 

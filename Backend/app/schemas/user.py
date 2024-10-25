@@ -43,3 +43,32 @@ class UserDeleteRequest(BaseModel):
 class Config:
     orm_mode = True
     from_attributes = True
+
+
+
+"""
+                                    admin Section
+"""
+
+
+
+class AdminBase(BaseModel):
+    name: str
+    lastname: str
+    username: str
+    email: str
+    phone: str
+    root_access: bool
+    password: str
+
+class AdminCreate(AdminBase):
+    id: int
+    created_at: datetime.datetime
+
+class AdminLogin(BaseModel):
+    username: str
+    password: str
+
+class AdminLoginResp(BaseModel):
+    access_token: str
+    refresh_token: str

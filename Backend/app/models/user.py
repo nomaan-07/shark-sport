@@ -1,5 +1,5 @@
 from db import Base, relationship
-from sqlalchemy import Column, ForeignKey , VARCHAR, Integer, TIMESTAMP, Boolean
+from sqlalchemy import Column, ForeignKey , VARCHAR, Integer, TIMESTAMP, Boolean, LargeBinary
 from tools import current_time
 
 
@@ -9,15 +9,17 @@ class Admin(Base):
     name = Column(VARCHAR(50), nullable=False)
     lastname = Column(VARCHAR(50), nullable=False)
     username = Column(VARCHAR(100), unique=True, nullable=False)
+    access_token = Column(VARCHAR(500))
+    refresh_token = Column(VARCHAR(500))
     email = Column(VARCHAR(255), unique=True, nullable=False)
     phone = Column(VARCHAR(11))
-    password = Column(VARCHAR)
+    password = Column(LargeBinary, nullable=False)
     avatar_link = Column(VARCHAR(300))
     google_analytics_token = Column(VARCHAR)
     instagram_token = Column(VARCHAR)
     google_analyze_website = Column(VARCHAR, default=False)
     last_login = Column(TIMESTAMP)
-    created_at = Column(TIMESTAMP)
+    created_at = Column(TIMESTAMP, nullable=False)
     modified_at = Column(TIMESTAMP)
     deleted_at = Column(TIMESTAMP, nullable=True, default=None)
     root_access = Column(Boolean, default=False)
@@ -40,9 +42,11 @@ class User(Base):
     name = Column(VARCHAR(20), nullable=False)
     lastname = Column(VARCHAR(25), nullable=False)
     username = Column(VARCHAR(35), nullable=False, unique=True)
+    access_token = Column(VARCHAR(500))
+    refresh_token = Column(VARCHAR(500))
     email = Column(VARCHAR(255))
     phone_number = Column(VARCHAR(10))
-    password = Column(VARCHAR, nullable=False)
+    password = Column(LargeBinary, nullable=False)
     avatar_link = Column(VARCHAR(300))
     created_at = Column(TIMESTAMP)
     modified_at = Column(TIMESTAMP)

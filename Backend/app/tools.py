@@ -1,12 +1,13 @@
 from fastapi import APIRouter, File
+from typing import Optional
 from fastapi import UploadFile
 from urllib.parse import quote
 from dotenv import load_dotenv
-from datetime import datetime
+from datetime import datetime ,timedelta, timezone
 import uuid, os, boto3
 from botocore.exceptions import NoCredentialsError, PartialCredentialsError
 from typing import List, Optional
-from middleware.auth_middleware import user_auth_middleware, decode_token, admin_auth_middleware
+
 
 load_dotenv()
 
@@ -22,10 +23,12 @@ s3 = boto3.client(
     aws_secret_access_key=LIARA_SECRET_KEY,
 )
 
+offset_hours = 3
+offset_minutes = 30
+tehran_timezone = timezone(timedelta(hours=offset_hours, minutes=offset_minutes))
 
-def current_time() -> datetime: 
-    return datetime.now().replace(second=0, microsecond=0)
-    
+def current_time(timze_zone: Optional[timezone] = tehran_timezone) -> datetime: 
+    return datetime.now(timze_zone).replace(second=0, microsecond=0)
 
 
 
@@ -97,29 +100,17 @@ class BucketObj_2:
             obj_filename_encoded = quote(f'{self.destination}/{save_name}.{self.format_}')
             obj_perma_link = f"https://{LIARA_BUCKET_NAME}.{LIARA_ENDPOINT.replace('https://', '')}/{obj_filename_encoded}"
             links.append(obj_perma_link)
-        print("Generated perma_links: ", links)  # Debug print statement
+        print("Generated perma_links: ", links)  
         return links
 
 
 
 
 
-router = APIRouter(prefix="/tools")
-
-@router.post("/avatar", status_code=201)
-def upload_avatar(avatar: List[UploadFile] = File(...)):
-    """Test Image Uploading. Note: image links will not save on DB and only image objs will be
-    save into the bucket
-    """
-    return BucketObj_2(avatar, ["save_name_1", "save_name_2", "save_name_3"], "/images", format_="png").perma_links
 
 
-@router.post("/user_middleware", status_code=200)
-def test_user_middleware(token: str):
-    return {"token":user_auth_middleware(token),
-            "decode": decode_token(token)}
 
 
-@router.post("/admin_middle", status_code=200)
-def test_admin_token(toke:str):
-    return {"decode": decode_token(toke)}
+
+
+

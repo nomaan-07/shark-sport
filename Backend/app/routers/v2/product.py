@@ -12,10 +12,14 @@ from schemas.product import  Product
 from tools import BucketObj_2, current_time
 from schemas.product import DiscountBase, Discount
 from sqlalchemy import or_
-
+from middleware.auth_middleware import auth_middleware
 from models.tag import Tag
 
 
+
+router_admin_content = APIRouter (
+    prefix="/api/admin/content"
+)
 router_product= APIRouter(
     prefix="/api/product"
 )
@@ -29,8 +33,8 @@ router_category= APIRouter(
 )
 
 
-
-@router_product.post("/create_product", status_code=201)
+from schemas.product import CreateProductResponse
+@router_admin_content.post("/create_product", response_model=CreateProductResponse,status_code=201)
 def create_product(
     images: List[UploadFile] = File(...),
     name: str = Form(...),
@@ -47,7 +51,8 @@ def create_product(
     size: List[str] = Form(...),
     quantity: List[int] = Form(...),
     color: List[str] = Form(...),
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    auth_dict= Depends(auth_middleware)
 ):
     if db.query(ProductModel).filter(ProductModel.name == name).first():
         raise HTTPException(status_code=409, detail="Duplicated Name for product in db")
@@ -221,8 +226,8 @@ def update_product(product_id: int, product: ProductUpdate, db: Session = Depend
     db.refresh(db_product)
     return db_product"""
 
-@router_product.delete("/products/{product_id}", response_model=Product, status_code=200)
-def delete_product(product_id: int, db: Session = Depends(get_db)):
+@router_admin_content.delete("/products/{product_id}", response_model=Product, status_code=200)
+def delete_product(product_id: int, db: Session = Depends(get_db), auth_dict=Depends(auth_middleware)):
     db_product = db.query(ProductModel).filter(ProductModel.id == product_id).first()
     if not db_product:
         raise HTTPException(status_code=404, detail="Product not found")
