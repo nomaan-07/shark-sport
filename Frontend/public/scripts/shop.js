@@ -6,8 +6,9 @@ import {
   overlayHidden,
   mobileMenuVisible,
   mobileMenuHidden,
-  formatNumber,
 } from "./funcs/shared.js";
+import { formatNumber } from "./funcs/utils.js";
+
 // Price Slider Element
 const priceSliderElements = document.querySelectorAll(".price-slider");
 const priceSliderValues = document.querySelectorAll(".price-slider-value");
@@ -36,8 +37,8 @@ priceSliderElements.forEach((sliderElem) => {
     const formattedMax = formatNumber(Math.round(values[1]));
     const prices = [formattedMax, formattedMin];
     priceSliderValues.forEach((value, index) => {
-      value.innerHTML = `${prices[index % 2]} تومان`
-    })
+      value.innerHTML = `${prices[index % 2]} تومان`;
+    });
   });
 });
 

@@ -4,6 +4,25 @@ import {
   mobileMenuVisible,
   mobileMenuHidden,
 } from "../funcs/shared.js";
+import { getMe } from "../funcs/auth.js";
+import { isLogin } from "../funcs/utils.js";
+
+window.addEventListener("load", () => {
+  const headerProfileNames = document.querySelectorAll("#header-profile-name");
+  const isUserLogin = isLogin();
+
+  headerProfileNames.forEach((profileName) => {
+    if (isUserLogin) {
+      getMe().then((userData) => {
+        profileName.innerHTML = `${userData.name} ${userData.lastname}`;
+      });
+    } else {
+      profileName.parentElement.src = "login.html";
+      profileName.innerHTML = "عضویت | ورود";
+    }
+  });
+});
+
 // Menu Mobile Elements (Header)
 const openMobileBtn = document.querySelector(".mobile-menu__open-btn");
 const menuMobile = document.querySelector(".menu-mobile");
