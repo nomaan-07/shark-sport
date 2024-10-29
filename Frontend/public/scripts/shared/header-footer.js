@@ -17,7 +17,7 @@ window.addEventListener("load", () => {
         profileName.innerHTML = `${userData.name} ${userData.lastname}`;
       });
     } else {
-      profileName.parentElement.src = "login.html";
+      profileName.parentElement.setAttribute("href", "login.html");
       profileName.innerHTML = "عضویت | ورود";
     }
   });
