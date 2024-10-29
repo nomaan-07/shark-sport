@@ -1,38 +1,74 @@
-from pydantic import BaseModel
-from datetime import datetime
-from typing import Optional
+from pydantic import BaseModel, Field
+from typing import Optional, List
+import datetime
 
 class UserBase(BaseModel):
+    name: str = Field(min_length=2, max_length=20, default="نام")
+    lastname: str = Field(min_length=2, max_length=25, default="نام خانوادگی")
+    username: str = Field(min_length=3, max_length=35, default="نام کاربری")
+    password: str = Field(min_length=8, max_length=100)
+
+class UserUpdate(UserBase):
+    phone_number: str = Field(min_length=10, max_length=10)
+    email: str
+    avatar_url: str = Field(max_length="300")
+
+
+class UserLogin(BaseModel):
+    username: str = Field(min_length=3, max_length=35, default="نام کاربری")
+    password: str = Field(min_length=8, max_length=100)
+
+
+class UserLoginResp(BaseModel):
+    access_token: str
+    refresh_token: str
+
+
+
+class UserCreate(UserBase):
+    id: int
+    created_at: datetime.datetime
+
+
+class User(UserUpdate):
+    id: int
+    created_at: datetime.datetime
+    modified_at: datetime.datetime
+    deleted_at: Optional[datetime.datetime] = None
+
+
+class UserDeleteRequest(BaseModel):
+    user_ids: List[int]
+
+class Config:
+    orm_mode = True
+    from_attributes = True
+
+
+
+"""
+                                    admin Section
+"""
+
+
+
+class AdminBase(BaseModel):
     name: str
     lastname: str
     username: str
+    email: str
+    phone: str
+    root_access: bool
     password: str
 
-
-class UserCreateResp(UserBase):
+class AdminCreate(AdminBase):
     id: int
-    created_at: datetime
+    created_at: datetime.datetime
 
-
-class UserUpdate(UserBase):
-    id: int
-    avatar_link: str
-    modified_at: datetime
-
-class Login(BaseModel):
+class AdminLogin(BaseModel):
     username: str
     password: str
 
-
-class LoginResp(BaseModel):
+class AdminLoginResp(BaseModel):
     access_token: str
     refresh_token: str
-    uid: int
-    
-
-class User(UserUpdate):
-    email: str
-    phone_number: str
-    deleted_at: Optional[datetime] = None
-    created_at: datetime
-
