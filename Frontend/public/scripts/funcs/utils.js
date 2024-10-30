@@ -1,8 +1,28 @@
-const showSwal = (text, icon, confirmButtonText, callback) => {
+const showSwal = (title, icon, confirmButtonText, callback) => {
   Swal.fire({
-    text,
+    title,
     icon,
     confirmButtonText,
+  }).then((result) => callback(result));
+};
+
+const askSwal = (
+  title,
+  text,
+  icon,
+  confirmButtonText,
+  cancelButtonText,
+  callback
+) => {
+  Swal.fire({
+    title,
+    text,
+    icon,
+    showCancelButton: true,
+    confirmButtonText,
+    cancelButtonText,
+    confirmButtonColor: "#28a745",
+    cancelButtonColor: "#d33",
   }).then((result) => callback(result));
 };
 
@@ -64,6 +84,7 @@ const formatNumber = (value) => {
 
 export {
   showSwal,
+  askSwal,
   showToast,
   saveIntoLocalStorage,
   getFromLocalStorage,

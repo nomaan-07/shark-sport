@@ -14,7 +14,12 @@ window.addEventListener("load", () => {
   headerProfileNames.forEach((profileName) => {
     if (isUserLogin) {
       getMe().then((userData) => {
-        profileName.innerHTML = `${userData.name} ${userData.lastname}`;
+        profileName.innerHTML = `${userData.user.name} ${userData.user.lastname}`;
+        profileName.parentElement.addEventListener("click", () => {
+          if (userData.auth_dict.user_type === "user") {
+            location.href = "panel/user/index.html";
+          }
+        });
       });
     } else {
       profileName.parentElement.setAttribute("href", "login.html");
