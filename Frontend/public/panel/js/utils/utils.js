@@ -1,5 +1,10 @@
-const setToLocalStorage = (key, value) => localStorage.setItem(key, value)
+const setToLocalStorage = (key, value) => localStorage.setItem(key, value);
 
-const getFromLocalStorage = (key) => localStorage.getItem(key)
+const getFromLocalStorage = (key) => localStorage.getItem(key);
 
-export {setToLocalStorage, getFromLocalStorage}
+const logout = () => {
+  localStorage.removeItem("user");
+  return true;
+};
+
+export { setToLocalStorage, getFromLocalStorage, logout };
