@@ -114,3 +114,8 @@ class BucketObj_2:
 
 
 
+def extract_items_from_string(input_string, convert_to_int=False):
+    items = input_string.split(',')
+    if convert_to_int:
+        items = [int(item) for item in items]
+    return items

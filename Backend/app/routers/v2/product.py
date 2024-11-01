@@ -7,13 +7,12 @@ from models.product import ProductImage, FavoritProduct
 from models.tag import ProductTag
 from models.product import Specification
 from models.product import Discount as Disc_Model
-from models.product import Size
-from schemas.product import  Product
-from tools import BucketObj_2, current_time
-from schemas.product import DiscountBase, Discount
+from models.product import Size as SizeModel
+from tools import BucketObj_2, current_time, extract_items_from_string
+from schemas.product import DiscountBase, Discount, CreateProductResponse, ProductBase
 from sqlalchemy import or_
 from middleware.auth_middleware import auth_middleware
-from models.tag import Tag
+from models.tag import Tag as TagModel
 
 
 
@@ -32,120 +31,108 @@ router_category= APIRouter(
     prefix="/api/category"
 )
 
+router_tag= APIRouter(
+    prefix="/api/tag"
+)
 
-from schemas.product import CreateProductResponse
-@router_admin_content.post("/create_product", response_model=CreateProductResponse,status_code=201)
-def create_product(
-    images: List[UploadFile] = File(...),
-    name: str = Form(...),
-    description: str = Form(None),
-    survey: str = Form(None),
-    original_price: int = Form(...),
-    warranty: str = Form(None),
-    discount_id: int = Form(...),
-    category_id: int = Form(None),
-    brand: str = Form(None),
-    tags: List[str] = Form(...),
-    specification_name: List[str] = Form(...),
-    specification_description: List[str] = Form(...),
-    size: List[str] = Form(...),
-    quantity: List[int] = Form(...),
-    color: List[str] = Form(...),
-    db: Session = Depends(get_db),
-    auth_dict= Depends(auth_middleware)
-):
-    if db.query(ProductModel).filter(ProductModel.name == name).first():
-        raise HTTPException(status_code=409, detail="Duplicated Name for product in db")
-    
-    if not db.query(PCategoryModel).filter(PCategoryModel.id == category_id).first():
-        raise HTTPException(status_code=404, detail="category id is invalid")
-    
-    discount_db = db.query(Disc_Model).filter(Disc_Model.id == discount_id).first()
-    if not discount_db:
-        raise HTTPException(status_code=404, detail="Discount id is invalid")
-    
-    price_after_discount = original_price * (1 - (discount_db.discount_rate / 100))
-    
-    new_product = ProductModel(
-        name=name,
-        description=description,
-        survey=survey,
-        original_price=original_price,
-        price_after_discount=price_after_discount,
-        warranty=warranty,
-        discount_id=discount_id,
-        category_id=category_id,
-        brand=brand,
-        created_at=current_time()
-    )
-    
+
+
+
+
+
+@router_admin_content.post("/create_product",response_model=CreateProductResponse, status_code=201)
+def create_product(images:List[UploadFile]=File(...),
+                   name:str=Form(...),
+                   description:str=Form(...),
+                   survey:str=Form(...),
+                   original_price:int=Form(...),
+                   warranty:str=Form(...),
+                   discount_id:int=Form(...),
+                   category_id:int=Form(...),
+                   brand:str=Form(...),
+                   sizes:str=Form(...),
+                   colors:str=Form(...),
+                   qtys:str=Form(...),
+                   specification_names:str=Form(...),
+                   specification_descriptions:str=Form(...),
+                   tags:str=Form(...),
+                   db:Session=Depends(get_db),auth_dict=Depends(auth_middleware)
+                   ):
+    if  auth_dict["user_type"] == "user":
+        raise HTTPException(status_code=401, detail="Access denide for users")
+    db_product = db.query(ProductModel).filter(ProductModel.name == name).first()
+    if db_product:
+        raise HTTPException(status_code=409, detail=f"product with name {name} already exists")
+    discount_rate = db.query(Disc_Model).filter(Disc_Model.id == discount_id).first().discount_rate
+    off_price = original_price - (original_price* (discount_rate/100))
+    new_product = ProductModel(name=name,
+                               description=description,
+                               survey=survey,
+                               original_price=original_price,
+                               price_after_discount=off_price,
+                               discount_id=discount_id,
+                               warranty=warranty,
+                               category_id=category_id,
+                               brand=brand,
+                               created_at=current_time())
     db.add(new_product)
     db.commit()
-    db.refresh(new_product)
-    
-    for tag_name in tags:
-        db_tag = db.query(Tag).filter(Tag.name == tag_name).first()
+    tags = extract_items_from_string(tags,True)
+    for tag in tags:
+        db_tag = db.query(TagModel).filter(TagModel.id==int(tag)).first()
         if not db_tag:
-            db_tag = Tag(name=tag_name)
-            db.add(db_tag)
-            db.commit()
-            db.refresh(db_tag)
-        new_product_tag = ProductTag(product_id=new_product.id, tag_id=db_tag.id)
-        db.add(new_product_tag)
+            raise HTTPException(status_code=400, detail=f"tag {tag} does not exists")
+        product_tag = ProductTag(product_id=new_product.id, tag_id=db_tag.id)
+        db.add(product_tag)
 
-    for name, description in zip(specification_name, specification_description):
-        db_spec = Specification(
-            name=name,
-            description=description,
-            product_id=new_product.id
-        )
-        db.add(db_spec)
-
-    for s, q, c in zip(size, quantity, color):
-        db_size = Size(
-            size=s,
-            color=c,
-            quantity=q,
-            product_id=new_product.id
-        )
-        db.add(db_size)
-    
-    images_urls = BucketObj_2(images, [f"{name}_{i}.jpg" for i in range(len(images))], "/products").perma_links
+    image_objs = BucketObj_2(images,[name+str(i) for i in range(len(images))],"images/products")
+    image_objs.upload_images()
+    images_urls = image_objs.perma_links
     for url in images_urls:
-        new_product_image = ProductImage(image_url=url, product_id=new_product.id)
-        db.add(new_product_image)
+        product_image = ProductImage(image_url=url, product_id=new_product.id)
+        db.add(product_image)
     
+    sizes = extract_items_from_string(sizes)
+    colors = extract_items_from_string(colors)
+    qtys = extract_items_from_string(qtys,True)
+    added_sizes = []
+    for size,color,qty in zip(sizes,colors,qtys):
+        product_size = SizeModel(product_id=new_product.id, size=size, color=color,
+                                 quantity=int(qty))
+        db.add(product_size)
+        added_sizes.append({"size":size, "color":color, "quantity":qty})
+
+    specification_names = extract_items_from_string(specification_names)
+    specification_descriptions = extract_items_from_string(specification_descriptions)
+    store_spec_name_desc = []
+    for specifc_name, specific_desc in zip(specification_names, specification_descriptions):
+        new_product_specification = Specification(product_id=new_product.id, name=specifc_name, description=specific_desc)
+        db.add(new_product_specification)
+        store_spec_name_desc.append({specifc_name:specific_desc})
+
     db.commit()
-    db.refresh(new_product)
-    
     return {
-        "product": {
-            "id": new_product.id,
-            "name": new_product.name,
-            "description": new_product.description,
-            "survey": new_product.survey,
-            "original_price": new_product.original_price,
-            "price_after_discount": new_product.price_after_discount,
-            "warranty": new_product.warranty,
-            "discount_id": new_product.discount_id,
-            "category_id": new_product.category_id,
-            "brand": new_product.brand,
-            "created_at": new_product.created_at
-        },
-        "tags": tags,
-        "specifications": [{"name": n, "description": d} for n, d in zip(specification_name, specification_description)],
-        "sizes": [{"size": s, "color": c, "quantity": q} for s, c, q in zip(size, color, quantity)],
-        "images": images_urls
+    "id": new_product.id,
+    "name": new_product.name,
+    "description": new_product.description,
+    "survey": new_product.survey,
+    "original_price": new_product.original_price,
+    "price_after_discount": new_product.price_after_discount,
+    "warranty": new_product.warranty,
+    "discount_id": new_product.discount_id,
+    "category_id": new_product.category_id,
+    "brand": new_product.brand,
+    "created_at": new_product.created_at,
+    "tags": tags,
+    "specifications": store_spec_name_desc,
+    "sizes": added_sizes,
+    "images": images_urls
     }
 
-
-@router_product.get("/products/")
-def read_products(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
-    products = db.query(ProductModel).offset(skip).limit(limit).all()
-    return products
+        
 
 
-@router_product.get("/products/{product_id}", response_model=Product)
+@router_product.get("/products/{product_id}", status_code=200)
 def read_product(product_id: int, db: Session = Depends(get_db)):
     product = db.query(ProductModel).filter(ProductModel.id == product_id).first()
     if not product:
@@ -153,7 +140,7 @@ def read_product(product_id: int, db: Session = Depends(get_db)):
     return product
 
 
-@router_product.get("/products", status_code=200)
+@router_product.get("/list_products", status_code=200)
 def filter_and_read_products_with_related(
     show_sizes: bool = Query(True),
     show_specifications: bool = Query(True),
@@ -226,12 +213,18 @@ def update_product(product_id: int, product: ProductUpdate, db: Session = Depend
     db.refresh(db_product)
     return db_product"""
 
-@router_admin_content.delete("/products/{product_id}", response_model=Product, status_code=200)
+@router_admin_content.delete("/products/{product_id}", response_model=ProductBase, status_code=200)
 def delete_product(product_id: int, db: Session = Depends(get_db), auth_dict=Depends(auth_middleware)):
+    if  auth_dict["user_type"] == "user":
+        raise HTTPException(status_code=401, detail="Access denide for users")
     db_product = db.query(ProductModel).filter(ProductModel.id == product_id).first()
     if not db_product:
         raise HTTPException(status_code=404, detail="Product not found")
     db.delete(db_product)
+    db.commit()
+    new_notific = NotificationModel(subject=f"حذف کردن محصول", message=f"محصول با این مشخصات حذف شد : {product_id} - {db_product.name}",
+                                    admin_id = auth_dict["uid"], created_at = current_time())
+    db.add(new_notific)
     db.commit()
     return db_product
 
@@ -245,27 +238,35 @@ def delete_product(product_id: int, db: Session = Depends(get_db), auth_dict=Dep
 
 
 
-from schemas.product import Category,CategoryBase,CategoryCreate,CategoryUpdate,ProductCreate
+from schemas.product import Category,CategoryCreate
 
-@router_category.post("/create_category", response_model=CategoryCreate, status_code=200)
+@router_admin_content.post("/create_category", response_model=CategoryCreate, status_code=200)
 def create_category(image:UploadFile=File(...), name: str=Form(...), description:str=Form(...,max_length=300),
-                    db:Session=Depends(get_db)):
+                    db:Session=Depends(get_db), auth_dict = Depends(auth_middleware)):
+    if  auth_dict["user_type"] == "user":
+        raise HTTPException(status_code=401, detail="Access denide for users")
     if db.query(PCategoryModel).filter(PCategoryModel.name == name).first():
         raise HTTPException(status_code=409, detail=f"Category {name} already exists")
     image_url = BucketObj_2(image, [name], destination="/ProductCategories").perma_links
     new_category = PCategoryModel(image_url=image_url[0], name=name, description=description, created_at=current_time())
     db.add(new_category)
     db.commit()
+    new_notific = NotificationModel(subject=f"اضافه کردن دسته بندی محصولات", message=f"{new_category.name} با موفقیت اضافه شد",
+                                    admin_id = auth_dict["uid"], created_at = current_time())
+    db.add(new_notific)
+    db.commit()
     return new_category
 
 
-@router_category.get("/categories/", response_model=List[Category])
-def read_categories(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
-    categories = db.query(PCategoryModel).offset(skip).limit(limit).all()
-    return categories
+@router_category.get("/list/", response_model=List[Category])
+def read_categories(index:bool=True,skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+    categories = db.query(PCategoryModel)
+    if index:
+        categories = categories.order_by(PCategoryModel.created_at.desc())
+    return categories.offset(skip).limit(limit).all()
 
 
-@router_category.get("/categories/{category_id}", response_model=Category)
+@router_category.get("/get/{category_id}", response_model=Category)
 def read_category(category_id: int, db: Session = Depends(get_db)):
     category = db.query(PCategoryModel).filter(PCategoryModel.id == category_id).first()
     if not category:
@@ -273,14 +274,16 @@ def read_category(category_id: int, db: Session = Depends(get_db)):
     return category
 
 
-@router_category.put("/categories/{category_id}", response_model=Category)
+@router_category.put("/update/{category_id}", response_model=Category)
 def update_category(
     category_id: int,
     image: Optional[UploadFile] = File(None),
     name: Optional[str] = Form(None),
     description: Optional[str] = Form(None, max_length=300),
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db), auth_dict=Depends(auth_middleware)
     ):
+    if  auth_dict["user_type"] == "user":
+        raise HTTPException(status_code=401, detail="Access denide for users")
     db_category = db.query(PCategoryModel).filter(PCategoryModel.id == category_id).first()
     if not db_category:
         raise HTTPException(status_code=404, detail="Category not found")
@@ -298,14 +301,16 @@ def update_category(
     return db_category
 
 
-@router_category.delete("/categories/{category_id}", status_code=204)
-def delete_category(category_id: int, db: Session = Depends(get_db)):
+@router_category.delete("/delete/{category_id}", status_code=204)
+def delete_category(category_id: int, db: Session = Depends(get_db), auth_dict=Depends(auth_middleware)):
+    if  auth_dict["user_type"] == "user":
+        raise HTTPException(status_code=401, detail="Access denide for users")
     db_category = db.query(PCategoryModel).filter(PCategoryModel.id == category_id).first()
     if not db_category:
         raise HTTPException(status_code=404, detail="Category not found")
     db.delete(db_category)
     db.commit()
-    return None
+    return db_category
 
 
 
@@ -316,8 +321,10 @@ def delete_category(category_id: int, db: Session = Depends(get_db)):
 
 
 
-@router_discount.post("/create_discount", response_model=Discount, status_code=201)
-def create_discount(discount: DiscountBase, db: Session = Depends(get_db)):
+@router_admin_content.post("/discount/create_discount", response_model=Discount, status_code=201)
+def create_discount(discount: DiscountBase, db: Session = Depends(get_db), auth_dict=Depends(auth_middleware)):
+    if  auth_dict["user_type"] == "user":
+        raise HTTPException(status_code=401, detail="Access denide for users")
     db_discount = Disc_Model(
         name=discount.name,
         discount_code=discount.discount_code,
@@ -328,10 +335,14 @@ def create_discount(discount: DiscountBase, db: Session = Depends(get_db)):
     db.add(db_discount)
     db.commit()
     db.refresh(db_discount)
+    new_notific = NotificationModel(subject=f"اضافه کردن کد تخفیف", message=f"{discount.discount_code} با موفقیت اضافه شد",
+                                    admin_id = auth_dict["uid"], created_at = current_time())
+    db.add(new_notific)
+    db.commit()
     return db_discount
 
 
-@router_discount.get("/list_discounts", response_model=list, status_code=200)
+@router_discount.get("/list_discounts", response_model=list[Discount], status_code=200)
 def list_discounts(
     limit: Optional[int] = 10, 
     skip: Optional[int] = 0, 
@@ -347,19 +358,50 @@ def list_discounts(
     if index:
         query = query.order_by(Disc_Model.created_at.desc())
     discounts = query.offset(skip).limit(limit).all()
-    if not discounts:
-        raise HTTPException(status_code=404, detail="No discounts found")    
     return discounts
 
 
-@router_discount.get("/get_discount/{discount_id}", response_model=Discount, status_code=200)
+@router_discount.get("/read_discount", response_model=Discount, status_code=200)
 def read_discount(discount_id: int, db:Session=Depends(get_db)):
     db_discount = db.query(Disc_Model).filter(Disc_Model.id == discount_id).first()
     if not db_discount:
-        raise HTTPException(status_code="404", detail="discount not found")
+        raise HTTPException(status_code=204, detail="discount not found")
     return db_discount
 
 
 
 
-"""----------------------------------------discount Section----------------------------"""
+"""----------------------------------------tag Section----------------------------"""
+from schemas.product import TagBase,Tag
+from models.notification import Notification as NotificationModel 
+@router_admin_content.post("/tag/create", response_model=Tag, status_code=201)
+def create_tag(tag: TagBase, db:Session=Depends(get_db), auth_dict=Depends(auth_middleware)):
+    if  auth_dict["user_type"] == "user":
+        raise HTTPException(status_code=401, detail="Access denide for users")
+    db_tag = db.query(TagModel).filter(TagModel.name == tag.name).first()
+    if db_tag:
+        raise HTTPException(status_code=409, detail=f"Duplicated Tag with name {tag.name}")
+    new_tag = TagModel(**tag.model_dump())
+    db.add(new_tag)
+    db.commit()
+    new_notific = NotificationModel(subject=f"اضافه کردن تگ", message=f"{new_tag} با موفقیت اضافه شد",
+                                    admin_id = auth_dict["uid"], created_at = current_time())
+    db.add(new_notific)
+    db.commit()
+    return new_tag
+
+@router_tag.get("/get/{tag_id}")
+def read_tag(tag_id:int, db:Session=Depends(get_db)):
+    db_tag = db.query(TagModel).filter(TagModel.id == tag_id).first()
+    if not db_tag:
+        raise HTTPException(status_code=204, detail=f"tag with ID {tag_id} not found")
+    return db_tag
+
+@router_tag.get("/list_tags")
+def list_tags(limit: int=0, skip: int =0, db:Session=Depends(get_db)):
+    db_tags = db.query(TagModel).offset(skip).limit(limit).all()
+    if not db_tags:
+        raise HTTPException(status_code=204, detail=f"There are no tags")
+    return db_tags
+
+"""----------------------------------------Address Section----------------------------"""

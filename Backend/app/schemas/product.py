@@ -1,63 +1,39 @@
 from pydantic import BaseModel
 import datetime
-from typing import Annotated, List
+from typing import Annotated, List, Optional
 
 
 
-class ProductBase(BaseModel):
-    images_urls: list[str]
-    name: str
-    description: str
-    survay: str
-    original_price: int
-    discount_id: int
-    category_id: int
-    brand: int
-    warranty: str
+class SpecificationModel(BaseModel):
+    weight: Optional[str] = None
+    fabric: Optional[str] = None
 
-
-class ProductCreate(ProductBase):
-    id: int
-    created_at: datetime.datetime
-    price_after_discount: int
-    attributes: list[str]
-    tags: list[str]
-
-class Product(ProductCreate):
-    modified_at: Annotated[None,datetime.datetime] = None
-    deleted_at: Annotated[None,datetime.datetime] = None
-
-
-
-
-class ProductResponse(BaseModel):
-    id: int
-    name: str
-    description: Annotated[None,str] = None
-    survey: Annotated[None,str] = None
-    original_price: int
-    price_after_discount: float
-    warranty: Annotated[None,str] = None
-    discount_id: int
-    category_id: int 
-    brand: Annotated[None,str]
-    created_at: str  # Adjust type as necessary (e.g., datetime)
-
-class SpecificationResponse(BaseModel):
-    name: str
-    description: str
-
-class SizeResponse(BaseModel):
+class SizeModel(BaseModel):
     size: str
     color: str
     quantity: int
 
-class CreateProductResponse(BaseModel):
-    product: ProductResponse
-    tags: List[str]
-    specifications: List[SpecificationResponse]
-    sizes: List[SizeResponse]
+class ProductBase(BaseModel):
+    name: str
+    description: str
+    survey: str
+    warranty: str
+    brand: str
+    category_id: int
+    original_price: float
+
+class CreateProductResponse(ProductBase):
+    id: int
+    price_after_discount: float
+    discount_id: int
+    created_at: datetime.datetime
+    tags: List[int]
+    specifications: List[SpecificationModel]
+    sizes: List[SizeModel]
     images: List[str]
+
+
+
 
 """----------------------------------------discount Section----------------------------"""
 
@@ -66,7 +42,7 @@ class CreateProductResponse(BaseModel):
 class CategoryBase(BaseModel):
     name: str
     image_url: str
-    description: Annotated[None,str]
+    description: Optional[str] = None
 
 
 class CategoryCreate(CategoryBase):
@@ -101,3 +77,13 @@ class Discount(DiscountBase):
     id: int
     created_at: datetime.datetime
 
+
+"""----------------------------------------Tag Section----------------------------"""
+
+
+
+class TagBase(BaseModel):
+    name: str
+
+class Tag(TagBase):
+    id: int

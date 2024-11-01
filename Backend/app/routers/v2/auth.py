@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, Request, Query,Form, File, UploadFile, Depends, Response
-from fastapi.security.oauth2 import OAuth2PasswordBearer
+from fastapi.security.oauth2 import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from db import get_db, Session, joinedload
 from typing import Optional
 from middleware.auth_middleware import create_access_token, auth_middleware, hash_pw, check_pw, PASSWORD_KEY, ALGORITH, get_current_user
@@ -11,8 +11,8 @@ from datetime import timedelta
 import bcrypt, jwt
 
 
-ACCESS_TOKEN_EXP = 3600
-REFRESH_TOKEN_EXP = 1
+ACCESS_TOKEN_EXP = 3600000
+REFRESH_TOKEN_EXP = 100
 
 
 router = APIRouter(
@@ -32,10 +32,8 @@ def register_user(baseInfo: UserBase, db: Session=Depends(get_db)):
 
 
 @router.post("/login", response_model=UserLoginResp, status_code=200)
-def user_login(credentials: UserLogin, response:Response, db: Session = Depends(get_db)):
-    db_user = db.query(UserModel).filter(
-        UserModel.username == credentials.username
-    ).first()
+def user_login(credentials: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
+    db_user = db.query(UserModel).filter(UserModel.username == credentials.username).first()
     if not db_user or not check_pw(credentials.password, db_user.password):
         raise HTTPException(status_code=400, detail="User with credentials not found")
     access_token = create_access_token(
@@ -52,7 +50,7 @@ def user_login(credentials: UserLogin, response:Response, db: Session = Depends(
     db_user.access_token = access_token
     db_user.refresh_token = refresh_token
     db.commit()
-    return {"access_token":access_token, "refresh_token":refresh_token}
+    return {"access_token":access_token, "refresh_token":refresh_token, "token_type": "bearer"}
 
 
 

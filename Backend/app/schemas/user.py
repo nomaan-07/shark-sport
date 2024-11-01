@@ -22,6 +22,7 @@ class UserLogin(BaseModel):
 class UserLoginResp(BaseModel):
     access_token: str
     refresh_token: str
+    token_type: str
 
 
 
@@ -38,7 +39,7 @@ class User(UserUpdate):
 
 
 class UserDeleteRequest(BaseModel):
-    user_ids: List[int]
+    ids: List[int]
 
 class Config:
     orm_mode = True
@@ -60,6 +61,7 @@ class AdminBase(BaseModel):
     phone: str
     root_access: bool
     password: str
+    avatar_link: str
 
 class AdminCreate(AdminBase):
     id: int
@@ -72,3 +74,11 @@ class AdminLogin(BaseModel):
 class AdminLoginResp(BaseModel):
     access_token: str
     refresh_token: str
+    token_type: str
+
+class AdminUpdateResp(AdminBase):
+    id:int
+    modified_at: datetime.datetime
+    google_analyze_website: bool
+    instagram_token: str
+    google_analytics_token: str

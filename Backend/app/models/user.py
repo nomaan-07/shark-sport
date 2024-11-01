@@ -17,7 +17,7 @@ class Admin(Base):
     avatar_link = Column(VARCHAR(300))
     google_analytics_token = Column(VARCHAR)
     instagram_token = Column(VARCHAR)
-    google_analyze_website = Column(VARCHAR, default=False)
+    google_analyze_website = Column(Boolean, default=False)
     last_login = Column(TIMESTAMP)
     created_at = Column(TIMESTAMP, nullable=False)
     modified_at = Column(TIMESTAMP)
@@ -25,6 +25,7 @@ class Admin(Base):
     root_access = Column(Boolean, default=False)
     #relationships
     permissions = relationship('Permission', back_populates='admin')
+    notifications = relationship('Notification', back_populates='admin')
 
 
 class Permission(Base):
@@ -61,6 +62,7 @@ class User(Base):
     comments = relationship('TicketComment', back_populates='user')
     favorite_articles = relationship('UserFavoriteArticle', back_populates='user')
     compare_list = relationship('CompareList', back_populates='user')
+    notifications = relationship('Notification', back_populates='user')
 
     def __init__(self, name: str, lastname:str , username: str, password: str,email=None, phone_number=None, avatar_link=None):
         self.name = name
