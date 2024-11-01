@@ -1,5 +1,6 @@
+node_modules
+*.pyc
 .venv
 .env
-**/__pychache__/
-node_modules
-initial_admin.py
+
+
