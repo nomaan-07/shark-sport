@@ -118,10 +118,14 @@
                     </div>
                     <!-- Welcome -->
                     <p>
-                        <span>احمد موسوی</span> خوش آمدی
+                        <span id="user-fullname">
+                            <!-- Loaded From Js -->
+                        </span> خوش آمدی
                     </p>
                     <!-- Username -->
-                    <p>A.mosavi</p>
+                    <p id="user-username">
+                        <!-- Loaded From JS -->
+                    </p>
                 </div>
 
                 <!-- Sidebar Menu -->
@@ -220,7 +224,7 @@
                 </ul>
                 
                 <!-- Logout Button -->
-                <div class="flex gap-1 w-max mx-auto text-xl/5 p-2 rounded-full cursor-pointer sm:hover:bg-rose-400 transition-colors">
+                <div id="logout-btn" class="flex gap-1 w-max mx-auto text-xl/5 p-2 rounded-full cursor-pointer sm:hover:bg-rose-400 transition-colors">
                     <svg class="size-6">
                         <use href="#logout"></use>
                     </svg>
@@ -526,6 +530,8 @@
 
      <div id="overlay" class="hidden fixed inset-0 bg-black/10 backdrop-blur-sm z-40"></div>
 
+     <script src="../../vendor/SweetAlert2/sweetalert2.js"></script>
      <script src="../js/shared/app.js" type="module"></script>
+     <script src="shared/user-infos.js" type="module"></script>
   </body>
 </html>

@@ -87,6 +87,8 @@ const login = async () => {
       "متوجه شدم.",
       () => {}
     );
+  } else if (response.status === 400) {
+    showSwal("کاربر مورد نظر یافت نشد.", "error", "متوجه شدم", () => {});
   }
   console.log(response);
   console.log(result);
