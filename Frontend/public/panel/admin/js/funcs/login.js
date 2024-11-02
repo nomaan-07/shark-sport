@@ -39,6 +39,13 @@ const login = async () => {
       "متوجه شدم.",
       () => {}
     );
+  } else if (response.status === 400) {
+    showSwal(
+      "نام کاربری یا رمز عبور معتبر نمی باشد.",
+      "error",
+      "متوجه شدم.",
+      () => {}
+    );
   }
   console.log(response);
   console.log(result);

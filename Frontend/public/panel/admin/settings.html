@@ -335,12 +335,12 @@
 
                 <!-- Image -->
                 <div class="relative w-fit mx-auto">
-                    <img class="size-[184px] object-cover rounded-full" src="../images/avatar-2.jpg" alt="تصویر پروفایل">
+                    <img id="profile-image" class="size-[184px] object-cover rounded-full" src="../images/avatar-2.jpg" alt="تصویر پروفایل">
                     <!-- Upload Btn -->
                     <svg class="image-upload-btn absolute -bottom-2.5 right-7 size-6 text-rose-500 sm:hover:text-rose-700 sm:cursor-pointer transition-colors">
                         <use href="#add-circle"></use>
                     </svg>
-                    <input class="image-upload-input hidden" type="file" accept="image/*">  
+                    <input id="file-input" class="image-upload-input hidden" type="file" accept="image/*">  
                 </div>
 
                 <!-- Form: Name | Last Name | Username | Display Name | Display Social Media | Google Analytics Token | Instagram Token | Checkbox  -->
@@ -348,75 +348,30 @@
                     <!-- Name & Last Name -->
                     <div class="flex flex-col sm:flex-row items-center gap-4">
                         <!-- Name Input -->
-                        <input type="text" placeholder="نام...">
+                        <input id="name" type="text" placeholder="نام">
 
                         <!-- Last Name Input -->
-                        <input type="text" placeholder="نام خانوادگی...">
+                        <input id="lastname" type="text" placeholder="نام خانوادگی">
                     </div>
 
                     <!-- Username & Email -->
                     <div class="flex flex-col sm:flex-row items-center gap-4">
                         <!-- Username Input -->
-                        <input type="text" placeholder="نام کاربری...">
-
+                        <input id="username" type="text" placeholder="نام کاربری">
+                        <!-- Phone Input -->
+                        <input id="phone" type="text" placeholder="شماره تماس">
+                    </div>
+                    
+                    <!-- Email & Phone -->
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
                         <!-- Email Name Input -->
-                        <input type="email" placeholder="ایمیل...">
+                        <input id="email" type="email" placeholder="ایمیل">
+                        <!-- Password Input -->
+                        <input id="password" type="password" placeholder="پسوورد جدید">
                     </div>
-
-                    <!-- Display Name & Display Social Media  -->
-                    <div class="flex flex-col sm:flex-row items-center gap-4">
-                        <!-- Display Name -->
-                        <div id="product-name" class="panel-select panel-select--name" data-name="null">
-                            <div class="panel-select__header" data-type="name">
-                                <span class="panel-select__selected-option panel-select__selected-option--name text-neutral-400">نام نمایشی شما</span>
-                                <svg class="panel-select__icon panel-select__icon--name">
-                                    <use href="#arrow-down"></use>
-                                </svg>
-                            </div>
-                            <div class="panel__options-wrapper panel__options-wrapper--name hide">
-                                <p class="panel__option panel__option--name" data-name="null">نام نمایشی شما</p>
-                                <p class="panel__option panel__option--name" data-name="username">نام کاربری</p>
-                                <p class="panel__option panel__option--name" data-name="full-name">نام و نام خانوادگی</p>
-                            </div>
-                        </div>
-
-                        <!-- Display Social Media -->
-                        <div id="product-media" class="panel-select panel-select--media" data-media="null">
-                            <div class="panel-select__header" data-type="media">
-                                <span class="panel-select__selected-option panel-select__selected-option--media text-neutral-400">شبکه اجتماعی قابل نمایش</span>
-                                <svg class="panel-select__icon panel-select__icon--media">
-                                    <use href="#arrow-down"></use>
-                                </svg>
-                            </div>
-                            <div class="panel__options-wrapper panel__options-wrapper--media hide">
-                                <p class="panel__option panel__option--media" data-media="null">شبکه اجتماعی قابل نمایش</p>
-                                <p class="panel__option panel__option--media" data-media="telegram">تلگرام</p>
-                                <p class="panel__option panel__option--media" data-media="instagram">اینستاگرام</p>
-                                <p class="panel__option panel__option--media" data-media="x">ایکس</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Google Analytics Token | Instagram Token -->
-                    <div class="flex flex-col sm:flex-row items-center gap-4">
-                        <!-- Google Analytics Token Input -->
-                        <input type="text" placeholder="توکن گوگل آنالیتیکس ...">
-
-                        <!-- Instagram Input -->
-                        <input type="password" placeholder="توکن اینستاگرام ...">
-                    </div>
-
-                    <!-- Checkbox -->
-                    <div class="flex items-center gap-2">
-                        <label class="relative inline-block">
-                            <input type="checkbox" class="peer absolute hidden w-full h-full bg-transparent cursor-pointer">
-                            <span class="size-7 flex justify-center items-center border-2 border-neutral-300 dark:border-neutral-600 peer-checked:bg-green-500 rounded-md transition-colors"></span>
-                        </label>
-                        <span class="text-xl font-vazirMedium text-neutral-400">گوگل سایت را مورد آنالیز قرار بدهد</span>
-                    </div>
-
+                    
                     <!-- Register Btn -->
-                    <button>ذخیره تغییرات</button>
+                    <button id="update-infos-btn">ذخیره تغییرات</button>
 
                 </form>
 
@@ -431,5 +386,6 @@
     <script src="../js/shared/app.js" type="module"></script>
     <script src="./js/shared/select-option.js" type="module"></script>   
     <script src="js/shared/admin-infos.js" type="module"></script> 
+    <script src="js/settings.js" type="module"></script>
   </body>
 </html>

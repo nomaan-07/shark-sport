@@ -51,6 +51,10 @@ const getFromLocalStorage = (key) => {
   return JSON.parse(localStorage.getItem(key));
 };
 
+const removeFromLocalStorage = (key) => {
+  return localStorage.removeItem(key);
+};
+
 const getToken = () => {
   const userInfos = JSON.parse(localStorage.getItem("user"));
   return userInfos ? userInfos.token : null;
@@ -88,6 +92,7 @@ export {
   showToast,
   saveIntoLocalStorage,
   getFromLocalStorage,
+  removeFromLocalStorage,
   getToken,
   isLogin,
   getUrlParam,

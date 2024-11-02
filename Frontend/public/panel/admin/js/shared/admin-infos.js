@@ -1,4 +1,8 @@
-import { askSwal, showSwal } from "../../../../scripts/funcs/utils.js";
+import {
+  askSwal,
+  removeFromLocalStorage,
+  showSwal,
+} from "../../../../scripts/funcs/utils.js";
 import { getMe } from "../funcs/login.js";
 import { logout } from "../../../js/utils/utils.js";
 
@@ -30,6 +34,7 @@ window.addEventListener("load", () => {
             () => {
               logout();
               location.href = "login.html";
+              removeFromLocalStorage("toastShown");
             }
           );
         }

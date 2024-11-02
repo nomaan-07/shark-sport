@@ -140,7 +140,7 @@ const addNewAdmin = async () => {
   formData.append("root_access", adminAccess.dataset.access);
   formData.append("password", passwordInputElem.value.trim());
   formData.append("avatar", profileCover);
-
+  console.log(formData);
   if (
     (nameValid,
     lastNameValid,
@@ -173,19 +173,14 @@ const addNewAdmin = async () => {
         }
       );
     } else if (response.status === 422) {
-      showSwal(
-        "لطفا سطح دسترسی ادمین را انتخاب کنید.",
-        "error",
-        "متوجه شدم",
-        () => {}
-      );
+      showSwal("لطفا تمام فیلد ها را پر کنید.", "error", "متوجه شدم", () => {});
     }
   } else {
     showToast(
       "top-end",
       3000,
       "error",
-      "متاسفانه شما موارد ضروری فیلد ها را رعایت نکردید."
+      "متاسفانه شما نکات ضروری فیلد ها را رعایت نکردید."
     );
   }
 };
