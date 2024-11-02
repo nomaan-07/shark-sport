@@ -1,4 +1,8 @@
-import { getToken, showSwal } from "../../../../scripts/funcs/utils.js";
+import {
+  askSwal,
+  getToken,
+  showSwal,
+} from "../../../../scripts/funcs/utils.js";
 
 const getAndShowAllUsers = async (showAdmins, showUsers, pageNumber, limit) => {
   const usersListWrapperElem = document.getElementById("users-list");
@@ -32,7 +36,9 @@ const getAndShowAllUsers = async (showAdmins, showUsers, pageNumber, limit) => {
                                 <!-- Image -->
                                 <div class="size-[72px] rounded-xl overflow-hidden">
                                     <img class="size-full object-cover" src="${
-                                      user.avatar_link ? user.avatar_link : "../images/avatar-2.jpg"
+                                      user.avatar_link
+                                        ? user.avatar_link
+                                        : "../images/avatar-2.jpg"
                                     }" alt="کفش">
                                 </div>
                             </div>
@@ -41,10 +47,14 @@ const getAndShowAllUsers = async (showAdmins, showUsers, pageNumber, limit) => {
                             <span>${user.username}</span>
 
                             <!-- Email -->
-                            <span>${user.email ? user.email : "وارد نشده"}</span>
+                            <span>${
+                              user.email ? user.email : "وارد نشده"
+                            }</span>
 
                             <!-- Phone -->
-                            <span>${user.phone ? user.phone : "وارد نشده"}</span>
+                            <span>${
+                              user.phone ? user.phone : "وارد نشده"
+                            }</span>
 
                             <!-- Role -->
                             <span>${
@@ -54,21 +64,82 @@ const getAndShowAllUsers = async (showAdmins, showUsers, pageNumber, limit) => {
                         </div>
 
                         <!-- Buttons: Edit Btn | Delete Btn-->
-                        <div class="flex items-center gap-2 justify-end grow">
+                        ${
+                          users.sender_root_access
+                            ? `
+                           <div class="flex items-center gap-2 justify-end grow">
                             <!-- Edit Btn -->
                             <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
                                 <use href="#edit"></use>
                             </svg>
 
                             <!-- Delete Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                            <svg onclick="removeUser(${user.root_access} , '${user.username}')" class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
                                 <use href="#trash"></use>
                             </svg>
                         </div>
+                        `
+                            : ""
+                        }
                     </div>
     `
     );
   });
 };
 
-export { getAndShowAllUsers };
+const removeUser = async (isRootAccess, username) => {
+  if (!isRootAccess) {
+    console.log(isRootAccess);
+    askSwal(
+      "آیا مطمئن به حذف کاربر مورد نظر خود هستید؟",
+      undefined,
+      "warning",
+      "بله مطمئنم",
+      "خیر",
+      async (result) => {
+        if (result.isConfirmed) {
+          const response = await fetch(
+            `http://localhost:8000/api/admin/user-management/list/delete_users_admins`,
+            {
+              method: "DELETE",
+              headers: {
+                Authorization: `Bearer ${getToken()}`,
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                usernames: [username],
+              }),
+            }
+          );
+          console.log(response);
+          if (response) {
+            showSwal(
+              "کاربر مورد نظر با موفقیت حذف شد.",
+              "success",
+              "متشکرم",
+              () => {
+                getAndShowAllUsers(true, true, 1, 6);
+              }
+            );
+          } else {
+            showSwal(
+              "متاسفانه خطایی رخ داده است مجددا تلاش فرمایید.",
+              "error",
+              "متوجه شدم",
+              () => {}
+            );
+          }
+        }
+      }
+    );
+  } else {
+    showSwal(
+      "شما مجاز به حذف ادمین مورد نظر نیستید.",
+      "error",
+      "متوجه شدم",
+      () => {}
+    );
+  }
+};
+
+export { getAndShowAllUsers, removeUser };

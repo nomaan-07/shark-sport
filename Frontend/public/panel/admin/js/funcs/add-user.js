@@ -24,7 +24,6 @@ let profileCover,
   passwordValid = null;
 
 const isNameValid = () => {
-  const nameInputElem = document.getElementById("name");
   const nameRegex = /^[\u0600-\u06FF\s]{3,30}$/;
   nameInputElem.addEventListener("blur", () => {
     if (!nameRegex.test(nameInputElem.value.trim())) {
@@ -42,7 +41,6 @@ const isNameValid = () => {
 };
 
 const isLastNameValid = () => {
-  const lastnameInputElem = document.getElementById("lastname");
   const lastNameRegex = /^[\u0600-\u06FF\s]{3,30}$/;
   lastnameInputElem.addEventListener("blur", () => {
     if (!lastNameRegex.test(lastnameInputElem.value.trim())) {
@@ -60,7 +58,6 @@ const isLastNameValid = () => {
 };
 
 const isUserNameValid = () => {
-  const usernameInputElem = document.getElementById("username");
   const userNameRegex = /^[a-zA-Z0-9._-]{3,30}$/;
   usernameInputElem.addEventListener("blur", () => {
     if (!userNameRegex.test(usernameInputElem.value.trim())) {
@@ -78,7 +75,6 @@ const isUserNameValid = () => {
 };
 
 const isEmailValid = () => {
-  const emailInputElem = document.getElementById("email");
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   emailInputElem.addEventListener("blur", () => {
     if (!emailRegex.test(emailInputElem.value.trim())) {
@@ -91,7 +87,6 @@ const isEmailValid = () => {
 };
 
 const isPhoneValid = () => {
-  const phoneInputElem = document.getElementById("phone");
   const phoneRegex = /^(09\d{9}|989\d{9})$/;
   phoneInputElem.addEventListener("blur", () => {
     if (!phoneRegex.test(phoneInputElem.value.trim())) {
@@ -104,7 +99,6 @@ const isPhoneValid = () => {
 };
 
 const isPasswordValid = () => {
-  const passwordInputElem = document.getElementById("password");
   const phoneRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$])[A-Za-z\d@#$]{8,}$/;
   passwordInputElem.addEventListener("blur", () => {

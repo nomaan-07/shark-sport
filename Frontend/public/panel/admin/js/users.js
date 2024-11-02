@@ -1,12 +1,13 @@
 import { showToast } from "../../../scripts/funcs/utils.js";
-import { getAndShowAllUsers } from "./funcs/users.js";
+import { getAndShowAllUsers, removeUser } from "./funcs/users.js";
 
+window.removeUser = removeUser;
 window.addEventListener("load", () => {
   const filterShowParameters = document.querySelectorAll(
     ".panel-filter__option"
   );
   // Select Filter Users
-  getAndShowAllUsers(false, true, 1, 10);
+  getAndShowAllUsers(true, true, 1, 10);
   filterShowParameters.forEach((filterShowParameter) => {
     filterShowParameter.addEventListener("click", (e) => {
       if (e.target.dataset.filter === "all") {
