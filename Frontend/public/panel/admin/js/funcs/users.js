@@ -20,7 +20,7 @@ const getAndShowAllUsers = async (showAdmins, showUsers, pageNumber, limit) => {
   const users = await response.json();
   console.log(users);
   usersListWrapperElem.innerHTML = "";
-  users.results.forEach((user) => {
+  users.results.forEach((user, index) => {
     usersListWrapperElem.insertAdjacentHTML(
       "beforeend",
       `
@@ -29,10 +29,9 @@ const getAndShowAllUsers = async (showAdmins, showUsers, pageNumber, limit) => {
                         <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
                             <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
                                 <!-- Checkbox -->
-                                <label class="relative inline-block">
-                                    <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer">
-                                    <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
-                                </label>
+                                <label class="relative inline-block">${
+                                  index + 1
+                                }</label>
                                 <!-- Image -->
                                 <div class="size-[72px] rounded-xl overflow-hidden">
                                     <img class="size-full object-cover" src="${
