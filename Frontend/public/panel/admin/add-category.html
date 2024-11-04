@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>پنل ادمین | افزودن ادمین</title>
+    <title>پنل ادمین | افزودن دسته بندی</title>
     <link rel="stylesheet" href="../../styles/app.css" />
         <!-- Page Icon -->
         <link rel="icon" href="../../images/fav-icon.png" type="image/png">
@@ -202,7 +202,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="add-category.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
+                        <a href="add-category.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full transition-colors panel-sidebar-menu__item--active">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#categories"></use>
@@ -254,7 +254,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./add-user.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full  panel-sidebar-menu__item--active">
+                        <a href="./add-user.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#user-add"></use>
@@ -365,7 +365,7 @@
 
                 <!-- Image -->
                 <div class="relative w-fit mx-auto">
-                    <img id="profile-image" class="size-[184px] object-cover rounded-full" src="../images/avatar-2.jpg" alt="تصویر پروفایل">
+                    <img id="profile-image" class="size-[184px] object-cover rounded-full" src="../../images/category/category-10.png" alt="تصویر پروفایل">
                     <!-- Upload Btn -->
                     <svg class="image-upload-btn absolute -bottom-2.5 right-7 size-6 text-rose-500 sm:hover:text-rose-700 sm:cursor-pointer transition-colors">
                         <use href="#add-circle"></use>
@@ -378,46 +378,12 @@
                     <!-- Name & Last Name -->
                     <div class="flex flex-col sm:flex-row items-center gap-4">
                         <!-- Name Input -->
-                        <input id="name" type="text" placeholder="نام">
-
-                        <!-- Last Name Input -->
-                        <input id="lastname" type="text" placeholder="نام خانوادگی">
+                        <input id="category-name" type="text" placeholder="نام دسته بندی">
                     </div>
-
-                    <!-- Username & Email -->
-                    <div class="flex flex-col sm:flex-row items-center gap-4">
-                        <!-- Username Input -->
-                        <input id="username" type="text" placeholder="نام کاربری">
-
-                        <!-- Email Name Input -->
-                        <input id="email" type="email" placeholder="ایمیل">
-                    </div>
-
-                    <!-- Phone & Password -->
-                    <div class="flex flex-col sm:flex-row items-center gap-4">
-                        <!-- Password Input -->
-                        <input id="phone" type="text" placeholder="شماره تماس">
-
-                        <!-- Password Input -->
-                        <input id="password" type="password" placeholder="رمز عبور">
-                    </div>
-
-                    <div id="product-access" class="panel-select panel-select--access" data-access="null">
-                        <div class="panel-select__header" data-type="access">
-                            <span class="panel-select__selected-option panel-select__selected-option--access text-neutral-400">دسترسی ها</span>
-                            <svg class="panel-select__icon panel-select__icon--access">
-                                <use href="#arrow-down"></use>
-                            </svg>
-                        </div>
-                        <div class="panel__options-wrapper panel__options-wrapper--access hide">
-                            <p class="panel__option panel__option--access" data-access="null">لطفا یک گزینه را انتخاب کنید</p>
-                            <p class="panel__option panel__option--access" data-access="true">دسترسی کامل</p>
-                            <p class="panel__option panel__option--access" data-access="false">دسترسی محدود</p>
-                        </div>
-                    </div>
+                    <textarea cols="10" rows="12" name="" id="category-description" placeholder="توضیحات دسته بندی"></textarea>
 
                     <!-- Register Btn -->
-                    <button id="add-admin-btn">افزودن ادمین</button>
+                    <button id="add-category-btn">افزودن دسته بندی</button>
 
                 </form>
 
@@ -432,6 +398,6 @@
     <script src="../js/shared/app.js" type="module"></script>
     <script src="./js/shared/select-option.js" type="module"></script>    
     <script src="js/shared/admin-infos.js" type="module"></script>
-    <script src="js/add-user.js" type="module"></script>
+    <script src="js/add-category.js" type="module"></script>
   </body>
 </html>

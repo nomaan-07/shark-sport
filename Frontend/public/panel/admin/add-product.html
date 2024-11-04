@@ -124,7 +124,11 @@
             <path d="M22 18C22 18.32 21.96 18.63 21.88 18.93C21.79 19.33 21.63 19.72 21.42 20.06C20.73 21.22 19.46 22 18 22C16.97 22 16.04 21.61 15.34 20.97C15.04 20.71 14.78 20.4 14.58 20.06C14.21 19.46 14 18.75 14 18C14 16.92 14.43 15.93 15.13 15.21C15.86 14.46 16.88 14 18 14C19.18 14 20.25 14.51 20.97 15.33C21.61 16.04 22 16.98 22 18Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M19.49 17.98H16.51" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M18 16.52V19.51" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-        </symbol>                                    
+        </symbol>      
+        <symbol id="categories" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+        </symbol>                               
      </svg>
 
      <div class="container">
@@ -191,6 +195,32 @@
                                     <use href="#box"></use>
                                 </svg>
                                 <span>محصولات</span>
+                            </div>
+                            <svg class="size-[18px]">
+                                <use href="#arrow-left"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="add-category.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
+                            <div class="flex gap-2">
+                                <svg class="size-6">
+                                    <use href="#categories"></use>
+                                </svg>
+                                <span>افزودن دسته بندی</span>
+                            </div>
+                            <svg class="size-[18px]">
+                                <use href="#arrow-left"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="categories.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
+                            <div class="flex gap-2">
+                                <svg class="size-6">
+                                    <use href="#categories"></use>
+                                </svg>
+                                <span>دسته بندی ها</span>
                             </div>
                             <svg class="size-[18px]">
                                 <use href="#arrow-left"></use>
@@ -337,53 +367,52 @@
                 <div>
                     <!-- Main Image -->
                     <div class="relative w-fit mx-auto z-10">
-                        <img class="size-28 xs:size-[184px] object-cover rounded-full" src="../images/body-building.jpg" alt="تصویر پروفایل">
+                        <img id="currentImage1" class="current-image size-28 xs:size-[184px] object-cover rounded-full" src="../images/body-building.jpg" alt="تصویر پروفایل">
                         <!-- Upload Btn -->
                         <svg class="image-upload-btn absolute -bottom-4 xs:-bottom-2.5 right-4 xs:right-7 size-5 xs:size-6 text-rose-500 sm:hover:text-rose-700 sm:cursor-pointer transition-colors">
                             <use href="#add-circle"></use>
                         </svg>
-                        <input class="hidden" type="file" accept="image/*">  
+                        <input id="imageUploader1" class="image-uploader hidden" type="file" accept="image/*">  
                     </div>
                     
                     <!-- Sub Images -->
                     <div class="flex items-center justify-center gap-28 xs:gap-[154px] -translate-y-12 xs:-translate-y-16">
                         <div class="relative w-fit">
-                            <img class="size-16 xs:size-24 object-cover rounded-full" src="../images/body-building.jpg" alt="تصویر پروفایل">
+                            <img id="currentImage2" class="current-image size-16 xs:size-24 object-cover rounded-full" src="../images/body-building.jpg" alt="تصویر پروفایل">
                             <!-- Upload Btn -->
                             <svg class="image-upload-btn absolute -bottom-4 xs:-bottom-2 right-1 size-[18px] text-rose-500 sm:hover:text-rose-700 sm:cursor-pointer transition-colors">
                                 <use href="#add-circle"></use>
                             </svg>
-                            <input class="hidden" type="file" accept="image/*">  
+                            <input id="imageUploader2" class="image-uploader hidden" type="file" accept="image/*">  
                         </div>
                         <div class="relative w-fit">
-                            <img class="size-16 xs:size-24 object-cover rounded-full" src="../images/body-building.jpg" alt="تصویر پروفایل">
+                            <img id="currentImage3" class="current-image size-16 xs:size-24 object-cover rounded-full" src="../images/body-building.jpg" alt="تصویر پروفایل">
                             <!-- Upload Btn -->
                             <svg class="image-upload-btn absolute -bottom-4 xs:-bottom-2 right-1 size-[18px] text-rose-500 sm:hover:text-rose-700 sm:cursor-pointer transition-colors">
                                 <use href="#add-circle"></use>
                             </svg>
-                            <input class="hidden" type="file" accept="image/*">  
+                            <input id="imageUploader3" class="image-uploader hidden" type="file" accept="image/*">  
                         </div>
                     </div>
                 </div>
-
                 <!-- Form -->
                 <form class="panel__form -translate-y-11 xs:-translate-y-16 space-y-6">
                     <!-- Title & Description -->
                     <div class="flex flex-col sm:flex-row items-center gap-4">
                         <!-- Title Input -->
-                        <input type="text" placeholder="عنوان محصول ...">
+                        <input id="name" type="text" placeholder="عنوان محصول">
 
                         <!-- Description Input -->
-                        <input type="text" placeholder="توضیح محصول ...">
+                        <input id="description" type="text" placeholder="توضیح محصول">
                     </div>
 
                     <!-- Price & Final Price -->
                     <div class="flex flex-col sm:flex-row items-center gap-4">
                         <!-- Price Input -->
-                        <input type="text" placeholder="قیمت اصلی ...">
+                        <input id="original-price" type="text" placeholder="قیمت اصلی">
 
                         <!-- Final Price Input -->
-                        <input type="text" placeholder="قیمت اصلی ...">
+                        <input type="text" placeholder="قیمت اصلی">
                     </div>
 
                     <!-- Category & Tags -->
@@ -396,11 +425,11 @@
                                     <use href="#arrow-down"></use>
                                 </svg>
                             </div>
-                            <div class="panel__options-wrapper panel__options-wrapper--category hide">
+                            <div class="panel__options-wrapper panel__options-wrapper--category hide" id="categories-list">
                                 <p class="panel__option panel__option--category" data-category="null">دسته بندی</p>
-                                <p class="panel__option panel__option--category" data-category="sport">ورزشی</p>
+                                <!-- <p class="panel__option panel__option--category" data-category="sport">ورزشی</p>
                                 <p class="panel__option panel__option--category" data-category="football">فوتبال</p>
-                                <p class="panel__option panel__option--category" data-category="tennis">تنیس</p>
+                                <p class="panel__option panel__option--category" data-category="tennis">تنیس</p> -->
                             </div>
                         </div>
 
@@ -424,16 +453,16 @@
                     <!-- Code & Brand -->
                     <div class="flex flex-col sm:flex-row items-center gap-4">
                         <!-- Code Input -->
-                        <input type="text" placeholder="کد محصول ...">
+                        <input type="text" placeholder="کد محصول">
 
                         <!-- Brand Input -->
-                        <input type="text" placeholder="برند محصول ...">
+                        <input type="text" placeholder="برند محصول">
                     </div>
 
                     <!-- Features & Related Products -->
                     <div class="flex flex-col sm:flex-row items-center gap-4">
                         <!-- Features Input -->
-                        <input type="text" placeholder="ویژگی ها ...">
+                        <input type="text" placeholder="ویژگی ها">
 
                         <!-- Related Products -->
                         <div id="product-related" class="panel-select panel-select--related" data-related="null">
@@ -455,10 +484,10 @@
                     <!-- Size & Weight -->
                     <div class="flex flex-col sm:flex-row items-center gap-4">
                         <!-- Size Input -->
-                        <input type="text" placeholder="اندازه محصول ...">
+                        <input type="text" placeholder="اندازه محصول">
 
                         <!-- Weight Input -->
-                        <input type="text" placeholder="وزن محصول ...">
+                        <input type="text" placeholder="وزن محصول">
                     </div>
 
                     <!-- Register Btn -->
