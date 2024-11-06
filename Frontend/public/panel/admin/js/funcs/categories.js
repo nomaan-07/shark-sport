@@ -1,19 +1,20 @@
 import {
   askSwal,
   getToken,
+  getUrlParam,
   showSwal,
 } from "../../../../scripts/funcs/utils.js";
 
-const getAndShowAllCategories = async (pageNumber, limit) => {
+const getAndShowAllCategories = async (itemsPerPage, currentPage) => {
   const categoriesListWrapperElem = document.getElementById("categories-list");
-  const skip = (pageNumber - 1) * limit;
+  const skip = (currentPage - 1) * itemsPerPage;
   const response = await fetch(
-    `http://localhost:8000/api/category/list?index=false&skip=${skip}&limit=${limit}`
+    `http://localhost:8000/api/category/list?index=false&skip=${skip}&limit=${itemsPerPage}`
   );
   const categories = await response.json();
   console.log(categories);
   categoriesListWrapperElem.innerHTML = "";
-  categories.forEach((category) => {
+  categories.forEach((category, index) => {
     categoriesListWrapperElem.insertAdjacentHTML(
       "beforeend",
       `
@@ -21,14 +22,14 @@ const getAndShowAllCategories = async (pageNumber, limit) => {
                         <!-- Right: Checkbox | Image | Username | Email | Phone | Role -->
                         <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
                             <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
-                                <!-- Checkbox -->
-                                <label class="relative inline-block">
-                                    <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer">
-                                    <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
-                                </label>
+                                <label class="relative inline-block">${
+                                  index + 1 + skip
+                                }</label>
                                 <!-- Image -->
                                 <div class="size-[72px] rounded-xl overflow-hidden">
-                                    <img class="size-full object-cover" src="${category.image_url}" alt="${category.name}">
+                                    <img class="size-full object-cover" src="${
+                                      category.image_url
+                                    }" alt="${category.name}">
                                 </div>
                             </div>
                             <!-- Name -->
@@ -40,12 +41,16 @@ const getAndShowAllCategories = async (pageNumber, limit) => {
                         <!-- Buttons: Edit Btn | Delete Btn-->
                         <div class="flex items-center gap-2 justify-end grow">
                             <!-- Edit Btn -->
-                            <svg onclick="updateCategory('${category.id}')" class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                            <svg onclick="updateCategory('${
+                              category.id
+                            }')" class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
                                 <use href="#edit"></use>
                             </svg>
 
                             <!-- Delete Btn -->
-                            <svg onclick="removeCategory('${category.id}')" class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                            <svg onclick="removeCategory('${
+                              category.id
+                            }')" class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
                                 <use href="#trash"></use>
                             </svg>
                         </div>
@@ -56,7 +61,37 @@ const getAndShowAllCategories = async (pageNumber, limit) => {
   return categories;
 };
 
+const updatePagination = async (itemsPerPage, currentPage) => {
+  const response = await fetch(
+    `http://localhost:8000/api/category/list?index=false&skip=0&limit=1000`
+  );
+  const categories = await response.json();
+  const totalCategories = categories.length;
+  const paginatedCount = Math.ceil(totalCategories / itemsPerPage);
+  const paginationWrapperElem = document.getElementById("pagination-wrapper");
+  paginationWrapperElem.innerHTML = "";
+
+  for (let i = 1; i <= paginatedCount; i++) {
+    paginationWrapperElem.insertAdjacentHTML(
+      "beforeend",
+
+      `
+      ${
+        Number(currentPage) === i
+          ? `
+        <div onclick="addParamToURL('page' , ${i})" class="panel__pagination panel__pagination--active">${i}</div>
+      `
+          : `
+        <div onclick="addParamToURL('page' , ${i})" class="panel__pagination">${i}</div>
+       `
+      }
+      `
+    );
+  }
+};
+
 const removeCategory = async (categoryID) => {
+  const currentPage = getUrlParam("page") || 1;
   askSwal(
     "آیا مطمئن به حذف دسته بندی مورد نظر هستید؟",
     undefined,
@@ -82,7 +117,7 @@ const removeCategory = async (categoryID) => {
             "success",
             "متشکرم",
             () => {
-              getAndShowAllCategories(1, 10);
+              getAndShowAllCategories(10, currentPage);
             }
           );
         } else {
@@ -102,4 +137,9 @@ const updateCategory = async (categoryID) => {
   console.log(categoryID);
 };
 
-export { getAndShowAllCategories, removeCategory, updateCategory };
+export {
+  getAndShowAllCategories,
+  updatePagination,
+  removeCategory,
+  updateCategory,
+};

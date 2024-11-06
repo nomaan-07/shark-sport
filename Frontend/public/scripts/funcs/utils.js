@@ -86,6 +86,14 @@ const formatNumber = (value) => {
   return new Intl.NumberFormat("fa-IR").format(value);
 };
 
+const addParamToURL = (param, value) => {
+  let url = new URL(location.href);
+  let searchParams = url.searchParams;
+  searchParams.set(param, value);
+  url.search = searchParams.toString();
+  location.href = url.toString();
+};
+
 export {
   showSwal,
   askSwal,
@@ -99,4 +107,5 @@ export {
   searchInArray,
   convertDate,
   formatNumber,
+  addParamToURL,
 };
