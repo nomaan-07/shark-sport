@@ -1,3 +1,5 @@
+
+
 const nameInputElem = document.getElementById("name");
 const descriptionInputElem = document.getElementById("description");
 const originalPriceInputElem = document.getElementById("original-price");
@@ -25,8 +27,9 @@ const setupUploader = () => {
 };
 
 const getTags = async () => {
+  const tagsListWrapperElem = document.getElementById("tags-list");
   const response = await fetch(
-    "http://localhost:8000/api/tag/list_tags?limit=10&skip=0",
+    "http://localhost:8000/api/tag/list_tags?limit=100&skip=0",
     {
       method: "GET",
       headers: {
@@ -35,7 +38,14 @@ const getTags = async () => {
     }
   );
   const tags = await response.json();
-  console.log(tags);
+  tags.forEach((tag) => {
+    tagsListWrapperElem.insertAdjacentHTML(
+      "beforeend",
+      `
+      <p class="panel__option panel__option--tag" data-tag="${tag.name}">${tag.name}</p>
+    `
+    );
+  });
 };
 
 const getDiscounts = async () => {
@@ -58,7 +68,6 @@ const getCategories = async () => {
     }
   );
   const categories = await response.json();
-  console.log(categories);
   categories.forEach((category) => {
     categoriesListWrapperElem.insertAdjacentHTML(
       "beforeend",

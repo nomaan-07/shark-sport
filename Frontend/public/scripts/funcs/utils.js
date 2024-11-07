@@ -94,6 +94,12 @@ const addParamToURL = (param, value) => {
   location.href = url.toString();
 };
 
+const addParamToUrlState = (param, value) => {
+  const searchParams = new URLSearchParams(location.search);
+  searchParams.set(param, value);
+  history.pushState({}, "", `${location.pathname}?${searchParams.toString()}`);
+}
+
 export {
   showSwal,
   askSwal,
@@ -108,4 +114,5 @@ export {
   convertDate,
   formatNumber,
   addParamToURL,
+  addParamToUrlState
 };

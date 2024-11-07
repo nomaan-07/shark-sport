@@ -437,82 +437,9 @@
                 <!-- Title -->
                 <h2 class="text-2xl font-vazirMedium">لیست دسته بندی ها</h2>
 
-                <!-- Filter | Sort -->
-                <div class="space-y-4 xs:space-y-0 xs:flex items-center justify-between font-vazirMedium">
-                    <!-- Filter -->
-                    <div class="panel-filter" data-filter="null">
-                        <!-- Select -->
-                        <div class="panel-filter__header">
-                            <span class="panel-filter__selected">فیلتر</span>
-                            <svg class="panel-filter__icon">
-                                <use href="#arrow-down"></use>
-                            </svg>
-                        </div>
-                        <!-- Options -->
-                        <div class="panel-filter__options-wrapper hide">
-                            <p class="panel-filter__option" data-filter="null">فیلتر</p>
-                            <p class="panel-filter__option" data-filter="all">نمایش همه</p>
-                            <p class="panel-filter__option" data-filter="admins">نمایش ادمین ها</p>
-                            <p class="panel-filter__option" data-filter="users">نمایش کاربران</p>
-                        </div>
-                    </div>
-
-                    <!-- Sort -->
-                    <div class="panel-sort" data-sort="null">
-                        <!-- Select -->
-                        <div class="panel-sort__header">
-                            <svg class="panel-sort__icon">
-                                <use href="#sort"></use>
-                            </svg>
-                            <span class="panel-sort__selected">مرتب سازی بر اساس</span>
-                        </div>
-                        <!-- Options -->
-                        <div class="panel-sort__options-wrapper hide">
-                            <p class="panel-sort__option" data-sort="null">مرتب سازی بر اساس</p>
-                            <p class="panel-sort__option" data-sort="newest">جدیدترین</p>
-                            <p class="panel-sort__option" data-sort="oldest">قدیمی ترین</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Users -->
+                <!-- Categories -->
                 <div class="space-y-2 font-vazirMedium" id="categories-list">
                     <!-- Loaded From Js -->
-                    <!-- category Item -->
-                    <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Username | Email | Phone | Role -->
-                        <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
-                            <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
-                                <!-- Checkbox -->
-                                <label class="relative inline-block">
-                                    <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer">
-                                    <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
-                                </label>
-                                <!-- Image -->
-                                <div class="size-[72px] rounded-xl overflow-hidden">
-                                    <img class="size-full object-cover" src="../images/avatar-2.jpg" alt="کفش">
-                                </div>
-                            </div>
-                            <!-- Name -->
-                            <span>نام کتگوری</span>
-                            <!-- Description -->
-                            <span>توضیحات کتگوری</span>
-                        </div>
-
-                        <!-- Buttons: Edit Btn | Delete Btn-->
-                        <div class="flex items-center gap-2 justify-end grow">
-                            <!-- Edit Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#edit"></use>
-                            </svg>
-
-                            <!-- Delete Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#trash"></use>
-                            </svg>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Pagination -->
@@ -529,7 +456,6 @@
 
     <script src="../../vendor/SweetAlert2/sweetalert2.js"></script>
     <script src="../js/shared/app.js" type="module"></script>
-    <script src="./js/shared/filter-sort.js" type="module"></script>
     <script src="js/shared/admin-infos.js" type="module"></script>
     <script src="js/categories.js" type="module"></script>
   </body>

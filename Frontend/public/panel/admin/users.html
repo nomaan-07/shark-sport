@@ -450,10 +450,10 @@
                         </div>
                         <!-- Options -->
                         <div class="panel-filter__options-wrapper hide">
-                            <p class="panel-filter__option" data-filter="null">فیلتر</p>
-                            <p class="panel-filter__option" data-filter="all">نمایش همه</p>
-                            <p class="panel-filter__option" data-filter="admins">نمایش ادمین ها</p>
-                            <p class="panel-filter__option" data-filter="users">نمایش کاربران</p>
+                            <p class="panel-filter__option"data-user="false"  data-filter="null">فیلتر</p>
+                            <p class="panel-filter__option"data-user="false"  data-filter="all">نمایش همه</p>
+                            <p class="panel-filter__option"data-user="false"  data-filter="admins">نمایش ادمین ها</p>
+                            <p class="panel-filter__option"data-user="true"  data-filter="users">نمایش کاربران</p>
                         </div>
                     </div>
 
@@ -525,16 +525,8 @@
                 </div>
 
                 <!-- Pagination -->
-                <div class="flex justify-center gap-2">
-                    <!-- Active class: panel__pagination--active -->
-                    <div class="panel__pagination panel__pagination--active">1</div>
-                    <div class="panel__pagination">2</div>
-                    <div class="panel__pagination">3</div>
-                    <div class="panel__pagination">
-                        <svg class="size-6">
-                            <use href="#arrow-left-outline"></use>
-                        </svg>
-                    </div>
+                <div id="pagination-wrapper" class="flex justify-center gap-2">
+                    <!-- Loaded From Js -->
                 </div>
 
             </main>

@@ -1,8 +1,4 @@
-import {
-  addParamToURL,
-  formatNumber,
-  getUrlParam,
-} from "../../../../scripts/funcs/utils.js";
+import { addParamToUrlState } from "../../../../scripts/funcs/utils.js";
 
 const getAndShowAllDiscounts = async (itemsPerPage, currentPage, isExpired) => {
   const discountsWrapperElem = document.getElementById("discounts-list");
@@ -55,6 +51,11 @@ const getAndShowAllDiscounts = async (itemsPerPage, currentPage, isExpired) => {
   return discounts;
 };
 
+const paginationClickHandler = (page) => {
+  addParamToUrlState("page", page);
+  location.reload();
+};
+
 const updatePagination = async (itemsPerPage, currentPage, isExpired) => {
   const response = await fetch(
     `http://localhost:8000/api/discount/list_discounts?limit=1000&skip=0&expired=${isExpired}&index=false`
@@ -65,23 +66,17 @@ const updatePagination = async (itemsPerPage, currentPage, isExpired) => {
   const paginationWrapperElem = document.getElementById("pagination-wrapper");
   paginationWrapperElem.innerHTML = "";
 
-  for (let i = 1; i <= paginatedCount; i++) {
+  Array.from(Array(paginatedCount).keys()).forEach((i) => {
+    i = i + 1;
     paginationWrapperElem.insertAdjacentHTML(
       "beforeend",
-
       `
-      ${
-        Number(currentPage) === i
-          ? `
-        <div onclick="addParamToURL('page' , ${i})" class="panel__pagination panel__pagination--active">${i}</div>
-      `
-          : `
-        <div onclick="addParamToURL('page' , ${i})" class="panel__pagination">${i}</div>
-       `
-      }
+        <div onclick="paginationClickHandler(${i})" class="panel__pagination  ${
+        Number(currentPage) === i ? "panel__pagination--active" : ""
+      }">${i}</div>
       `
     );
-  }
+  });
 };
 
-export { getAndShowAllDiscounts, updatePagination };
+export { getAndShowAllDiscounts, updatePagination, paginationClickHandler };

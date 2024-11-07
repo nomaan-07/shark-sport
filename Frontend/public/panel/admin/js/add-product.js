@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
   const addProductBtn = document.getElementById("add-product");
 
   setupUploader();
-  // getTags();
+  getTags();
   getDiscounts();
   getCategories();
   addProductBtn.addEventListener("click", (e) => {

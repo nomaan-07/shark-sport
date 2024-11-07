@@ -2,26 +2,38 @@ import {
   showToast,
   getUrlParam,
   addParamToURL,
+  addParamToUrlState,
 } from "../../../scripts/funcs/utils.js";
-import { getAndShowAllDiscounts, updatePagination } from "./funcs/discounts.js";
+import {
+  getAndShowAllDiscounts,
+  paginationClickHandler,
+  updatePagination,
+} from "./funcs/discounts.js";
 
-window.addParamToURL = addParamToURL;
+window.paginationClickHandler = paginationClickHandler;
 window.addEventListener("load", () => {
   const itemsPerPage = 10;
   let currentPage = getUrlParam("page") || 1;
+  let urlIsExpired = getUrlParam("isExpired");
+  let isExpired = !urlIsExpired ? false : true;
   const filterShowParameters = document.querySelectorAll(
     ".panel-filter__option"
   );
 
-  getAndShowAllDiscounts(itemsPerPage, currentPage, false).then(() =>
-    updatePagination(itemsPerPage, currentPage, false)
+  getAndShowAllDiscounts(itemsPerPage, currentPage, isExpired).then(() =>
+    updatePagination(itemsPerPage, currentPage, isExpired)
   );
 
-  // Select Filter Users
+  // Select Filter Discounts
   filterShowParameters.forEach((filterShowParameter) => {
+    filterShowParameter.setAttribute(
+      "selected",
+      filterShowParameter.dataset.filter
+    );
+
     filterShowParameter.addEventListener("click", (e) => {
+      addParamToUrlState("isExpired", filterShowParameter.dataset.expired);
       if (e.target.dataset.filter === "expired") {
-        e.target.dataset.filter = false;
         getAndShowAllDiscounts(itemsPerPage, currentPage, true).then(() =>
           updatePagination(itemsPerPage, currentPage, true)
         );

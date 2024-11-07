@@ -1,14 +1,20 @@
 import {
+  addParamToUrlState,
   askSwal,
   getToken,
   showSwal,
 } from "../../../../scripts/funcs/utils.js";
 
-const getAndShowAllUsers = async (showAdmins, showUsers, pageNumber, limit) => {
+const getAndShowAllUsers = async (
+  itemsPerPage,
+  currentPage,
+  isShowAdmins,
+  isShowUsers
+) => {
   const usersListWrapperElem = document.getElementById("users-list");
-  const skip = (pageNumber - 1) * limit;
+  const skip = (currentPage - 1) * itemsPerPage;
   const response = await fetch(
-    `http://localhost:8000/api/admin/user-management/list_all?admins=${showAdmins}&users=${showUsers}&index=false&limit=${limit}&skip=${skip}`,
+    `http://localhost:8000/api/admin/user-management/list_all?admins=${isShowAdmins}&users=${isShowUsers}&index=false&limit=${itemsPerPage}&skip=${skip}`,
     {
       method: "GET",
       headers: {
@@ -18,7 +24,6 @@ const getAndShowAllUsers = async (showAdmins, showUsers, pageNumber, limit) => {
     }
   );
   const users = await response.json();
-  console.log(users);
   usersListWrapperElem.innerHTML = "";
   users.results.forEach((user, index) => {
     usersListWrapperElem.insertAdjacentHTML(
@@ -84,6 +89,47 @@ const getAndShowAllUsers = async (showAdmins, showUsers, pageNumber, limit) => {
     `
     );
   });
+  return users;
+};
+
+const paginationClickHandler = (page) => {
+  addParamToUrlState("page", page);
+  location.reload();
+};
+
+const updatePagination = async (
+  itemsPerPage,
+  currentPage,
+  isShowAdmins,
+  isShowUsers
+) => {
+  const response = await fetch(
+    `http://localhost:8000/api/admin/user-management/list_all?admins=${isShowAdmins}&users=${isShowUsers}&index=false&limit=1000&skip=0`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${getToken()}`,
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  const users = await response.json();
+  const totalUsers = users.total;
+  const paginatedCount = Math.ceil(totalUsers / itemsPerPage);
+  const paginationWrapperElem = document.getElementById("pagination-wrapper");
+  paginationWrapperElem.innerHTML = "";
+
+  Array.from(Array(paginatedCount).keys()).forEach((i) => {
+    i = i + 1;
+    paginationWrapperElem.insertAdjacentHTML(
+      "beforeend",
+      `
+        <div onclick="paginationClickHandler(${i})" class="panel__pagination  ${
+        Number(currentPage) === i ? "panel__pagination--active" : ""
+      }">${i}</div>
+      `
+    );
+  });
 };
 
 const removeUser = async (isRootAccess, username) => {
@@ -141,4 +187,9 @@ const removeUser = async (isRootAccess, username) => {
   }
 };
 
-export { getAndShowAllUsers, removeUser };
+export {
+  getAndShowAllUsers,
+  paginationClickHandler,
+  updatePagination,
+  removeUser,
+};
