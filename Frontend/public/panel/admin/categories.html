@@ -11,6 +11,11 @@
   <body class="bg-neutral-200 dark:bg-neutral-600 font-vazir">
     <!-- SVGs -->
      <svg class="hidden">
+        <symbol id="add-circle" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z" fill="currentColor"/>
+            <path d="M16 12.75H8C7.59 12.75 7.25 12.41 7.25 12C7.25 11.59 7.59 11.25 8 11.25H16C16.41 11.25 16.75 11.59 16.75 12C16.75 12.41 16.41 12.75 16 12.75Z" fill="currentColor"/>
+            <path d="M12 16.75C11.59 16.75 11.25 16.41 11.25 16V8C11.25 7.59 11.59 7.25 12 7.25C12.41 7.25 12.75 7.59 12.75 8V16C12.75 16.41 12.41 16.75 12 16.75Z" fill="currentColor"/>
+        </symbol>   
         <symbol id="arrow-down" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 16.7999C11.3 16.7999 10.6 16.5299 10.07 15.9999L3.55002 9.47989C3.26002 9.18989 3.26002 8.70989 3.55002 8.41989C3.84002 8.12989 4.32002 8.12989 4.61002 8.41989L11.13 14.9399C11.61 15.4199 12.39 15.4199 12.87 14.9399L19.39 8.41989C19.68 8.12989 20.16 8.12989 20.45 8.41989C20.74 8.70989 20.74 9.18989 20.45 9.47989L13.93 15.9999C13.4 16.5299 12.7 16.7999 12 16.7999Z" fill="currentColor"/>
         </symbol>             
@@ -439,7 +444,7 @@
 
                 <!-- Categories -->
                 <div class="space-y-2 font-vazirMedium" id="categories-list">
-                    <!-- Loaded From Js -->
+                    <!-- Loaded From Js --> 
                 </div>
 
                 <!-- Pagination -->
@@ -450,12 +455,43 @@
             </main>
 
         </div>
+        <!-- Modal Update Category -->
+        <div id="update-modal" class="hidden md:w-1/2 my-0 md:mx-auto min-h-[90vh] text-neutral-950 dark:text-neutral-50 bg-neutral-50 dark:bg-neutral-800 space-y-6 p-6 rounded-3xl">
+            <svg id="modal-close-btn" class="size-10 cursor-pointer">
+                <use href="#close-circle"></use>
+            </svg>
+            <!-- Image -->
+            <div class="relative w-fit mx-auto">
+                <img id="profile-image" class="size-[184px] object-cover rounded-full" src="../../images/category/category-10.png" alt="تصویر پروفایل">
+                <!-- Upload Btn -->
+                <svg class="image-upload-btn absolute -bottom-2.5 right-7 size-6 text-rose-500 sm:hover:text-rose-700 sm:cursor-pointer transition-colors">
+                    <use href="#add-circle"></use>
+                </svg>
+                <input id="file-input" class="image-upload-input hidden" type="file" accept="image/*">  
+            </div>
+
+            <!-- Form: Name | Last Name | Username | Email | Role | Access | Phone | Password -->
+            <form class="panel__form pt-6 space-y-6">
+                <!-- Name & Last Name -->
+                <div class="flex flex-col sm:flex-row items-center gap-4">
+                    <!-- Name Input -->
+                    <input id="category-name-edit" type="text" placeholder="نام دسته بندی جدید">
+                </div>
+                <textarea cols="6" rows="6" name="" id="category-description-edit" placeholder="توضیحات دسته بندی جدید"></textarea>
+
+                <!-- Register Btn -->
+                <button id="update-category-btn">تغییرات دسته بندی</button>
+
+            </form>
+
+        </div>
     </div>
 
     <div id="overlay" class="hidden fixed inset-0 bg-black/10 backdrop-blur-sm z-40"></div>
 
     <script src="../../vendor/SweetAlert2/sweetalert2.js"></script>
     <script src="../js/shared/app.js" type="module"></script>
+    <script src="./js/shared/select-option.js" type="module"></script>    
     <script src="js/shared/admin-infos.js" type="module"></script>
     <script src="js/categories.js" type="module"></script>
   </body>

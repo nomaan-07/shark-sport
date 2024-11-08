@@ -5,12 +5,18 @@ import {
 } from "../../../../scripts/funcs/utils.js";
 import { getMe } from "../funcs/login.js";
 import { logout } from "../../../js/utils/utils.js";
+import {
+  getNotifications,
+  showNotifications,
+  hideNotifications,
+} from "../funcs/shared.js";
 
 window.addEventListener("load", () => {
   const adminNameElem = document.getElementById("admin-name");
   const adminUsernameElem = document.getElementById("admin-username");
   const adminImageProfileElem = document.getElementById("admin-image-profile");
   const logoutBtnElem = document.getElementById("logout-btn");
+  const notificationBtn = document.querySelector("#notification-btn");
   getMe().then((adminInfo) => {
     console.log(adminInfo);
     adminNameElem.innerHTML = `${adminInfo.admin.name} ${adminInfo.admin.lastname}`;
@@ -40,5 +46,15 @@ window.addEventListener("load", () => {
         }
       }
     );
+  });
+
+  getNotifications();
+
+  notificationBtn.addEventListener("mouseenter", () => {
+    showNotifications();
+  });
+
+  notificationBtn.addEventListener("mouseleave", () => {
+    hideNotifications();
   });
 });

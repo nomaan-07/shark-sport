@@ -6,29 +6,41 @@ const getAndShowAllTags = async (itemsPerPage, currentPage) => {
   );
   const tags = await response.json();
   tagsListWrapperElem.innerHTML = "";
-  tags.forEach((tag, index) => {
+  console.log(tags);
+  if (tags.length) {
+    tags.forEach((tag, index) => {
+      tagsListWrapperElem.insertAdjacentHTML(
+        "beforeend",
+        `
+          <div class="flex items-center justify-between flex-wrap gap-4 py-6 px-4 border border-neutral-300 rounded-2xl">
+            <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
+              <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
+                <label class="relative inline-block">${index + 1 + skip}</label>
+              </div>
+              <span>${tag.name}</span>
+            </div>
+            <div class="flex items-center gap-2 justify-end grow">
+              <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                <use href="#edit"></use>
+              </svg>
+              <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                <use href="#trash"></use>
+              </svg>
+            </div>
+          </div>
+          `
+      );
+    });
+  } else {
     tagsListWrapperElem.insertAdjacentHTML(
       "beforeend",
       `
-        <div class="flex items-center justify-between flex-wrap gap-4 py-6 px-4 border border-neutral-300 rounded-2xl">
-          <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
-            <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
-              <label class="relative inline-block">${index + 1 + skip}</label>
-            </div>
-            <span>${tag.name}</span>
-          </div>
-          <div class="flex items-center gap-2 justify-end grow">
-            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-              <use href="#edit"></use>
-            </svg>
-            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-              <use href="#trash"></use>
-            </svg>
-          </div>
+       <div class="bg-rose-500 p-4 rounded-xl text-lg text-center text-white dark:text-black">
+          هیچ برچسبی در حال حاضر وجود ندارد.
         </div>
-        `
+    `
     );
-  });
+  }
   return tags;
 };
 

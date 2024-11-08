@@ -6,7 +6,10 @@ const discountRateInputElem = document.getElementById("discount-rate");
 const expiresAtInputElem = document.getElementById("expires_at");
 
 const prepareFlatpickr = () => {
-  console.log("reload");
+  flatpickr(expiresAtInputElem, {
+    locale: "fa",
+    dateFormat: "Y-m-d",
+  });
 };
 
 const createDiscount = async () => {

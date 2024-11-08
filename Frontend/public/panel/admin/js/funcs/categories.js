@@ -5,6 +5,28 @@ import {
   showSwal,
 } from "../../../../scripts/funcs/utils.js";
 
+const currentPage = getUrlParam("page") || 1;
+const categoryImageElem = document.getElementById("profile-image");
+const fileInputElem = document.getElementById("file-input");
+const categoryNameEdit = document.getElementById("category-name-edit");
+const categoryDescriptionEdit = document.getElementById(
+  "category-description-edit"
+);
+const updateModalElem = document.getElementById("update-modal");
+const modalCloseBtn = document.getElementById("modal-close-btn");
+// Handle Hide Modal Editor
+modalCloseBtn.addEventListener("click", () => {
+  updateModalElem.classList.add("hidden");
+  scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+//////////////////////////
+
+let mainCategoryID,
+  categoryCover = null;
+
 const getAndShowAllCategories = async (itemsPerPage, currentPage) => {
   const categoriesListWrapperElem = document.getElementById("categories-list");
   const skip = (currentPage - 1) * itemsPerPage;
@@ -14,50 +36,61 @@ const getAndShowAllCategories = async (itemsPerPage, currentPage) => {
   const categories = await response.json();
   console.log(categories);
   categoriesListWrapperElem.innerHTML = "";
-  categories.forEach((category, index) => {
+  if (categories.length) {
+    categories.forEach((category, index) => {
+      categoriesListWrapperElem.insertAdjacentHTML(
+        "beforeend",
+        `
+         <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
+                          <!-- Right: Checkbox | Image | Username | Email | Phone | Role -->
+                          <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
+                              <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
+                                  <label class="relative inline-block">${
+                                    index + 1 + skip
+                                  }</label>
+                                  <!-- Image -->
+                                  <div class="size-[72px] rounded-xl overflow-hidden">
+                                      <img class="size-full object-cover" src="${
+                                        category.image_url
+                                      }" alt="${category.name}">
+                                  </div>
+                              </div>
+                              <!-- Name -->
+                              <span>${category.name}</span>
+                              <!-- Description -->
+                              <span>${category.description}</span>
+                          </div>
+    
+                          <!-- Buttons: Edit Btn | Delete Btn-->
+                          <div class="flex items-center gap-2 justify-end grow">
+                              <!-- Edit Btn -->
+                              <svg onclick="prepareUpdateCategory('${
+                                category.id
+                              }')" class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                                  <use href="#edit"></use>
+                              </svg>
+    
+                              <!-- Delete Btn -->
+                              <svg onclick="removeCategory('${
+                                category.id
+                              }')" class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                                  <use href="#trash"></use>
+                              </svg>
+                          </div>
+                      </div>
+      `
+      );
+    });
+  } else {
     categoriesListWrapperElem.insertAdjacentHTML(
       "beforeend",
       `
-       <div class="flex items-center justify-between flex-wrap gap-4 py-2 px-4 border border-neutral-300 rounded-2xl">
-                        <!-- Right: Checkbox | Image | Username | Email | Phone | Role -->
-                        <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
-                            <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
-                                <label class="relative inline-block">${
-                                  index + 1 + skip
-                                }</label>
-                                <!-- Image -->
-                                <div class="size-[72px] rounded-xl overflow-hidden">
-                                    <img class="size-full object-cover" src="${
-                                      category.image_url
-                                    }" alt="${category.name}">
-                                </div>
-                            </div>
-                            <!-- Name -->
-                            <span>${category.name}</span>
-                            <!-- Description -->
-                            <span>${category.description}</span>
-                        </div>
-
-                        <!-- Buttons: Edit Btn | Delete Btn-->
-                        <div class="flex items-center gap-2 justify-end grow">
-                            <!-- Edit Btn -->
-                            <svg onclick="updateCategory('${
-                              category.id
-                            }')" class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#edit"></use>
-                            </svg>
-
-                            <!-- Delete Btn -->
-                            <svg onclick="removeCategory('${
-                              category.id
-                            }')" class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#trash"></use>
-                            </svg>
-                        </div>
-                    </div>
+        <div class="bg-rose-500 p-4 rounded-xl text-lg text-center text-white dark:text-black">
+          هیچ دسته بندی در حال حاضر وجود ندارد.
+        </div>
     `
     );
-  });
+  }
   return categories;
 };
 
@@ -91,7 +124,6 @@ const updatePagination = async (itemsPerPage, currentPage) => {
 };
 
 const removeCategory = async (categoryID) => {
-  const currentPage = getUrlParam("page") || 1;
   askSwal(
     "آیا مطمئن به حذف دسته بندی مورد نظر هستید؟",
     undefined,
@@ -133,13 +165,78 @@ const removeCategory = async (categoryID) => {
   );
 };
 
-const updateCategory = async (categoryID) => {
+const prepareUploadPhoto = () => {
+  fileInputElem.addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    categoryCover = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        categoryImageElem.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+};
+
+const prepareUpdateCategory = async (categoryID) => {
+  mainCategoryID = categoryID;
+  ////// Scroll to show modal visibility
+  updateModalElem.classList.remove("hidden");
+  updateModalElem.scrollIntoView({
+    behavior: "smooth",
+  });
   console.log(categoryID);
+  const response = await fetch(
+    `http://localhost:8000/api/category/get/${categoryID}`
+  );
+  const category = await response.json();
+  categoryImageElem.src = category.image_url;
+  categoryNameEdit.value = category.name;
+  categoryDescriptionEdit.innerHTML = category.description;
+};
+
+const updateCategory = async () => {
+  console.log(mainCategoryID);
+  const formData = new FormData();
+  formData.append("image", categoryCover);
+  formData.append("name", categoryNameEdit.value.trim());
+  formData.append("description", categoryDescriptionEdit.innerHTML.trim());
+
+  const response = await fetch(
+    `http://localhost:8000/api/category/update/${mainCategoryID}`,
+    {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${getToken()}`,
+      },
+      body: formData,
+    }
+  );
+  if (response.ok) {
+    showSwal(
+      "دسته بندی مورد نظر با موفقیت بروزرسانی گردید.",
+      "success",
+      "متشکرم",
+      () => {
+        getAndShowAllCategories(10, currentPage);
+      }
+    );
+  } else {
+    showSwal(
+      "متاسفانه خطایی رخ داده است لطفا مجددا تلاش فرمایید.",
+      "error",
+      "متوجه شدم",
+      () => {}
+    );
+  }
 };
 
 export {
   getAndShowAllCategories,
   updatePagination,
   removeCategory,
+  prepareUploadPhoto,
+  prepareUpdateCategory,
   updateCategory,
 };

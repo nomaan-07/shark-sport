@@ -469,11 +469,33 @@
 
                     <!-- Price & Final Price -->
                     <div class="flex flex-col sm:flex-row items-center gap-4">
+                        <!-- Survey Input -->
+                        <input id="survey" type="text" placeholder="بررسی تخصصی">
+                        
                         <!-- Price Input -->
                         <input id="original-price" type="text" placeholder="قیمت اصلی">
 
-                        <!-- Final Price Input -->
-                        <input type="text" placeholder="قیمت اصلی">
+                    </div>
+                    <!-- Warranty & Discount -->
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
+
+                        <!-- Warranty Input -->
+                        <input id="warranty" type="text" placeholder="گارانتی">
+
+                        <!-- Discount -->
+                        <div id="product-discount" class="panel-select panel-select--discount" data-discount="null">
+                            <div class="panel-select__header" data-type="discount">
+                                <span class="panel-select__selected-option panel-select__selected-option--discount text-neutral-400">تخفیف ها</span>
+                                <svg class="panel-select__icon panel-select__icon--discount">
+                                    <use href="#arrow-down"></use>
+                                </svg>
+                            </div>
+                            <div id="discount-list" class="panel__options-wrapper panel__options-wrapper--discount hide">
+                                <p class="panel__option panel__option--discount" data-discount="null">تخفیف ها</p>
+                                <!-- Loaded From Js -->
+                            </div>
+                        </div>
+
                     </div>
 
                     <!-- Category & Tags -->
@@ -510,41 +532,28 @@
                     <!-- Code & Brand -->
                     <div class="flex flex-col sm:flex-row items-center gap-4">
                         <!-- Code Input -->
-                        <input type="text" placeholder="کد محصول">
+                        <input id="brand" type="text" placeholder="برند محصول">
 
                         <!-- Brand Input -->
-                        <input type="text" placeholder="برند محصول">
+                        <input id="sizes" type="text" placeholder="سایز های محصول">
                     </div>
 
                     <!-- Features & Related Products -->
                     <div class="flex flex-col sm:flex-row items-center gap-4">
                         <!-- Features Input -->
-                        <input type="text" placeholder="ویژگی ها">
+                        <input id="colors" type="text" placeholder="رنگ سایزهای محصول">
 
-                        <!-- Related Products -->
-                        <div id="product-related" class="panel-select panel-select--related" data-related="null">
-                            <div class="panel-select__header" data-type="related">
-                                <span class="panel-select__selected-option panel-select__selected-option--related text-neutral-400">محصولات مرتبط</span>
-                                <svg class="panel-select__icon panel-select__icon--related">
-                                    <use href="#arrow-down"></use>
-                                </svg>
-                            </div>
-                            <div class="panel__options-wrapper panel__options-wrapper--related hide">
-                                <p class="panel__option panel__option--related" data-related="null">تگ ها</p>
-                                <p class="panel__option panel__option--related" data-related="shirt">لباس</p>
-                                <p class="panel__option panel__option--related" data-related="shoe">کفش</p>
-                                <p class="panel__option panel__option--related" data-related="football">فوتبالی</p>
-                            </div>
-                        </div>
+                        <!-- Qtys  Input -->
+                        <input id="qtys" type="text" placeholder="تعداد سایزهای محصول">
                     </div>
 
                     <!-- Size & Weight -->
                     <div class="flex flex-col sm:flex-row items-center gap-4">
                         <!-- Size Input -->
-                        <input type="text" placeholder="اندازه محصول">
+                        <input id="specification-names" type="text" placeholder="ویژگی های محصول">
 
                         <!-- Weight Input -->
-                        <input type="text" placeholder="وزن محصول">
+                        <input id="specification-descriptions" type="text" placeholder="توضحیات ویژگی های محصول">
                     </div>
 
                     <!-- Register Btn -->

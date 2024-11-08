@@ -19,6 +19,7 @@ const prepareUploadPhoto = () => {
     }
   });
 };
+
 const addCategory = async () => {
   const formData = new FormData();
   formData.append("image", profileCover);
