@@ -423,7 +423,7 @@
                             </svg>
                         </div>
                         <!-- Notification Btn -->
-                        <div class="p-2 bg-rose-100 rounded-full sm:cursor-pointer sm:hover:bg-rose-200 transition-color relative">
+                        <div id="notification-btn" class="p-2 bg-rose-100 rounded-full sm:cursor-pointer sm:hover:bg-rose-200 transition-color relative">
                             <svg class="size-5">
                                 <use href="#notification"></use>
                             </svg>
@@ -455,11 +455,15 @@
             </main>
 
         </div>
+        
         <!-- Modal Update Category -->
-        <div id="update-modal" class="hidden md:w-1/2 my-0 md:mx-auto min-h-[90vh] text-neutral-950 dark:text-neutral-50 bg-neutral-50 dark:bg-neutral-800 space-y-6 p-6 rounded-3xl">
-            <svg id="modal-close-btn" class="size-10 cursor-pointer">
-                <use href="#close-circle"></use>
-            </svg>
+        <div id="update-modal" class="hidden md:w-1/2 my-0 md:mx-auto mb-10 text-neutral-950 dark:text-neutral-50 bg-neutral-50 dark:bg-neutral-800 space-y-6 p-6 rounded-3xl">
+            <div class="flex items-center justify-end gap-x-2.5 flex-row-reverse"> 
+                <h2 class="text-2xl font-vazirMedium">ویرایش دسته بندی</h2>
+                <svg id="modal-close-btn" class="size-10 cursor-pointer">
+                    <use href="#close-circle"></use>
+                </svg>
+            </div>
             <!-- Image -->
             <div class="relative w-fit mx-auto">
                 <img id="profile-image" class="size-[184px] object-cover rounded-full" src="../../images/category/category-10.png" alt="تصویر پروفایل">
@@ -485,6 +489,7 @@
             </form>
 
         </div>
+
     </div>
 
     <div id="overlay" class="hidden fixed inset-0 bg-black/10 backdrop-blur-sm z-40"></div>

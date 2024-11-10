@@ -3,14 +3,25 @@ import {
   getUrlParam,
   addParamToURL,
   addParamToUrlState,
+  askSwal,
 } from "../../../scripts/funcs/utils.js";
 import {
   getAndShowAllDiscounts,
   paginationClickHandler,
+  prepareUpdateDiscount,
   updatePagination,
+  removeDiscount,
+  updateDiscount,
+  prepareFlatpickr,
 } from "./funcs/discounts.js";
 
+// Binding Functions
+window.prepareUpdateDiscount = prepareUpdateDiscount;
+window.updateDiscount = updateDiscount;
+window.removeDiscount = removeDiscount;
 window.paginationClickHandler = paginationClickHandler;
+// Binding Functions
+
 window.addEventListener("load", () => {
   const itemsPerPage = 10;
   let currentPage = getUrlParam("page") || 1;
@@ -19,6 +30,7 @@ window.addEventListener("load", () => {
   const filterShowParameters = document.querySelectorAll(
     ".panel-filter__option"
   );
+  const updateDiscountBtn = document.getElementById("add-discount-btn");
 
   getAndShowAllDiscounts(itemsPerPage, currentPage, isExpired).then(() =>
     updatePagination(itemsPerPage, currentPage, isExpired)
@@ -51,4 +63,23 @@ window.addEventListener("load", () => {
       }
     });
   });
+  // Prepare Date Discount
+  prepareFlatpickr();
+  // Edit & Show Last Changes Data
+  updateDiscountBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    askSwal(
+      "آیا مطمئن به بروزرسانی تخفیف مورد نظر خود هستید؟",
+      "بعد از دکمه ثبت تمام تغییرات اعمال می شود.",
+      "warning",
+      "بله مطمئنم",
+      "خیر",
+      (result) => {
+        if (result.isConfirmed) {
+          updateDiscount();
+        }
+      }
+    );
+  });
+  ////
 });

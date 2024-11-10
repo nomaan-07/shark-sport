@@ -4,6 +4,7 @@ import {
   showSwal,
 } from "../../../../scripts/funcs/utils.js";
 
+// InComplete
 const getAndShowAllProducts = async () => {
   const productListWrapperElem = document.getElementById("product-list");
   const response = await fetch(

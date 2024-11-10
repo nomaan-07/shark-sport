@@ -5,12 +5,7 @@ import {
   showSwal,
 } from "../../../../scripts/funcs/utils.js";
 
-const getAndShowAllUsers = async (
-  itemsPerPage,
-  currentPage,
-  isShowAdmins,
-  isShowUsers
-) => {
+const getAndShowAllUsers = async (itemsPerPage ,currentPage ,isShowAdmins ,isShowUsers) => {
   const usersListWrapperElem = document.getElementById("users-list");
   const skip = (currentPage - 1) * itemsPerPage;
   const response = await fetch(
@@ -97,12 +92,7 @@ const paginationClickHandler = (page) => {
   location.reload();
 };
 
-const updatePagination = async (
-  itemsPerPage,
-  currentPage,
-  isShowAdmins,
-  isShowUsers
-) => {
+const updatePagination = async (itemsPerPage ,currentPage ,isShowAdmins ,isShowUsers) => {
   const response = await fetch(
     `http://localhost:8000/api/admin/user-management/list_all?admins=${isShowAdmins}&users=${isShowUsers}&index=false&limit=1000&skip=0`,
     {

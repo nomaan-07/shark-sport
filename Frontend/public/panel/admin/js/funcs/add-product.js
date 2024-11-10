@@ -1,13 +1,11 @@
 import { getToken, showSwal } from "../../../../scripts/funcs/utils.js";
+import { handleSelectOptions } from "../../../js/ui/ui-handlers.js";
 
 const nameInputElem = document.getElementById("name");
 const descriptionInputElem = document.getElementById("description");
 const originalPriceInputElem = document.getElementById("original-price");
-const productCategoryElem = document.getElementById("product-category");
 const surveyInputElem = document.getElementById("survey");
 const warrantyInputElem = document.getElementById("warranty");
-const productDiscountInputElem = document.getElementById("product-discount");
-const productTagInputElem = document.getElementById("product-tag");
 const brandInputElem = document.getElementById("brand");
 const sizesInputElem = document.getElementById("sizes");
 const colorsInputElem = document.getElementById("colors");
@@ -18,11 +16,12 @@ const specificationNamesInputElem = document.getElementById(
 const specificationDescriptionsInputElem = document.getElementById(
   "specification-descriptions"
 );
+// Elements From DOM For Getting IDs
+const productTagID = document.getElementById("product-tag");
+const productDiscountID = document.getElementById("product-discount");
+const productCategoryID = document.getElementById("product-category");
 
 let imageSources = [null, null, null];
-let discountID,
-  categoryID,
-  tagID = null;
 
 const setupUploader = () => {
   const currentImages = document.querySelectorAll(".current-image");
@@ -42,22 +41,24 @@ const setupUploader = () => {
   });
 };
 
-const getDiscounts = async () => {
-  const discountListWrapperElem = document.getElementById("discount-list");
+const getDiscounts = async (type) => {
+  const discountListWrapperElem = document.getElementById("discounts-list");
   const response = await fetch(
     `http://localhost:8000/api/discount/list_discounts?limit=100&skip=0&expired=false&index=false`
   );
   const discounts = await response.json();
-  console.log(discounts);
   if (discounts.length) {
+    discountListWrapperElem.innerHTML = `<p class="panel__option panel__option--discount" data-discount="null">تخفیف ها</p>`;
     discounts.forEach((discount) => {
       discountListWrapperElem.insertAdjacentHTML(
         "beforeend",
         `
-        <p class="panel__option panel__option--category" data-category="${discount.id}">${discount.name}</p>
+        <p class="panel__option panel__option--discount" data-discount="${discount.id}">${discount.name}</p>
       `
       );
     });
+    // Add event listeners to newly created elements
+    handleSelectOptions(type);
   } else {
     discountListWrapperElem.innerHTML = "";
     discountListWrapperElem.insertAdjacentHTML(
@@ -71,7 +72,7 @@ const getDiscounts = async () => {
   }
 };
 
-const getTags = async () => {
+const getTags = async (type) => {
   const tagsListWrapperElem = document.getElementById("tags-list");
   const response = await fetch(
     "http://localhost:8000/api/tag/list_tags?limit=100&skip=0",
@@ -83,31 +84,33 @@ const getTags = async () => {
     }
   );
   const tags = await response.json();
-  console.log(tags.length);
   if (tags.length) {
+    tagsListWrapperElem.innerHTML = `<p class="panel__option panel__option--tag" data-tag="null">تگ ها</p>`;
     tags.forEach((tag) => {
       tagsListWrapperElem.insertAdjacentHTML(
         "beforeend",
         `
-        <p class="panel__option panel__option--tag" data-tag="${tag.id}">${tag.name}</p>
-      `
+          <p class="panel__option panel__option--tag" data-tag="${tag.id}">${tag.name}</p>
+        `
       );
     });
+    // Add event listeners to newly created elements
+    handleSelectOptions(type);
   } else {
     tagsListWrapperElem.innerHTML = "";
     tagsListWrapperElem.insertAdjacentHTML(
       "beforeend",
       `
-       <div class="bg-rose-500 p-4 rounded-xl text-lg text-center text-white dark:text-black">
-          هیچ برچسبی در حال حاضر وجود ندارد.
-        </div>
-    `
+        <div class="bg-rose-500 p-4 rounded-xl text-lg text-center text-white dark:text-black">
+            هیچ برچسبی در حال حاضر وجود ندارد.
+          </div>
+      `
     );
   }
   return tags;
 };
 
-const getCategories = async () => {
+const getCategories = async (type) => {
   const categoriesListWrapperElem = document.getElementById("categories-list");
   const response = await fetch(
     `http://localhost:8000/api/category/list?index=false&skip=0&limit=100`,
@@ -120,6 +123,7 @@ const getCategories = async () => {
   );
   const categories = await response.json();
   if (categories.length) {
+    categoriesListWrapperElem.innerHTML = `<p class="panel__option panel__option--category" data-category="null">دسته بندی ها</p>`;
     categories.forEach((category) => {
       categoriesListWrapperElem.insertAdjacentHTML(
         "beforeend",
@@ -128,6 +132,8 @@ const getCategories = async () => {
       `
       );
     });
+    // Add event listeners to newly created elements
+    handleSelectOptions(type);
   } else {
     categoriesListWrapperElem.innerHTML = "";
     categoriesListWrapperElem.insertAdjacentHTML(
@@ -139,18 +145,14 @@ const getCategories = async () => {
     `
     );
   }
-
-  console.log(productCategoryElem.dataset.category);
-  categoryID = productCategoryElem.dataset.category;
 };
 
 const addNewProduct = async () => {
-  console.log("test");
   const formData = new FormData();
   formData.append("images", imageSources);
-  formData.append("tag", tagID);
-  formData.append("discount_id", discountID);
-  formData.append("category_id", categoryID);
+  formData.append("tag", productTagID.dataset.tag);
+  formData.append("discount_id", productDiscountID.dataset.discount);
+  formData.append("category_id", productCategoryID.dataset.category);
   formData.append("name", nameInputElem.value.trim());
   formData.append("description", descriptionInputElem.value.trim());
   formData.append("survey", surveyInputElem.value.trim());
@@ -168,6 +170,7 @@ const addNewProduct = async () => {
     "specification_descriptions",
     specificationDescriptionsInputElem.value.trim()
   );
+
   const response = await fetch(
     `http://localhost:8000/api/admin/content/create_product`,
     {

@@ -13,11 +13,11 @@ window.addEventListener("load", () => {
   // Upload Photos
   setupUploader();
   // Get Discounts to Select From Admin
-  getDiscounts();
+  getDiscounts("discount");
   // Get Categories to Select From Admin
-  getCategories();
+  getCategories("category");
   // Get Tags to Select From Admin
-  getTags();
+  getTags("tag");
   ///////////////////////////
   addProductBtn.addEventListener("click", (e) => {
     e.preventDefault();

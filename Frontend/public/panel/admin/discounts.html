@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>پنل ادمین | تخفیف ها</title>
+    <link rel="stylesheet" href="../../vendor/Flatpickr/flatpickr.min.css">
     <link rel="stylesheet" href="../../styles/app.css" />
-        <!-- Page Icon -->
-        <link rel="icon" href="../../images/fav-icon.png" type="image/png">
+    <!-- Page Icon -->
+    <link rel="icon" href="../../images/fav-icon.png" type="image/png">
   </head>
   <body class="bg-neutral-200 dark:bg-neutral-600 font-vazir">
     <!-- SVGs -->
@@ -418,7 +419,7 @@
                             </svg>
                         </div>
                         <!-- Notification Btn -->
-                        <div class="p-2 bg-rose-100 rounded-full sm:cursor-pointer sm:hover:bg-rose-200 transition-color relative">
+                        <div id="notification-btn" class="p-2 bg-rose-100 rounded-full sm:cursor-pointer sm:hover:bg-rose-200 transition-color relative">
                             <svg class="size-5">
                                 <use href="#notification"></use>
                             </svg>
@@ -484,12 +485,43 @@
                 </div>
             </main>
 
+            
         </div>
+
+        <!-- Modal -->
+        <div id="update-modal" class="hidden md:w-1/2 my-0 md:mx-auto mb-10 text-neutral-950 dark:text-neutral-50 bg-neutral-50 dark:bg-neutral-800 space-y-6 p-6 rounded-3xl">
+            <!-- Title -->
+            <div class="flex items-center justify-end gap-x-2.5 flex-row-reverse"> 
+                <h2 class="text-2xl font-vazirMedium">ویرایش تخفیف</h2>
+                <svg id="modal-close-btn" class="size-10 cursor-pointer">
+                    <use href="#close-circle"></use>
+                </svg>
+            </div>
+            <form class="panel__form pt-6 space-y-6">
+                <!-- Name & Last Name -->
+                <div class="flex flex-col sm:flex-row items-center gap-4">
+                    <!-- Name Input -->
+                    <input id="name-edit" type="text" placeholder="نام تخفیف جدید">
+                    <input id="discount-code-edit" type="text" placeholder="کد تخفیف جدید">
+                </div>
+                <div class="flex flex-col sm:flex-row items-center gap-4">
+                    <input id="discount-rate-edit" type="text" placeholder="درصد تخفیف جدید">
+                    <input id="expires_at-edit" type="text" placeholder="تاریخ انقضا جدید">
+                </div>
+
+                <!-- Register Btn -->
+                <button id="add-discount-btn">بروزرسانی تخفیف</button>
+
+            </form>
+        </div>
+
     </div>
 
     <div id="overlay" class="hidden fixed inset-0 bg-black/10 backdrop-blur-sm z-40"></div>
 
     <script src="../../vendor/SweetAlert2/sweetalert2.js"></script>
+    <script src="../../vendor/Flatpickr/flatpickr.js"></script>
+    <script src="../../vendor/Flatpickr/fa.js"></script>
     <script src="../js/shared/app.js" type="module"></script>
     <script src="./js/shared/filter-sort.js" type="module"></script>
     <script src="js/shared/admin-infos.js" type="module"></script>

@@ -1,4 +1,19 @@
-import { addParamToUrlState } from "../../../../scripts/funcs/utils.js";
+import {
+  addParamToUrlState,
+  askSwal,
+  getToken,
+  showSwal,
+  getUrlParam,
+} from "../../../../scripts/funcs/utils.js";
+
+const currentPage = getUrlParam("page") || 1;
+const nameEditInputEl = document.getElementById("name-edit");
+const discountCodeEditInputEl = document.getElementById("discount-code-edit");
+const discountRateEditEl = document.getElementById("discount-rate-edit");
+const expiresEditEl = document.getElementById("expires_at-edit");
+const updateModalElem = document.getElementById("update-modal");
+const modalCloseBtn = document.getElementById("modal-close-btn");
+let mainDiscountID = null;
 
 const getAndShowAllDiscounts = async (itemsPerPage, currentPage, isExpired) => {
   const discountsWrapperElem = document.getElementById("discounts-list");
@@ -36,12 +51,16 @@ const getAndShowAllDiscounts = async (itemsPerPage, currentPage, isExpired) => {
                           <!-- Buttons: Edit Btn | Delete Btn-->
                           <div class="flex items-center gap-2 justify-end grow">
                               <!-- Edit Btn -->
-                              <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                              <svg onclick="prepareUpdateDiscount('${
+                                discount.id
+                              }')" class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
                                   <use href="#edit"></use>
                               </svg>
   
                               <!-- Delete Btn -->
-                              <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                              <svg onclick="removeDiscount('${
+                                discount.id
+                              }')" class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
                                   <use href="#trash"></use>
                               </svg>
                           </div>
@@ -50,11 +69,14 @@ const getAndShowAllDiscounts = async (itemsPerPage, currentPage, isExpired) => {
       );
     });
   } else {
-    discountsWrapperElem.insertAdjacentHTML("beforeend" , `
+    discountsWrapperElem.insertAdjacentHTML(
+      "beforeend",
+      `
       <div class="bg-rose-500 p-4 rounded-xl text-lg text-center text-white dark:text-black">
           هیچ تخفیفی در حال حاضر وجود ندارد.
         </div>
-    `)
+    `
+    );
   }
   return discounts;
 };
@@ -87,4 +109,134 @@ const updatePagination = async (itemsPerPage, currentPage, isExpired) => {
   });
 };
 
-export { getAndShowAllDiscounts, updatePagination, paginationClickHandler };
+// InComplete =>
+const removeDiscount = async (discountID) => {
+  askSwal(
+    "آیا مطمئن به حذف تخفیف مورد نظر خود هستید؟",
+    undefined,
+    "warning",
+    "بله مطمئنم",
+    "خیر",
+    async (result) => {
+      if (result.isConfirmed) {
+        const response = await fetch(`http://localhost:8000//${discountID}`, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
+        });
+        const mess = await response.json();
+        console.log(response);
+        console.log(mess);
+        if (response.ok) {
+          showSwal(
+            "تخفیف مورد نظر شما با موفقیت حذف گردید.",
+            "success",
+            "متشکرم",
+            () => {
+              // getAndShowAllDiscounts().then(() => {
+              //   updatePagination()
+              // });
+            }
+          );
+        } else {
+          showSwal(
+            "متاسفانه خطایی رخ داده است لطفا مجددا تلاش فرمایید.",
+            "error",
+            "متوجه شدم",
+            () => {}
+          );
+        }
+      }
+    }
+  );
+};
+
+const prepareFlatpickr = () => {
+  flatpickr(expiresEditEl, {
+    locale: "fa",
+    dateFormat: "Y-m-d",
+  });
+};
+
+const prepareUpdateDiscount = async (discountID) => {
+  mainDiscountID = discountID;
+  ////// Scroll to show modal visibility
+  updateModalElem.classList.remove("hidden");
+  updateModalElem.scrollIntoView({
+    behavior: "smooth",
+  });
+  const response = await fetch(
+    `http://localhost:8000/api/discount/read_discount?discount_id=${discountID}`
+  );
+  const discount = await response.json();
+  console.log(discount);
+  nameEditInputEl.value = discount.name;
+  discountCodeEditInputEl.value = discount.discount_code;
+  discountRateEditEl.value = discount.discount_rate;
+  expiresEditEl.value = discount.expires_at.slice(0, 10);
+};
+
+// InComplete =>
+const updateDiscount = async () => {
+  console.log(mainDiscountID);
+  const updateDiscountObj = {
+    name: nameEditInputEl.value.trim(),
+    discount_code: discountCodeEditInputEl.value.trim(),
+    discount_rate: discountRateEditEl.value.trim(),
+    expires_at: expiresEditEl.value.trim(),
+  };
+  const response = await fetch(
+    `http://localhost:8000//?discount_id=${mainDiscountID}`,
+    {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${getToken()}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updateDiscountObj),
+    }
+  );
+  const messsage = await response.json();
+  console.log(response);
+  console.log(messsage);
+  if (response.ok) {
+    showSwal(
+      "تغییرات کد تخفیف مورد نظر با موفقیت اعمال شد.",
+      "success",
+      "متشکرم",
+      () => {
+        // getAndShowAllDiscounts().then(() => {
+        //   updatePagination()
+        // });
+      }
+    );
+  } else {
+    showSwal(
+      "متاسفانه خطایی رخ داده است لطفا مجددا تلاش فرمایید.",
+      "error",
+      "متوجه شدم",
+      () => {}
+    );
+  }
+};
+
+// Handle Hide Modal Editor
+modalCloseBtn.addEventListener("click", () => {
+  updateModalElem.classList.add("hidden");
+  scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+//////////////////////////
+
+export {
+  getAndShowAllDiscounts,
+  updatePagination,
+  paginationClickHandler,
+  removeDiscount,
+  prepareFlatpickr,
+  prepareUpdateDiscount,
+  updateDiscount,
+};

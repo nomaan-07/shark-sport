@@ -1,3 +1,16 @@
+import {
+  askSwal,
+  getToken,
+  showSwal,
+  getUrlParam,
+} from "../../../../scripts/funcs/utils.js";
+
+const currentPage = getUrlParam("page") || 1;
+const updateModalElem = document.getElementById("update-modal");
+const modalCloseBtn = document.getElementById("modal-close-btn");
+const nameEditInputEl = document.getElementById("name-edit");
+let mainTagID = null;
+
 const getAndShowAllTags = async (itemsPerPage, currentPage) => {
   const tagsListWrapperElem = document.getElementById("tags-list");
   const skip = (currentPage - 1) * itemsPerPage;
@@ -20,10 +33,14 @@ const getAndShowAllTags = async (itemsPerPage, currentPage) => {
               <span>${tag.name}</span>
             </div>
             <div class="flex items-center gap-2 justify-end grow">
-              <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+              <svg onclick="prepareUpdateTag('${
+                tag.id
+              }')" class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
                 <use href="#edit"></use>
               </svg>
-              <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+              <svg onclick=removeTag('${
+                tag.id
+              }') class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
                 <use href="#trash"></use>
               </svg>
             </div>
@@ -71,4 +88,111 @@ const updatePagination = async (itemsPerPage, currentPage) => {
   }
 };
 
-export { getAndShowAllTags, updatePagination };
+const prepareUpdateTag = async (tagID) => {
+  mainTagID = tagID;
+  ////// Scroll to show modal visibility
+  updateModalElem.classList.remove("hidden");
+  updateModalElem.scrollIntoView({
+    behavior: "smooth",
+  });
+  const response = await fetch(`http://localhost:8000/api/tag/get/${tagID}`);
+  const tag = await response.json();
+  console.log(tag);
+  nameEditInputEl.value = tag.name;
+};
+
+const updateTag = async () => {
+  console.log(mainTagID);
+  const response = await fetch(`http://localhost:8000/${mainTagID}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getToken()}`,
+    },
+    body: JSON.stringify({
+      name: nameEditInputEl.value.trim(),
+    }),
+  });
+  const message = await response.json();
+  console.log(response);
+  console.log(message);
+  if (response.ok) {
+    showSwal(
+      "برچسب مورد نظر شما با موفقیت بروزرسانی گردید.",
+      "success",
+      "متشکرم",
+      () => {
+        // getAndShowAllTags().then(() => {
+        //   updatePagination();
+        // });
+      }
+    );
+  } else {
+    showSwal(
+      "متاسفانه خطایی رخ داده است لطفا مجددا تلاش فرمایید.",
+      "error",
+      "متوجه شدم",
+      () => {}
+    );
+  }
+};
+
+const removeTag = async (tagID) => {
+  askSwal(
+    "آیا مطمئن به حذف برچسب مورد نظر خود هستید؟",
+    undefined,
+    "warning",
+    "بله مطمئنم",
+    "خیر",
+    async (result) => {
+      if (result.isConfirmed) {
+        const response = await fetch(`http://localhost:8000//${tagID}`, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
+        });
+        const message = await response.json();
+        console.log(response);
+        console.log(message);
+        if (response.ok) {
+          showSwal(
+            "برچسب مورد نظر شما با موفقیت حذف گردید.",
+            "success",
+            "متشکرم",
+            () => {
+              getAndShowAllTags(10, currentPage).then(() => {
+                updatePagination(10, currentPage);
+              });
+            }
+          );
+        } else {
+          showSwal(
+            "متاسفانه خطایی رخ داده است لطفا مجددا تلاش فرمایید.",
+            "error",
+            "متوجه شدم",
+            () => {}
+          );
+        }
+      }
+    }
+  );
+};
+
+// Handle Hide Modal Editor
+modalCloseBtn.addEventListener("click", () => {
+  updateModalElem.classList.add("hidden");
+  scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+//////////////////////////
+
+export {
+  getAndShowAllTags,
+  updatePagination,
+  prepareUpdateTag,
+  updateTag,
+  removeTag,
+};

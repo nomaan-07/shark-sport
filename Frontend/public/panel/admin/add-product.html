@@ -408,7 +408,7 @@
                             </svg>
                         </div>
                         <!-- Notification Btn -->
-                        <div class="p-2 bg-rose-100 rounded-full sm:cursor-pointer sm:hover:bg-rose-200 transition-color relative">
+                        <div id="notification-btn" class="p-2 bg-rose-100 rounded-full sm:cursor-pointer sm:hover:bg-rose-200 transition-color relative">
                             <svg class="size-5">
                                 <use href="#notification"></use>
                             </svg>
@@ -490,8 +490,7 @@
                                     <use href="#arrow-down"></use>
                                 </svg>
                             </div>
-                            <div id="discount-list" class="panel__options-wrapper panel__options-wrapper--discount hide">
-                                <p class="panel__option panel__option--discount" data-discount="null">تخفیف ها</p>
+                            <div id="discounts-list" class="panel__options-wrapper panel__options-wrapper--discount hide">
                                 <!-- Loaded From Js -->
                             </div>
                         </div>
@@ -500,6 +499,7 @@
 
                     <!-- Category & Tags -->
                     <div class="flex flex-col sm:flex-row items-center gap-4">
+                        
                         <!-- Category -->
                         <div id="product-category" class="panel-select panel-select--category" data-category="null">
                             <div class="panel-select__header" data-type="category">
@@ -508,8 +508,7 @@
                                     <use href="#arrow-down"></use>
                                 </svg>
                             </div>
-                            <div class="panel__options-wrapper panel__options-wrapper--category hide" id="categories-list">
-                                <p class="panel__option panel__option--category" data-category="null">دسته بندی</p>
+                            <div id="categories-list" class="panel__options-wrapper panel__options-wrapper--category hide">
                                 <!-- Loaded From Js -->
                             </div>
                         </div>
@@ -523,10 +522,10 @@
                                 </svg>
                             </div>
                             <div id="tags-list" class="panel__options-wrapper panel__options-wrapper--tag hide">
-                                <p class="panel__option panel__option--tag" data-tag="null">تگ ها</p>
                                 <!-- Loaded From Js -->
                             </div>
                         </div>
+
                     </div>
 
                     <!-- Code & Brand -->
