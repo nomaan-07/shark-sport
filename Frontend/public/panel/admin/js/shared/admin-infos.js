@@ -2,6 +2,7 @@ import {
   askSwal,
   removeFromLocalStorage,
   showSwal,
+  showToast,
 } from "../../../../scripts/funcs/utils.js";
 import { getMe } from "../funcs/login.js";
 import { logout } from "../../../js/utils/utils.js";
@@ -17,6 +18,7 @@ window.addEventListener("load", () => {
   const adminImageProfileElem = document.getElementById("admin-image-profile");
   const logoutBtnElem = document.getElementById("logout-btn");
   const notificationBtn = document.querySelector("#notification-btn");
+  const sharkSportSiteEl = document.getElementById("shark-sport-site");
   getMe().then((adminInfo) => {
     console.log(adminInfo);
     adminNameElem.innerHTML = `${adminInfo.admin.name} ${adminInfo.admin.lastname}`;
@@ -47,6 +49,11 @@ window.addEventListener("load", () => {
       }
     );
   });
+
+  sharkSportSiteEl.addEventListener("click", () => {
+    showToast("top-end" , 3000 , "error" , "برای ورود به سایت از سمت پنل ادمین نمی توانید وارد شوید.")
+  })
+
 
   getNotifications();
 

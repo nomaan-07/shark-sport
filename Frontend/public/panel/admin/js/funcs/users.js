@@ -84,6 +84,10 @@ const getAndShowAllUsers = async (itemsPerPage ,currentPage ,isShowAdmins ,isSho
     `
     );
   });
+  console.log(response)
+  console.log(users.results)
+  console.log(users.results.length)
+  console.log(skip)
   return users;
 };
 
@@ -104,7 +108,15 @@ const updatePagination = async (itemsPerPage ,currentPage ,isShowAdmins ,isShowU
     }
   );
   const users = await response.json();
-  const totalUsers = users.total;
+  console.log(response)
+  console.log(users)
+  console.log("itemsPerPage : " + itemsPerPage)
+  console.log("currentPage : " + currentPage)
+  console.log( "Admin : " + isShowAdmins)
+  console.log( "User : " + isShowUsers)
+
+  const totalUsers = users.results.length;
+  console.log(totalUsers)
   const paginatedCount = Math.ceil(totalUsers / itemsPerPage);
   const paginationWrapperElem = document.getElementById("pagination-wrapper");
   paginationWrapperElem.innerHTML = "";

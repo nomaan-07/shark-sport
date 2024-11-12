@@ -1551,7 +1551,9 @@ video {
   left: 0px;
   right: 0px;
   z-index: 10;
+  max-height: 16rem;
   overflow: hidden;
+  overflow-y: auto;
   border-radius: 1rem;
   border-width: 1px;
   --tw-border-opacity: 1;

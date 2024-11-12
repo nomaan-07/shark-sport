@@ -4,6 +4,7 @@ import {
   getToken,
   showSwal,
   getUrlParam,
+  openModalEditor,
 } from "../../../../scripts/funcs/utils.js";
 
 const currentPage = getUrlParam("page") || 1;
@@ -12,7 +13,6 @@ const discountCodeEditInputEl = document.getElementById("discount-code-edit");
 const discountRateEditEl = document.getElementById("discount-rate-edit");
 const expiresEditEl = document.getElementById("expires_at-edit");
 const updateModalElem = document.getElementById("update-modal");
-const modalCloseBtn = document.getElementById("modal-close-btn");
 let mainDiscountID = null;
 
 const getAndShowAllDiscounts = async (itemsPerPage, currentPage, isExpired) => {
@@ -160,12 +160,10 @@ const prepareFlatpickr = () => {
 };
 
 const prepareUpdateDiscount = async (discountID) => {
+  // Save Discount ID
   mainDiscountID = discountID;
   ////// Scroll to show modal visibility
-  updateModalElem.classList.remove("hidden");
-  updateModalElem.scrollIntoView({
-    behavior: "smooth",
-  });
+  openModalEditor(updateModalElem)
   const response = await fetch(
     `http://localhost:8000/api/discount/read_discount?discount_id=${discountID}`
   );
@@ -222,13 +220,13 @@ const updateDiscount = async () => {
 };
 
 // Handle Hide Modal Editor
-modalCloseBtn.addEventListener("click", () => {
-  updateModalElem.classList.add("hidden");
-  scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-});
+// modalCloseBtn.addEventListener("click", () => {
+//   updateModalElem.classList.add("hidden");
+//   scrollTo({
+//     top: 0,
+//     behavior: "smooth",
+//   });
+// });
 //////////////////////////
 
 export {

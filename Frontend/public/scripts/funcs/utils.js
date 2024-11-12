@@ -98,7 +98,24 @@ const addParamToUrlState = (param, value) => {
   const searchParams = new URLSearchParams(location.search);
   searchParams.set(param, value);
   history.pushState({}, "", `${location.pathname}?${searchParams.toString()}`);
-}
+};
+
+const closeModalEditor = (btn, modal) => {
+  btn.addEventListener("click", () => {
+    modal.classList.add("hidden");
+    scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+};
+
+const openModalEditor = (modal) => {
+  modal.classList.remove("hidden");
+  modal.scrollIntoView({
+    behavior: "smooth",
+  });
+};
 
 export {
   showSwal,
@@ -114,5 +131,7 @@ export {
   convertDate,
   formatNumber,
   addParamToURL,
-  addParamToUrlState
+  addParamToUrlState,
+  closeModalEditor,
+  openModalEditor,
 };

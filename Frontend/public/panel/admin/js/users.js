@@ -3,7 +3,7 @@ import {
   showToast,
   addParamToUrlState,
 } from "../../../scripts/funcs/utils.js";
-import { updatePagination } from "./funcs/discounts.js";
+import { updatePagination } from "./funcs/users.js";
 import {
   getAndShowAllUsers,
   paginationClickHandler,
@@ -59,5 +59,4 @@ window.addEventListener("load", () => {
       }
     });
   });
-  
 });

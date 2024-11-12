@@ -375,7 +375,7 @@
     }
 
     .panel__form .panel__options-wrapper {
-        @apply absolute top-16 left-0 right-0 text-lg bg-neutral-100 dark:bg-neutral-700 sm:text-xl border border-neutral-300 rounded-2xl font-vazirMedium overflow-hidden z-10 transition-all;
+        @apply absolute top-16 left-0 right-0 text-lg bg-neutral-100 dark:bg-neutral-700 sm:text-xl border border-neutral-300 rounded-2xl font-vazirMedium overflow-hidden z-10 max-h-64 overflow-y-auto transition-all;
     }
 
 

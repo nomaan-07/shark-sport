@@ -4,6 +4,7 @@ import {
   addParamToURL,
   addParamToUrlState,
   askSwal,
+  closeModalEditor,
 } from "../../../scripts/funcs/utils.js";
 import {
   getAndShowAllDiscounts,
@@ -31,7 +32,11 @@ window.addEventListener("load", () => {
     ".panel-filter__option"
   );
   const updateDiscountBtn = document.getElementById("add-discount-btn");
-
+  //////////////////////////////
+  const updateModalElem = document.getElementById("update-modal");
+  const modalCloseBtn = document.getElementById("modal-close-btn");
+  closeModalEditor(modalCloseBtn, updateModalElem);
+  //////////////////////////////
   getAndShowAllDiscounts(itemsPerPage, currentPage, isExpired).then(() =>
     updatePagination(itemsPerPage, currentPage, isExpired)
   );
