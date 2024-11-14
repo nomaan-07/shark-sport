@@ -14,26 +14,35 @@ const getNotifications = async () => {
     }
   );
   const notifications = await response.json();
-  if (notifications.count > 10) {
-    notifCounterEl.innerHTML = "10+";
+  if (notifications.count > 9) {
+    notifCounterEl.innerHTML = "9+";
   } else {
     notifCounterEl.innerHTML = notifications.count;
   }
   notifModalEl.innerHTML = "";
-  notifications.notifications.forEach((notification, index) => {
+  if (notifications.count) {
+    notifications.notifications.forEach((notification, index) => {
+      notifModalEl.insertAdjacentHTML(
+        "beforeend",
+        `
+        <div class="flex-between py-2.5">
+          <span>${index + 1}</span>
+          <span onclick="detailsNotification('${
+            notification.id
+          }')" class="truncate w-[190px]">${notification.subject}</span>
+          <span onclick="seenNotification('${notification.id}')">دیدم</span>
+        </div>
+      `
+      );
+    });
+  } else {
     notifModalEl.insertAdjacentHTML(
       "beforeend",
       `
-      <div class="flex-between">
-        <span>${index + 1}</span>
-        <span onclick="detailsNotification('${
-          notification.id
-        }')" class="truncate w-[190px]">${notification.subject}</span>
-        <span onclick="seenNotification('${notification.id}')">دیدم</span>
-      </div>
+      <div">در حال حاضر هیچ اعلانی وجود ندارد.</div>
     `
     );
-  });
+  }
   console.log(notifications);
 };
 
