@@ -1,4 +1,4 @@
-import { getToken } from "../../../../scripts/funcs/utils.js";
+import { getToken, showSwal } from "../../../../scripts/funcs/utils.js";
 import { getMe } from "../funcs/login.js";
 
 const fileInputElem = document.getElementById("file-input");
@@ -65,6 +65,23 @@ const updateAdminInfos = async () => {
   const result = await response.json();
   console.log(response);
   console.log(result);
+  if (response.status === 200) {
+    showSwal(
+      "اطلاعات شما با موفقیت بروزرسانی گردید.",
+      "success",
+      "متشکرم",
+      () => {
+        location.reload();
+      }
+    );
+  } else {
+    showSwal(
+      "متاسفانه خطایی رخ داده است لطفا مجددا تلاش فرمایید.",
+      "error",
+      "متوجه شدم",
+      () => {}
+    );
+  }
 };
 
 export { updateAdminInfos, prepareUploadPhoto, getAndShowAdminInfos };

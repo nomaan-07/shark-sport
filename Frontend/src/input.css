@@ -380,7 +380,7 @@
 
 
     .panel__form .panel__option {
-        @apply px-2.5 py-4 sm:hover:bg-neutral-200 sm:hover:dark:bg-neutral-600 transition-colors cursor-pointer;
+        @apply px-2.5 py-4 sm:hover:bg-neutral-200 sm:hover:dark:bg-neutral-600 transition-colors flex-between cursor-pointer;
     }
 
     .panel__form .panel__option:first-child {

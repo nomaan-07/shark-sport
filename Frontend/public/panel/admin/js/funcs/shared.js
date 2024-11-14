@@ -1,8 +1,11 @@
-import { getToken } from "../../../../scripts/funcs/utils.js";
+import { getToken, showSwal } from "../../../../scripts/funcs/utils.js";
+
+const notifModalEl = document.getElementById("notif-modal");
 
 const getNotifications = async () => {
+  const notifCounterEl = document.getElementById("notif-counter");
   const response = await fetch(
-    `http://localhost:8000/api/notification/admin/get/list?limit=100&skip=0&index=false`,
+    `http://localhost:8000/api/notification/list?read=false&index=false&limit=1000&skip=0`,
     {
       method: "GET",
       headers: {
@@ -10,17 +13,74 @@ const getNotifications = async () => {
       },
     }
   );
-  const message = await response.json();
-  console.log(response);
-  console.log(message);
+  const notifications = await response.json();
+  if (notifications.count > 10) {
+    notifCounterEl.innerHTML = "10+";
+  } else {
+    notifCounterEl.innerHTML = notifications.count;
+  }
+  notifModalEl.innerHTML = "";
+  notifications.notifications.forEach((notification, index) => {
+    notifModalEl.insertAdjacentHTML(
+      "beforeend",
+      `
+      <div class="flex-between">
+        <span>${index + 1}</span>
+        <span onclick="detailsNotification('${
+          notification.id
+        }')" class="truncate w-[190px]">${notification.subject}</span>
+        <span onclick="seenNotification('${notification.id}')">دیدم</span>
+      </div>
+    `
+    );
+  });
+  console.log(notifications);
+};
+
+const detailsNotification = async (notificationID) => {
+  const response = await fetch(
+    `http://localhost:8000/api/notificationall_users/get/${notificationID}`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${getToken()}`,
+      },
+    }
+  );
+  const detailNotification = await response.json();
+
+  showSwal(detailNotification.subject, undefined, "مشاهده کردم", () => {
+    getNotifications();
+  });
+
+  console.log(detailNotification);
+};
+
+const seenNotification = async (notificationID) => {
+  const response = await fetch(
+    `http://localhost:8000/api/notificationall_users/get/${notificationID}`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${getToken()}`,
+      },
+    }
+  );
+  getNotifications();
 };
 
 const showNotifications = () => {
-  console.log("show");
+  notifModalEl.classList.remove("hidden");
 };
 
 const hideNotifications = () => {
-  console.log("hide");
+  notifModalEl.classList.add("hidden");
 };
 
-export { getNotifications, showNotifications, hideNotifications };
+export {
+  getNotifications,
+  showNotifications,
+  hideNotifications,
+  detailsNotification,
+  seenNotification,
+};

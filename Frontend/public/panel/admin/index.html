@@ -398,11 +398,20 @@
                             </svg>
                         </div>
                         <!-- Notification Btn -->
-                        <div id="notification-btn" class="p-2 bg-rose-100 rounded-full sm:cursor-pointer sm:hover:bg-rose-200 transition-color relative">
+                        <div id="notification-btn" class="p-2.5 bg-rose-100 rounded-full sm:cursor-pointer sm:hover:bg-rose-200 transition-color relative">
                             <svg class="size-5">
                                 <use href="#notification"></use>
                             </svg>
-                            <div class="absolute -top-1 right-px min-w-3 h-3 p-0.5 flex items-center justify-center bg-rose-500 text-xs rounded-full text-rose-50">0</div>
+                            <div id="notif-counter" class="absolute -top-1 right-px min-w-3 h-3 p-0.5 flex items-center justify-center bg-rose-500 text-xs rounded-full text-rose-50">0</div>
+                            <!-- Notification Messeges -->
+                            <div id="notif-modal" class="hidden absolute p-2.5 w-[300px] max-h-[220px] -left-[50px] ring-0 top-[45px] overflow-y-auto dark:text-neutral-950 text-neutral-50 dark:bg-neutral-50 bg-neutral-800 transition-all rounded-xl">
+                                <!-- Loaded From Js -->
+                                <!-- <div class="flex-between">
+                                    <span>1</span>
+                                    <span>متن تستی جهت نمایش</span>
+                                    <span>متوجه شدم</span>
+                                </div> -->
+                            </div>
                         </div>
                         <!-- Search Btn -->
                         <div class="p-2 bg-rose-100 rounded-full sm:cursor-pointer sm:hover:bg-rose-200 transition-color">

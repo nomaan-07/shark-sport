@@ -103,16 +103,19 @@ const prepareUpdateTag = async (tagID) => {
 
 const updateTag = async () => {
   console.log(mainTagID);
-  const response = await fetch(`http://localhost:8000/${mainTagID}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${getToken()}`,
-    },
-    body: JSON.stringify({
-      name: nameEditInputEl.value.trim(),
-    }),
-  });
+  const response = await fetch(
+    `http://localhost:8000/api/admin/content/tag/update/${mainTagID}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${getToken()}`,
+      },
+      body: JSON.stringify({
+        name: nameEditInputEl.value.trim(),
+      }),
+    }
+  );
   const message = await response.json();
   console.log(response);
   console.log(message);
@@ -122,9 +125,14 @@ const updateTag = async () => {
       "success",
       "متشکرم",
       () => {
-        // getAndShowAllTags().then(() => {
-        //   updatePagination();
-        // });
+        getAndShowAllTags(10, currentPage).then(() => {
+          updatePagination(10, currentPage);
+        });
+        updateModalElem.classList.add("hidden");
+        scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       }
     );
   } else {
@@ -146,12 +154,15 @@ const removeTag = async (tagID) => {
     "خیر",
     async (result) => {
       if (result.isConfirmed) {
-        const response = await fetch(`http://localhost:8000//${tagID}`, {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${getToken()}`,
-          },
-        });
+        const response = await fetch(
+          `http://localhost:8000/api/admin/content/tag/delete?tag_id=${tagID}`,
+          {
+            method: "DELETE",
+            headers: {
+              Authorization: `Bearer ${getToken()}`,
+            },
+          }
+        );
         const message = await response.json();
         console.log(response);
         console.log(message);

@@ -39,7 +39,9 @@ const createDiscount = async () => {
       "تخفیف مورد نظر با موفقیت اضافه گردید.",
       "success",
       "متشکرم",
-      () => {}
+      () => {
+        clearInputsValue();
+      }
     );
   } else {
     showSwal(
@@ -49,6 +51,13 @@ const createDiscount = async () => {
       () => {}
     );
   }
+};
+
+const clearInputsValue = () => {
+  nameInputElem.value = "";
+  discountCodeInputElem.value = "";
+  discountRateInputElem.value = "";
+  expiresAtInputElem.value = "";
 };
 
 export { prepareFlatpickr, createDiscount };

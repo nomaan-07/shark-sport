@@ -10,14 +10,19 @@ import {
   getNotifications,
   showNotifications,
   hideNotifications,
+  detailsNotification,
+  seenNotification,
 } from "../funcs/shared.js";
 
+window.detailsNotification = detailsNotification;
+window.seenNotification = seenNotification;
 window.addEventListener("load", () => {
   const adminNameElem = document.getElementById("admin-name");
   const adminUsernameElem = document.getElementById("admin-username");
   const adminImageProfileElem = document.getElementById("admin-image-profile");
   const logoutBtnElem = document.getElementById("logout-btn");
   const notificationBtn = document.querySelector("#notification-btn");
+  const notifModalEl = document.getElementById("notif-modal");
   const sharkSportSiteEl = document.getElementById("shark-sport-site");
   getMe().then((adminInfo) => {
     console.log(adminInfo);
@@ -51,17 +56,20 @@ window.addEventListener("load", () => {
   });
 
   sharkSportSiteEl.addEventListener("click", () => {
-    showToast("top-end" , 3000 , "error" , "برای ورود به سایت از سمت پنل ادمین نمی توانید وارد شوید.")
-  })
-
+    showToast(
+      "top-end",
+      3000,
+      "error",
+      "برای ورود به سایت از سمت پنل ادمین نمی توانید وارد شوید."
+    );
+  });
 
   getNotifications();
 
-  notificationBtn.addEventListener("mouseenter", () => {
-    showNotifications();
-  });
-
-  notificationBtn.addEventListener("mouseleave", () => {
-    hideNotifications();
-  });
+  // Event For Desktop
+  notificationBtn.addEventListener("mouseenter", () => showNotifications());
+  notifModalEl.addEventListener("mouseleave", () => hideNotifications());
+  // Event For Mobile
+  notificationBtn.addEventListener("touchstart", () => showNotifications());
+  notifModalEl.addEventListener("touchend", () => hideNotifications());
 });

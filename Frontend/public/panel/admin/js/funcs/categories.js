@@ -3,15 +3,14 @@ import {
   getToken,
   getUrlParam,
   showSwal,
+  showToast,
 } from "../../../../scripts/funcs/utils.js";
 
 const currentPage = getUrlParam("page") || 1;
 const categoryImageElem = document.getElementById("profile-image");
 const fileInputElem = document.getElementById("file-input");
 const categoryNameEdit = document.getElementById("category-name-edit");
-const categoryDescriptionEdit = document.getElementById(
-  "category-description-edit"
-);
+const categoryLinkEdit = document.getElementById("category-link");
 const updateModalElem = document.getElementById("update-modal");
 const modalCloseBtn = document.getElementById("modal-close-btn");
 // Handle Hide Modal Editor
@@ -193,7 +192,10 @@ const prepareUpdateCategory = async (categoryID) => {
   const category = await response.json();
   categoryImageElem.src = category.image_url;
   categoryNameEdit.value = category.name;
-  categoryDescriptionEdit.innerHTML = category.description;
+  categoryLinkEdit.value = category.description;
+  categoryLinkEdit.addEventListener("click", () => {
+    showToast("top-end", 3000, "error", "این قسمت قابل تغییر نمی باشد.");
+  });
 };
 
 const updateCategory = async () => {
@@ -201,7 +203,7 @@ const updateCategory = async () => {
   const formData = new FormData();
   formData.append("image", categoryCover);
   formData.append("name", categoryNameEdit.value.trim());
-  formData.append("description", categoryDescriptionEdit.innerHTML.trim());
+  formData.append("description", categoryLinkEdit.value.trim());
 
   const response = await fetch(
     `http://localhost:8000/api/category/update/${mainCategoryID}`,
@@ -213,6 +215,9 @@ const updateCategory = async () => {
       body: formData,
     }
   );
+  const data = await response.json();
+  console.log(response);
+  console.log(data);
   if (response.ok) {
     showSwal(
       "دسته بندی مورد نظر با موفقیت بروزرسانی گردید.",

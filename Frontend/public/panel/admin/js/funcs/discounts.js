@@ -6,14 +6,16 @@ import {
   getUrlParam,
   openModalEditor,
 } from "../../../../scripts/funcs/utils.js";
-
-const currentPage = getUrlParam("page") || 1;
 const nameEditInputEl = document.getElementById("name-edit");
 const discountCodeEditInputEl = document.getElementById("discount-code-edit");
 const discountRateEditEl = document.getElementById("discount-rate-edit");
 const expiresEditEl = document.getElementById("expires_at-edit");
 const updateModalElem = document.getElementById("update-modal");
 let mainDiscountID = null;
+
+const currentPage = getUrlParam("page") || 1;
+let urlIsExpired = getUrlParam("isExpired");
+let isExpired = !urlIsExpired ? false : true;
 
 const getAndShowAllDiscounts = async (itemsPerPage, currentPage, isExpired) => {
   const discountsWrapperElem = document.getElementById("discounts-list");
@@ -109,7 +111,6 @@ const updatePagination = async (itemsPerPage, currentPage, isExpired) => {
   });
 };
 
-// InComplete =>
 const removeDiscount = async (discountID) => {
   askSwal(
     "آیا مطمئن به حذف تخفیف مورد نظر خود هستید؟",
@@ -119,12 +120,15 @@ const removeDiscount = async (discountID) => {
     "خیر",
     async (result) => {
       if (result.isConfirmed) {
-        const response = await fetch(`http://localhost:8000//${discountID}`, {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${getToken()}`,
-          },
-        });
+        const response = await fetch(
+          `http://localhost:8000/api/admin/content/discount/delete?discount_id=${discountID}`,
+          {
+            method: "DELETE",
+            headers: {
+              Authorization: `Bearer ${getToken()}`,
+            },
+          }
+        );
         const mess = await response.json();
         console.log(response);
         console.log(mess);
@@ -134,9 +138,9 @@ const removeDiscount = async (discountID) => {
             "success",
             "متشکرم",
             () => {
-              // getAndShowAllDiscounts().then(() => {
-              //   updatePagination()
-              // });
+              getAndShowAllDiscounts(10, currentPage, isExpired).then(() => {
+                updatePagination(10, currentPage, isExpired);
+              });
             }
           );
         } else {
@@ -163,7 +167,7 @@ const prepareUpdateDiscount = async (discountID) => {
   // Save Discount ID
   mainDiscountID = discountID;
   ////// Scroll to show modal visibility
-  openModalEditor(updateModalElem)
+  openModalEditor(updateModalElem);
   const response = await fetch(
     `http://localhost:8000/api/discount/read_discount?discount_id=${discountID}`
   );
@@ -175,7 +179,6 @@ const prepareUpdateDiscount = async (discountID) => {
   expiresEditEl.value = discount.expires_at.slice(0, 10);
 };
 
-// InComplete =>
 const updateDiscount = async () => {
   console.log(mainDiscountID);
   const updateDiscountObj = {
@@ -185,7 +188,7 @@ const updateDiscount = async () => {
     expires_at: expiresEditEl.value.trim(),
   };
   const response = await fetch(
-    `http://localhost:8000//?discount_id=${mainDiscountID}`,
+    `http://localhost:8000/api/admin/content/discount/update/${mainDiscountID}`,
     {
       method: "PUT",
       headers: {
@@ -204,9 +207,14 @@ const updateDiscount = async () => {
       "success",
       "متشکرم",
       () => {
-        // getAndShowAllDiscounts().then(() => {
-        //   updatePagination()
-        // });
+        getAndShowAllDiscounts(10, currentPage, isExpired).then(() => {
+          updatePagination(10, currentPage, isExpired);
+        });
+        updateModalElem.classList.add("hidden");
+        scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       }
     );
   } else {
@@ -218,16 +226,6 @@ const updateDiscount = async () => {
     );
   }
 };
-
-// Handle Hide Modal Editor
-// modalCloseBtn.addEventListener("click", () => {
-//   updateModalElem.classList.add("hidden");
-//   scrollTo({
-//     top: 0,
-//     behavior: "smooth",
-//   });
-// });
-//////////////////////////
 
 export {
   getAndShowAllDiscounts,
