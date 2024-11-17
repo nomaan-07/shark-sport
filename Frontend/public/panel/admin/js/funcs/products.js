@@ -1,14 +1,17 @@
+import { getUrlParam } from "../../../../scripts/funcs/utils.js";
 import {
   getToken,
   askSwal,
   showSwal,
 } from "../../../../scripts/funcs/utils.js";
 
-// InComplete
-const getAndShowAllProducts = async () => {
+const currentPage = getUrlParam("page") || 1;
+
+const getAndShowAllProducts = async (itemsPerPage, currentPage) => {
+  const skip = (currentPage - 1) * itemsPerPage;
   const productListWrapperElem = document.getElementById("product-list");
   const response = await fetch(
-    `http://localhost:8000/api/product/list_products?show_sizes=true&show_specifications=true&show_tags=true&show_deleted=true&limit=1000&skip=0&desc=true`,
+    `http://localhost:8000/api/product/list_products?show_sizes=false&show_specifications=false&show_tags=true&show_deleted=false&limit=${itemsPerPage}&skip=${skip}&desc=false`,
     {
       method: "GET",
       headers: {
@@ -17,9 +20,10 @@ const getAndShowAllProducts = async () => {
     }
   );
   const products = await response.json();
+  console.log(products);
   productListWrapperElem.innerHTML = "";
-  if (products.lenght) {
-    products.forEach((product) => {
+  if (products.length) {
+    products.forEach((product, index) => {
       productListWrapperElem.insertAdjacentHTML(
         "beforeend",
         `
@@ -28,37 +32,37 @@ const getAndShowAllProducts = async () => {
                         <!-- Right: Checkbox | Image | Name | Price | Category | Tags | Seller -->
                         <div class="flex items-center gap-y-2 gap-x-4 flex-wrap">
                             <div class="flex items-center gap-x-4 w-full sm:w-auto md:w-full lg:w-auto">
-                                <!-- Checkbox -->
-                                <label class="relative inline-block">
-                                    <input type="checkbox" class="peer absolute appearance-none w-full h-full bg-transparent cursor-pointer">
-                                    <span class="size-6 flex justify-center items-center border-2 border-rose-500 peer-checked:bg-rose-500 rounded-md transition-colors"></span>
-                                </label>
+                                <label class="relative inline-block">${
+                                  index + 1
+                                }</label>
                                 <!-- Image -->
                                 <div class="size-[72px] rounded-xl overflow-hidden">
-                                    <img class="size-full" src="../images/shoe-1.jpg" alt="کفش">
+                                    <img class="size-full" src="${
+                                      product.images[0]
+                                    }" alt="${product.name}">
                                 </div>
                             </div>
 
                             <!-- Name -->
-                            <span>کفش استوک فوتبالی</span>
+                            <span>${product.name}</span>
 
                             <!-- Price -->
                             <div class="flex items-center gap-0.5">
                                 <div class="text-end">
-                                    <div class="text-rose-500">2,000,000</div>
-                                    <div class="text-sm text-rose-300 line-through font-vazir">5,000,000</div>
+                                    <div class="text-rose-500">${product.price_after_discount.toLocaleString()}</div>
+                                    <div class="text-sm text-rose-300 line-through font-vazir">${product.original_price.toLocaleString()}</div>
                                 </div>
                                 <span class="text-sm text-rose-500">تومان</span>
                             </div>
 
-                            <!-- Category -->
-                            <span>فوتبالی</span>
+                            <!-- Brand -->
+                            <span>${product.brand}</span>
 
                             <!-- Tags -->
-                            <span>کفش , فوتبال</span>
+                            <span>${product.tags}</span>
 
-                            <!-- Seller -->
-                            <span>مدیر سایت</span>
+                            <!-- Warranty -->
+                            <span>${product.warranty}</span>
 
                         </div>
 
@@ -70,7 +74,9 @@ const getAndShowAllProducts = async () => {
                             </svg>
 
                             <!-- Delete Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
+                            <svg onclick="removeProduct('${
+                              product.id
+                            }')" class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
                                 <use href="#trash"></use>
                             </svg>
                         </div>
@@ -89,6 +95,35 @@ const getAndShowAllProducts = async () => {
     );
   }
   console.log(products);
+};
+
+const updatePagination = async (itemsPerPage, currentPage) => {
+  const response = await fetch(
+    `http://localhost:8000/api/product/list_products?show_sizes=false&show_specifications=false&show_tags=false&show_deleted=false&limit=1000&skip=0&desc=false`
+  );
+  const categories = await response.json();
+  const totalCategories = categories.length;
+  const paginatedCount = Math.ceil(totalCategories / itemsPerPage);
+  const paginationWrapperElem = document.getElementById("pagination-wrapper");
+  paginationWrapperElem.innerHTML = "";
+
+  for (let i = 1; i <= paginatedCount; i++) {
+    paginationWrapperElem.insertAdjacentHTML(
+      "beforeend",
+
+      `
+      ${
+        Number(currentPage) === i
+          ? `
+        <div onclick="addParamToURL('page' , ${i})" class="panel__pagination panel__pagination--active">${i}</div>
+      `
+          : `
+        <div onclick="addParamToURL('page' , ${i})" class="panel__pagination">${i}</div>
+       `
+      }
+      `
+    );
+  }
 };
 
 const removeProduct = async (productId) => {
@@ -116,7 +151,9 @@ const removeProduct = async (productId) => {
             "محصول مورد نظر با موفقیت حذف گردید.",
             "success",
             "متشکرم",
-            () => {}
+            () => {
+              getAndShowAllProducts(10, currentPage);
+            }
           );
         } else {
           showSwal(
@@ -124,7 +161,7 @@ const removeProduct = async (productId) => {
             "error",
             "متوجه شدم",
             () => {
-              getAndShowAllProducts(2, 6);
+              getAndShowAllProducts(10, currentPage);
             }
           );
         }
@@ -133,4 +170,4 @@ const removeProduct = async (productId) => {
   );
 };
 
-export { getAndShowAllProducts, removeProduct };
+export { getAndShowAllProducts, updatePagination, removeProduct };

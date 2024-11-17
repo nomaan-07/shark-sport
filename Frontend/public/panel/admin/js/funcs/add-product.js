@@ -154,7 +154,11 @@ const getCategories = async (type) => {
 
 const addNewProduct = async () => {
   const formData = new FormData();
-  formData.append("images[]", imageSources);
+  imageSources.forEach((imageSource) => {
+    if (imageSource) {
+      formData.append("images", imageSource);
+    }
+  });
   formData.append("name", nameInputElem.value.trim());
   formData.append("description", descriptionInputElem.value.trim());
   formData.append("survey", surveyInputElem.value.trim());
@@ -176,6 +180,11 @@ const addNewProduct = async () => {
     specificationDescriptionsInputElem.value.trim()
   );
 
+  console.log(`متحویات فرم دیتا : `);
+  for (const [key, value] of formData.entries()) {
+    console.log(key, value);
+  }
+
   const response = await fetch(
     `http://localhost:8000/api/admin/content/create_product`,
     {
@@ -189,11 +198,18 @@ const addNewProduct = async () => {
   const mess = await response.json();
   console.log(response);
   console.log(mess);
-  if (response.ok) {
+  if (response.status === 201) {
     showSwal(
       "محصول مورد نظر با موفقیت اضافه گردید.",
       "success",
       "متشکرم",
+      () => {}
+    );
+  } else if (response.status === 409) {
+    showSwal(
+      "محصول انتخابی قبلا با این عنوان ثبت شده است.",
+      "error",
+      "متوجه شدم",
       () => {}
     );
   } else {

@@ -1,6 +1,15 @@
-import { getAndShowAllProducts, removeProduct } from "./funcs/products.js";
+import { getUrlParam } from "../../../scripts/funcs/utils.js";
+import {
+  getAndShowAllProducts,
+  removeProduct,
+  updatePagination,
+} from "./funcs/products.js";
 
 window.removeProduct = removeProduct;
 window.addEventListener("load", () => {
-  getAndShowAllProducts();
+  const itemsPerPage = 10;
+  let currentPage = getUrlParam("page") || 1;
+  getAndShowAllProducts(itemsPerPage, currentPage).then(() => {
+    updatePagination(itemsPerPage, currentPage);
+  });
 });
