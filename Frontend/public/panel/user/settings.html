@@ -11,11 +11,11 @@
   <body class="bg-neutral-200 dark:bg-neutral-600 font-vazir">
     <!-- SVGs -->
      <svg class="hidden"> 
-        <svg id="add-circle" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="add-circle" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z" fill="currentColor"/>
             <path d="M16 12.75H8C7.59 12.75 7.25 12.41 7.25 12C7.25 11.59 7.59 11.25 8 11.25H16C16.41 11.25 16.75 11.59 16.75 12C16.75 12.41 16.41 12.75 16 12.75Z" fill="currentColor"/>
             <path d="M12 16.75C11.59 16.75 11.25 16.41 11.25 16V8C11.25 7.59 11.59 7.25 12 7.25C12.41 7.25 12.75 7.59 12.75 8V16C12.75 16.41 12.41 16.75 12 16.75Z" fill="currentColor"/>
-        </svg>                      
+        </symbol>                      
         <symbol id="arrow-left" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10.4851 3.98999L8.07755 6.39749L6.60005 7.86749C5.97755 8.48999 5.97755 9.50249 6.60005 10.125L10.4851 14.01C10.9951 14.52 11.8651 14.1525 11.8651 13.44V9.23249V4.55999C11.8651 3.83999 10.9951 3.47999 10.4851 3.98999Z" fill="currentColor"/>
         </symbol>          
@@ -85,7 +85,11 @@
             <path d="M10.4166 7.55208C9.98954 7.55208 9.63538 7.19792 9.63538 6.77083V4.16667C9.63538 3.73958 9.98954 3.38542 10.4166 3.38542C10.8437 3.38542 11.1979 3.73958 11.1979 4.16667V6.77083C11.1979 7.19792 10.8437 7.55208 10.4166 7.55208Z" fill="currentColor"/>
             <path d="M10.4166 15.1875C9.98954 15.1875 9.63538 14.8333 9.63538 14.4062V10.5833C9.63538 10.1562 9.98954 9.80208 10.4166 9.80208C10.8437 9.80208 11.1979 10.1562 11.1979 10.5833V14.4062C11.1979 14.8437 10.8437 15.1875 10.4166 15.1875Z" fill="currentColor"/>
             <path d="M10.4166 21.6146C9.98954 21.6146 9.63538 21.2604 9.63538 20.8333V18.2292C9.63538 17.8021 9.98954 17.4479 10.4166 17.4479C10.8437 17.4479 11.1979 17.8021 11.1979 18.2292V20.8333C11.1979 21.2604 10.8437 21.6146 10.4166 21.6146Z" fill="currentColor"/>
-        </symbol>                        
+        </symbol>    
+        <symbol id="address" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+        </symbol>                     
      </svg>
 
      <div class="container">
@@ -211,6 +215,32 @@
                         </a>
                     </li>
                     <li>
+                        <a href="address.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
+                            <div class="flex gap-2">
+                                <svg class="size-6">
+                                    <use href="#convertshape"></use>
+                                </svg>
+                                <span>آدرس</span>
+                            </div>
+                            <svg class="size-[18px]">
+                                <use href="#arrow-left"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="address.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
+                            <div class="flex gap-2">
+                                <svg class="size-6">
+                                    <use href="#address"></use>
+                                </svg>
+                                <span>آدرس</span>
+                            </div>
+                            <svg class="size-[18px]">
+                                <use href="#arrow-left"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
                         <a href="./settings.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full panel-sidebar-menu__item--active">
                             <div class="flex gap-2">
                                 <svg class="size-6">
@@ -276,12 +306,12 @@
 
                 <!-- Image -->
                 <div class="relative w-fit mx-auto">
-                    <img class="size-[184px] object-cover rounded-full" src="../images/avatar-2.jpg" alt="تصویر پروفایل">
+                    <img id="profile-image" class="size-[184px] object-cover rounded-full" src="../images/avatar-2.jpg" alt="تصویر پروفایل">
                     <!-- Upload Btn -->
                     <svg class="image-upload-btn absolute -bottom-2.5 right-7 size-6 text-rose-500 sm:hover:text-rose-700 sm:cursor-pointer transition-colors">
                         <use href="#add-circle"></use>
                     </svg>
-                    <input class="image-upload-input hidden" type="file" accept="image/*">  
+                    <input id="file-input" class="image-upload-input hidden" type="file" accept="image/*">  
                 </div>
 
                 <!-- Form: Name & Last Name | Username & Email | Password & Confirm Password -->
@@ -289,32 +319,32 @@
                     <!-- Name & Last Name -->
                     <div class="flex flex-col sm:flex-row items-center gap-4">
                         <!-- Name Input -->
-                        <input type="text" placeholder="نام...">
+                        <input id="name" type="text" placeholder="نام">
 
                         <!-- Last Name Input -->
-                        <input type="text" placeholder="نام خانوادگی...">
+                        <input id="lastname" type="text" placeholder="نام خانوادگی">
                     </div>
 
                     <!-- Username & Email -->
                     <div class="flex flex-col sm:flex-row items-center gap-4">
                         <!-- Username Input -->
-                        <input type="text" placeholder="نام کاربری...">
+                        <input id="username" type="text" placeholder="نام کاربری">
 
                         <!-- Email Name Input -->
-                        <input type="email" placeholder="ایمیل...">
+                        <input id="email" type="email" placeholder="ایمیل">
                     </div>
 
                     <!-- Password & Confirm Password -->
                     <div class="flex flex-col sm:flex-row items-center gap-4">
-                        <!-- Password Input -->
-                        <input type="password" placeholder="رمز عبور...">
-
                         <!-- Confirm Password Input -->
-                        <input type="password" placeholder="تکرار رمز عبور...">
+                        <input id="phone" type="text" placeholder="شماره تماس">
+                        
+                        <!-- Password Input -->
+                        <input id="password" type="password" placeholder="رمز عبور">
                     </div>
 
                     <!-- Register Btn -->
-                    <button>ذخیره تغییرات</button>
+                    <button id="update-user-btn">ذخیره تغییرات</button>
 
                 </form>
 
@@ -327,6 +357,6 @@
      <script src="../../vendor/SweetAlert2/sweetalert2.js"></script>
      <script src="../js/shared/app.js" type="module"></script>
      <script src="shared/user-infos.js" type="module"></script>
-     <script src="./js/settings.js"></script>
+     <script src="./js/settings.js" type="module"></script>
   </body>
 </html>

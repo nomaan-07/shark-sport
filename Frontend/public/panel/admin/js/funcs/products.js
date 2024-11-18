@@ -39,7 +39,7 @@ const getAndShowAllProducts = async (itemsPerPage, currentPage) => {
                                 <div class="size-[72px] rounded-xl overflow-hidden">
                                     <img class="size-full" src="${
                                       product.images[0]
-                                    }" alt="${product.name}">
+                                    }" alt="${product.name}" loading="lazy">
                                 </div>
                             </div>
 
@@ -68,11 +68,6 @@ const getAndShowAllProducts = async (itemsPerPage, currentPage) => {
 
                         <!-- Buttons: Edit Btn | Delete Btn-->
                         <div class="flex items-center gap-2 justify-end grow">
-                            <!-- Edit Btn -->
-                            <svg class="size-6 sm:cursor-pointer text-rose-500 sm:hover:text-rose-700 transition-colors">
-                                <use href="#edit"></use>
-                            </svg>
-
                             <!-- Delete Btn -->
                             <svg onclick="removeProduct('${
                               product.id

@@ -14,6 +14,7 @@ const getNotifications = async () => {
     }
   );
   const notifications = await response.json();
+  console.log(notifications)
   if (notifications.count > 9) {
     notifCounterEl.innerHTML = "9+";
   } else {
@@ -58,9 +59,11 @@ const detailsNotification = async (notificationID) => {
   );
   const detailNotification = await response.json();
 
-  showSwal(detailNotification.subject, undefined, "مشاهده کردم", () => {
-    getNotifications();
-  });
+  Swal.fire({
+    title: detailNotification.subject,
+    text: detailNotification.message,
+    confirmButtonText: "مشاهده کردم",
+  }).then((result) => getNotifications());
 
   console.log(detailNotification);
 };

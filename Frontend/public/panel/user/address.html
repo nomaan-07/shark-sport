@@ -3,20 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>پنل کاربر | علاقه مندی</title>
+    <title>پنل کاربر | تنظیمات </title>
     <link rel="stylesheet" href="../../styles/app.css" />
         <!-- Page Icon -->
         <link rel="icon" href="../../images/fav-icon.png" type="image/png">
   </head>
   <body class="bg-neutral-200 dark:bg-neutral-600 font-vazir">
     <!-- SVGs -->
-     <svg class="hidden">           
+     <svg class="hidden"> 
+        <symbol id="add-circle" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z" fill="currentColor"/>
+            <path d="M16 12.75H8C7.59 12.75 7.25 12.41 7.25 12C7.25 11.59 7.59 11.25 8 11.25H16C16.41 11.25 16.75 11.59 16.75 12C16.75 12.41 16.41 12.75 16 12.75Z" fill="currentColor"/>
+            <path d="M12 16.75C11.59 16.75 11.25 16.41 11.25 16V8C11.25 7.59 11.59 7.25 12 7.25C12.41 7.25 12.75 7.59 12.75 8V16C12.75 16.41 12.41 16.75 12 16.75Z" fill="currentColor"/>
+        </symbol>                      
         <symbol id="arrow-left" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10.4851 3.98999L8.07755 6.39749L6.60005 7.86749C5.97755 8.48999 5.97755 9.50249 6.60005 10.125L10.4851 14.01C10.9951 14.52 11.8651 14.1525 11.8651 13.44V9.23249V4.55999C11.8651 3.83999 10.9951 3.47999 10.4851 3.98999Z" fill="currentColor"/>
-        </symbol>
-        <symbol id="arrow-left-outline" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15 20.67C14.81 20.67 14.62 20.6 14.47 20.45L7.95003 13.93C6.89003 12.87 6.89003 11.13 7.95003 10.07L14.47 3.55C14.76 3.26 15.24 3.26 15.53 3.55C15.82 3.84 15.82 4.32 15.53 4.61L9.01003 11.13C8.53003 11.61 8.53003 12.39 9.01003 12.87L15.53 19.39C15.82 19.68 15.82 20.16 15.53 20.45C15.38 20.59 15.19 20.67 15 20.67Z" fill="currentColor"/>
-        </symbol>            
+        </symbol>          
         <symbol id="box" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12.5 13.8542C12.3646 13.8542 12.2292 13.8229 12.1042 13.75L2.90626 8.42708C2.54167 8.20833 2.40626 7.72917 2.62501 7.35417C2.84376 6.97917 3.32292 6.85417 3.69792 7.07292L12.5 12.1667L21.25 7.10417C21.625 6.88542 22.1042 7.02083 22.3229 7.38542C22.5417 7.76042 22.4063 8.23958 22.0417 8.45833L12.9063 13.75C12.7708 13.8125 12.6354 13.8542 12.5 13.8542Z" fill="currentColor"/>
             <path d="M12.5 23.2917C12.0729 23.2917 11.7188 22.9375 11.7188 22.5104V13.0625C11.7188 12.6354 12.0729 12.2812 12.5 12.2812C12.9271 12.2812 13.2812 12.6354 13.2812 13.0625V22.5104C13.2812 22.9375 12.9271 23.2917 12.5 23.2917Z" fill="currentColor"/>
@@ -35,7 +37,7 @@
         </symbol>          
         <symbol id="dashed-line" viewBox="0 0 288 1" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line x1="4.37114e-08" y1="0.5" x2="288" y2="0.500025" stroke="currentColor" stroke-dasharray="10 10"/>
-        </symbol>                   
+        </symbol>                 
         <symbol id="home-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.79 22.75H6.21C3.47 22.75 1.25 20.52 1.25 17.78V10.37C1.25 9.00997 2.09 7.29997 3.17 6.45997L8.56 2.25997C10.18 0.999974 12.77 0.939974 14.45 2.11997L20.63 6.44997C21.82 7.27997 22.75 9.05997 22.75 10.51V17.79C22.75 20.52 20.53 22.75 17.79 22.75ZM9.48 3.43997L4.09 7.63997C3.38 8.19997 2.75 9.46997 2.75 10.37V17.78C2.75 19.69 4.3 21.25 6.21 21.25H17.79C19.7 21.25 21.25 19.7 21.25 17.79V10.51C21.25 9.54997 20.56 8.21997 19.77 7.67997L13.59 3.34997C12.45 2.54997 10.57 2.58997 9.48 3.43997Z" fill="currentColor"/>
             <path d="M12 18.75C11.59 18.75 11.25 18.41 11.25 18V15C11.25 14.59 11.59 14.25 12 14.25C12.41 14.25 12.75 14.59 12.75 15V18C12.75 18.41 12.41 18.75 12 18.75Z" fill="currentColor"/>
@@ -44,15 +46,6 @@
             <path d="M3 7H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             <path d="M3 12H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             <path d="M3 17H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </symbol>
-        <symbol id="logout" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18.1667 16.0104C17.9688 16.0104 17.7709 15.9375 17.6146 15.7812C17.3125 15.4792 17.3125 14.9792 17.6146 14.6771L19.7292 12.5625L17.6146 10.4479C17.3125 10.1458 17.3125 9.64583 17.6146 9.34375C17.9167 9.04167 18.4167 9.04167 18.7188 9.34375L21.3855 12.0104C21.6875 12.3125 21.6875 12.8125 21.3855 13.1146L18.7188 15.7812C18.5625 15.9375 18.3646 16.0104 18.1667 16.0104Z" fill="currentColor"/>
-            <path d="M20.7604 13.3438H10.1666C9.73954 13.3438 9.38538 12.9896 9.38538 12.5625C9.38538 12.1354 9.73954 11.7812 10.1666 11.7812H20.7604C21.1875 11.7812 21.5416 12.1354 21.5416 12.5625C21.5416 12.9896 21.1875 13.3438 20.7604 13.3438Z" fill="currentColor"/>
-            <path d="M12.25 21.6146C6.88538 21.6146 3.13538 17.8646 3.13538 12.5C3.13538 7.13541 6.88538 3.38541 12.25 3.38541C12.677 3.38541 13.0312 3.73957 13.0312 4.16666C13.0312 4.59374 12.677 4.94791 12.25 4.94791C7.80204 4.94791 4.69788 8.05207 4.69788 12.5C4.69788 16.9479 7.80204 20.0521 12.25 20.0521C12.677 20.0521 13.0312 20.4062 13.0312 20.8333C13.0312 21.2604 12.677 21.6146 12.25 21.6146Z" fill="currentColor"/>
-        </symbol>            
-        <symbol id="lovely" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11.3751 20.5729C11.073 20.5729 10.7813 20.5312 10.5417 20.4375C6.9792 19.2187 1.30212 14.8645 1.30212 8.42705C1.30212 5.12496 3.96878 2.44789 7.25003 2.44789C8.82295 2.44789 10.2917 3.05204 11.3854 4.12496C12.4896 3.05204 13.948 2.44789 15.5209 2.44789C18.8021 2.44789 21.4688 5.12496 21.4688 8.42705C21.4688 8.87496 21.4375 9.33331 21.375 9.80206C21.3438 10.0416 21.198 10.2604 20.9896 10.3854C20.7813 10.5104 20.5209 10.5208 20.2917 10.4271C19.0105 9.87498 17.4167 10.2916 16.5834 11.4062C16.4376 11.6041 16.1563 11.7083 15.9584 11.7187C15.7084 11.7187 15.4792 11.6041 15.3334 11.4062C14.7396 10.6146 13.8334 10.1666 12.8542 10.1666C11.1563 10.1666 9.77088 11.5625 9.77088 13.2812C9.77088 15.9896 11.323 17.9166 12.6355 19.0729C12.823 19.2395 12.9167 19.4791 12.8959 19.7291C12.875 19.9791 12.7396 20.1979 12.5209 20.3333C12.4063 20.3958 12.3125 20.4375 12.2604 20.4479C11.9896 20.5312 11.6876 20.5729 11.3751 20.5729ZM7.25003 4.01039C4.83336 4.01039 2.86462 5.98955 2.86462 8.42705C2.86462 13.875 7.39588 17.2291 10 18.5208C9.01046 17.1979 8.19795 15.4479 8.19795 13.2708C8.19795 10.6875 10.2813 8.59372 12.8438 8.59372C14.0104 8.59372 15.1042 9.02082 15.948 9.78123C17 8.84373 18.5 8.41662 19.8959 8.67704C19.8959 8.5937 19.8959 8.51039 19.8959 8.43748C19.8959 5.99997 17.9271 4.02079 15.5105 4.02079C14.1251 4.02079 12.8438 4.66662 12 5.78121C11.8542 5.97912 11.6251 6.09372 11.3751 6.09372C11.1251 6.09372 10.8959 5.97912 10.75 5.78121C9.92713 4.65621 8.64586 4.01039 7.25003 4.01039Z" fill="currentColor"/>
-            <path d="M15.9584 22.5521C15.7189 22.5521 15.4689 22.5208 15.2709 22.4479C14.3751 22.1458 12.9272 21.4063 11.6043 20.2292C10.0626 18.8646 8.21887 16.5521 8.21887 13.2708C8.21887 10.6875 10.3022 8.59375 12.8647 8.59375C14.0314 8.59375 15.1251 9.02085 15.9688 9.78127C17.2813 8.60418 19.2814 8.27084 20.9272 8.98959C22.6147 9.73959 23.7085 11.4271 23.7085 13.2812C23.7085 18.2187 19.3751 21.5312 16.646 22.4583C16.4376 22.5208 16.198 22.5521 15.9584 22.5521ZM12.8543 10.1562C11.1564 10.1562 9.77095 11.5521 9.77095 13.2708C9.77095 15.9792 11.323 17.9062 12.6355 19.0625C13.7918 20.0833 15.0105 20.7188 15.771 20.9688C15.8543 21 16.0522 21 16.1251 20.9688C17.6876 20.4375 22.1355 17.8854 22.1355 13.2708C22.1355 12.0312 21.4064 10.9062 20.2918 10.4167C19.0314 9.86458 17.4168 10.2813 16.5835 11.3958C16.4376 11.5938 16.1564 11.6979 15.9584 11.7083C15.7084 11.7083 15.4793 11.5938 15.3334 11.3958C14.7397 10.6042 13.8334 10.1562 12.8543 10.1562Z" fill="currentColor"/>
         </symbol>
         <symbol id="messages-3" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.6042 19.8021C17.2813 19.8021 16.9584 19.7083 16.6771 19.5208L15.6771 18.8646C15.3959 18.6771 15.2605 18.323 15.3542 18C15.4271 17.7605 15.4584 17.4791 15.4584 17.1666V12.9271C15.4584 11.2291 14.3959 10.1667 12.698 10.1667H5.62503C5.50003 10.1667 5.38545 10.1771 5.27087 10.1875C5.05212 10.1979 4.8438 10.125 4.67713 9.97919C4.51046 9.83335 4.42712 9.62503 4.42712 9.40628V6.52085C4.42712 3.45834 6.57296 1.31251 9.63546 1.31251H18.4896C21.5521 1.31251 23.698 3.45834 23.698 6.52085V11.8333C23.698 13.3437 23.1875 14.6771 22.25 15.5937C21.5 16.3541 20.4584 16.8438 19.2709 16.9896V18.1458C19.2709 18.7708 18.9271 19.3334 18.3855 19.625C18.1355 19.7396 17.8646 19.8021 17.6042 19.8021ZM16.9792 17.8438L17.6563 18.2292C17.7188 18.1979 17.7188 18.1458 17.7188 18.1354V16.25C17.7188 15.8229 18.073 15.4687 18.5 15.4687C19.5938 15.4687 20.5209 15.125 21.1563 14.4792C21.8125 13.8334 22.1459 12.9166 22.1459 11.8229V6.51042C22.1459 4.29167 20.7188 2.86458 18.5 2.86458H9.64587C7.42712 2.86458 6.00003 4.29167 6.00003 6.51042V8.59375H12.7084C15.25 8.59375 17.0313 10.375 17.0313 12.9167V17.1562C17.0209 17.3958 17.0105 17.625 16.9792 17.8438Z" fill="currentColor"/>
@@ -66,6 +59,15 @@
             <path d="M11.5667 3.28334C11.5083 3.28334 11.45 3.275 11.3917 3.25834C11.15 3.19167 10.9167 3.14167 10.6917 3.10834C9.98333 3.01667 9.29999 3.06667 8.65833 3.25834C8.42499 3.33334 8.17499 3.25834 8.01666 3.08334C7.85833 2.90834 7.80833 2.65834 7.89999 2.43334C8.24166 1.55834 9.07499 0.983337 10.025 0.983337C10.975 0.983337 11.8083 1.55 12.15 2.43334C12.2333 2.65834 12.1917 2.90834 12.0333 3.08334C11.9083 3.21667 11.7333 3.28334 11.5667 3.28334Z" fill="currentColor"/>
             <path d="M10.0167 19.0083C9.19166 19.0083 8.39166 18.675 7.80833 18.0917C7.225 17.5083 6.89166 16.7083 6.89166 15.8833H8.14166C8.14166 16.375 8.34166 16.8583 8.69166 17.2083C9.04166 17.5583 9.525 17.7583 10.0167 17.7583C11.05 17.7583 11.8917 16.9167 11.8917 15.8833H13.1417C13.1417 17.6083 11.7417 19.0083 10.0167 19.0083Z" fill="currentColor"/>
         </symbol>            
+        <symbol id="logout" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.1667 16.0104C17.9688 16.0104 17.7709 15.9375 17.6146 15.7812C17.3125 15.4792 17.3125 14.9792 17.6146 14.6771L19.7292 12.5625L17.6146 10.4479C17.3125 10.1458 17.3125 9.64583 17.6146 9.34375C17.9167 9.04167 18.4167 9.04167 18.7188 9.34375L21.3855 12.0104C21.6875 12.3125 21.6875 12.8125 21.3855 13.1146L18.7188 15.7812C18.5625 15.9375 18.3646 16.0104 18.1667 16.0104Z" fill="currentColor"/>
+            <path d="M20.7604 13.3438H10.1666C9.73954 13.3438 9.38538 12.9896 9.38538 12.5625C9.38538 12.1354 9.73954 11.7812 10.1666 11.7812H20.7604C21.1875 11.7812 21.5416 12.1354 21.5416 12.5625C21.5416 12.9896 21.1875 13.3438 20.7604 13.3438Z" fill="currentColor"/>
+            <path d="M12.25 21.6146C6.88538 21.6146 3.13538 17.8646 3.13538 12.5C3.13538 7.13541 6.88538 3.38541 12.25 3.38541C12.677 3.38541 13.0312 3.73957 13.0312 4.16666C13.0312 4.59374 12.677 4.94791 12.25 4.94791C7.80204 4.94791 4.69788 8.05207 4.69788 12.5C4.69788 16.9479 7.80204 20.0521 12.25 20.0521C12.677 20.0521 13.0312 20.4062 13.0312 20.8333C13.0312 21.2604 12.677 21.6146 12.25 21.6146Z" fill="currentColor"/>
+        </symbol>            
+        <symbol id="lovely" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.3751 20.5729C11.073 20.5729 10.7813 20.5312 10.5417 20.4375C6.9792 19.2187 1.30212 14.8645 1.30212 8.42705C1.30212 5.12496 3.96878 2.44789 7.25003 2.44789C8.82295 2.44789 10.2917 3.05204 11.3854 4.12496C12.4896 3.05204 13.948 2.44789 15.5209 2.44789C18.8021 2.44789 21.4688 5.12496 21.4688 8.42705C21.4688 8.87496 21.4375 9.33331 21.375 9.80206C21.3438 10.0416 21.198 10.2604 20.9896 10.3854C20.7813 10.5104 20.5209 10.5208 20.2917 10.4271C19.0105 9.87498 17.4167 10.2916 16.5834 11.4062C16.4376 11.6041 16.1563 11.7083 15.9584 11.7187C15.7084 11.7187 15.4792 11.6041 15.3334 11.4062C14.7396 10.6146 13.8334 10.1666 12.8542 10.1666C11.1563 10.1666 9.77088 11.5625 9.77088 13.2812C9.77088 15.9896 11.323 17.9166 12.6355 19.0729C12.823 19.2395 12.9167 19.4791 12.8959 19.7291C12.875 19.9791 12.7396 20.1979 12.5209 20.3333C12.4063 20.3958 12.3125 20.4375 12.2604 20.4479C11.9896 20.5312 11.6876 20.5729 11.3751 20.5729ZM7.25003 4.01039C4.83336 4.01039 2.86462 5.98955 2.86462 8.42705C2.86462 13.875 7.39588 17.2291 10 18.5208C9.01046 17.1979 8.19795 15.4479 8.19795 13.2708C8.19795 10.6875 10.2813 8.59372 12.8438 8.59372C14.0104 8.59372 15.1042 9.02082 15.948 9.78123C17 8.84373 18.5 8.41662 19.8959 8.67704C19.8959 8.5937 19.8959 8.51039 19.8959 8.43748C19.8959 5.99997 17.9271 4.02079 15.5105 4.02079C14.1251 4.02079 12.8438 4.66662 12 5.78121C11.8542 5.97912 11.6251 6.09372 11.3751 6.09372C11.1251 6.09372 10.8959 5.97912 10.75 5.78121C9.92713 4.65621 8.64586 4.01039 7.25003 4.01039Z" fill="currentColor"/>
+            <path d="M15.9584 22.5521C15.7189 22.5521 15.4689 22.5208 15.2709 22.4479C14.3751 22.1458 12.9272 21.4063 11.6043 20.2292C10.0626 18.8646 8.21887 16.5521 8.21887 13.2708C8.21887 10.6875 10.3022 8.59375 12.8647 8.59375C14.0314 8.59375 15.1251 9.02085 15.9688 9.78127C17.2813 8.60418 19.2814 8.27084 20.9272 8.98959C22.6147 9.73959 23.7085 11.4271 23.7085 13.2812C23.7085 18.2187 19.3751 21.5312 16.646 22.4583C16.4376 22.5208 16.198 22.5521 15.9584 22.5521ZM12.8543 10.1562C11.1564 10.1562 9.77095 11.5521 9.77095 13.2708C9.77095 15.9792 11.323 17.9062 12.6355 19.0625C13.7918 20.0833 15.0105 20.7188 15.771 20.9688C15.8543 21 16.0522 21 16.1251 20.9688C17.6876 20.4375 22.1355 17.8854 22.1355 13.2708C22.1355 12.0312 21.4064 10.9062 20.2918 10.4167C19.0314 9.86458 17.4168 10.2813 16.5835 11.3958C16.4376 11.5938 16.1564 11.6979 15.9584 11.7083C15.7084 11.7083 15.4793 11.5938 15.3334 11.3958C14.7397 10.6042 13.8334 10.1562 12.8543 10.1562Z" fill="currentColor"/>
+        </symbol>
         <symbol id="search-normal" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M9.58335 18.125C4.87502 18.125 1.04169 14.2917 1.04169 9.58332C1.04169 4.87499 4.87502 1.04166 9.58335 1.04166C14.2917 1.04166 18.125 4.87499 18.125 9.58332C18.125 14.2917 14.2917 18.125 9.58335 18.125ZM9.58335 2.29166C5.55835 2.29166 2.29169 5.56666 2.29169 9.58332C2.29169 13.6 5.55835 16.875 9.58335 16.875C13.6084 16.875 16.875 13.6 16.875 9.58332C16.875 5.56666 13.6084 2.29166 9.58335 2.29166Z" fill="currentColor"/>
             <path d="M18.3333 18.9583C18.175 18.9583 18.0167 18.9 17.8917 18.775L16.225 17.1083C15.9833 16.8667 15.9833 16.4667 16.225 16.225C16.4667 15.9833 16.8667 15.9833 17.1083 16.225L18.775 17.8917C19.0167 18.1333 19.0167 18.5333 18.775 18.775C18.65 18.9 18.4917 18.9583 18.3333 18.9583Z" fill="currentColor"/>
@@ -83,11 +85,11 @@
             <path d="M10.4166 7.55208C9.98954 7.55208 9.63538 7.19792 9.63538 6.77083V4.16667C9.63538 3.73958 9.98954 3.38542 10.4166 3.38542C10.8437 3.38542 11.1979 3.73958 11.1979 4.16667V6.77083C11.1979 7.19792 10.8437 7.55208 10.4166 7.55208Z" fill="currentColor"/>
             <path d="M10.4166 15.1875C9.98954 15.1875 9.63538 14.8333 9.63538 14.4062V10.5833C9.63538 10.1562 9.98954 9.80208 10.4166 9.80208C10.8437 9.80208 11.1979 10.1562 11.1979 10.5833V14.4062C11.1979 14.8437 10.8437 15.1875 10.4166 15.1875Z" fill="currentColor"/>
             <path d="M10.4166 21.6146C9.98954 21.6146 9.63538 21.2604 9.63538 20.8333V18.2292C9.63538 17.8021 9.98954 17.4479 10.4166 17.4479C10.8437 17.4479 11.1979 17.8021 11.1979 18.2292V20.8333C11.1979 21.2604 10.8437 21.6146 10.4166 21.6146Z" fill="currentColor"/>
-        </symbol>             
+        </symbol>           
         <symbol id="address" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-        </symbol>             
+        </symbol>                     
      </svg>
 
      <div class="container">
@@ -187,7 +189,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./favorites.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full panel-sidebar-menu__item--active">
+                        <a href="./favorites.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#lovely"></use>
@@ -213,7 +215,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="address.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full sm:hover:bg-rose-400 transition-colors">
+                        <a href="address.html" class="flex items-center justify-between h-11 mr-2 pr-2 pl-[18px] rounded-r-full panel-sidebar-menu__item--active">
                             <div class="flex gap-2">
                                 <svg class="size-6">
                                     <use href="#address"></use>
@@ -287,259 +289,39 @@
 
                 </div>
 
-                <!-- Products -->
-                <div class="p-5 border border-neutral-300 rounded-2xl">
-                    <!-- Head -->
-                     <div class="flex flex-col xs:flex-row gap-4 items-center justify-between font-vazirMedium mb-6">
-                        <h2 class="text-xl">محصول علاقه مندی شما</h2>
-                        <a href="#" class="flex items-center">
-                            <span class="text-rose-500 text-sm  sm:hover:text-rose-700 transition-colors">نمایش بیشتر</span>
-                            <svg class="size-6 text-rose-700">
-                                <use href="#arrow-left-outline"></use>
-                            </svg>
-                        </a>
-                     </div>
-                    <!-- Products -->
-                    <div class="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 flex-wrap">
-                        <!-- Product: Image | Name | Discount | price -->
-                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div>
-                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
-                            </div>
-                            <!-- Name -->
-                            <a href="#" class="font-vazirMedium sm:hover:text-rose-500 transition-colors">توپ اروپا ۲۴/۲۳</a>
-                            <!-- Discount && Price -->
-                            <div class="flex items-center justify-between">
-                                <!-- Discount -->
-                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
-                                <!-- Price -->
-                                <div class="flex items-center gap-0.5">
-                                    <div>
-                                        <div class="text-rose-500 font-vazirMedium">1,000,000</div>
-                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
-                                    </div>
-                                    <span class="text-xs text-rose-500">تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product: Image | Name | Discount | price -->
-                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div>
-                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
-                            </div>
-                            <!-- Name -->
-                            <a href="#" class="font-vazirMedium sm:hover:text-rose-500 transition-colors">توپ اروپا ۲۴/۲۳</a>
-                            <!-- Discount && Price -->
-                            <div class="flex items-center justify-between">
-                                <!-- Discount -->
-                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
-                                <!-- Price -->
-                                <div class="flex items-center gap-0.5">
-                                    <div>
-                                        <div class="text-rose-500 font-vazirMedium">1,000,000</div>
-                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
-                                    </div>
-                                    <span class="text-xs text-rose-500">تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product: Image | Name | Discount | price -->
-                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div>
-                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
-                            </div>
-                            <!-- Name -->
-                            <a href="#" class="font-vazirMedium sm:hover:text-rose-500 transition-colors">توپ اروپا ۲۴/۲۳</a>
-                            <!-- Discount && Price -->
-                            <div class="flex items-center justify-between">
-                                <!-- Discount -->
-                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
-                                <!-- Price -->
-                                <div class="flex items-center gap-0.5">
-                                    <div>
-                                        <div class="text-rose-500 font-vazirMedium">1,000,000</div>
-                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
-                                    </div>
-                                    <span class="text-xs text-rose-500">تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product: Image | Name | Discount | price -->
-                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div>
-                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
-                            </div>
-                            <!-- Name -->
-                            <a href="#" class="font-vazirMedium sm:hover:text-rose-500 transition-colors">توپ اروپا ۲۴/۲۳</a>
-                            <!-- Discount && Price -->
-                            <div class="flex items-center justify-between">
-                                <!-- Discount -->
-                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
-                                <!-- Price -->
-                                <div class="flex items-center gap-0.5">
-                                    <div>
-                                        <div class="text-rose-500 font-vazirMedium">1,000,000</div>
-                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
-                                    </div>
-                                    <span class="text-xs text-rose-500">تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product: Image | Name | Discount | price -->
-                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div>
-                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
-                            </div>
-                            <!-- Name -->
-                            <a href="#" class="font-vazirMedium sm:hover:text-rose-500 transition-colors">توپ اروپا ۲۴/۲۳</a>
-                            <!-- Discount && Price -->
-                            <div class="flex items-center justify-between">
-                                <!-- Discount -->
-                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
-                                <!-- Price -->
-                                <div class="flex items-center gap-0.5">
-                                    <div>
-                                        <div class="text-rose-500 font-vazirMedium">1,000,000</div>
-                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
-                                    </div>
-                                    <span class="text-xs text-rose-500">تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Form Address -->
+                <form class="panel__form pt-6 space-y-6">
+                    <!-- State & City -->
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
+                        <!-- State Input -->
+                        <input id="state" type="text" placeholder="استان">
 
-                <!-- Posts -->
-                <div class="p-5 border border-neutral-300 rounded-2xl">
-                    <!-- Head -->
-                     <div class="flex flex-col xs:flex-row gap-4 items-center justify-between font-vazirMedium mb-6">
-                        <h2 class="text-xl">پست علاقه مندی شما</h2>
-                        <a href="#" class="flex items-center">
-                            <span class="text-rose-500 text-sm  sm:hover:text-rose-700 transition-colors">نمایش بیشتر</span>
-                            <svg class="size-6 text-rose-700">
-                                <use href="#arrow-left-outline"></use>
-                            </svg>
-                        </a>
-                     </div>
-                    <!-- Products -->
-                    <div class="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 flex-wrap">
-                        <!-- Product: Image | Name | Discount | price -->
-                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div>
-                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
-                            </div>
-                            <!-- Name -->
-                            <a href="#" class="font-vazirMedium sm:hover:text-rose-500 transition-colors">توپ اروپا ۲۴/۲۳</a>
-                            <!-- Discount && Price -->
-                            <div class="flex items-center justify-between">
-                                <!-- Discount -->
-                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
-                                <!-- Price -->
-                                <div class="flex items-center gap-0.5">
-                                    <div>
-                                        <div class="text-rose-500 font-vazirMedium">1,000,000</div>
-                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
-                                    </div>
-                                    <span class="text-xs text-rose-500">تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product: Image | Name | Discount | price -->
-                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div>
-                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
-                            </div>
-                            <!-- Name -->
-                            <a href="#" class="font-vazirMedium sm:hover:text-rose-500 transition-colors">توپ اروپا ۲۴/۲۳</a>
-                            <!-- Discount && Price -->
-                            <div class="flex items-center justify-between">
-                                <!-- Discount -->
-                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
-                                <!-- Price -->
-                                <div class="flex items-center gap-0.5">
-                                    <div>
-                                        <div class="text-rose-500 font-vazirMedium">1,000,000</div>
-                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
-                                    </div>
-                                    <span class="text-xs text-rose-500">تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product: Image | Name | Discount | price -->
-                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div>
-                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
-                            </div>
-                            <!-- Name -->
-                            <a href="#" class="font-vazirMedium sm:hover:text-rose-500 transition-colors">توپ اروپا ۲۴/۲۳</a>
-                            <!-- Discount && Price -->
-                            <div class="flex items-center justify-between">
-                                <!-- Discount -->
-                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
-                                <!-- Price -->
-                                <div class="flex items-center gap-0.5">
-                                    <div>
-                                        <div class="text-rose-500 font-vazirMedium">1,000,000</div>
-                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
-                                    </div>
-                                    <span class="text-xs text-rose-500">تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product: Image | Name | Discount | price -->
-                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div>
-                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
-                            </div>
-                            <!-- Name -->
-                            <a href="#" class="font-vazirMedium sm:hover:text-rose-500 transition-colors">توپ اروپا ۲۴/۲۳</a>
-                            <!-- Discount && Price -->
-                            <div class="flex items-center justify-between">
-                                <!-- Discount -->
-                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
-                                <!-- Price -->
-                                <div class="flex items-center gap-0.5">
-                                    <div>
-                                        <div class="text-rose-500 font-vazirMedium">1,000,000</div>
-                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
-                                    </div>
-                                    <span class="text-xs text-rose-500">تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product: Image | Name | Discount | price -->
-                        <div class="pt-2.5 px-2 pb-2 border border-neutral-300 rounded-2xl">
-                            <!-- Image -->
-                            <div>
-                                <img class="h-16 xs:h-20 mx-auto" src="../images/ball.png" alt="توپ">
-                            </div>
-                            <!-- Name -->
-                            <a href="#" class="font-vazirMedium sm:hover:text-rose-500 transition-colors">توپ اروپا ۲۴/۲۳</a>
-                            <!-- Discount && Price -->
-                            <div class="flex items-center justify-between">
-                                <!-- Discount -->
-                                <div class="flex items-center justify-center w-9 py-px text-rose-500 bg-rose-100 rounded-full text-xs/3">50%</div>
-                                <!-- Price -->
-                                <div class="flex items-center gap-0.5">
-                                    <div>
-                                        <div class="text-rose-500 font-vazirMedium">1,000,000</div>
-                                        <div class="text-sm text-rose-400 line-through">2,000,000</div>
-                                    </div>
-                                    <span class="text-xs text-rose-500">تومان</span>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- City Input -->
+                        <input id="city" type="text" placeholder="شهر">
                     </div>
-                </div>
+
+                    <!-- Street Address & Reciver Phone -->
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
+                        <!-- Street Address Input -->
+                        <input id="street-address" type="text" placeholder="آدرس کامل">
+                        
+                        <!--  Reciver Phone Input -->
+                        <input id="reciver-phone" type="text" placeholder="شماره تماس تحویل گیرنده">
+                    </div>
+                    
+                    <!-- Reciver Fullname & Postal Code -->
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
+                        <!--  Reciver Fullname Input -->
+                        <input id="reciver-fullname" type="text" placeholder="نام و نام خانوادگی گیرنده">
+                        
+                        <!-- Postal Code Input -->
+                        <input id="postal-code" type="text" placeholder="کد پستی">
+                    </div>
+
+                    <!-- Register Btn -->
+                    <button id="add-location">ثبت آدرس</button>
+
+                </form>
 
             </main>
         </div>
@@ -550,5 +332,6 @@
      <script src="../../vendor/SweetAlert2/sweetalert2.js"></script>
      <script src="../js/shared/app.js" type="module"></script>
      <script src="shared/user-infos.js" type="module"></script>
+     <script src="js/address.js" type="module"></script>
   </body>
 </html>

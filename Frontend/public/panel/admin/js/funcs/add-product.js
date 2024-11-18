@@ -1,6 +1,8 @@
 import { getToken, showSwal } from "../../../../scripts/funcs/utils.js";
 import { handleSelectOptions } from "../../../js/ui/ui-handlers.js";
 
+const currentImages = document.querySelectorAll(".current-image");
+const imageUploaders = document.querySelectorAll(".image-uploader");
 const nameInputElem = document.getElementById("name");
 const descriptionInputElem = document.getElementById("description");
 const originalPriceInputElem = document.getElementById("original-price");
@@ -24,8 +26,6 @@ const productCategoryID = document.getElementById("product-category");
 const imageSources = [null, null, null];
 
 const setupUploader = () => {
-  const currentImages = document.querySelectorAll(".current-image");
-  const imageUploaders = document.querySelectorAll(".image-uploader");
   imageUploaders.forEach((imageUploader, index) => {
     imageUploader.addEventListener("change", (e) => {
       const file = e.target.files[0];
@@ -203,7 +203,9 @@ const addNewProduct = async () => {
       "محصول مورد نظر با موفقیت اضافه گردید.",
       "success",
       "متشکرم",
-      () => {}
+      () => {
+        clearInputsValue();
+      }
     );
   } else if (response.status === 409) {
     showSwal(
@@ -220,6 +222,22 @@ const addNewProduct = async () => {
       () => {}
     );
   }
+};
+
+// Incomplete
+const clearInputsValue = () => {
+  currentImages.src = "../images/body-building.jpg";
+  nameInputElem.value = "";
+  descriptionInputElem.value = "";
+  originalPriceInputElem.value = "";
+  surveyInputElem.value = "";
+  warrantyInputElem.value = "";
+  brandInputElem.value = "";
+  sizesInputElem.value = "";
+  colorsInputElem.value = "";
+  qtysInputElem.value = "";
+  specificationNamesInputElem.value = "";
+  specificationDescriptionsInputElem.value = "";
 };
 
 export { setupUploader, addNewProduct, getTags, getDiscounts, getCategories };
