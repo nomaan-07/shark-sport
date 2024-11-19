@@ -204,7 +204,7 @@ const addNewProduct = async () => {
       "success",
       "متشکرم",
       () => {
-        clearInputsValue();
+        location.reload();
       }
     );
   } else if (response.status === 409) {
@@ -222,22 +222,6 @@ const addNewProduct = async () => {
       () => {}
     );
   }
-};
-
-// Incomplete
-const clearInputsValue = () => {
-  currentImages.src = "../images/body-building.jpg";
-  nameInputElem.value = "";
-  descriptionInputElem.value = "";
-  originalPriceInputElem.value = "";
-  surveyInputElem.value = "";
-  warrantyInputElem.value = "";
-  brandInputElem.value = "";
-  sizesInputElem.value = "";
-  colorsInputElem.value = "";
-  qtysInputElem.value = "";
-  specificationNamesInputElem.value = "";
-  specificationDescriptionsInputElem.value = "";
 };
 
 export { setupUploader, addNewProduct, getTags, getDiscounts, getCategories };

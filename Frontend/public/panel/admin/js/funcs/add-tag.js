@@ -19,7 +19,7 @@ const createTag = async () => {
   const tags = await response.json();
   console.log(response);
   console.log(tags);
-  if (response.ok) {
+  if (response.status === 201) {
     showSwal(
       "برچسب مورد نظر با موفقیت اضافه گردید.",
       "success",
@@ -27,6 +27,13 @@ const createTag = async () => {
       () => {
         clearInputValue();
       }
+    );
+  } else if (response.status === 409) {
+    showSwal(
+      "تگ مورد نظر قبلا ایجاد شده است لطفا تگ دیگری را بیافزایید.",
+      "error",
+      "متوجه شدم.",
+      () => {}
     );
   } else {
     showSwal(

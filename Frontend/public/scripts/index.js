@@ -1,5 +1,13 @@
-import { getAndShowAllCategories} from "./funcs/index.js";
+import {
+  getAndShowAllCategories,
+  getAndShowAllProducts,
+  getAndShowAllSuggestions,
+  getAndShowAllDiscounts,
+} from "./funcs/index.js";
 
-window.addEventListener("load" , () => {
-    getAndShowAllCategories();
-})
+window.addEventListener("load", () => {
+  getAndShowAllCategories();
+  getAndShowAllProducts();
+  getAndShowAllSuggestions();
+  getAndShowAllDiscounts();
+});
