@@ -31,13 +31,14 @@ const getAndShowAllProducts = async () => {
   const products = await response.json();
   productsWrapperStories.innerHTML = "";
   const produstsShuffledArray = products.sort(() => 0.5 - Math.random());
+  console.log(products);
   produstsShuffledArray.forEach((product) => {
     productsWrapperStories.insertAdjacentHTML(
       "beforeend",
       `
       <div class="swiper-slide">
         <div class="stories__item flex-center relative overflow-hidden size-[100px] sm:size-[130px] rounded-[50%]">
-          <a href="#">
+          <a href="single-product.html?product=${product.name}&id=${product.id}">
             <img class="stories__img relative size-[90px] sm:size-[115px] object-cover z-10 rounded-[50%]" src="${product.images[0]}" alt="sport-equ-1" loading="lazy">
           </a>
         </div>
@@ -67,7 +68,9 @@ const getAndShowAllSuggestions = async () => {
                 100 -
                 (product.price_after_discount / product.original_price) * 100
               }%</span>
-              <a class="flex-center m-auto w-[150px] h-[55%]" href="#">
+              <a class="flex-center m-auto w-[150px] h-[55%]" href="single-product.html?product=${
+                product.name
+              }&id=${product.id}">
                   <img class="size-full" src="${product.images[0]}" alt="">
               </a>
               <h4 class="text-center mb-2.5">${product.name}</h4>
@@ -106,9 +109,13 @@ const getAndShowAllDiscounts = async () => {
                 100 -
                 (product.price_after_discount / product.original_price) * 100
               }%</span>
-              <a class="flex-center m-auto w-[150px] h-[55%]" href="#">
-                  <img class="size-full" src="${product.images[0]}" alt="">
-              </a>
+                <a class="flex-center m-auto w-[150px] h-[55%]" href="single-product.html?product=${
+                  product.name
+                }&id=${product.id}">
+                    <img class="size-full" src="${product.images[0]}" alt="${
+        product.name
+      }">
+                </a>
               <h4 class="text-center mb-2.5">${product.name}</h4>
               <div class="home-product__price flex-center gap-x-2">
                   <div class="flex-center flex-col gap-y-1">

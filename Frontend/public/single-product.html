@@ -503,13 +503,16 @@
                     </div>
                     <!-- Product Information -->
                     <div class="product-info flex flex-col gap-y-2 basis-full xs:basis-[57%] md:basis-[42%]">
-                        <div class="product-info__breadcrumb text-sm text-orangeBrand">
-                            <span>وسایل ورزشی /</span>
-                            <span>کیت اول بارسلونا</span>
+                        <div id="product-brand" class="product-info__breadcrumb text-sm text-orangeBrand">
+                            <!-- Loaded From Js -->
                         </div>
                         <div class="product-info__top">
-                            <h3 class="product-info__title text-xl font-vazirMedium">کیت اول بارسلونا 2024-2023</h3>
-                            <h3 class="text-sm text-grayBrand mt-0.5">Kit Home Barcelona 2023-2024</h3>
+                            <h3 id="product-title" class="product-info__title text-xl font-vazirMedium">
+                                <!-- Loaded From Js -->
+                            </h3>
+                            <h3 id="product-publish" class="text-sm text-grayBrand mt-0.5">
+                                <!-- Loaded From Js -->
+                            </h3>
                             <div class="flex gap-x-1 mt-1">
                                 <svg class="size-[18px] text-neutralBorder"><use href="#star"></use></svg>
                                 <svg class="size-[18px] text-orangeBrand"><use href="#star"></use></svg>
@@ -573,18 +576,24 @@
                         </div>
                         <div class="warranty relative flex items-center">
                             <svg class="size-5 text-grayBrand"><use href="#shield"></use></svg>
-                            <span class="text-sm mr-0.5 my-4">گارانتی 12 ماهه</span>
+                            <span id="product-warranty" class="text-sm mr-0.5 my-4">
+                                <!-- Loaded From Js -->
+                            </span>
                         </div>
                         <div class="flex items-center gap-x-1 mt-3">
                             <svg class="size-5 text-orangeBrand"><use href="#truck"></use></svg>
                             <span class="text-sm">ارسال شارک اسپرت</span>
                         </div>
                         <div class="flex items-center justify-end gap-x-1 mb-0.5">
-                            <span class="price-strike-single__product relative text-xs text-shade_2">3,000,000</span>
-                            <div class="flex-center bg-orangeBrand w-[30px] h-5 text-xs text-white rounded-lg">12%</div>
+                            <span id="product-original-price" class="price-strike-single__product relative text-xs text-shade_2">
+                                <!-- Loaded From Js -->
+                            </span>
+                            <div id="product-percent" class="flex-center bg-orangeBrand w-[30px] h-5 text-xs text-white rounded-lg">12%</div>
                         </div>
                         <div class="flex items-center justify-end gap-x-1 mb-2.5">
-                            <span>2,000,000</span>
+                            <span id="product-price-after-discount" >
+                                <!-- Loaded From Js -->
+                            </span>
                             <span>تومان</span>
                         </div>
                         <button class="flex-center text-white bg-orangeTint_3 hover:bg-orangeBrand transition-colors w-full h-10 rounded-xl">سبد خرید</button>
@@ -596,17 +605,16 @@
         <section class="product-detail mt-9">
             <div class="container">
                 <ul class="dividing-line__nav relative flex items-center flex-wrap gap-4">
-                    <li class="md:text-lg cursor-pointer hover:text-orangeBrand transition-colors product-nav__item--active">معرفی</li>
-                    <li class="md:text-lg cursor-pointer hover:text-orangeBrand transition-colors">بررسی</li>
-                    <li class="md:text-lg cursor-pointer hover:text-orangeBrand transition-colors">مشخصات</li>
-                    <li class="md:text-lg cursor-pointer hover:text-orangeBrand transition-colors">دیدگاه ها</li>
-                    <li class="md:text-lg cursor-pointer hover:text-orangeBrand transition-colors">پرسش ها </li>
+                    <li class="md:text-lg cursor-pointer hover:text-orangeBrand transition-colors product-nav__item--active" data-target="introduction">معرفی</li>
+                    <li class="md:text-lg cursor-pointer hover:text-orangeBrand transition-colors" data-target="check">بررسی</li>
+                    <li class="md:text-lg cursor-pointer hover:text-orangeBrand transition-colors" data-target="information">مشخصات</li>
+                    <li class="md:text-lg cursor-pointer hover:text-orangeBrand transition-colors" data-target="comments">دیدگاه ها</li>
                 </ul>
                 <!-- Product introduction -->
-                <div class="product-detail__content relative mt-9">
+                <div class="product-detail__content relative mt-9" id="introduction">
                     <h4 class="product-detail__title relative text-lg mb-9">معرفی</h4>
-                    <p class="product-detail__caption text-lg text-grayTint_4 mb-6">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد .
+                    <p id="product-description" class="product-detail__caption text-lg text-grayTint_4 mb-6">
+                        <!-- Loaded From Js -->
                     </p>
                     <a class="flex items-center gap-x-0.5 text-blueBrand" href="#">
                         <span>بیشتر</span>
@@ -614,12 +622,12 @@
                     </a>
                 </div>
                 <!-- Expert review of the product -->
-                <div class="product-detail__content relative mt-12">
+                <div class="product-detail__content relative mt-12" id="check">
                     <h4 class="product-detail__title relative text-lg mb-9">بررسی تخصصی</h4>
-                    <p class="product-detail__caption text-lg text-grayTint_4 mb-6">
-                        لباس اول بارسلونا با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد .
+                    <p id="product-survey"  class="product-detail__caption text-lg text-grayTint_4 mb-6">
+                        <!-- Loaded From Js -->
                     </p>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-x-2.5 gap-y-2.5 mb-6">
+                    <div id="product-survey-imgs" class="grid grid-cols-2 md:grid-cols-4 gap-x-2.5 gap-y-2.5 mb-6">
                         <img src="images/single-product/product-detail/product-detail-1.png" alt="">
                         <img src="images/single-product/product-detail/product-detail-2.png" alt="">
                         <img src="images/single-product/product-detail/product-detail-3.png" alt="">
@@ -631,7 +639,7 @@
                     </a>
                 </div>
                 <!-- Product Information -->
-                <div class="product-detail__content relative mt-12">
+                <div class="product-detail__content relative mt-12" id="information">
                     <h4 class="product-detail__title relative md:text-lg mb-9">مشخصات</h4>
                     <div class="flex justify-evenly md:text-lg">
                         <ul class="space-y-12 text-grayTint_4">
@@ -659,7 +667,7 @@
                     </a>
                 </div>
                 <!-- Product Points -->
-                <div class="mt-12">
+                <div class="mt-12" id="comments">
                     <h4 class="product-detail__title relative md:text-lg mb-9">امتیاز و دیدگاه کاربران</h4>
                     <div class="flex justify-between flex-wrap sm:flex-nowrap gap-y-8">
                         <div class="product-detail__right">
@@ -951,6 +959,6 @@
     <script src="vendor/SwiperSlider/swiper-bundle.min.js"></script>
     <script src="scripts/slider.js"></script>
     <script src="scripts/shared/header-footer.js" type="module"></script>
-    <script src="scripts/app.js"></script>
+    <script src="scripts/single-product.js" type="module"></script>
 </body>
 </html>
